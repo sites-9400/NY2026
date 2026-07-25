@@ -44,9 +44,22 @@ Bangkok on 31 Dec, fixes the middle of the itinerary almost completely:
   00:25 in the dark.
 - **Kuala Lumpur gets one real day.** That is the cost of going overland.
 
-**The single point of failure:** train #46 runs once a day at 17:00. Miss it and
-New Year's Eve in Bangkok is gone. Take the earliest KL departure, not the one
-that just connects, and keep a same-day flight from Penang or Hat Yai as fallback.
+**The single point of failure:** the sleeper runs once a day at 17:00. Miss it
+and New Year's Eve in Bangkok is gone.
+
+**Two ways to do 30 Dec — not yet decided (as of 25 Jul 2026):**
+
+| | How long | Cost each | Arrives |
+|---|---|---|---|
+| **A · Overnight sleeper** | 16h 05m | ≈₱1,500, no hotel that night | 11:00 on the 31st |
+| **B · Train to Hat Yai, then fly** | ~8h, one day | ≈₱2,000 flight + a hotel night = ₱3,000–4,000 | evening of the 30th |
+| **C · Fly Kuala Lumpur → Bangkok** | 2h 10m | ≈₱3,400–4,400 | whenever we like |
+
+B is the recommendation: it keeps the land crossing at Padang Besar, adds a
+whole evening and night in Bangkok before New Year's Eve, and replaces a
+once-daily train with a route that has 15 flights a day. Hat Yai airport is
+45–55 min from the border station. Melaka was considered as a stopover and
+**rejected — the user wants the full Kuala Lumpur day.**
 
 ### Fares captured 25 Jul 2026
 
