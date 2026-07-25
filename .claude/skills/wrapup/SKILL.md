@@ -139,3 +139,20 @@ facing or long-lived:
   unrelated future sessions — a standing preference, a hard constraint, a fact
   about how the user works — that belongs in memory, not just a project log.
   Offer to save it.
+
+## End with whether it's safe to clear
+
+The user clears the context after a wrap-up. **Always close by saying plainly
+whether that's safe**, because a recap full of open items doesn't answer the
+only question that matters at that moment: is anything about to be lost?
+
+Say **"Safe to clear"** only when all three hold:
+
+- the work is committed *and* pushed, or the user has said they don't want it to be
+- the live site was verified by fetching it, not by trusting "Deploy complete"
+- the reasoning is written into `notes/planning.md` or `CLAUDE.md`
+
+Otherwise say **"not safe to clear yet"** and name exactly what would be lost —
+an uncommitted file, an unpushed commit, a decision that still exists only in
+the conversation. Open questions about the *trip* don't block clearing; they're
+in the log. Unrecorded state does.

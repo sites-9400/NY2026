@@ -125,3 +125,43 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   queues). Klook prices captured — USS from ₱3,258pp; Unlimited eSIM South East
   Asia covers all three countries on one plan. All three digital arrival cards
   (SGAC / MDAC / TDAC) confirmed mandatory, each in its own 3-day window.
+- *2026-07-25* · **Sinking fund set: ₱2,000 each per cutoff, 13th and 28th,
+  starting 28 Jul, last one 13 Dec.** Ten contributions, ₱20,000 each,
+  ₱100,000 for five. The 28 Dec cutoff falls after departure so it does not
+  count. Corrected twice in one session: first recorded as starting the last
+  cutoff of June (12 contributions, ₱24,000 each), then as the 15th/last-day
+  cadence. Both were wrong; this line supersedes them.
+- *2026-07-25* · **The fund does not cover the trip, and that is the finding
+  worth keeping.** Lines we can already price come to ₱22,858–31,358 each
+  (overland ₱3,600–4,100 + one USS ticket ₱3,258 + pocket money
+  ₱16,000–24,000). The fund lands ₱20,000, so it is short by ₱2,858 at best
+  and ₱11,358 at worst, before a single hotel night is priced. Three ways
+  out: raise the per-cutoff amount, start earlier, or everyone brings the
+  difference. Nobody has chosen.
+- *2026-07-25* · **What the fund is *for* is still open.** ₱20,000 each is
+  either the whole pocket-money budget or a share of the hotels and group
+  bookings, not both. This decides whether anyone needs to bring extra cash.
+- *2026-07-25* · **Accommodation: 3 bookings, 9 hotel nights, 10 nights away.**
+  Singapore 3 (from Fri 25 Dec, not Sat, because the flight lands 00:25),
+  Kuala Lumpur 2, Bangkok 4, and one night on the sleeper where the berth is
+  the bed. If we fly the last hop instead, that becomes a tenth hotel night.
+  Bangkok's 4 only holds if we fly home Mon 4 Jan, which is unbooked, so it is
+  the number most likely to move.
+- *2026-07-25* · **How many rooms is undecided and it moves the per-person
+  cost.** Five people is usually two rooms per city, or one apartment. Settle
+  it before comparing prices, because two rooms and one apartment are not
+  comparable numbers.
+- *2026-07-25* · **1 Jan is a rest day, deliberately.** Marked as a decision on
+  the page, not an unfilled slot, so it reads differently from 2 and 3 Jan
+  which are genuinely empty. It is also the trip's slack: if New Year's Eve
+  runs long, nothing downstream breaks.
+- *2026-07-25* · **Payment QR published to the public site, against advice.**
+  The InstaPay QR carries Gamaliel's live account and full legal name, and the
+  repo is public, so it is permanent in git history once pushed. Alternatives
+  offered were putting it in the tracker sheet or keeping it in the gitignored
+  bookings folder. User chose the site knowing the trade. Do not quietly
+  reverse this; deleting the file later does not remove it from history.
+- *2026-07-25* · Fund tracker is a Google Sheet linked from the page. The
+  chips on the site are the *schedule*; the sheet is the *ledger* of who has
+  actually paid. Deliberately two different things, stated on the page, since
+  the page cannot know who sent money.

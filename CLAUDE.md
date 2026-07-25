@@ -132,17 +132,48 @@ request — don't drift back:
   full-colour and differently on every platform — and note that plain glyphs
   like `↗` also render as colour emoji on iOS, so use the sprite for those too.
 
-**Bump the `?v=` on the stylesheet link whenever `site.css` changes.** An early
-deploy sent CSS with `max-age=3600`; anyone who loaded the page in that window
-held a stale stylesheet for an hour and saw new markup against old CSS, which
-looks exactly like the site being broken. Versioning the URL makes a cached copy
-unreachable instead of relying on people hard-refreshing.
+**Bump the `?v=` on the stylesheet link whenever `site.css` changes**, and bump
+it on *every* page, not just the one you're editing. An early deploy sent CSS
+with `max-age=3600`; anyone who loaded the page in that window held a stale
+stylesheet for an hour and saw new markup against old CSS, which looks exactly
+like the site being broken. Versioning the URL makes a cached copy unreachable
+instead of relying on people hard-refreshing. The two pages drifted to different
+version numbers in Jul 2026 for exactly this reason; they're back in step now.
+
+**`cleanUrls` means the header globs in `firebase.json` don't see `.html`.** A
+page is served at `/2026-12-sea/`, so a `**/*.@(html|css|js)` source never
+matched it and pages went out with the default one-hour cache for months. The
+fix is a `**` rule for `no-cache` with the image rule after it. If you touch the
+headers, verify with `curl -sI` against the live URL rather than reading the
+config, because the config looked right the whole time.
 
 **Tables stack on mobile.** Below 36rem each row becomes a block and every cell
 shows its column name, drawn from `data-label` attributes generated off the table
 head. Add `data-label` to new cells. Don't make the cell a grid container to get
 a two-column look — a grid makes every inline `<b>` its own item and splits
 sentences across the label column.
+
+**No em dashes in prose. Use a full stop, a colon, or bullets.** Switched Jul
+2026 at the user's request, across both pages. Where a sentence wanted an em
+dash it usually wanted to be two sentences or a list; the trip content is
+mostly lists of facts and reads better that way. The lone `—` left in an
+otherwise-empty table cell is *not* prose, it's the "no value yet" marker, and
+it stays.
+
+**Never sweep punctuation with a regex over raw HTML.** The first attempt at the
+em-dash sweep capitalised the first letter after each dash, which turned `</td>`
+into `</Td>` and converted the empty-cell markers into stray full stops. The
+second attempt reached into `<script>` blocks and renamed a JS property from
+`start` to `Start`, which passed `node --check` and only showed up as
+`undefined` inside a downloaded calendar file. Operate on text nodes only, skip
+comments and scripts, and validate tag nesting afterwards.
+
+**Day colours come in two strengths.** `--sg` is the text-safe value, `--sgv`
+the vivid one used for the rail, and `--sgon` what reads on top of that rail.
+The rail colours were designed for print and never cleared 4.5:1 as type;
+Thailand's orange was 2.41:1. Splitting them fixed contrast without muddying
+the palette, so don't collapse them back into one token. Dark mode overrides
+only the text strength, since the vivid rails hold on a dark ground.
 
 **Type is Helvetica throughout** (`--display` and `--body`). The Hong Kong
 originals set headings in Georgia; that was switched out in Jul 2026. Keep it
