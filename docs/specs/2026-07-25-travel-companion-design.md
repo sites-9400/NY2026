@@ -62,12 +62,18 @@ Travel Companion/
 
 ## Design system
 
-Carried over from the Hong Kong itinerary so the trips look related (the cream ground and Georgia type were later dropped for a white ground and Helvetica): cream paper
+Carried over from the Hong Kong itinerary so the trips look related: cream paper
 `#faf8f2`, Georgia display type, rust `#c1531f` and teal `#2c7a86` accents, and
 the coloured day rails from the one-page infographic — now mapped to countries
 (SG rose, MY teal, TH amber, travel days blue). Adapted for screens with a
 mobile-first layout, a sticky day nav, dark mode, and a print stylesheet that
 returns the page to something close to the original.
+
+> **Superseded later the same day.** The cream ground and Georgia headings were
+> dropped for a **clean white ground and Helvetica throughout**, and emoji were
+> replaced with monochrome stroke icons. The rust/teal accents and the coloured
+> day rails survive. `CLAUDE.md` carries the current rules; this section is left
+> as written to record what the workspace started from.
 
 ## The December trip
 
