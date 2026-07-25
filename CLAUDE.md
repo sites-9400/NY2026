@@ -87,11 +87,18 @@ The CLI is installed and authenticated, and `.firebaserc` points at
 
 ## Design lineage
 
-The look — cream paper, Georgia display type, rust and teal accents, coloured
-day rails — comes from the Hong Kong Jul 2026 itinerary, which was built for
-print. The originals are in `2026-07-HongKong/` if you want to see where a
-pattern came from. `site.css` is the same system adapted for screens, with dark
-mode and a print stylesheet that returns it to something close to the original.
+The look — cream paper, rust and teal accents, coloured day rails — comes from
+the Hong Kong Jul 2026 itinerary, which was built for print. The originals are
+in `2026-07-HongKong/` if you want to see where a pattern came from. `site.css`
+is the same system adapted for screens, with dark mode and a print stylesheet
+that returns it to something close to the original.
+
+**Type is Helvetica throughout** (`--display` and `--body`). The Hong Kong
+originals set headings in Georgia; that was switched out in Jul 2026. Keep it
+Helvetica — and note that headings carry weight 800 and negative tracking
+because Helvetica at default weight and spacing reads like unstyled browser
+text. Don't use oblique for subheadings; synthesised Helvetica italic looks
+cheap. Use colour and weight to subordinate instead.
 
 ## Trips
 

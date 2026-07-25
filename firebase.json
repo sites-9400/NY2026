@@ -10,15 +10,16 @@
     "trailingSlash": true,
     "headers": [
       {
-        "source": "**/*.@(html)",
+        "$comment": "HTML and CSS revalidate every load. This is a living document edited often and read by a handful of people, so staleness costs more than the bandwidth does. Images stay cached - they don't change once added.",
+        "source": "**/*.@(html|css|js)",
         "headers": [
           { "key": "Cache-Control", "value": "no-cache, max-age=0" }
         ]
       },
       {
-        "source": "**/*.@(css|js|jpg|jpeg|png|webp|svg|woff2)",
+        "source": "**/*.@(jpg|jpeg|png|webp|svg|woff2)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=3600" }
+          { "key": "Cache-Control", "value": "public, max-age=86400" }
         ]
       },
       {
