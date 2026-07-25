@@ -1,0 +1,27 @@
+# ---- private: never commit, never deploy -------------------------------
+# This repo is PUBLIC (github.com/sites-9400/NY2026). Anything here is
+# world-readable and search-indexed, so keep personal records out of it.
+
+# Booking confirmations, tickets, bank statements. These contain booking
+# references, passport data and account numbers. Keep them local + Dropbox.
+*/bookings/
+
+# The Hong Kong archive: itemised spend, MariBank/Wise balances and the
+# transfers between Gamaliel and Jude. Stays local + Dropbox, never pushed.
+2026-07-HongKong/
+**/statement_*.pdf
+**/*Confirmation*.pdf
+**/*confirmation*.pdf
+**/*boarding*
+**/*passport*
+
+# ---- OS / Dropbox noise -------------------------------------------------
+.DS_Store
+*.icloud
+*conflicted copy*
+Icon?
+
+# ---- build output -------------------------------------------------------
+node_modules/
+.firebase/
+*.log

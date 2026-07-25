@@ -1,0 +1,132 @@
+<!doctype html>
+<!-- =========================================================================
+     BLANK TRIP PAGE — copy this to public/<slug>/index.html and fill in.
+     Every class used here is defined in assets/site.css. Nothing else needed.
+
+     Day card country classes:  sg · my · th · air  (air = travel day)
+     Add more in site.css by copying the .day.sg rule and giving it colours.
+     Status pills:  booked · tbd · risk
+     ========================================================================= -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRIP NAME · MONTH YEAR</title>
+<meta name="description" content="One line describing the trip.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">DATE &nbsp;·&nbsp; WHO'S GOING</div>
+  <h1>TRIP NAME</h1>
+  <div class="sub">One line that says what this trip is for.</div>
+  <div class="chips">
+    <span class="chip hot">Something already locked in</span>
+    <span class="chip">Something still open</span>
+  </div>
+</header>
+
+<nav class="days">
+  <a href="#status">Status</a>
+  <a href="#days">Days</a>
+  <a href="#money">Money</a>
+  <a href="#before">Before we fly</a>
+  <a href="#open">Open questions</a>
+</nav>
+
+<section id="status">
+  <h2>Where the plan stands</h2>
+  <div class="rule"></div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Piece</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Flights</td><td><span class="pill tbd">TBD</span></td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout flag">
+    <div class="ct">⚠ Anything that could derail the trip goes here</div>
+    <ul><li>Visa rules, onward-travel proof, a booking that expires.</li></ul>
+  </div>
+</section>
+
+<section id="days">
+  <h2>The days</h2>
+  <div class="rule"></div>
+
+  <!-- ---- copy one <article> per day ---- -->
+  <article class="day air">
+    <div class="head">
+      <div class="num">1</div>
+      <div class="titles">
+        <div class="dtitle">What happens today</div>
+        <div class="ddate">Weekday, D Month YYYY</div>
+      </div>
+      <div class="flag">✈️</div>
+    </div>
+    <div class="body">
+      <ul class="slots">
+        <li><span class="k">Where</span><span class="v empty">—</span></li>
+        <li><span class="k">Move</span><span class="v empty">—</span></li>
+        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
+        <li><span class="k">Eat</span><span class="v empty">—</span></li>
+        <li><span class="k">Do</span><span class="v empty">—</span></li>
+        <li><span class="k">Cost</span><span class="v empty">—</span></li>
+      </ul>
+      <!-- optional per-day callout:
+      <div class="callout"><div class="ct">Title</div><ul><li>Point.</li></ul></div> -->
+    </div>
+  </article>
+
+</section>
+
+<section id="money">
+  <h2>Money</h2>
+  <div class="rule"></div>
+  <h3>What's shared, what's personal</h3>
+  <p>State the rule in one sentence. Ambiguity here is what causes arguments later.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Item</th><th class="r">Total</th><th class="r">Per person</th><th>Paid by</th></tr></thead>
+    <tbody>
+      <tr><td>—</td><td class="r">—</td><td class="r">—</td><td>—</td></tr>
+      <tr class="total"><td>Total</td><td class="r amt">—</td><td class="r amt">—</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="before">
+  <h2>Before we fly</h2>
+  <div class="rule"></div>
+  <ul class="check">
+    <li>Passport valid 6+ months past departure</li>
+    <li>Travel insurance</li>
+    <li>eSIM / roaming</li>
+    <li>Offline maps</li>
+  </ul>
+</section>
+
+<section id="open">
+  <h2>Open questions</h2>
+  <div class="rule"></div>
+  <div class="callout">
+    <div class="ct">To settle next</div>
+    <ul><li><b>Question</b> — why it matters.</li></ul>
+  </div>
+</section>
+
+<footer>
+  TRIP NAME &nbsp;·&nbsp; WHO'S GOING<br>
+  Living document. &nbsp;·&nbsp; <a href="../">All trips</a>
+</footer>
+
+</div>
+</body>
+</html>
