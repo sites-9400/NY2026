@@ -184,6 +184,51 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 }
 .pin:hover{ text-decoration:none; background:var(--accent); color:#fff; }
 
+/* ---------- per-day comment thread ----------
+   Spans both columns of the day body, under the timeline and side blocks. */
+.thread{ grid-column:1 / -1; border-top:1px solid var(--line); }
+
+.th-toggle{
+  display:flex; align-items:center; gap:.35rem; width:100%;
+  padding:.5rem .9rem; background:none; border:0; cursor:pointer;
+  font:inherit; font-size:.68rem; font-weight:800; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--accent);
+}
+.th-toggle:hover{ background:var(--accentbg); }
+.th-count{
+  font-size:.62rem; font-weight:800; color:var(--soft);
+  border:1px solid var(--line); border-radius:999px; padding:.02rem .38rem;
+}
+.th-count.has{ color:#fff; background:var(--accent); border-color:var(--accent); }
+
+.th-panel{ padding:0 .9rem .85rem; }
+.th-empty{ font-size:.75rem; color:var(--soft); font-style:italic; margin:.2rem 0 .6rem; }
+
+.th-item{ padding:.45rem 0; border-top:1px dashed var(--line); }
+.th-item:first-child{ border-top:0; }
+.th-meta{ display:flex; gap:.5rem; align-items:baseline; }
+.th-meta b{ font-size:.76rem; font-weight:800; color:var(--ink); }
+.th-meta span{ font-size:.65rem; color:var(--soft); }
+.th-body{ font-size:.79rem; line-height:1.45; color:var(--gray); white-space:pre-wrap; overflow-wrap:anywhere; }
+
+.th-form{ display:grid; gap:.4rem; margin-top:.6rem; }
+.th-form input, .th-form textarea{
+  font:inherit; font-size:.79rem; color:var(--ink); background:var(--card);
+  border:1px solid var(--line); border-radius:.4rem; padding:.4rem .55rem; width:100%;
+}
+.th-form input:focus, .th-form textarea:focus{ outline:2px solid var(--accent); outline-offset:-1px; }
+.th-form textarea{ resize:vertical; min-height:2.6rem; }
+.th-actions{ display:flex; align-items:center; justify-content:flex-end; gap:.6rem; }
+.th-status{ font-size:.7rem; color:var(--soft); margin-right:auto; }
+.th-form button{
+  font:inherit; font-size:.72rem; font-weight:800; letter-spacing:.03em;
+  color:#fff; background:var(--accent); border:0; border-radius:.4rem;
+  padding:.4rem 1rem; cursor:pointer;
+}
+.th-form button:hover{ filter:brightness(.92); }
+
+@media print{ .thread{ display:none; } }
+
 /* side blocks — Transportation, Meals, Watch out … */
 .block{ margin-bottom:.7rem; }
 .block:last-child{ margin-bottom:0; }

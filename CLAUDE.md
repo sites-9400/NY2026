@@ -78,6 +78,33 @@ The CLI is installed and authenticated, and `.firebaserc` points at
 `travel-f412b`. Deploying and pushing are separate steps — hosting serves from
 `public/` on disk, not from the repo.
 
+## Comments (Realtime Database)
+
+Each day card carries a comment thread so the page is two-way, not a broadcast.
+Stored in Firebase Realtime Database under `comments/<trip-slug>/<YYYY-MM-DD>/`,
+keyed by the `data-day` attribute on each `.day` element — dates, not indexes,
+so renumbering days never moves a thread.
+
+Rules live in `database.rules.json` and deploy with
+`firebase deploy --only database`. They are deliberately strict:
+
+- Reads and writes are allowed **only** under `/comments`. Everything else denies.
+- Comments are **create-only** — nobody can edit or delete from the page, so a
+  visitor with the link cannot wipe a thread.
+- Name is capped at 40 characters, text at 700, and any field other than
+  `name`/`text`/`at` is rejected.
+
+**There is no login.** Anyone with the URL can post under any name. That is a
+deliberate trade for five friends on an unlisted link. To lock it down later,
+add Firebase Auth or move to a shared passcode.
+
+To remove a comment, use the console or
+`firebase database:remove /comments/2026-12-sea/<date>` — admin credentials
+bypass the create-only rule.
+
+**All user text is rendered with `textContent`, never `innerHTML`.** Keep it that
+way; this is a page other people type into.
+
 ## Starting a new trip
 
 1. `cp _reference/templates/trip-page.html public/<slug>/index.html` and fill it in.

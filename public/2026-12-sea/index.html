@@ -6,7 +6,7 @@
 <title>Southeast Asia · Dec 2026</title>
 <meta name="description" content="Singapore → Malaysia → Bangkok, 25 Dec 2026 onward. Trip plan for Gamaliel, Marianne, Alysson, Kevin and Jan.">
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="../assets/site.css?v=5">
+<link rel="stylesheet" href="../assets/site.css?v=6">
 </head>
 <body>
 <!-- Monochrome icon sprite. Stroke-only, inherits currentColor, so icons take
@@ -27,6 +27,7 @@
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.4 2.2"/></symbol>
   <symbol id="i-money" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="12" rx="2"/><path d="M2.5 8V6.2a2 2 0 0 1 2-2h12"/><circle cx="16.5" cy="13" r="1.6"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5 14 9l6.5 2-6.5 2-2 6.5-2-6.5L3.5 11 10 9z"/><path d="M19 3.5v3M17.5 5h3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H8l-4.5 2.5.9-3.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14.5h4.5"/></symbol>
 </defs></svg>
 
 <div class="wrap">
@@ -268,7 +269,7 @@
   just, and it reshapes the middle of the trip. See the note under Day 6.</p>
 
   <!-- ========== DAY 1 ========== -->
-  <div class="day air">
+  <div class="day air" data-day="2026-12-25">
     <div class="rail"><div class="dn">DAY</div><div class="num">1</div><div class="dt">Fri<br>Dec 25</div></div>
     <div class="body">
       <div class="main">
@@ -297,7 +298,7 @@
   </div>
 
   <!-- ========== DAY 2 ========== -->
-  <div class="day sg">
+  <div class="day sg" data-day="2026-12-26">
     <div class="rail"><div class="dn">DAY</div><div class="num">2</div><div class="dt">Sat<br>Dec 26</div></div>
     <div class="body">
       <div class="main">
@@ -322,7 +323,7 @@
   </div>
 
   <!-- ========== DAY 3 ========== -->
-  <div class="day sg">
+  <div class="day sg" data-day="2026-12-27">
     <div class="rail"><div class="dn">DAY</div><div class="num">3</div><div class="dt">Sun<br>Dec 27</div></div>
     <div class="body">
       <div class="main">
@@ -356,7 +357,7 @@
   </div>
 
   <!-- ========== DAY 4 ========== -->
-  <div class="day my">
+  <div class="day my" data-day="2026-12-28">
     <div class="rail"><div class="dn">DAY</div><div class="num">4</div><div class="dt">Mon<br>Dec 28</div></div>
     <div class="body">
       <div class="main">
@@ -386,7 +387,7 @@
   </div>
 
   <!-- ========== DAY 5 ========== -->
-  <div class="day my">
+  <div class="day my" data-day="2026-12-29">
     <div class="rail"><div class="dn">DAY</div><div class="num">5</div><div class="dt">Tue<br>Dec 29</div></div>
     <div class="body">
       <div class="main">
@@ -412,7 +413,7 @@
   </div>
 
   <!-- ========== DAY 6 ========== -->
-  <div class="day my">
+  <div class="day my" data-day="2026-12-30">
     <div class="rail"><div class="dn">DAY</div><div class="num">6</div><div class="dt">Wed<br>Dec 30</div></div>
     <div class="body">
       <div class="main">
@@ -457,7 +458,7 @@
   </div>
 
   <!-- ========== DAY 7 ========== -->
-  <div class="day th">
+  <div class="day th" data-day="2026-12-31">
     <div class="rail"><div class="dn">DAY</div><div class="num">7</div><div class="dt">Thu<br>Dec 31</div></div>
     <div class="body">
       <div class="main">
@@ -482,7 +483,7 @@
   </div>
 
   <!-- ========== DAY 8 ========== -->
-  <div class="day th">
+  <div class="day th" data-day="2027-01-01">
     <div class="rail"><div class="dn">DAY</div><div class="num">8</div><div class="dt">Fri<br>Jan 1</div></div>
     <div class="body">
       <div class="main">
@@ -497,7 +498,7 @@
   </div>
 
   <!-- ========== DAY 9 ========== -->
-  <div class="day th">
+  <div class="day th" data-day="2027-01-02">
     <div class="rail"><div class="dn">DAY</div><div class="num">9</div><div class="dt">Sat<br>Jan 2</div></div>
     <div class="body">
       <div class="main">
@@ -512,7 +513,7 @@
   </div>
 
   <!-- ========== DAY 10 ========== -->
-  <div class="day th">
+  <div class="day th" data-day="2027-01-03">
     <div class="rail"><div class="dn">DAY</div><div class="num">10</div><div class="dt">Sun<br>Jan 3</div></div>
     <div class="body">
       <div class="main">
@@ -527,7 +528,7 @@
   </div>
 
   <!-- ========== DAY 11 ========== -->
-  <div class="day air">
+  <div class="day air" data-day="2027-01-04">
     <div class="rail"><div class="dn">DAY</div><div class="num">11</div><div class="dt">Mon<br>Jan 4</div></div>
     <div class="body">
       <div class="main">
@@ -768,5 +769,137 @@
 </footer>
 
 </div>
+
+<!-- ===================== PER-DAY COMMENTS =====================
+     Firebase Realtime Database. No login: this is five friends on an
+     unlisted link, so a name field is proportionate. Comments are
+     create-only at the rules level, so nobody can edit or wipe a thread
+     from the page. All user text is written with textContent, never
+     innerHTML — a shared page must not execute what someone types. -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getDatabase, ref, push, onValue, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyB_2uLgVwcgvQeLvQWv4hyyDn8APbaIsKc",
+  authDomain: "travel-f412b.firebaseapp.com",
+  databaseURL: "https://travel-f412b-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "travel-f412b",
+  storageBucket: "travel-f412b.firebasestorage.app",
+  messagingSenderId: "512679091349",
+  appId: "1:512679091349:web:873404aba4fd70d9518f9c"
+});
+const db = getDatabase(app);
+const TRIP = "2026-12-sea";
+const NAME_KEY = "tc-name";
+
+const when = ms => {
+  if (!ms) return "just now";
+  const d = new Date(ms), diff = (Date.now() - ms) / 1000;
+  if (diff < 60) return "just now";
+  if (diff < 3600) return Math.floor(diff / 60) + "m ago";
+  if (diff < 86400) return Math.floor(diff / 3600) + "h ago";
+  return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
+};
+
+document.querySelectorAll(".day[data-day]").forEach(day => {
+  const key  = day.dataset.day;
+  const body = day.querySelector(":scope > .body");
+  if (!body) return;
+
+  const wrap = document.createElement("div");
+  wrap.className = "thread";
+  wrap.innerHTML =
+    '<button class="th-toggle" type="button" aria-expanded="false">' +
+      '<svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> ' +
+      '<span class="th-label">Comments</span> <span class="th-count">0</span>' +
+    '</button>' +
+    '<div class="th-panel" hidden>' +
+      '<div class="th-list"><p class="th-empty">No comments yet — say something.</p></div>' +
+      '<form class="th-form">' +
+        '<input class="th-name" type="text" maxlength="40" placeholder="Your name" autocomplete="name" required>' +
+        '<textarea class="th-text" rows="2" maxlength="700" placeholder="Add a comment about this day…" required></textarea>' +
+        '<div class="th-actions"><span class="th-status"></span><button type="submit">Post</button></div>' +
+      '</form>' +
+    '</div>';
+  body.appendChild(wrap);
+
+  const toggle = wrap.querySelector(".th-toggle");
+  const panel  = wrap.querySelector(".th-panel");
+  const list   = wrap.querySelector(".th-list");
+  const count  = wrap.querySelector(".th-count");
+  const form   = wrap.querySelector(".th-form");
+  const nameIn = wrap.querySelector(".th-name");
+  const textIn = wrap.querySelector(".th-text");
+  const status = wrap.querySelector(".th-status");
+
+  nameIn.value = localStorage.getItem(NAME_KEY) || "";
+
+  toggle.addEventListener("click", () => {
+    const open = panel.hasAttribute("hidden");
+    panel.toggleAttribute("hidden", !open);
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+
+  const node = ref(db, `comments/${TRIP}/${key}`);
+
+  onValue(node, snap => {
+    const rows = [];
+    snap.forEach(c => rows.push(c.val()));
+    rows.sort((a, b) => (a.at || 0) - (b.at || 0));
+    count.textContent = rows.length;
+    count.classList.toggle("has", rows.length > 0);
+    list.textContent = "";
+    if (!rows.length) {
+      const p = document.createElement("p");
+      p.className = "th-empty";
+      p.textContent = "No comments yet — say something.";
+      list.appendChild(p);
+      return;
+    }
+    for (const r of rows) {
+      const el = document.createElement("div");
+      el.className = "th-item";
+      const head = document.createElement("div");
+      head.className = "th-meta";
+      const who = document.createElement("b");
+      who.textContent = r.name || "Someone";          // textContent, not innerHTML
+      const time = document.createElement("span");
+      time.textContent = when(r.at);
+      head.append(who, time);
+      const msg = document.createElement("div");
+      msg.className = "th-body";
+      msg.textContent = r.text || "";                  // textContent, not innerHTML
+      el.append(head, msg);
+      list.appendChild(el);
+    }
+  }, err => {
+    list.textContent = "";
+    const p = document.createElement("p");
+    p.className = "th-empty";
+    p.textContent = "Comments are unavailable right now.";
+    list.appendChild(p);
+    console.error(err);
+  });
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const name = nameIn.value.trim(), text = textIn.value.trim();
+    if (!name || !text) return;
+    localStorage.setItem(NAME_KEY, name);
+    status.textContent = "Posting…";
+    try {
+      await push(node, { name, text, at: serverTimestamp() });
+      textIn.value = "";
+      status.textContent = "";
+    } catch (err) {
+      status.textContent = "Couldn't post — try again.";
+      console.error(err);
+    }
+  });
+});
+</script>
+
 </body>
 </html>

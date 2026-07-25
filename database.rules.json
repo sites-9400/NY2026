@@ -1,0 +1,29 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "comments": {
+      "$trip": {
+        "$day": {
+          ".read": true,
+
+          "$msg": {
+            // Create-only. An existing comment cannot be edited or deleted from
+            // the page, so nobody with the link can wipe the thread. Removing a
+            // comment is done from the Firebase console, deliberately.
+            ".write": "!data.exists() && newData.exists()",
+
+            ".validate": "newData.hasChildren(['name','text','at'])",
+            "name": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 40" },
+            "text": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 700" },
+            "at":   { ".validate": "newData.isNumber()" },
+
+            // anything other than those three keys is rejected
+            "$other": { ".validate": false }
+          }
+        }
+      }
+    }
+  }
+}
