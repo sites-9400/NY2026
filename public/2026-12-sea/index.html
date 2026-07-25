@@ -6,7 +6,7 @@
 <title>Southeast Asia · Dec 2026</title>
 <meta name="description" content="Singapore → Malaysia → Bangkok, 25 Dec 2026 onward. Trip plan for Gamaliel, Marianne, Alysson, Kevin and Jan.">
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="../assets/site.css?v=6">
+<link rel="stylesheet" href="../assets/site.css?v=10">
 </head>
 <body>
 <!-- Monochrome icon sprite. Stroke-only, inherits currentColor, so icons take
@@ -28,6 +28,7 @@
   <symbol id="i-money" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="12" rx="2"/><path d="M2.5 8V6.2a2 2 0 0 1 2-2h12"/><circle cx="16.5" cy="13" r="1.6"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5 14 9l6.5 2-6.5 2-2 6.5-2-6.5L3.5 11 10 9z"/><path d="M19 3.5v3M17.5 5h3"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H8l-4.5 2.5.9-3.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14.5h4.5"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18 14.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4.5"/></symbol>
 </defs></svg>
 
 <div class="wrap">
@@ -70,14 +71,14 @@
       <tr><th>Piece</th><th>Status</th><th>Notes</th></tr>
     </thead>
     <tbody>
-      <tr><td>Outbound flight → Singapore</td><td><span class="pill booked">Booked</span></td><td>25 Dec, DVO 13:00 → CEB → SIN 00:25 (26th). One way</td></tr>
-      <tr><td>Singapore hotel · night of 25 Dec</td><td><span class="pill risk">Not booked</span></td><td>Must cover Friday night — we check in at ~01:30 Sat</td></tr>
-      <tr><td>Universal Studios tickets ×5</td><td><span class="pill tbd">TBD</span></td><td>Planned for Sun 27 Dec — peak week, buy dated tickets ahead</td></tr>
-      <tr><td>Return flight home</td><td><span class="pill risk">Not booked</span></td><td>Decides how long the trip actually is</td></tr>
-      <tr><td>Border train + express to Kuala Lumpur</td><td><span class="pill tbd">Not booked</span></td><td>28 Dec, overland. Both sell out — book ahead</td></tr>
-      <tr><td>Train to the border + overnight sleeper</td><td><span class="pill risk">Not booked</span></td><td>30 Dec. <b>One departure a day at 17:00</b> — the trip's tightest link</td></tr>
-      <tr><td>Accommodation · all three stops</td><td><span class="pill tbd">TBD</span></td><td>Split five ways</td></tr>
-      <tr><td>NYE fireworks spot</td><td><span class="pill tbd">TBD</span></td><td>Bangkok, 31 Dec — books out early</td></tr>
+      <tr><td data-label="Piece">Outbound flight → Singapore</td><td data-label="Status"><span class="pill booked">Booked</span></td><td data-label="Notes">25 Dec, DVO 13:00 → CEB → SIN 00:25 (26th). One way</td></tr>
+      <tr><td data-label="Piece">Singapore hotel · night of 25 Dec</td><td data-label="Status"><span class="pill risk">Not booked</span></td><td data-label="Notes">Must cover Friday night — we check in at ~01:30 Sat</td></tr>
+      <tr><td data-label="Piece">Universal Studios tickets ×5</td><td data-label="Status"><span class="pill tbd">TBD</span></td><td data-label="Notes">Planned for Sun 27 Dec — peak week, buy dated tickets ahead</td></tr>
+      <tr><td data-label="Piece">Return flight home</td><td data-label="Status"><span class="pill risk">Not booked</span></td><td data-label="Notes">Decides how long the trip actually is</td></tr>
+      <tr><td data-label="Piece">Border train + express to Kuala Lumpur</td><td data-label="Status"><span class="pill tbd">Not booked</span></td><td data-label="Notes">28 Dec, overland. Both sell out — book ahead</td></tr>
+      <tr><td data-label="Piece">Train to the border + overnight sleeper</td><td data-label="Status"><span class="pill risk">Not booked</span></td><td data-label="Notes">30 Dec. <b>One departure a day at 17:00</b> — the trip's tightest link</td></tr>
+      <tr><td data-label="Piece">Accommodation · all three stops</td><td data-label="Status"><span class="pill tbd">TBD</span></td><td data-label="Notes">Split five ways</td></tr>
+      <tr><td data-label="Piece">NYE fireworks spot</td><td data-label="Status"><span class="pill tbd">TBD</span></td><td data-label="Notes">Bangkok, 31 Dec — books out early</td></tr>
     </tbody>
   </table>
   </div>
@@ -100,7 +101,7 @@
   you can see them. <b>Tap any leg</b> for duration and cost.</p>
 
   <div class="mapwrap">
-    <svg id="routemap" viewBox="0 0 900 480" role="img" aria-label="Route map from Davao to Bangkok">
+    <svg id="routemap" viewBox="0 0 980 480" role="img" aria-label="Route map from Davao to Bangkok">
       <defs>
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4" result="b"/>
@@ -140,7 +141,7 @@
       </g>
 
       <g id="nodes">
-        <g class="node th"><circle cx="102" cy="78" r="7"/><text x="118" y="76">Bangkok</text><text class="cap" x="118" y="90">31 Dec · <svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg></text></g>
+        <g class="node th"><circle cx="102" cy="78" r="7"/><text x="118" y="76">Bangkok</text><text class="cap" x="118" y="90">31 Dec · New Year</text></g>
         <g class="node th"><circle cx="97" cy="262" r="5"/><text x="113" y="260">Padang Besar</text><text class="cap" x="113" y="274">border</text></g>
         <g class="node my"><circle cx="135" cy="353" r="7"/><text x="151" y="351">Kuala Lumpur</text><text class="cap" x="151" y="365">29 Dec</text></g>
         <g class="node my"><circle cx="170" cy="392" r="5"/><text class="lft" x="158" y="390">Johor Bahru</text></g>
@@ -163,14 +164,14 @@
       <tr><th>Leg</th><th>Mode</th><th>Duration</th><th class="r">Cost each</th><th>Status</th></tr>
     </thead>
     <tbody>
-      <tr><td>Davao → Cebu</td><td><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight</td><td>1h 10m</td><td class="r">—</td><td><span class="pill booked">Booked</span></td></tr>
-      <tr><td><i>Cebu layover</i></td><td>—</td><td>6h 30m</td><td class="r">—</td><td>—</td></tr>
-      <tr><td>Cebu → Singapore</td><td><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight</td><td>3h 45m</td><td class="r">—</td><td><span class="pill booked">Booked</span></td></tr>
-      <tr><td>Singapore → Johor Bahru</td><td><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> Shuttle Tebrau</td><td>5m ride · 20–40m with checkpoints</td><td class="r amt">S$5 <span class="soft">≈₱220</span></td><td><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill tbd">Book ↗</span></a></td></tr>
-      <tr><td>Johor Bahru → Kuala Lumpur</td><td><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS</td><td>4h 10m Platinum · 4h 36m Gold</td><td class="r amt">RM73–81 <span class="soft">≈₱950–1,055</span></td><td><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill tbd">Book ↗</span></a></td></tr>
-      <tr><td>Kuala Lumpur → Padang Besar</td><td><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS</td><td>~5h 30m</td><td class="r amt">~RM70–90 <span class="soft">≈₱910–1,170</span></td><td><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill risk">Check fare ↗</span></a></td></tr>
-      <tr><td>Padang Besar → Bangkok</td><td><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Overnight sleeper</td><td>16h 05m · dep 17:00, arr 11:00</td><td class="r amt">฿848–918 <span class="soft">≈₱1,485–1,605</span></td><td><a href="https://www.dticket.railway.co.th/" target="_blank" rel="noopener"><span class="pill tbd">Book ↗</span></a></td></tr>
-      <tr class="total"><td>Singapore → Bangkok overland</td><td>4 legs</td><td>≈2 days elapsed</td><td class="r amt">≈₱3,600–4,100</td><td>≈₱18,000–20,500 for five</td></tr>
+      <tr><td data-label="Leg">Davao → Cebu</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight</td><td data-label="Duration">1h 10m</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span></td></tr>
+      <tr><td data-label="Leg"><i>Cebu layover</i></td><td data-label="Mode">—</td><td data-label="Duration">6h 30m</td><td class="r" data-label="Cost each">—</td><td data-label="Status">—</td></tr>
+      <tr><td data-label="Leg">Cebu → Singapore</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight</td><td data-label="Duration">3h 45m</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span></td></tr>
+      <tr><td data-label="Leg">Singapore → Johor Bahru</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> Shuttle Tebrau</td><td data-label="Duration">5m ride · 20–40m with checkpoints</td><td class="r amt" data-label="Cost each">S$5 <span class="soft">≈₱220</span></td><td data-label="Status"><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill tbd">Book </span></a></td></tr>
+      <tr><td data-label="Leg">Johor Bahru → Kuala Lumpur</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS</td><td data-label="Duration">4h 10m Platinum · 4h 36m Gold</td><td class="r amt" data-label="Cost each">RM73–81 <span class="soft">≈₱950–1,055</span></td><td data-label="Status"><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill tbd">Book </span></a></td></tr>
+      <tr><td data-label="Leg">Kuala Lumpur → Padang Besar</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS</td><td data-label="Duration">~5h 30m</td><td class="r amt" data-label="Cost each">~RM70–90 <span class="soft">≈₱910–1,170</span></td><td data-label="Status"><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill risk">Check fare </span></a></td></tr>
+      <tr><td data-label="Leg">Padang Besar → Bangkok</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Overnight sleeper</td><td data-label="Duration">16h 05m · dep 17:00, arr 11:00</td><td class="r amt" data-label="Cost each">฿848–918 <span class="soft">≈₱1,485–1,605</span></td><td data-label="Status"><a href="https://www.dticket.railway.co.th/" target="_blank" rel="noopener"><span class="pill tbd">Book </span></a></td></tr>
+      <tr class="total"><td data-label="Leg">Singapore → Bangkok overland</td><td data-label="Mode">4 legs</td><td data-label="Duration">≈2 days elapsed</td><td class="r amt" data-label="Cost each">≈₱3,600–4,100</td><td data-label="Status">≈₱18,000–20,500 for five</td></tr>
     </tbody>
   </table>
   </div>
@@ -190,22 +191,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><b>A · Overnight sleeper</b><br><span class="soft">current plan</span></td>
-        <td>16h 05m<br><span class="soft">17:00 → 11:00</span></td>
-        <td class="r amt">฿848–918<br><span class="soft">≈₱1,500</span></td>
-        <td>Cheapest, and no hotel needed that night. But we land <b>the morning of New Year's Eve</b> with zero slack, and one missed connection ends it.</td>
+        <td data-label="Option"><b>A · Overnight sleeper</b><br><span class="soft">current plan</span></td>
+        <td data-label="How long">16h 05m<br><span class="soft">17:00 → 11:00</span></td>
+        <td class="r amt" data-label="Cost each">฿848–918<br><span class="soft">≈₱1,500</span></td>
+        <td data-label="What it gets us">Cheapest, and no hotel needed that night. But we land <b>the morning of New Year's Eve</b> with zero slack, and one missed connection ends it.</td>
       </tr>
       <tr>
-        <td><b>B · Train to Hat Yai, then fly</b><br><span class="soft">recommended</span></td>
-        <td>~8h total<br><span class="soft">all in one day</span></td>
-        <td class="r amt">≈₱2,000 flight<br><span class="soft">+ a hotel night</span></td>
-        <td>Still overland through Malaysia and across the border on foot — only the last hop flies. Puts us in Bangkok <b>the evening of the 30th</b>, so we wake up rested on New Year's Eve. <b>15 flights a day</b>, so a delay isn't fatal.</td>
+        <td data-label="Option"><b>B · Train to Hat Yai, then fly</b><br><span class="soft">recommended</span></td>
+        <td data-label="How long">~8h total<br><span class="soft">all in one day</span></td>
+        <td class="r amt" data-label="Cost each">≈₱2,000 flight<br><span class="soft">+ a hotel night</span></td>
+        <td data-label="What it gets us">Still overland through Malaysia and across the border on foot — only the last hop flies. Puts us in Bangkok <b>the evening of the 30th</b>, so we wake up rested on New Year's Eve. <b>15 flights a day</b>, so a delay isn't fatal.</td>
       </tr>
       <tr>
-        <td><b>C · Fly Kuala Lumpur → Bangkok</b></td>
-        <td>2h 10m</td>
-        <td class="r amt">≈₱3,400–4,400</td>
-        <td>Simplest and most forgiving — we could even keep a second Kuala Lumpur day and fly on the 31st. But it drops the land crossing entirely.</td>
+        <td data-label="Option"><b>C · Fly Kuala Lumpur → Bangkok</b></td>
+        <td data-label="How long">2h 10m</td>
+        <td class="r amt" data-label="Cost each">≈₱3,400–4,400</td>
+        <td data-label="What it gets us">Simplest and most forgiving — we could even keep a second Kuala Lumpur day and fly on the 31st. But it drops the land crossing entirely.</td>
       </tr>
     </tbody>
   </table>
@@ -340,7 +341,7 @@
       <div class="side">
         <div class="block"><div class="bhd"><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-ticket"/></svg></span>Tickets</div>
           <ul class="blist">
-            <li><a href="https://www.klook.com/en-PH/search/result/?query=Universal%20Studios%20Singapore" target="_blank" rel="noopener"><b>Book on Klook ↗</b></a> — from <b>₱3,258</b> each · ≈₱16,290 for five</li>
+            <li><a href="https://www.klook.com/en-PH/search/result/?query=Universal%20Studios%20Singapore" target="_blank" rel="noopener"><b>Book on Klook</b> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></a> — from <b>₱3,258</b> each · ≈₱16,290 for five</li>
             <li>Buy <b>dated tickets ahead</b> — peak week</li>
             <li>Price an express pass; it may double the rides</li>
           </ul></div>
@@ -373,7 +374,7 @@
             <li><b>Shuttle Tebrau</b> — the border train · 5 min ride, 20–40 min with passport checks · <b>S$5</b> (≈₱220)</li>
             <li><b>ETS train</b> (Malaysia's intercity express), Johor Bahru → Kuala Lumpur · <b>4h 10m</b> fast, 4h 36m standard · <b>RM73–81</b> (≈₱950–1,055)</li>
             <li>Whole day door to door: <b>~5–5.5h</b> plus the morning</li>
-            <li><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><b>Book both trains ↗</b></a> — on KTMB, Malaysia's official railway site</li>
+            <li><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><b>Book both trains</b> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></a> — on KTMB, Malaysia's official railway site</li>
             <li>A new cross-border shuttle, the <b>RTS Link</b>, may open Dec 2026 — worth checking</li>
           </ul></div>
         <div class="block"><div class="bhd"><span class="i"><svg class="ic" aria-hidden="true"><use href="#i-warn"/></svg></span>Watch out</div>
@@ -447,7 +448,7 @@
           <ul class="blist">
             <li><b>Kuala Lumpur → Padang Besar</b> · ~5h 30m · ≈RM70–90 <i>(estimate)</i></li>
             <li><b>Sleeper train no. 46</b> · 16h 05m overnight · <b>฿848–918</b> (≈₱1,485–1,605)</li>
-            <li><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><b>Malaysia's railway site ↗</b></a> for the Malaysian leg · <a href="https://www.dticket.railway.co.th/" target="_blank" rel="noopener"><b>Thai Railway tickets ↗</b></a> or <a href="https://12go.asia/" target="_blank" rel="noopener"><b>12Go ↗</b></a> for the sleeper</li>
+            <li><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><b>Malaysia's railway site</b> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></a> for the Malaysian leg · <a href="https://www.dticket.railway.co.th/" target="_blank" rel="noopener"><b>Thai Railway tickets</b> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></a> or <a href="https://12go.asia/" target="_blank" rel="noopener"><b>12Go</b> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></a> for the sleeper</li>
             <li>Book <b>both</b> as far ahead as they'll sell — New Year sleepers go early</li>
             <li>Five berths together needs advance booking, not walk-up</li>
           </ul></div>
@@ -560,10 +561,10 @@
       <tr><th>Stay</th><th>Nights</th><th class="r">Total</th><th class="r">Per person (÷5)</th><th>Paid by</th></tr>
     </thead>
     <tbody>
-      <tr><td>Singapore</td><td>—</td><td class="r">—</td><td class="r">—</td><td>—</td></tr>
-      <tr><td>Malaysia</td><td>—</td><td class="r">—</td><td class="r">—</td><td>—</td></tr>
-      <tr><td>Bangkok</td><td>—</td><td class="r">—</td><td class="r">—</td><td>—</td></tr>
-      <tr class="total"><td>Total</td><td>—</td><td class="r amt">—</td><td class="r amt">—</td><td></td></tr>
+      <tr><td data-label="Stay">Singapore</td><td data-label="Nights">—</td><td class="r" data-label="Total">—</td><td class="r" data-label="Per person (÷5)">—</td><td data-label="Paid by">—</td></tr>
+      <tr><td data-label="Stay">Malaysia</td><td data-label="Nights">—</td><td class="r" data-label="Total">—</td><td class="r" data-label="Per person (÷5)">—</td><td data-label="Paid by">—</td></tr>
+      <tr><td data-label="Stay">Bangkok</td><td data-label="Nights">—</td><td class="r" data-label="Total">—</td><td class="r" data-label="Per person (÷5)">—</td><td data-label="Paid by">—</td></tr>
+      <tr class="total"><td data-label="Stay">Total</td><td data-label="Nights">—</td><td class="r amt" data-label="Total">—</td><td class="r amt" data-label="Per person (÷5)">—</td><td data-label="Paid by"></td></tr>
     </tbody>
   </table>
   </div>
@@ -580,26 +581,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><b><a href="https://www.klook.com/en-PH/search/result/?query=Universal%20Studios%20Singapore" target="_blank" rel="noopener">Universal Studios Singapore</a></b> ↗</td>
-        <td class="r amt">₱3,258</td><td class="r amt">₱16,290</td>
-        <td>★4.8, 4M+ booked. Peak-week dates will price higher</td>
+        <td data-label="Item"><b><a href="https://www.klook.com/en-PH/search/result/?query=Universal%20Studios%20Singapore" target="_blank" rel="noopener">Universal Studios Singapore</a></b> </td>
+        <td class="r amt" data-label="From (each)">₱3,258</td><td class="r amt" data-label="× 5">₱16,290</td>
+        <td data-label="Notes">★4.8, 4M+ booked. Peak-week dates will price higher</td>
       </tr>
       <tr>
-        <td><a href="https://www.klook.com/en-PH/activity/161735-unlimited-esim-south-east-asia/" target="_blank" rel="noopener">Unlimited eSIM South East Asia</a> ↗</td>
-        <td class="r">₱32</td><td class="r">—</td>
-        <td>Covers SG + MY + TH. See below — ₱32 is the 1-day entry tier</td>
+        <td data-label="Item"><a href="https://www.klook.com/en-PH/activity/161735-unlimited-esim-south-east-asia/" target="_blank" rel="noopener">Unlimited eSIM South East Asia</a> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></td>
+        <td class="r" data-label="From (each)">₱32</td><td class="r" data-label="× 5">—</td>
+        <td data-label="Notes">Covers Singapore, Malaysia and Thailand. See below — ₱32 is the 1-day entry tier</td>
       </tr>
       <tr>
-        <td><a href="https://www.klook.com/en-PH/search/result/?query=Singapore%20Oceanarium" target="_blank" rel="noopener">Singapore Oceanarium</a> ↗ <span class="pill tbd">optional</span></td>
-        <td class="r">₱2,276</td><td class="r">₱11,380</td><td>On Sentosa, same island as USS</td>
+        <td data-label="Item"><a href="https://www.klook.com/en-PH/search/result/?query=Singapore%20Oceanarium" target="_blank" rel="noopener">Singapore Oceanarium</a> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg> <span class="pill tbd">optional</span></td>
+        <td class="r" data-label="From (each)">₱2,276</td><td class="r" data-label="× 5">₱11,380</td><td data-label="Notes">On Sentosa, same island as Universal Studios</td>
       </tr>
       <tr>
-        <td><a href="https://www.klook.com/en-PH/search/result/?query=Skyline%20Luge%20Singapore" target="_blank" rel="noopener">Skyline Luge Sentosa</a> ↗ <span class="pill tbd">optional</span></td>
-        <td class="r">₱1,549</td><td class="r">₱7,745</td><td>Could bolt onto the Sentosa day</td>
+        <td data-label="Item"><a href="https://www.klook.com/en-PH/search/result/?query=Skyline%20Luge%20Singapore" target="_blank" rel="noopener">Skyline Luge Sentosa</a> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg> <span class="pill tbd">optional</span></td>
+        <td class="r" data-label="From (each)">₱1,549</td><td class="r" data-label="× 5">₱7,745</td><td data-label="Notes">Could bolt onto the Sentosa day</td>
       </tr>
       <tr>
-        <td><a href="https://www.klook.com/en-PH/search/result/?query=Adventure%20Cove%20Waterpark" target="_blank" rel="noopener">Adventure Cove Waterpark</a> ↗ <span class="pill tbd">optional</span></td>
-        <td class="r">₱1,437</td><td class="r">₱7,185</td><td>Also Sentosa</td>
+        <td data-label="Item"><a href="https://www.klook.com/en-PH/search/result/?query=Adventure%20Cove%20Waterpark" target="_blank" rel="noopener">Adventure Cove Waterpark</a> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg> <span class="pill tbd">optional</span></td>
+        <td class="r" data-label="From (each)">₱1,437</td><td class="r" data-label="× 5">₱7,185</td><td data-label="Notes">Also Sentosa</td>
       </tr>
     </tbody>
   </table>
@@ -620,7 +621,7 @@
       more; the price only appears once you pick duration and data on Klook.</li>
       <li>Check each phone supports eSIM before buying — if someone's doesn't, they
       need a physical SIM instead.</li>
-      <li><a href="https://www.klook.com/en-PH/activity/161735-unlimited-esim-south-east-asia/" target="_blank" rel="noopener"><b>Buy the eSIM on Klook ↗</b></a> — install it on wifi before flying, activate on landing</li>
+      <li><a href="https://www.klook.com/en-PH/activity/161735-unlimited-esim-south-east-asia/" target="_blank" rel="noopener"><b>Buy the eSIM on Klook</b> <svg class="ic ext" aria-hidden="true"><use href="#i-ext"/></svg></a> — install it on wifi before flying, activate on landing</li>
       <li>Singapore-only alternatives exist (StarHub, Singtel) but they're the wrong
       shape for a three-country trip.</li>
     </ul>
@@ -638,28 +639,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><b>Singapore</b></td><td>3</td>
-        <td>S$45–60 <span class="soft">≈₱2,000–2,650</span><br><span class="soft">hawker meals S$5–8, metro S$5–8/day</span></td>
-        <td class="r amt">₱6,000–7,950</td>
+        <td data-label="Where"><b>Singapore</b></td><td data-label="Days">3</td>
+        <td data-label="Per person, per day">S$45–60 <span class="soft">≈₱2,000–2,650</span><br><span class="soft">hawker meals S$5–8, metro S$5–8/day</span></td>
+        <td class="r amt" data-label="Sub-total each">₱6,000–7,950</td>
       </tr>
       <tr>
-        <td><b>Kuala Lumpur</b></td><td>2</td>
-        <td>RM90–130 <span class="soft">≈₱1,170–1,690</span><br><span class="soft">the cheapest of the three by a distance</span></td>
-        <td class="r amt">₱2,340–3,380</td>
+        <td data-label="Where"><b>Kuala Lumpur</b></td><td data-label="Days">2</td>
+        <td data-label="Per person, per day">RM90–130 <span class="soft">≈₱1,170–1,690</span><br><span class="soft">the cheapest of the three by a distance</span></td>
+        <td class="r amt" data-label="Sub-total each">₱2,340–3,380</td>
       </tr>
       <tr>
-        <td><b>Bangkok</b></td><td>4–5</td>
-        <td>฿800–1,200 <span class="soft">≈₱1,400–2,100</span><br><span class="soft">street food is cheap, temple entries add up</span></td>
-        <td class="r amt">₱5,600–10,500</td>
+        <td data-label="Where"><b>Bangkok</b></td><td data-label="Days">4–5</td>
+        <td data-label="Per person, per day">฿800–1,200 <span class="soft">≈₱1,400–2,100</span><br><span class="soft">street food is cheap, temple entries add up</span></td>
+        <td class="r amt" data-label="Sub-total each">₱5,600–10,500</td>
       </tr>
       <tr>
-        <td>Travel days <span class="soft">— Cebu layover meal, station food, water</span></td>
-        <td>—</td><td>—</td><td class="r amt">≈₱1,000</td>
+        <td data-label="Where">Travel days <span class="soft">— Cebu layover meal, station food, water</span></td>
+        <td data-label="Days">—</td><td data-label="Per person, per day">—</td><td class="r amt" data-label="Sub-total each">≈₱1,000</td>
       </tr>
       <tr class="total">
-        <td><b>Pocket money each</b></td><td>11</td>
-        <td><span class="soft">including a 10–15% buffer</span></td>
-        <td class="r amt">₱16,000–24,000</td>
+        <td data-label="Where"><b>Pocket money each</b></td><td data-label="Days">11</td>
+        <td data-label="Per person, per day"><span class="soft">including a 10–15% buffer</span></td>
+        <td class="r amt" data-label="Sub-total each">₱16,000–24,000</td>
       </tr>
     </tbody>
   </table>
@@ -688,9 +689,9 @@
   <table>
     <thead><tr><th>Country</th><th>Currency</th><th>Rate to ₱</th><th>Paying with</th></tr></thead>
     <tbody>
-      <tr><td>Singapore</td><td>SGD</td><td>—</td><td>—</td></tr>
-      <tr><td>Malaysia</td><td>MYR</td><td>—</td><td>—</td></tr>
-      <tr><td>Thailand</td><td>THB</td><td>—</td><td>—</td></tr>
+      <tr><td data-label="Country">Singapore</td><td data-label="Currency">SGD</td><td data-label="Rate to ₱">—</td><td data-label="Paying with">—</td></tr>
+      <tr><td data-label="Country">Malaysia</td><td data-label="Currency">MYR</td><td data-label="Rate to ₱">—</td><td data-label="Paying with">—</td></tr>
+      <tr><td data-label="Country">Thailand</td><td data-label="Currency">THB</td><td data-label="Rate to ₱">—</td><td data-label="Paying with">—</td></tr>
     </tbody>
   </table>
   </div>
