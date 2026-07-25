@@ -108,63 +108,127 @@ h3{ font-size:1rem; font-weight:700; margin:1.4rem 0 .5rem; }
 p{ margin:.6rem 0; }
 p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 
-/* ---------- day cards ---------- */
+/* ---------- day cards ------------------------------------------------------
+   The Hong Kong one-pager layout: solid colour rail on the left carrying
+   DAY / number / date, then a two-column body — a dense time→activity
+   timeline beside a tinted column of per-day blocks.
+
+   The HK original repeated inline style="color:var(--d1)" on every single
+   element. Here each .day sets --accent once and everything inherits it,
+   so a day's colour is one class, not forty attributes.
+   -------------------------------------------------------------------------- */
 
 .day{
-  background:var(--card); border:1px solid var(--line); border-radius:.85rem;
-  overflow:hidden; margin-bottom:1rem;
-  box-shadow:0 1px 3px rgba(20,20,20,.05);
+  --accent:var(--tbd); --accentbg:var(--tbdbg);
+  display:grid; grid-template-columns:66px 1fr;
+  background:var(--card); border:1px solid var(--line); border-radius:.75rem;
+  overflow:hidden; margin-bottom:.75rem;
+  box-shadow:0 1px 2px rgba(20,30,60,.05);
+}
+.day.sg { --accent:var(--sg);  --accentbg:var(--sgbg);  }
+.day.my { --accent:var(--my);  --accentbg:var(--mybg);  }
+.day.th { --accent:var(--th);  --accentbg:var(--thbg);  }
+.day.air{ --accent:var(--air); --accentbg:var(--airbg); }
+
+.rail{
+  background:var(--accent); color:#fff; text-align:center;
+  padding:.85rem .35rem; display:flex; flex-direction:column; align-items:center;
+}
+.rail .dn{ font-size:.56rem; font-weight:800; letter-spacing:.2em; opacity:.9; }
+.rail .num{ font-size:2.1rem; font-weight:800; line-height:.9; letter-spacing:-.04em; }
+.rail .dt{ font-size:.6rem; font-weight:700; opacity:.93; margin-top:.35rem; line-height:1.3; }
+
+.day > .body{ display:grid; grid-template-columns:1.55fr 1fr; }
+.main{ padding:.75rem .9rem .85rem; min-width:0; }
+.side{ padding:.75rem .85rem; border-left:1px solid var(--line); background:var(--accentbg); min-width:0; }
+
+.dtitle{
+  font-size:.95rem; font-weight:800; letter-spacing:-.015em;
+  color:var(--accent); margin-bottom:.5rem; line-height:1.25;
 }
 
-.day > .head{
-  display:flex; align-items:center; gap:.75rem;
-  padding:.85rem 1rem; border-left:6px solid var(--tbd); background:var(--tbdbg);
+/* timeline row: time | activity */
+.row{ display:grid; grid-template-columns:2.9rem 1fr; gap:.6rem; padding:.17rem 0; }
+.time{
+  font-size:.63rem; font-weight:800; text-align:right; white-space:nowrap;
+  color:var(--accent); padding-top:.22rem;
 }
-.day.sg  > .head{ border-left-color:var(--sg);  background:var(--sgbg); }
-.day.my  > .head{ border-left-color:var(--my);  background:var(--mybg); }
-.day.th  > .head{ border-left-color:var(--th);  background:var(--thbg); }
-.day.air > .head{ border-left-color:var(--air); background:var(--airbg); }
+.act{ font-size:.79rem; line-height:1.45; }
+.act b{ font-weight:700; }
+.act.empty{ color:var(--soft); font-style:italic; }
 
-.day .num{
-  font-family:var(--display); font-size:1.6rem; font-weight:800; line-height:1;
-  letter-spacing:-.04em; min-width:2.1rem; text-align:center;
+.sub{ list-style:none; margin-top:.1rem; }
+.sub li{ position:relative; padding-left:.65rem; color:var(--gray); font-size:.72rem; line-height:1.4; }
+.sub li:before{ content:"•"; position:absolute; left:0; }
+
+.pin{
+  display:inline-block; font-size:.58rem; font-weight:700; white-space:nowrap;
+  padding:.06rem .42rem; border-radius:.7rem; margin-left:.3rem;
+  border:1px solid var(--accent); color:var(--accent); background:var(--card);
 }
-.day .titles{ flex:1; min-width:0; }
-.day .dtitle{ font-weight:700; font-size:1rem; }
-.day .ddate{ font-size:.78rem; color:var(--gray); }
-.day .flag{ font-size:1.4rem; }
+.pin:hover{ text-decoration:none; background:var(--accent); color:#fff; }
 
-.day .body{ padding:.9rem 1rem 1.1rem; }
-
-/* the empty slots that make this a backbone */
-.slots{ list-style:none; display:grid; gap:.55rem; }
-.slots li{ display:grid; grid-template-columns:5.2rem 1fr; gap:.7rem; align-items:baseline; }
-.slots .k{
-  font-size:.68rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase;
-  color:var(--teal); text-align:right;
+/* side blocks — Transportation, Meals, Watch out … */
+.block{ margin-bottom:.7rem; }
+.block:last-child{ margin-bottom:0; }
+.bhd{
+  font-size:.62rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:.28rem;
 }
-.slots .v{ font-size:.93rem; color:var(--ink); }
-.slots .v.empty{ color:var(--soft); font-style:italic; }
+.bhd .i{ margin-right:.25rem; }
+.blist{ list-style:none; }
+.blist li{
+  position:relative; padding-left:.62rem; margin-bottom:.18rem;
+  font-size:.72rem; line-height:1.42; color:var(--gray);
+}
+.blist li:before{ content:"•"; position:absolute; left:0; color:var(--accent); }
+.blist b{ color:var(--ink); font-weight:700; }
+.rate{ font-weight:800; color:var(--accent); }
 
-@media (max-width:26rem){
-  .slots li{ grid-template-columns:1fr; gap:.1rem; }
-  .slots .k{ text-align:left; }
+@media (max-width:36rem){
+  .day{ grid-template-columns:50px 1fr; }
+  .rail .num{ font-size:1.7rem; }
+  .day > .body{ grid-template-columns:1fr; }
+  .side{ border-left:none; border-top:1px solid var(--line); }
 }
 
-/* ---------- flight legs ---------- */
+/* ---------- route map ---------- */
 
-.legs{ list-style:none; display:grid; gap:.5rem; margin:.15rem 0 .2rem; }
-.legs li{ display:grid; grid-template-columns:auto 1fr; gap:.65rem; align-items:baseline; }
-.legs .route{
-  font-size:.82rem; font-weight:800; letter-spacing:.03em;
-  white-space:nowrap; color:var(--ink);
+.mapwrap{
+  background:var(--card); border:1px solid var(--line); border-radius:.75rem;
+  padding:.5rem; margin:1rem 0 .75rem; overflow-x:auto;
 }
-.legs .when{ font-size:.88rem; color:var(--gray); }
-.legs .when b{ color:var(--ink); font-weight:700; }
-.legs .gap{
-  grid-column:1 / -1; font-size:.78rem; color:var(--soft);
-  border-left:2px solid var(--line); padding:.1rem 0 .1rem .7rem; margin-left:.35rem;
+#routemap{ width:100%; min-width:26rem; height:auto; display:block; }
+
+.leg .hit{ stroke:transparent; stroke-width:22; cursor:pointer; }
+.leg .ln{ stroke:var(--soft); stroke-width:2.5; stroke-linecap:round; pointer-events:none;
+          transition:stroke .15s ease, stroke-width .15s ease; }
+.leg.air .ln{ stroke:var(--air); stroke-dasharray:7 6; }
+.leg.land .ln{ stroke:var(--my); }
+.leg:hover .ln, .leg:focus .ln{ stroke-width:4.5; }
+.leg.on .ln{ stroke-width:5; filter:url(#glow); }
+.leg:focus{ outline:none; }
+.leg:focus-visible .ln{ stroke:var(--rust); stroke-width:5; }
+
+.node circle{ fill:var(--card); stroke:var(--soft); stroke-width:2.5; }
+.node.sg circle{ stroke:var(--sg); } .node.my circle{ stroke:var(--my); }
+.node.th circle{ stroke:var(--th); } .node.air circle{ stroke:var(--air); }
+.node text{ font-family:var(--display); font-size:14px; font-weight:800; fill:var(--ink); }
+.node text.cap{ font-size:11px; font-weight:600; fill:var(--soft); letter-spacing:.02em; }
+/* Johor Bahru labels leftward — Singapore is 25km away and the inbound
+   flight line runs right through where its label would otherwise sit. */
+.node text.lft{ text-anchor:end; }
+
+.mapinfo{
+  background:var(--callout); border-left:4px solid var(--rust); border-radius:.35rem;
+  padding:.8rem 1rem; margin-bottom:1rem; min-height:5.5rem;
 }
+.mapinfo .mi-head{ font-weight:800; color:var(--rustd); font-size:.95rem; margin-bottom:.3rem; }
+.mapinfo .mi-meta{ display:flex; flex-wrap:wrap; gap:.35rem .9rem; margin-bottom:.4rem; }
+.mapinfo .mi-meta span{ font-size:.78rem; font-weight:700; color:var(--ink); }
+.mapinfo .mi-body{ font-size:.86rem; color:var(--gray); line-height:1.5; }
+
+td .soft{ color:var(--soft); font-weight:400; white-space:nowrap; }
 
 /* ---------- callouts ---------- */
 

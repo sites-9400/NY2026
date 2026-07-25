@@ -28,13 +28,45 @@ Worked out 25 Jul 2026, and easy to get wrong:
    into the city — probably two cars for five people plus luggage.
 3. **Sat 26 Dec is a half day at best.** Planned as a slow start.
 
+## Overland decision — 25 Jul 2026
+
+The trip runs **by land from Singapore to Bangkok**. That constraint, plus NYE in
+Bangkok on 31 Dec, fixes the middle of the itinerary almost completely:
+
+- Malaysia → Thailand overland is a **two-day** run: KL→Padang Besar ETS ~5h30,
+  then sleeper **#46**, the only daily service, departing Padang Besar 17:00 and
+  reaching Bangkok 11:00 the next morning.
+- Working backwards from NYE: sleeper on 30 Dec → KL day on 29 Dec → leave
+  Singapore 28 Dec. Confirmed with the user.
+- **Singapore gets two days** (26 Dec half day after the 01:30 check-in, 27 Dec
+  Universal Studios), then departs the 28th. User's call: the half day is enough
+  for spots, and they want to see Jewel Changi properly since arrival is at
+  00:25 in the dark.
+- **Kuala Lumpur gets one real day.** That is the cost of going overland.
+
+**The single point of failure:** train #46 runs once a day at 17:00. Miss it and
+New Year's Eve in Bangkok is gone. Take the earliest KL departure, not the one
+that just connects, and keep a same-day flight from Penang or Hat Yai as fallback.
+
+### Fares captured 25 Jul 2026
+
+| Leg | Duration | Cost each |
+|---|---|---|
+| Shuttle Tebrau, Woodlands → JB Sentral | 5m ride, 20–40m with checkpoints | S$5 (≈₱220) |
+| ETS JB Sentral → KL Sentral | 4h10 Platinum / 4h36 Gold | RM73–81 Gold (≈₱950–1,055) |
+| ETS KL Sentral → Padang Besar | ~5h30 | ≈RM70–90 — **estimate, unverified** |
+| Sleeper #46 Padang Besar → Bangkok | 16h05, 17:00→11:00 | ฿848–918 (≈₱1,485–1,605) |
+
+≈₱3,600–4,100 per person Singapore→Bangkok; ≈₱18,000–20,500 for five. Converted
+at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets on them.
+
 ## Open
 
 | Question | Why it matters | Decide by |
 |---|---|---|
 | Return flight | Sets the trip length; everything downstream depends on it | ASAP — also solves onward-travel proof |
-| Which Malaysian city | JB is a cheap land hop; KL/Penang need a flight and more nights | Before booking the SG→MY leg |
-| Nights per country | Currently a guess: SG 4, MY 2, BKK 4 | Before any accommodation is booked |
+| Train tickets ×5 | Four legs, all sell out; five berths together needs advance booking | As early as KTMB and SRT will sell |
+| KL→Padang Besar fare | Only unverified number in the budget | Check online.ktmb.com.my |
 | NYE viewing spot | Sells out weeks ahead | Early — this is the anchor of the trip |
 | Per-person budget ceiling | Five people, five tolerances | Before booking accommodation |
 

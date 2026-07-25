@@ -27,6 +27,7 @@
 
 <nav class="days">
   <a href="#status">Status</a>
+  <a href="#route">Route</a>
   <a href="#days">Days</a>
   <a href="#money">Money</a>
   <a href="#before">Before we fly</a>
@@ -38,8 +39,9 @@
   <h2>Where the plan stands</h2>
   <div class="rule"></div>
 
-  <p>This is the skeleton — dates and anchors are real, the days are still empty on purpose.
-  We fill them in together as we decide.</p>
+  <p><b>Overland from Singapore to Bangkok</b>, by train the whole way. That works — but the
+  Malaysia→Thailand run takes two days, so the middle of the trip is shaped around catching
+  one sleeper train. Singapore gets two days; Kuala Lumpur gets one.</p>
 
   <div class="tablewrap">
   <table>
@@ -51,8 +53,8 @@
       <tr><td>Singapore hotel · night of 25 Dec</td><td><span class="pill risk">Not booked</span></td><td>Must cover Friday night — we check in at ~01:30 Sat</td></tr>
       <tr><td>Universal Studios tickets ×5</td><td><span class="pill tbd">TBD</span></td><td>Planned for Sun 27 Dec — peak week, buy dated tickets ahead</td></tr>
       <tr><td>Return flight home</td><td><span class="pill risk">Not booked</span></td><td>Decides how long the trip actually is</td></tr>
-      <tr><td>SG → Malaysia hop</td><td><span class="pill tbd">TBD</span></td><td>Bus/train to JB, or fly to KL/Penang</td></tr>
-      <tr><td>Malaysia → Bangkok hop</td><td><span class="pill tbd">TBD</span></td><td>Must land before 31 Dec</td></tr>
+      <tr><td>Shuttle Tebrau + ETS → KL</td><td><span class="pill tbd">Not booked</span></td><td>28 Dec, overland. Both sell out — book ahead</td></tr>
+      <tr><td>ETS → Padang Besar + sleeper #46</td><td><span class="pill risk">Not booked</span></td><td>30 Dec. <b>One departure a day at 17:00</b> — the trip's tightest link</td></tr>
       <tr><td>Accommodation · all three stops</td><td><span class="pill tbd">TBD</span></td><td>Split five ways</td></tr>
       <tr><td>NYE fireworks spot</td><td><span class="pill tbd">TBD</span></td><td>Bangkok, 31 Dec — books out early</td></tr>
     </tbody>
@@ -68,314 +70,387 @@
   </div>
 </section>
 
-<!-- ============================== DAYS ============================== -->
+<!-- ============================== ROUTE MAP ============================== -->
+<section id="route">
+  <h2>The route</h2>
+  <div class="rule"></div>
+  <p class="note">Cities are placed by real latitude and longitude, so the distances read
+  true — except Singapore and Johor Bahru, which are 25km apart and drawn separated so
+  you can see them. <b>Tap any leg</b> for duration and cost.</p>
+
+  <div class="mapwrap">
+    <svg id="routemap" viewBox="0 0 900 480" role="img" aria-label="Route map from Davao to Bangkok">
+      <defs>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <g id="legs">
+        <g class="leg air" data-leg="dvo-ceb" tabindex="0" role="button" aria-label="Davao to Cebu leg">
+          <line class="hit" x1="801" y1="251" x2="753" y2="167"/>
+          <line class="ln" x1="801" y1="251" x2="753" y2="167"/>
+        </g>
+        <g class="leg air" data-leg="ceb-sin" tabindex="0" role="button" aria-label="Cebu to Singapore leg">
+          <line class="hit" x1="753" y1="167" x2="210" y2="415"/>
+          <line class="ln" x1="753" y1="167" x2="210" y2="415"/>
+        </g>
+        <g class="leg land" data-leg="sin-jb" tabindex="0" role="button" aria-label="Singapore to Johor Bahru leg">
+          <line class="hit" x1="210" y1="415" x2="170" y2="392"/>
+          <line class="ln" x1="210" y1="415" x2="170" y2="392"/>
+        </g>
+        <g class="leg land" data-leg="jb-kl" tabindex="0" role="button" aria-label="Johor Bahru to Kuala Lumpur leg">
+          <line class="hit" x1="170" y1="392" x2="135" y2="353"/>
+          <line class="ln" x1="170" y1="392" x2="135" y2="353"/>
+        </g>
+        <g class="leg land" data-leg="kl-pdb" tabindex="0" role="button" aria-label="Kuala Lumpur to Padang Besar leg">
+          <line class="hit" x1="135" y1="353" x2="97" y2="262"/>
+          <line class="ln" x1="135" y1="353" x2="97" y2="262"/>
+        </g>
+        <g class="leg land" data-leg="pdb-bkk" tabindex="0" role="button" aria-label="Padang Besar to Bangkok sleeper leg">
+          <line class="hit" x1="97" y1="262" x2="102" y2="78"/>
+          <line class="ln" x1="97" y1="262" x2="102" y2="78"/>
+        </g>
+      </g>
+
+      <g id="nodes">
+        <g class="node th"><circle cx="102" cy="78" r="7"/><text x="118" y="76">Bangkok</text><text class="cap" x="118" y="90">31 Dec · 🎆</text></g>
+        <g class="node th"><circle cx="97" cy="262" r="5"/><text x="113" y="260">Padang Besar</text><text class="cap" x="113" y="274">border</text></g>
+        <g class="node my"><circle cx="135" cy="353" r="7"/><text x="151" y="351">Kuala Lumpur</text><text class="cap" x="151" y="365">29 Dec</text></g>
+        <g class="node my"><circle cx="170" cy="392" r="5"/><text class="lft" x="158" y="390">Johor Bahru</text></g>
+        <g class="node sg"><circle cx="210" cy="415" r="7"/><text x="226" y="413">Singapore</text><text class="cap" x="226" y="427">26–28 Dec</text></g>
+        <g class="node air"><circle cx="753" cy="167" r="5"/><text x="769" y="165">Cebu</text><text class="cap" x="769" y="179">6h30 layover</text></g>
+        <g class="node air"><circle cx="801" cy="251" r="7"/><text x="817" y="249">Davao</text><text class="cap" x="817" y="263">25 Dec · start</text></g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="mapinfo" id="mapinfo" aria-live="polite">
+    <div class="mi-head">Tap a leg on the map</div>
+    <div class="mi-body">Six legs, two by air and four overland. Total land cost from Singapore
+    to Bangkok is roughly <b>₱3,600–4,100 each</b>.</div>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <thead>
+      <tr><th>Leg</th><th>Mode</th><th>Duration</th><th class="r">Cost each</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Davao → Cebu</td><td>✈️ Flight</td><td>1h 10m</td><td class="r">—</td><td><span class="pill booked">Booked</span></td></tr>
+      <tr><td><i>Cebu layover</i></td><td>—</td><td>6h 30m</td><td class="r">—</td><td>—</td></tr>
+      <tr><td>Cebu → Singapore</td><td>✈️ Flight</td><td>3h 45m</td><td class="r">—</td><td><span class="pill booked">Booked</span></td></tr>
+      <tr><td>Singapore → Johor Bahru</td><td>🚆 Shuttle Tebrau</td><td>5m ride · 20–40m with checkpoints</td><td class="r amt">S$5 <span class="soft">≈₱220</span></td><td><span class="pill tbd">Book ahead</span></td></tr>
+      <tr><td>Johor Bahru → Kuala Lumpur</td><td>🚆 ETS</td><td>4h 10m Platinum · 4h 36m Gold</td><td class="r amt">RM73–81 <span class="soft">≈₱950–1,055</span></td><td><span class="pill tbd">Book ahead</span></td></tr>
+      <tr><td>Kuala Lumpur → Padang Besar</td><td>🚆 ETS</td><td>~5h 30m</td><td class="r amt">~RM70–90 <span class="soft">≈₱910–1,170</span></td><td><span class="pill risk">Fare unverified</span></td></tr>
+      <tr><td>Padang Besar → Bangkok</td><td>🛏️ Sleeper #46</td><td>16h 05m · dep 17:00, arr 11:00</td><td class="r amt">฿848–918 <span class="soft">≈₱1,485–1,605</span></td><td><span class="pill tbd">Book early</span></td></tr>
+      <tr class="total"><td>Singapore → Bangkok overland</td><td>4 legs</td><td>≈2 days elapsed</td><td class="r amt">≈₱3,600–4,100</td><td>≈₱18,000–20,500 for five</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Converted at roughly ₱44/S$, ₱13/RM and ₱1.75/฿ — check live rates before
+  budgeting. The KL→Padang Besar fare is an estimate; KTMB publishes the real one at
+  online.ktmb.com.my.</p>
+</section>
+
+<script>
+(function(){
+  var LEGS = {
+    'dvo-ceb': { t:'Davao → Cebu', m:'✈️ Flight', d:'1h 10m', p:'Part of the booked fare',
+                 n:'Departs 13:00, lands 14:10 on Christmas Day.' },
+    'ceb-sin': { t:'Cebu → Singapore', m:'✈️ Flight', d:'3h 45m', p:'Part of the booked fare',
+                 n:'Departs 20:40, lands 00:25 the next morning. Philippines and Singapore are both UTC+8, so the clock does not shift.' },
+    'sin-jb':  { t:'Singapore → Johor Bahru', m:'🚆 KTM Shuttle Tebrau', d:'5 min ride · 20–40 min checkpoint to checkpoint',
+                 p:'S$5 each (≈₱220) · RM5 coming back', n:'Runs 31 times a day and sells out — book ahead. Cross mid-morning, mid-week; evenings and holidays are the worst congestion. The new RTS Link is due to open Dec 2026, so check whether it is running.' },
+    'jb-kl':   { t:'Johor Bahru → Kuala Lumpur', m:'🚆 ETS', d:'4h 10m Platinum · 4h 36m Gold',
+                 p:'RM73–81 Gold, RM96–109 Platinum (≈₱950–1,420)', n:'Direct JB Sentral to KL Sentral. Whole Singapore-to-KL journey runs about 5–5.5 hours including immigration and the changeover.' },
+    'kl-pdb':  { t:'Kuala Lumpur → Padang Besar', m:'🚆 ETS', d:'~5h 30m',
+                 p:'≈RM70–90 (estimate — verify on KTMB)', n:'Padang Besar station handles Malaysian exit and Thai entry in the same building. Take the earliest departure you can: everything downstream hangs on making the 17:00 sleeper.' },
+    'pdb-bkk': { t:'Padang Besar → Bangkok', m:'🛏️ Sleeper train #46', d:'16h 05m · departs 17:00, arrives 11:00',
+                 p:'฿848–918 per berth (≈₱1,485–1,605)', n:'Second-class sleeper, and the only daily service. This is also the night’s accommodation. Five berths together need booking well ahead, especially over New Year.' }
+  };
+  var info = document.getElementById('mapinfo');
+  var legs = [].slice.call(document.querySelectorAll('.leg'));
+  function show(id){
+    var L = LEGS[id]; if(!L) return;
+    legs.forEach(function(g){ g.classList.toggle('on', g.dataset.leg === id); });
+    info.innerHTML = '<div class="mi-head">' + L.t + '</div>' +
+      '<div class="mi-meta"><span>' + L.m + '</span><span>⏱ ' + L.d + '</span><span>💸 ' + L.p + '</span></div>' +
+      '<div class="mi-body">' + L.n + '</div>';
+  }
+  legs.forEach(function(g){
+    g.addEventListener('click', function(){ show(g.dataset.leg); });
+    g.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); show(g.dataset.leg); }
+    });
+  });
+})();
+</script>
+
 <section id="days">
   <h2>The days</h2>
   <div class="rule"></div>
-  <p class="note">Frame runs 25 Dec – 4 Jan. The tail end is provisional until the return
-  flight is booked — add or trim day cards as that firms up.</p>
+  <p class="note">Overland the whole way from Singapore to Bangkok. That works — but only
+  just, and it reshapes the middle of the trip. See the note under Day 6.</p>
 
-  <article class="day air">
-    <div class="head">
-      <div class="num">1</div>
-      <div class="titles">
-        <div class="dtitle">Davao → Cebu → Singapore</div>
-        <div class="ddate">Friday, 25 December 2026 · Christmas Day</div>
-      </div>
-      <div class="flag">✈️</div>
-    </div>
+  <!-- ========== DAY 1 ========== -->
+  <div class="day air">
+    <div class="rail"><div class="dn">DAY</div><div class="num">1</div><div class="dt">Fri<br>Dec 25</div></div>
     <div class="body">
-      <ul class="legs">
-        <li>
-          <span class="route">DVO → CEB</span>
-          <span class="when"><b>13:00 – 14:10</b> · 1h 10m</span>
-        </li>
-        <li class="gap">6h 30m on the ground in Cebu — long enough to leave the airport for an early dinner, if everyone's up for it</li>
-        <li>
-          <span class="route">CEB → SIN</span>
-          <span class="when"><b>20:40 – 00:25</b> · 3h 45m · lands Sat 26 Dec</span>
-        </li>
-      </ul>
-      <ul class="slots">
-        <li><span class="k">Sleep</span><span class="v empty">Not booked — must cover the night of Fri 25</span></li>
-        <li><span class="k">Move</span><span class="v empty">Changi → hotel after midnight, Grab or taxi</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-      <div class="callout flag">
-        <div class="ct">⚠ We land at 00:25 — two things this breaks</div>
-        <ul>
-          <li><b>The hotel booking is for Friday night, not Saturday.</b> Arriving
-          at 00:25 on the 26th means checking in during the early hours of a room
-          booked for <b>25 Dec</b>. Book it that way and tell them the arrival time,
-          or there's no room waiting at 1am.</li>
-          <li><b>The MRT will have stopped.</b> Last trains out of Changi run before
-          midnight, so it's Grab or taxi into the city — budget for it, and for
-          five people that's likely two cars.</li>
-          <li>Nobody will be useful before noon on the 26th. The day after is
-          planned around that.</li>
-        </ul>
+      <div class="main">
+        <div class="dtitle">Davao → Cebu → Singapore · Christmas Day</div>
+        <div class="row"><div class="time">13:00</div><div class="act"><b>DVO → CEB</b> — departs Davao <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Francisco+Bangoy+International+Airport+Davao">📍 Map</a></div></div>
+        <div class="row"><div class="time">14:10</div><div class="act">Land Cebu — <b>6h 30m on the ground</b><ul class="sub"><li>Long enough to leave the airport for an early dinner</li></ul></div></div>
+        <div class="row"><div class="time">20:40</div><div class="act"><b>CEB → SIN</b> — 3h 45m <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Mactan+Cebu+International+Airport">📍 Map</a></div></div>
+        <div class="row"><div class="time">00:25</div><div class="act"><b>Land Changi</b> — Sat 26 Dec. Immigration, then Grab to the hotel <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Changi+Airport+Singapore">📍 Map</a></div></div>
+        <div class="row"><div class="time">~01:30</div><div class="act">Check in — <b>on the night of Fri 25</b>, not Sat 26</div></div>
+      </div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🚕</span>Transportation</div>
+          <ul class="blist">
+            <li><b>No MRT</b> — last trains leave Changi before midnight</li>
+            <li>Grab or taxi into the city</li>
+            <li>Five people + luggage = likely two cars</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist">
+            <li>Hotel must be booked for <b>Fri 25 Dec</b> — we arrive in the early hours of the 26th</li>
+            <li>Tell the property the arrival time so the room isn't released</li>
+            <li>Nobody will be useful before noon on the 26th</li>
+          </ul></div>
       </div>
     </div>
-  </article>
+  </div>
 
-  <article class="day sg">
-    <div class="head">
-      <div class="num">2</div>
-      <div class="titles">
-        <div class="dtitle">Singapore · slow start</div>
-        <div class="ddate">Saturday, 26 December 2026</div>
-      </div>
-      <div class="flag">🇸🇬</div>
-    </div>
+  <!-- ========== DAY 2 ========== -->
+  <div class="day sg">
+    <div class="rail"><div class="dn">DAY</div><div class="num">2</div><div class="dt">Sat<br>Dec 26</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Singapore</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">Half day at best — we got in at 1am</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="day sg">
-    <div class="head">
-      <div class="num">3</div>
-      <div class="titles">
-        <div class="dtitle">Universal Studios Singapore</div>
-        <div class="ddate">Sunday, 27 December 2026 · Sentosa</div>
+      <div class="main">
+        <div class="dtitle">Singapore · half day, late start</div>
+        <div class="row"><div class="time">~12:00</div><div class="act">Everyone up and out. No alarms — we landed at 1am</div></div>
+        <div class="row"><div class="time">13:00</div><div class="act"><b>Jewel Changi Airport</b> — the Rain Vortex, a 40m indoor waterfall under the dome <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Jewel+Changi+Airport">📍 Map</a><ul class="sub"><li>We arrive in the dark at 00:25, so this is the only chance to actually see it</li><li>MRT to Changi Airport station, Jewel is connected</li></ul></div></div>
+        <div class="row"><div class="time">16:30</div><div class="act">MRT back into the city</div></div>
+        <div class="row"><div class="time">17:30</div><div class="act"><b>Gardens by the Bay</b> — Flower Dome and Cloud Forest <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Gardens+by+the+Bay+Singapore">📍 Map</a></div></div>
+        <div class="row"><div class="time">evening</div><div class="act"><b>Garden Rhapsody</b> at Supertree Grove — free light and sound show, runs twice nightly<ul class="sub"><li>Check the day's showtimes on arrival</li></ul></div></div>
+        <div class="row"><div class="time">then</div><div class="act"><b>Marina Bay</b> — Merlion, the skyline across the water, walk to the Esplanade <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Merlion+Park+Singapore">📍 Map</a></div></div>
+        <div class="row"><div class="time">late</div><div class="act">Supper at <b>Lau Pa Sat</b> — the satay street opens at night <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Lau+Pa+Sat+Singapore">📍 Map</a></div></div>
       </div>
-      <div class="flag">🎢</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🚇</span>Transportation</div>
+          <ul class="blist"><li>MRT + bus — cheaper than Grab and covers all of this</li><li>Compare Grab / Gojek / Zig for private hire</li><li>Get the transit card sorted first thing</li></ul></div>
+        <div class="block"><div class="bhd"><span class="i">🍴</span>Meal Suggestion</div>
+          <ul class="blist"><li>Late breakfast — kaya toast and kopi</li><li><b>Lau Pa Sat</b> satay street, supper</li><li>Maxwell Food Centre if we'd rather — chicken rice, laksa</li></ul></div>
+        <div class="block"><div class="bhd"><span class="i">💡</span>Tip</div>
+          <ul class="blist"><li>Doing Jewel today means we don't need to be at the airport again — we leave Singapore <b>by train</b>, not by air</li></ul></div>
+      </div>
     </div>
+  </div>
+
+  <!-- ========== DAY 3 ========== -->
+  <div class="day sg">
+    <div class="rail"><div class="dn">DAY</div><div class="num">3</div><div class="dt">Sun<br>Dec 27</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Resorts World Sentosa</span></li>
-        <li><span class="k">Move</span><span class="v">MRT to HarbourFront → VivoCity → Sentosa Express monorail</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">In-park, or back on the mainland for dinner</span></li>
-        <li><span class="k">Do</span><span class="v">Full day at the park <span class="pill tbd">tickets not booked</span></span></li>
-        <li><span class="k">Cost</span><span class="v">Klook from <b>₱3,258</b> each · ≈₱16,290 for five</span></li>
-      </ul>
-
-      <div class="callout">
-        <div class="ct">🎢 The ride plan — do these in this order</div>
-        <ul>
-          <li><b>Rope-drop the two longest queues first.</b> Transformers The Ride
-          and Battlestar Galactica: CYLON consistently hold the longest waits. Be at
-          the gate for opening and hit both before the park fills.</li>
-          <li><b>Battlestar Galactica: HUMAN vs CYLON</b> (Sci-Fi City) — duelling
-          coasters that launch alongside each other. CYLON is the inverted one, feet
-          dangling, and the more frightening of the pair. HUMAN is the sit-down
-          version. Ride both if the queue allows.</li>
-          <li><b>Revenge of the Mummy</b> (Ancient Egypt) — indoor coaster in near-total
-          darkness with a backwards launch. Most people's favourite in the park, and
-          it doesn't look like much from outside.</li>
-          <li><b>TRANSFORMERS The Ride</b> (Sci-Fi City) — 3D motion simulator, the
-          park's signature attraction.</li>
-          <li><b>Jurassic Park Rapids Adventure</b> (The Lost World) — you <i>will</i> get
-          soaked, not sprinkled. Save it for the afternoon heat and bring a dry bag
-          or poncho for phones.</li>
-          <li><b>Minion Land</b> — the newest zone, opened Feb 2025 where Madagascar
-          used to be. Despicable Me Minion Mayhem, Silly Swirly, and Buggie Boogie,
-          which is exclusive to Singapore.</li>
-          <li><b>Puss in Boots' Giant Journey</b> (Far Far Away) — suspended family
-          coaster, gentler, good views over the park.</li>
-          <li><b>WaterWorld</b> — a live stunt show rather than a ride, with real
-          explosions. Worth timing a sit-down around; check the day's showtimes on
-          arrival. Front rows get drenched.</li>
-        </ul>
+      <div class="main">
+        <div class="dtitle">Universal Studios Singapore · Sentosa</div>
+        <div class="row"><div class="time">open</div><div class="act"><b>Be at the gate for opening</b> — the whole plan depends on this <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Singapore">📍 Map</a></div></div>
+        <div class="row"><div class="time">1st</div><div class="act"><b>TRANSFORMERS The Ride</b> — 3D simulator, longest queue in the park</div></div>
+        <div class="row"><div class="time">2nd</div><div class="act"><b>Battlestar Galactica: CYLON</b> — inverted, feet dangling, the scarier of the pair<ul class="sub"><li>Ride <b>HUMAN</b> too if the queue allows — it duels alongside</li></ul></div></div>
+        <div class="row"><div class="time">3rd</div><div class="act"><b>Revenge of the Mummy</b> — indoor coaster, near-total dark, backwards launch. Most people's favourite</div></div>
+        <div class="row"><div class="time">then</div><div class="act"><b>Minion Land</b> — newest zone (Feb 2025)<ul class="sub"><li>Minion Mayhem · Silly Swirly · <b>Buggie Boogie</b>, Singapore-exclusive</li></ul></div></div>
+        <div class="row"><div class="time">pm</div><div class="act"><b>Jurassic Park Rapids</b> — you get <i>soaked</i>, not sprinkled. Save for the afternoon heat</div></div>
+        <div class="row"><div class="time">pm</div><div class="act"><b>Puss in Boots' Giant Journey</b> — suspended family coaster, good views</div></div>
+        <div class="row"><div class="time">show</div><div class="act"><b>WaterWorld</b> — live stunt show with real explosions. Front rows get drenched</div></div>
       </div>
-
-      <div class="callout flag">
-        <div class="ct">⚠ Peak week — book ahead</div>
-        <ul>
-          <li>Buy <b>dated tickets in advance</b>, not at the gate. Confirm the day's
-          opening hours when booking; they shift seasonally.</li>
-          <li>Price an <b>express/skip-the-queue pass</b>. In the busiest week of the
-          year it may be the difference between six rides and twelve — though for
-          five people it's a real budget call.</li>
-          <li>This gets its own full day deliberately. Don't stack anything else onto it.</li>
-          <li>Monday the 28th would likely be marginally quieter than a Sunday if you'd
-          rather swap the two days. Both are peak regardless.</li>
-          <li>Ride line-ups change — confirm what's open and what's under refurbishment
-          nearer the date.</li>
-        </ul>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🎟️</span>Tickets</div>
+          <ul class="blist">
+            <li>Klook from <b>₱3,258</b> each · ≈₱16,290 for five</li>
+            <li>Buy <b>dated tickets ahead</b> — peak week</li>
+            <li>Price an express pass; it may double the rides</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">🚇</span>Transportation</div>
+          <ul class="blist"><li>MRT → HarbourFront</li><li>VivoCity → Sentosa Express monorail</li></ul></div>
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist">
+            <li>Dry bag or poncho for phones on the Rapids</li>
+            <li>Confirm opening hours — they shift seasonally</li>
+            <li>Pack tonight; tomorrow is a travel day</li>
+          </ul></div>
       </div>
     </div>
-  </article>
+  </div>
 
-  <article class="day sg">
-    <div class="head">
-      <div class="num">4</div>
-      <div class="titles">
-        <div class="dtitle">Singapore · last full day</div>
-        <div class="ddate">Monday, 28 December 2026</div>
-      </div>
-      <div class="flag">🇸🇬</div>
-    </div>
+  <!-- ========== DAY 4 ========== -->
+  <div class="day my">
+    <div class="rail"><div class="dn">DAY</div><div class="num">4</div><div class="dt">Mon<br>Dec 28</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Singapore</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">—</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="day my">
-    <div class="head">
-      <div class="num">5</div>
-      <div class="titles">
-        <div class="dtitle">Singapore → Malaysia</div>
-        <div class="ddate">Tuesday, 29 December 2026</div>
+      <div class="main">
+        <div class="dtitle">Singapore → Johor Bahru → Kuala Lumpur · overland</div>
+        <div class="row"><div class="time">am</div><div class="act">Check out. A rest day after Universal — no rush, but be at Woodlands by midday</div></div>
+        <div class="row"><div class="time">midday</div><div class="act"><b>Cross to Johor Bahru</b> — KTM Shuttle Tebrau from Woodlands, or bus <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Woodlands+Train+Checkpoint+Singapore">📍 Map</a><ul class="sub"><li>The train ride itself is ~5 min; checkpoint to checkpoint 20–40 min</li><li>Buses make you get off twice — Singapore exit, then Malaysia entry</li></ul></div></div>
+        <div class="row"><div class="time">pm</div><div class="act"><b>JB Sentral → KL</b> by ETS train <a class="pin" href="https://www.google.com/maps/search/?api=1&query=JB+Sentral+Railway+Station">📍 Map</a></div></div>
+        <div class="row"><div class="time">eve</div><div class="act">Arrive <b>KL Sentral</b>, check in <a class="pin" href="https://www.google.com/maps/search/?api=1&query=KL+Sentral+Kuala+Lumpur">📍 Map</a></div></div>
       </div>
-      <div class="flag">🇲🇾</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🚆</span>Transportation</div>
+          <ul class="blist">
+            <li><b>Shuttle Tebrau</b> · 5m ride, 20–40m with checkpoints · <b>S$5</b> (≈₱220)</li>
+            <li><b>ETS JB → KL</b> · 4h 10m Platinum, 4h 36m Gold · <b>RM73–81</b> (≈₱950–1,055)</li>
+            <li>Whole day door to door: <b>~5–5.5h</b> plus the morning</li>
+            <li>The new <b>RTS Link</b> is due to open Dec 2026 — check whether it's running</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist">
+            <li>Cross <b>mid-morning, mid-week</b> — evenings and holidays are the worst congestion</li>
+            <li><b>MDAC</b> due within 3 days of this crossing</li>
+            <li>This is a travel day. Don't plan sightseeing into it</li>
+          </ul></div>
+      </div>
     </div>
+  </div>
+
+  <!-- ========== DAY 5 ========== -->
+  <div class="day my">
+    <div class="rail"><div class="dn">DAY</div><div class="num">5</div><div class="dt">Tue<br>Dec 29</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v empty">Which city? JB · KL · Penang · Melaka</span></li>
-        <li><span class="k">Move</span><span class="v empty">Land crossing to JB, or flight to KL — undecided</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">—</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="day my">
-    <div class="head">
-      <div class="num">6</div>
-      <div class="titles">
-        <div class="dtitle">Malaysia</div>
-        <div class="ddate">Wednesday, 30 December 2026</div>
+      <div class="main">
+        <div class="dtitle">Kuala Lumpur · the only real Malaysia day</div>
+        <div class="row"><div class="time">early</div><div class="act"><b>Batu Caves</b> — rainbow stairs, giant Murugan statue. Go first, before the heat <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Batu+Caves">📍 Map</a></div></div>
+        <div class="row"><div class="time">late am</div><div class="act"><b>Merdeka Square cluster</b> — Sultan Abdul Samad, River of Life, I Love KL sign. All walkable together <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Merdeka+Square+Kuala+Lumpur">📍 Map</a></div></div>
+        <div class="row"><div class="time">pm</div><div class="act"><b>Thean Hou Temple</b> — six-tier Chinese temple, the guide author's favourite spot in KL <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Thean+Hou+Temple+Kuala+Lumpur">📍 Map</a></div></div>
+        <div class="row"><div class="time">dusk</div><div class="act"><b>Petronas Twin Towers</b> — best photos from the northwest side, and they light up after dark <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Petronas+Twin+Towers">📍 Map</a></div></div>
+        <div class="row"><div class="time">eve</div><div class="act"><b>Jalan Alor</b> — night food street: grilled wings, satay, sambal stingray <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Jalan+Alor+Kuala+Lumpur">📍 Map</a></div></div>
       </div>
-      <div class="flag">🇲🇾</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🚇</span>Transportation</div>
+          <ul class="blist"><li>LRT / monorail + short Grab rides</li><li>Merdeka Square cluster is walkable end to end</li></ul></div>
+        <div class="block"><div class="bhd"><span class="i">💡</span>Tip</div>
+          <ul class="blist">
+            <li>Outdoor stops <b>before 11am</b> — beats heat and crowds</li>
+            <li>Skippable per the guides: Central Market ("boring"), Petaling Street (much like Singapore's Chinatown, which we'll just have seen)</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist"><li>Confirm tomorrow's train tickets tonight. Everything depends on them</li></ul></div>
+      </div>
     </div>
+  </div>
+
+  <!-- ========== DAY 6 ========== -->
+  <div class="day my">
+    <div class="rail"><div class="dn">DAY</div><div class="num">6</div><div class="dt">Wed<br>Dec 30</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v empty">—</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">—</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="day th">
-    <div class="head">
-      <div class="num">7</div>
-      <div class="titles">
-        <div class="dtitle">→ Bangkok · New Year's Eve</div>
-        <div class="ddate">Thursday, 31 December 2026</div>
+      <div class="main">
+        <div class="dtitle">KL → Padang Besar → overnight sleeper to Bangkok</div>
+        <div class="row"><div class="time">morning</div><div class="act"><b>KL Sentral → Padang Besar</b> by ETS — about <b>5h 30m</b> to the Thai border <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Padang+Besar+Railway+Station">📍 Map</a></div></div>
+        <div class="row"><div class="time">afternoon</div><div class="act">Clear <b>Malaysian exit + Thai entry</b> at Padang Besar station — both are done in the same building</div></div>
+        <div class="row"><div class="time">17:00</div><div class="act"><b>Train #46 departs</b> — 2nd class sleeper, the only daily service <ul class="sub"><li>Berths roughly THB 848–918 each</li></ul></div></div>
+        <div class="row"><div class="time">overnight</div><div class="act">16 hours on the rails. This is the night's accommodation — no hotel needed</div></div>
       </div>
-      <div class="flag">🎆</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Single point of failure</div>
+          <ul class="blist">
+            <li>#46 runs <b>once a day, 17:00</b>. Miss it and New Year's Eve in Bangkok is gone</li>
+            <li>Take the <b>earliest</b> KL departure, not the one that just about connects</li>
+            <li>Have a fallback: a same-day flight from Penang or Hat Yai</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">🎫</span>Booking &amp; cost</div>
+          <ul class="blist">
+            <li><b>KL → Padang Besar</b> · ~5h 30m · ≈RM70–90 <i>(estimate)</i></li>
+            <li><b>#46 sleeper</b> · 16h 05m · <b>฿848–918</b> (≈₱1,485–1,605)</li>
+            <li>Book <b>both</b> as far ahead as they'll sell — New Year sleepers go early</li>
+            <li>Five berths together needs advance booking, not walk-up</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">💡</span>Tip</div>
+          <ul class="blist"><li>Food and water on board before Padang Besar</li><li><b>TDAC</b> must already be submitted — Thai entry happens here</li></ul></div>
+      </div>
     </div>
+  </div>
+
+  <!-- ========== DAY 7 ========== -->
+  <div class="day th">
+    <div class="rail"><div class="dn">DAY</div><div class="num">7</div><div class="dt">Thu<br>Dec 31</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Bangkok 🇹🇭</span></li>
-        <li><span class="k">Move</span><span class="v empty">Flight from Malaysia — land with room to spare</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">Book early — NYE rates</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">Fireworks — riverside, ICONSIAM, or a rooftop</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-      <div class="callout">
-        <div class="ct">🎆 The anchor of the whole trip</div>
-        <ul>
-          <li>Everything before this exists to get us here on time. Don't schedule a same-day arrival cutting it fine.</li>
-          <li>Riverside viewing spots, rooftop bars and NYE dinners sell out weeks ahead — pick one and book it.</li>
-        </ul>
+      <div class="main">
+        <div class="dtitle">Arrive Bangkok · New Year's Eve 🎆</div>
+        <div class="row"><div class="time">11:00</div><div class="act"><b>Train #46 arrives Bangkok</b> — Krung Thep Aphiwat / Bang Sue <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Krung+Thep+Aphiwat+Central+Terminal">📍 Map</a></div></div>
+        <div class="row"><div class="time">midday</div><div class="act">Check in, shower, sleep off the train. <b>Don't plan anything for the afternoon</b></div></div>
+        <div class="row"><div class="time">evening</div><div class="act empty">Fireworks spot not chosen — riverside, ICONSIAM or a rooftop</div></div>
+        <div class="row"><div class="time">00:00</div><div class="act"><b>The reason for the whole trip</b></div></div>
+      </div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist">
+            <li>Everything before this exists to get us here on time — and we arrive <b>the same day</b>. No slack</li>
+            <li>NYE hotels, rooftops and dinners <b>sell out weeks ahead</b></li>
+            <li>Transport gets ugly late on the 31st — walk or BTS, not a car</li>
+          </ul></div>
+        <div class="block"><div class="bhd"><span class="i">📶</span>On arrival</div>
+          <ul class="blist"><li>eSIM should already be live — we entered Thailand yesterday</li></ul></div>
       </div>
     </div>
-  </article>
+  </div>
 
-  <article class="day th">
-    <div class="head">
-      <div class="num">8</div>
-      <div class="titles">
+  <!-- ========== DAY 8 ========== -->
+  <div class="day th">
+    <div class="rail"><div class="dn">DAY</div><div class="num">8</div><div class="dt">Fri<br>Jan 1</div></div>
+    <div class="body">
+      <div class="main">
         <div class="dtitle">Bangkok · New Year's Day</div>
-        <div class="ddate">Friday, 1 January 2027</div>
+        <div class="row"><div class="time">—</div><div class="act empty">Slow start. Everyone will be wrecked — two nights of bad sleep and a countdown.</div></div>
       </div>
-      <div class="flag">🇹🇭</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🚇</span>Transportation</div>
+          <ul class="blist"><li>BTS + MRT + Chao Phraya express boat</li><li>Grab rather than hailing — avoids taxi scams</li></ul></div>
+      </div>
     </div>
-    <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Bangkok</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">Slow start — everyone will be wrecked</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
+  </div>
 
-  <article class="day th">
-    <div class="head">
-      <div class="num">9</div>
-      <div class="titles">
+  <!-- ========== DAY 9 ========== -->
+  <div class="day th">
+    <div class="rail"><div class="dn">DAY</div><div class="num">9</div><div class="dt">Sat<br>Jan 2</div></div>
+    <div class="body">
+      <div class="main">
         <div class="dtitle">Bangkok</div>
-        <div class="ddate">Saturday, 2 January 2027</div>
+        <div class="row"><div class="time">—</div><div class="act empty">Nothing planned yet. Pick <b>one district</b> — Historic Quarter (Wat Pho, Wat Arun), Chinatown, Silom, Siam or Sukhumvit.</div></div>
       </div>
-      <div class="flag">🇹🇭</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">💡</span>Tip</div>
+          <ul class="blist"><li>Traffic is the constraint — one or two districts a day, not a city-wide checklist</li><li>Bring <b>socks</b> on temple days</li></ul></div>
+      </div>
     </div>
-    <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Bangkok</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">—</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
+  </div>
 
-  <article class="day th">
-    <div class="head">
-      <div class="num">10</div>
-      <div class="titles">
+  <!-- ========== DAY 10 ========== -->
+  <div class="day th">
+    <div class="rail"><div class="dn">DAY</div><div class="num">10</div><div class="dt">Sun<br>Jan 3</div></div>
+    <div class="body">
+      <div class="main">
         <div class="dtitle">Bangkok</div>
-        <div class="ddate">Sunday, 3 January 2027</div>
+        <div class="row"><div class="time">—</div><div class="act empty">Nothing planned yet.</div></div>
       </div>
-      <div class="flag">🇹🇭</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🍴</span>Meal Suggestion</div>
+          <ul class="blist"><li>Yaowarat (Chinatown) — explore with no agenda</li><li>MBK or Terminal 21 food courts</li></ul></div>
+      </div>
     </div>
-    <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v">Bangkok</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">—</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
+  </div>
 
-  <article class="day air">
-    <div class="head">
-      <div class="num">11</div>
-      <div class="titles">
+  <!-- ========== DAY 11 ========== -->
+  <div class="day air">
+    <div class="rail"><div class="dn">DAY</div><div class="num">11</div><div class="dt">Mon<br>Jan 4</div></div>
+    <div class="body">
+      <div class="main">
         <div class="dtitle">Fly home <span class="pill tbd">provisional</span></div>
-        <div class="ddate">Monday, 4 January 2027</div>
+        <div class="row"><div class="time">—</div><div class="act empty">Return not booked — this date is a placeholder, and the trip length moves with it.</div></div>
       </div>
-      <div class="flag">✈️</div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist"><li>Booking this also solves the onward-travel proof problem</li><li>Going home overland too would add ~2 more days</li></ul></div>
+      </div>
     </div>
-    <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v empty">Bangkok → home</span></li>
-        <li><span class="k">Move</span><span class="v empty">Return not booked — this date is a placeholder</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-    </div>
-  </article>
+  </div>
 </section>
 
 <!-- ============================== MONEY ============================= -->
