@@ -14,7 +14,7 @@
 <title>TRIP NAME · MONTH YEAR</title>
 <meta name="description" content="One line describing the trip.">
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/site.css?v=2">
 </head>
 <body>
 <div class="wrap">
@@ -59,29 +59,29 @@
   <h2>The days</h2>
   <div class="rule"></div>
 
-  <!-- ---- copy one <article> per day ---- -->
-  <article class="day air">
-    <div class="head">
-      <div class="num">1</div>
-      <div class="titles">
-        <div class="dtitle">What happens today</div>
-        <div class="ddate">Weekday, D Month YYYY</div>
-      </div>
-      <div class="flag">✈️</div>
-    </div>
+  <!-- ---- copy one .day block per day ----
+       Structure is fixed: rail (DAY / number / date) + body (main timeline
+       | side blocks). Don't nest anything else at these levels — the grid
+       depends on exactly this shape. -->
+  <div class="day air">
+    <div class="rail"><div class="dn">DAY</div><div class="num">1</div><div class="dt">Fri<br>Mon D</div></div>
     <div class="body">
-      <ul class="slots">
-        <li><span class="k">Where</span><span class="v empty">—</span></li>
-        <li><span class="k">Move</span><span class="v empty">—</span></li>
-        <li><span class="k">Sleep</span><span class="v empty">—</span></li>
-        <li><span class="k">Eat</span><span class="v empty">—</span></li>
-        <li><span class="k">Do</span><span class="v empty">—</span></li>
-        <li><span class="k">Cost</span><span class="v empty">—</span></li>
-      </ul>
-      <!-- optional per-day callout:
-      <div class="callout"><div class="ct">Title</div><ul><li>Point.</li></ul></div> -->
+      <div class="main">
+        <div class="dtitle">What happens today</div>
+        <div class="row"><div class="time">09:00</div><div class="act"><b>The thing</b> — detail after the dash <a class="pin" href="https://www.google.com/maps/search/?api=1&query=PLACE+NAME">📍 Map</a></div></div>
+        <div class="row"><div class="time">11:00</div><div class="act">Another stop<ul class="sub"><li>Sub-point that hangs off it</li></ul></div></div>
+        <div class="row"><div class="time">—</div><div class="act empty">Nothing planned yet — say so rather than inventing something</div></div>
+      </div>
+      <div class="side">
+        <div class="block"><div class="bhd"><span class="i">🚇</span>Transportation</div>
+          <ul class="blist"><li>How we get around · duration · <b>cost</b></li></ul></div>
+        <div class="block"><div class="bhd"><span class="i">🍴</span>Meal Suggestion</div>
+          <ul class="blist"><li>Where to eat <span class="rate">10/10</span></li></ul></div>
+        <div class="block"><div class="bhd"><span class="i">⚠️</span>Watch out</div>
+          <ul class="blist"><li>Anything that could go wrong today</li></ul></div>
+      </div>
     </div>
-  </article>
+  </div>
 
 </section>
 
