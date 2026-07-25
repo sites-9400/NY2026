@@ -4,7 +4,13 @@ A workspace for planning trips and sharing them with the people coming along.
 
 Each trip gets a folder for the private working material and a page on a small
 static site. The site is the thing that gets shared — one link, always current,
-readable on a phone. It's hosted on Firebase.
+readable on a phone.
+
+- **Live site:** https://travel-f412b.web.app
+- **Firebase project:** `travel-f412b`
+- **Repo:** https://github.com/sites-9400/NY2026 — **public.** Assume anything
+  committed is world-readable and search-indexed. `bookings/` and the Hong Kong
+  archive are gitignored for exactly this reason; they live in Dropbox only.
 
 ## Layout
 
@@ -64,16 +70,13 @@ cd public && python3 -m http.server 8080     # → http://localhost:8080
 ## Deploying
 
 ```sh
-firebase deploy --only hosting
+firebase deploy --only hosting     # → https://travel-f412b.web.app
+git push                           # source, minus the gitignored private folders
 ```
 
-The Firebase CLI is not installed yet. First time:
-
-```sh
-npm install -g firebase-tools
-firebase login
-# then put the project ID in .firebaserc
-```
+The CLI is installed and authenticated, and `.firebaserc` points at
+`travel-f412b`. Deploying and pushing are separate steps — hosting serves from
+`public/` on disk, not from the repo.
 
 ## Starting a new trip
 
