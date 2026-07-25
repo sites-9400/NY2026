@@ -1,16 +1,18 @@
 /* ==========================================================================
    Travel Companion — shared stylesheet
-   Design system distilled from the Hong Kong Jul 2026 itinerary: cream paper
-   + rust/teal accents + the per-day colour rails from the one-page
+   Design system distilled from the Hong Kong Jul 2026 itinerary: clean white
+   ground + rust/teal accents + the per-day colour rails from the one-page
    infographic. Type is Helvetica throughout (the HK original set headings in
    Georgia; switched Jul 2026 at the user's request).
    Mobile-first. No build step — plain CSS, served straight from Firebase.
    ========================================================================== */
 
 :root{
-  /* paper + ink */
-  --paper:#faf8f2; --card:#fffdf8; --ink:#2a2a28; --gray:#6a675f; --soft:#8a867c;
-  --line:#e2ddd0; --callout:#f1ece1;
+  /* Clean white ground with neutral greys. The Hong Kong original was warm
+     cream; this is deliberately cooler and plainer so the accent colours and
+     the day rails do all the talking. */
+  --paper:#ffffff; --card:#ffffff; --ink:#18181b; --gray:#52525b; --soft:#8b8b93;
+  --line:#e4e4e7; --callout:#f4f4f5;
   /* accents */
   --rust:#c1531f; --rustd:#a8410f; --teal:#2c7a86; --red:#b23a1c; --warn:#9a5a12;
   /* per-country rails (reused as per-day accents) */
@@ -38,6 +40,20 @@
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
+
+/* ---------- monochrome icons ----------
+   Stroke-only symbols that inherit currentColor, so an icon takes the colour
+   of whatever it sits in — day accent, warning amber, link rust. These replaced
+   the emoji set, which rendered full-colour and differently on every platform. */
+.sprite{ display:none; }
+.ic{
+  width:1em; height:1em; vertical-align:-.14em;
+  fill:none; stroke:currentColor; stroke-width:1.8;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.bhd .ic, .ct .ic{ width:1.05em; height:1.05em; }
+.pin .ic{ width:.9em; height:.9em; vertical-align:-.1em; margin-right:.1em; }
+td .ic{ margin-right:.3em; color:var(--soft); }
 
 html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 
@@ -200,6 +216,12 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 }
 #routemap{ width:100%; min-width:26rem; height:auto; display:block; }
 
+/* coastline behind the route — Natural Earth 50m, same projection as the nodes */
+#land path{ fill:#eceef1; stroke:#dcdfe4; stroke-width:.6; }
+@media (prefers-color-scheme:dark){ #land path{ fill:#262530; stroke:#343240; } }
+:root[data-theme="dark"] #land path{ fill:#262530; stroke:#343240; }
+:root[data-theme="light"] #land path{ fill:#eceef1; stroke:#dcdfe4; }
+
 .leg .hit{ stroke:transparent; stroke-width:22; cursor:pointer; }
 .leg .ln{ stroke:var(--soft); stroke-width:2.5; stroke-linecap:round; pointer-events:none;
           transition:stroke .15s ease, stroke-width .15s ease; }
@@ -303,7 +325,7 @@ footer{
 /* ---------- print: keep the paper look, drop the furniture ---------- */
 
 @media print{
-  :root{ --paper:#faf8f2; --card:#fffdf8; --ink:#2a2a28; }
+  :root{ --paper:#ffffff; --card:#ffffff; --ink:#18181b; }
   @page{ size:letter; margin:.55in .65in; }
   body{ font-size:10.5px; padding:0; }
   nav.days{ display:none; }
