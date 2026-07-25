@@ -114,7 +114,7 @@ way; this is a page other people type into.
 
 ## Design lineage
 
-The rust and teal accents and the coloured day rails come from the Hong Kong
+The wine accent and the coloured day rails come from the Hong Kong
 Jul 2026 itinerary, which was built for print. The originals are in
 `2026-07-HongKong/` if you want to see where a pattern came from. `site.css` is
 that system adapted for screens, with dark mode and a print stylesheet.
@@ -124,6 +124,9 @@ request — don't drift back:
 
 - **A clean white ground, not the warm cream.** The cream read as a default
   template rather than a choice.
+- **A wine accent, not rust.** The original rust (`#c1531f`) read as Claude's own
+  brand colour; it was swapped for `#8c2f4c` in Jul 2026. The token is `--brand`,
+  never a colour name, so the next change is one line.
 - **Monochrome stroke icons, never emoji.** Icons live in an SVG sprite and
   inherit `currentColor`, so they take each day's accent. Emoji rendered
   full-colour and differently on every platform — and note that plain glyphs

@@ -13,22 +13,32 @@
     "trailingSlash": true,
     "headers": [
       {
-        "$comment": "HTML and CSS revalidate every load. This is a living document edited often and read by a handful of people, so staleness costs more than the bandwidth does. Images stay cached - they don't change once added.",
-        "source": "**/*.@(html|css|js)",
+        "$comment": "Everything revalidates by default. cleanUrls means a page is served at /2026-12-sea/ with no .html on the path, so a **/*.html glob never matched it and pages were going out with the default one-hour cache. Matching ** and letting the image rule below override is what actually holds.",
+        "source": "**",
         "headers": [
-          { "key": "Cache-Control", "value": "no-cache, max-age=0" }
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0"
+          }
         ]
       },
       {
-        "source": "**/*.@(jpg|jpeg|png|webp|svg|woff2)",
+        "$comment": "Images do not change once added, so they may sit in cache.",
+        "source": "**/*.@(jpg|jpeg|png|webp|svg|ico|woff2)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=86400" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
         ]
       },
       {
         "source": "**",
         "headers": [
-          { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
+          }
         ]
       }
     ]

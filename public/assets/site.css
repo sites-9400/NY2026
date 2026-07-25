@@ -1,7 +1,7 @@
 /* ==========================================================================
    Travel Companion — shared stylesheet
    Design system distilled from the Hong Kong Jul 2026 itinerary: clean white
-   ground + rust/teal accents + the per-day colour rails from the one-page
+   ground + a wine accent + the per-day colour rails from the one-page
    infographic. Type is Helvetica throughout (the HK original set headings in
    Georgia; switched Jul 2026 at the user's request).
    Mobile-first. No build step — plain CSS, served straight from Firebase.
@@ -14,13 +14,19 @@
   --paper:#ffffff; --card:#ffffff; --ink:#18181b; --gray:#52525b; --soft:#8b8b93;
   --line:#e4e4e7; --callout:#f4f4f5;
   /* accents */
-  --rust:#c1531f; --rustd:#a8410f; --teal:#2c7a86; --red:#b23a1c; --warn:#9a5a12;
-  /* per-country rails (reused as per-day accents) */
-  --sg:#e0567a;  --sgbg:#fdeef2;
-  --my:#1fa899;  --mybg:#e7f6f4;
-  --th:#e8942e;  --thbg:#fdf2e2;
-  --air:#3f79c8; --airbg:#e9f1fb;
-  --tbd:#7d63c4; --tbdbg:#f1ecfa;
+  --brand:#8c2f4c; --brandd:#74253d; --red:#b23a1c; --warn:#9a5a12;
+  --green:#1a7f5a;
+  /* text that sits on top of a brand or day-accent fill */
+  --onfill:#ffffff;
+  /* Per-country colours, in two strengths. The vivid one (--sgv) is the rail:
+     a solid block of colour, and the design's signature. The plain one (--sg)
+     is the same hue darkened until it clears 4.5:1 as text on white, which the
+     rail colour never did. --sgon is what reads on top of the vivid rail. */
+  --sg:#da345f;  --sgv:#e0567a;  --sgon:#18181b;  --sgbg:#fdeef2;
+  --my:#188378;  --myv:#1fa899;  --myon:#18181b;  --mybg:#e7f6f4;
+  --th:#aa6613;  --thv:#e8942e;  --thon:#18181b;  --thbg:#fdf2e2;
+  --air:#3b76c7; --airv:#3b76c7; --airon:#ffffff; --airbg:#e9f1fb;
+  --tbd:#7d63c4; --tbdv:#7d63c4; --tbdon:#ffffff; --tbdbg:#f1ecfa;
 
   /* Helvetica throughout. --display is kept separate from --body so the
      headline treatment can diverge in weight and tracking without a
@@ -28,13 +34,25 @@
   --display:"Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
   --body:"Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
   --maxw:52rem;
+
+  /* Each .day overrides these with its country colour. The default here is
+     what anything using --accent outside a day card falls back to — comment
+     threads on a section, .pin links in a table — since an undefined custom
+     property makes the whole declaration invalid, not just unstyled. */
+  --accent:var(--brand); --accentbg:var(--callout);
+  --accentfill:var(--brand); --onrail:var(--onfill);
 }
 
 @media (prefers-color-scheme:dark){
   :root{
     --paper:#16151a; --card:#1e1d24; --ink:#ece9e2; --gray:#a8a49b; --soft:#8a867c;
     --line:#33313a; --callout:#26242c;
-    --rust:#e8794a; --rustd:#f09468; --teal:#5cc0cf; --red:#e8785c; --warn:#d9a04a;
+    --brand:#e08098; --brandd:#eb9dae; --red:#e8785c; --warn:#d9a04a;
+    --green:#4fb08a;
+    /* dark-mode accents are pale, so ink on them, not white */
+    --onfill:#16151a;
+    /* the vivid rails hold on a dark ground; only the text strengths flip */
+    --sg:#e0567a; --my:#1fa899; --th:#e8942e; --air:#4980cb; --tbd:#8870c9;
     --sgbg:#2e1c24; --mybg:#132b29; --thbg:#2d2416; --airbg:#182333; --tbdbg:#231e33;
   }
 }
@@ -43,7 +61,7 @@
 
 /* ---------- monochrome icons ----------
    Stroke-only symbols that inherit currentColor, so an icon takes the colour
-   of whatever it sits in — day accent, warning amber, link rust. These replaced
+   of whatever it sits in: day accent, warning amber, link wine. These replaced
    the emoji set, which rendered full-colour and differently on every platform. */
 .sprite{ display:none; }
 .ic{
@@ -59,6 +77,15 @@ td .ic{ margin-right:.3em; color:var(--soft); }
 
 html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 
+/* Skip link. The day nav is a long row of chips, so a keyboard or screen-reader
+   visitor would otherwise tab through all of it before reaching the plan. */
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:100;
+  background:var(--brand); color:var(--onfill); padding:.6rem 1rem;
+  border-radius:0 0 .4rem 0; font-weight:700; font-size:.85rem;
+}
+.skip:focus{ left:0; text-decoration:none; }
+
 body{
   background:var(--paper); color:var(--ink);
   font-family:var(--body); font-size:16px; line-height:1.6;
@@ -67,7 +94,7 @@ body{
 
 .wrap{ max-width:var(--maxw); margin:0 auto; }
 
-a{ color:var(--rust); text-decoration:none; }
+a{ color:var(--brand); text-decoration:none; }
 a:hover{ text-decoration:underline; }
 
 /* ---------- masthead ---------- */
@@ -76,7 +103,7 @@ header.top{ padding:2.6rem 0 1.4rem; border-bottom:2px solid var(--ink); margin-
 
 .eyebrow{
   font-size:.68rem; font-weight:700; letter-spacing:.28em;
-  color:var(--rust); text-transform:uppercase;
+  color:var(--brand); text-transform:uppercase;
 }
 
 /* Helvetica wants heavier weight and negative tracking at display sizes —
@@ -95,7 +122,7 @@ h1{
   font-size:.75rem; color:var(--gray); background:var(--callout);
   border:1px solid var(--line); border-radius:999px; padding:.28rem .7rem;
 }
-.chip.hot{ color:#fff; background:var(--rust); border-color:var(--rust); }
+.chip.hot{ color:var(--onfill); background:var(--brand); border-color:var(--brand); }
 
 /* ---------- sticky day nav (a two-week trip is a long page) ---------- */
 
@@ -111,7 +138,7 @@ nav.days a{
   color:var(--gray); background:var(--card); border:1px solid var(--line);
   border-radius:999px; padding:.35rem .75rem; text-decoration:none;
 }
-nav.days a:hover{ color:var(--rust); border-color:var(--rust); }
+nav.days a:hover{ color:var(--brand); border-color:var(--brand); }
 
 /* ---------- section headings ---------- */
 
@@ -122,6 +149,30 @@ h2{
 h2 + .rule{ border-top:1.5px solid var(--ink); margin:.5rem 0 1.1rem; }
 
 h3{ font-size:1rem; font-weight:700; margin:1.4rem 0 .5rem; }
+h4{ font-size:.82rem; font-weight:800; letter-spacing:.02em; margin:1.2rem 0 .3rem; color:var(--ink); }
+
+/* A prominent outbound link, for where a subsection hands off to something
+   that lives elsewhere — the fund tracker sheet. Bigger than .pin because it
+   is the action of its subsection, not an aside inside a line of text. */
+.bigl{
+  display:inline-flex; align-items:center; gap:.42rem;
+  font-weight:800; font-size:.92rem; text-decoration:none;
+  border:1px solid var(--brand); color:var(--brand); background:var(--card);
+  border-radius:.45rem; padding:.5rem .8rem;
+}
+.bigl:hover{ background:var(--brand); color:var(--onfill); text-decoration:none; }
+.bigl:hover .ic{ color:var(--onfill); }
+
+/* Payment QR beside its instructions. The code keeps a white plate in dark
+   mode — inverting a QR stops some scanners reading it. */
+.pay{ display:flex; gap:1.1rem; align-items:flex-start; flex-wrap:wrap; margin:.8rem 0; }
+.pay img{
+  width:13.5rem; height:auto; flex:0 0 auto;
+  background:#fff; padding:.5rem; border-radius:.5rem; border:1px solid var(--line);
+}
+.pay > div{ flex:1 1 15rem; min-width:0; }
+@media (max-width:36rem){ .pay img{ width:100%; max-width:14rem; margin:0 auto; } }
+@media print{ .pay{ break-inside:avoid; } }
 
 p{ margin:.6rem 0; }
 p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
@@ -137,19 +188,19 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
    -------------------------------------------------------------------------- */
 
 .day{
-  --accent:var(--tbd); --accentbg:var(--tbdbg);
+  --accent:var(--tbd); --accentfill:var(--tbdv); --onrail:var(--tbdon); --accentbg:var(--tbdbg);
   display:grid; grid-template-columns:66px 1fr;
   background:var(--card); border:1px solid var(--line); border-radius:.75rem;
   overflow:hidden; margin-bottom:.75rem;
   box-shadow:0 1px 2px rgba(20,30,60,.05);
 }
-.day.sg { --accent:var(--sg);  --accentbg:var(--sgbg);  }
-.day.my { --accent:var(--my);  --accentbg:var(--mybg);  }
-.day.th { --accent:var(--th);  --accentbg:var(--thbg);  }
-.day.air{ --accent:var(--air); --accentbg:var(--airbg); }
+.day.sg { --accent:var(--sg); --accentfill:var(--sgv); --onrail:var(--sgon); --accentbg:var(--sgbg); }
+.day.my { --accent:var(--my); --accentfill:var(--myv); --onrail:var(--myon); --accentbg:var(--mybg); }
+.day.th { --accent:var(--th); --accentfill:var(--thv); --onrail:var(--thon); --accentbg:var(--thbg); }
+.day.air{ --accent:var(--air); --accentfill:var(--airv); --onrail:var(--airon); --accentbg:var(--airbg); }
 
 .rail{
-  background:var(--accent); color:#fff; text-align:center;
+  background:var(--accentfill); color:var(--onrail); text-align:center;
   padding:.85rem .35rem; display:flex; flex-direction:column; align-items:center;
 }
 .rail .dn{ font-size:.56rem; font-weight:800; letter-spacing:.2em; opacity:.9; }
@@ -180,15 +231,38 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 .sub li:before{ content:"•"; position:absolute; left:0; }
 
 .pin{
-  display:inline-block; font-size:.58rem; font-weight:700; white-space:nowrap;
-  padding:.06rem .42rem; border-radius:.7rem; margin-left:.3rem;
+  display:inline-flex; align-items:center; font-size:.58rem; font-weight:700;
+  white-space:nowrap; min-height:24px; padding:.1rem .55rem;
+  border-radius:.7rem; margin-left:.3rem;
   border:1px solid var(--accent); color:var(--accent); background:var(--card);
 }
-.pin:hover{ text-decoration:none; background:var(--accent); color:#fff; }
+.pin:hover{ text-decoration:none; background:var(--accent); color:var(--onfill); }
 
-/* ---------- per-day comment thread ----------
-   Spans both columns of the day body, under the timeline and side blocks. */
+/* "Add to calendar" chip. Same geometry as .pin, but it sits inside tables
+   where --accent is never set (only .day defines it), so it names --brand
+   directly, that being the colour everything interactive already uses. */
+.calbtn{
+  display:inline-flex; align-items:center; font-family:inherit; font-size:.58rem;
+  font-weight:700; letter-spacing:.04em; text-transform:uppercase; white-space:nowrap;
+  cursor:pointer; min-height:24px; padding:.1rem .6rem;
+  border-radius:.7rem; margin-left:.35rem;
+  border:1px solid var(--brand); color:var(--brand); background:var(--card);
+}
+.calbtn:hover{ background:var(--brand); color:var(--onfill); }
+.calbtn .ic{ width:.9em; height:.9em; vertical-align:-.1em; margin-right:.22em; color:inherit; }
+/* Downloading a file is silent on desktop, so the button says so itself. */
+.calbtn.done{ border-color:var(--green); color:var(--green); background:var(--card); }
+
+/* ---------- comment thread ----------
+   On a day card it spans both columns of the body, under the timeline and the
+   side blocks. It also hangs off a whole section (see .loose below). */
 .thread{ grid-column:1 / -1; border-top:1px solid var(--line); }
+
+/* The same thread on a section rather than a day card. A day card is
+   edge-to-edge so its thread needs the inset; a section is already inset. */
+.thread.loose{ margin-top:1.5rem; }
+.thread.loose .th-toggle, .thread.loose .th-panel{ padding-left:0; padding-right:0; }
+.thread.loose .th-toggle:hover{ background:none; color:var(--brandd); }
 
 .th-toggle{
   display:flex; align-items:center; gap:.35rem; width:100%;
@@ -201,7 +275,7 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
   font-size:.62rem; font-weight:800; color:var(--soft);
   border:1px solid var(--line); border-radius:999px; padding:.02rem .38rem;
 }
-.th-count.has{ color:#fff; background:var(--accent); border-color:var(--accent); }
+.th-count.has{ color:var(--onfill); background:var(--accent); border-color:var(--accent); }
 
 .th-panel{ padding:0 .9rem .85rem; }
 .th-empty{ font-size:.75rem; color:var(--soft); font-style:italic; margin:.2rem 0 .6rem; }
@@ -224,7 +298,7 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 .th-status{ font-size:.7rem; color:var(--soft); margin-right:auto; }
 .th-form button{
   font:inherit; font-size:.72rem; font-weight:800; letter-spacing:.03em;
-  color:#fff; background:var(--accent); border:0; border-radius:.4rem;
+  color:var(--onfill); background:var(--accent); border:0; border-radius:.4rem;
   padding:.4rem 1rem; cursor:pointer;
 }
 .th-form button:hover{ filter:brightness(.92); }
@@ -246,6 +320,9 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 }
 .blist li:before{ content:"•"; position:absolute; left:0; color:var(--accent); }
 .blist b{ color:var(--ink); font-weight:700; }
+/* .blist is sized for a day card's narrow side block. Add .body where the list
+   is a section's main content, so it reads at body size instead of fine print. */
+.blist.body li{ font-size:.9rem; line-height:1.5; padding-left:.85rem; margin-bottom:.3rem; }
 .rate{ font-weight:800; color:var(--accent); }
 
 @media (max-width:36rem){
@@ -277,7 +354,7 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 .leg:hover .ln, .leg:focus .ln{ stroke-width:4.5; }
 .leg.on .ln{ stroke-width:5; filter:url(#glow); }
 .leg:focus{ outline:none; }
-.leg:focus-visible .ln{ stroke:var(--rust); stroke-width:5; }
+.leg:focus-visible .ln{ stroke:var(--brand); stroke-width:5; }
 
 .node circle{ fill:var(--card); stroke:var(--soft); stroke-width:2.5; }
 .node.sg circle{ stroke:var(--sg); } .node.my circle{ stroke:var(--my); }
@@ -289,10 +366,10 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 .node text.lft{ text-anchor:end; }
 
 .mapinfo{
-  background:var(--callout); border-left:4px solid var(--rust); border-radius:.35rem;
+  background:var(--callout); border-left:4px solid var(--brand); border-radius:.35rem;
   padding:.8rem 1rem; margin-bottom:1rem; min-height:5.5rem;
 }
-.mapinfo .mi-head{ font-weight:800; color:var(--rustd); font-size:.95rem; margin-bottom:.3rem; }
+.mapinfo .mi-head{ font-weight:800; color:var(--brandd); font-size:.95rem; margin-bottom:.3rem; }
 .mapinfo .mi-meta{ display:flex; flex-wrap:wrap; gap:.35rem .9rem; margin-bottom:.4rem; }
 .mapinfo .mi-meta span{ font-size:.78rem; font-weight:700; color:var(--ink); }
 .mapinfo .mi-body{ font-size:.86rem; color:var(--gray); line-height:1.5; }
@@ -316,29 +393,44 @@ td .soft{ color:var(--soft); font-weight:400; white-space:nowrap; }
 /* ---------- callouts ---------- */
 
 .callout{
-  background:var(--callout); border-left:4px solid var(--rust); border-radius:.35rem;
+  background:var(--callout); border-left:4px solid var(--brand); border-radius:.35rem;
   padding:.85rem 1rem; margin:1.1rem 0;
 }
 .callout .ct{
-  font-weight:800; color:var(--rustd); font-size:.85rem;
+  font-weight:800; color:var(--brandd); font-size:.85rem;
   letter-spacing:.02em; margin-bottom:.4rem;
 }
 .callout.flag{ border-left-color:var(--warn); }
 .callout.flag .ct{ color:var(--warn); }
 .callout ul{ list-style:none; }
 .callout li{ position:relative; padding-left:.9rem; margin-bottom:.25rem; font-size:.9rem; color:var(--gray); }
-.callout li:before{ content:"•"; position:absolute; left:.1rem; color:var(--rust); }
+.callout li:before{ content:"•"; position:absolute; left:.1rem; color:var(--brand); }
 
 /* ---------- status pills ---------- */
 
 .pill{
-  display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.06em;
-  text-transform:uppercase; border-radius:999px; padding:.15rem .55rem;
+  display:inline-flex; align-items:center; font-size:.68rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; border-radius:999px;
+  min-height:24px; padding:.15rem .6rem;
   border:1px solid currentColor; white-space:nowrap;
 }
-.pill.booked{ color:#1a7f5a; }
+.pill.booked{ color:var(--green); }
 .pill.tbd{ color:var(--tbd); }
 .pill.risk{ color:var(--red); }
+/* sinking-fund schedule chips: paid, next up, still to come */
+.pill.done{ color:var(--green); }
+/* A link whose entire content is a pill, or that is a table cell's only
+   content, is a standalone target: give it the pill's own 24px. Links sitting
+   inside a sentence are exempt from the rule and are left in the text flow. */
+a:has(> .pill), td[data-label="Item"] a, td[data-label="Item"] b > a{
+  display:inline-flex; align-items:center; min-height:24px;
+}
+.pill.next{ color:var(--brand); }
+
+/* A wrapping row of small chips. Carries no styling of its own — the chips
+   are plain .pill, so the schedule inherits the same language as every other
+   status marker on the page. */
+.pillrow{ display:flex; flex-wrap:wrap; gap:.35rem; margin:.8rem 0; color:var(--soft); }
 
 /* ---------- tables ---------- */
 
@@ -399,7 +491,7 @@ tr.total td{ border-top:1.5px solid var(--ink); border-bottom:none; font-weight:
 .trip{
   display:block; background:var(--card); border:1px solid var(--line);
   border-radius:.85rem; padding:1.2rem 1.3rem; color:inherit; text-decoration:none;
-  border-left:6px solid var(--rust); transition:transform .12s ease, box-shadow .12s ease;
+  border-left:6px solid var(--brand); transition:transform .12s ease, box-shadow .12s ease;
 }
 .trip:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(20,20,20,.09); text-decoration:none; }
 .trip.past{ border-left-color:var(--soft); opacity:.75; }
@@ -421,6 +513,7 @@ footer{
   @page{ size:letter; margin:.55in .65in; }
   body{ font-size:10.5px; padding:0; }
   nav.days{ display:none; }
+  .calbtn{ display:none; }
   .day, .callout, table{ break-inside:avoid; }
   a{ color:inherit; }
 }

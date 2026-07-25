@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Layout study — SEA Dec 2026 in a marketplace layout</title>
+<!--
+  LAYOUT STUDY. Not the trip page, not deployed, not a Klook page.
+
+  This borrows the structural mechanics of a travel-marketplace product page
+  — image mosaic, sticky booking card, package tiles, tabbed body, itinerary
+  accordion, review block — and pours our real Southeast Asia content into
+  them, in our own palette and type. No Klook logo, wordmark or colour is
+  used, so nothing here can be mistaken for their page.
+
+  Every price and rating is real, copied from public/2026-12-sea/index.html.
+  Where we genuinely have no number, the slot is left visibly empty and says
+  so, per the house rule: never invent a detail. That rule is what makes this
+  study useful — the empty slots are exactly where the layout fights us.
+-->
+<style>
+:root{
+  --paper:#ffffff; --card:#ffffff; --ink:#18181b; --gray:#52525b; --soft:#8b8b93;
+  --line:#e4e4e7; --callout:#f4f4f5; --wash:#fafafa;
+  --rust:#8c2f4c; --rustd:#74253d; --teal:#2c7a86; --red:#b23a1c; --warn:#9a5a12;
+  --green:#1a7f5a;
+  --sg:#e0567a; --my:#1fa899; --th:#e8942e; --air:#3f79c8; --tbd:#7d63c4;
+  --display:"Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
+  --body:"Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
+  --maxw:70rem;
+  --r:.6rem;
+  --shadow:0 1px 2px rgba(24,24,27,.06), 0 8px 24px -12px rgba(24,24,27,.18);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#16151a; --card:#1e1d24; --ink:#ece9e2; --gray:#a8a49b; --soft:#8a867c;
+    --line:#33313a; --callout:#26242c; --wash:#1a191f;
+    --rust:#e08098; --rustd:#eb9dae; --teal:#5cc0cf; --red:#e8785c; --warn:#d9a04a;
+    --green:#4fb08a;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family:var(--body); background:var(--paper); color:var(--gray);
+  font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 1.1rem; }
+h1,h2,h3,h4{ font-family:var(--display); color:var(--ink); font-weight:800; letter-spacing:-.02em; line-height:1.15; }
+a{ color:var(--rust); }
+svg.ic{ width:1em; height:1em; fill:none; stroke:currentColor; stroke-width:1.8;
+        stroke-linecap:round; stroke-linejoin:round; vertical-align:-.14em; }
+.sprite{ display:none; }
+
+/* ---------- the mockup's own label, not part of the design ---------- */
+.studybar{
+  background:var(--ink); color:var(--paper); font-size:.7rem; letter-spacing:.04em;
+  padding:.5rem 0;
+}
+.studybar .wrap{ display:flex; gap:.6rem; align-items:baseline; flex-wrap:wrap; }
+.studybar b{ text-transform:uppercase; letter-spacing:.1em; font-size:.62rem; opacity:.75; }
+
+/* ---------- top chrome ---------- */
+.crumbs{ font-size:.72rem; color:var(--soft); padding:1rem 0 .5rem; }
+.crumbs a{ color:var(--soft); text-decoration:none; }
+.crumbs a:hover{ color:var(--rust); }
+
+.titlerow{ display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
+h1{ font-size:clamp(1.5rem,3.4vw,2.15rem); }
+.titlemeta{ display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-top:.5rem; font-size:.78rem; }
+.chip{
+  display:inline-flex; align-items:center; gap:.28rem; font-size:.72rem; font-weight:700;
+  border:1px solid var(--line); border-radius:999px; padding:.16rem .55rem; color:var(--gray);
+  background:var(--card); white-space:nowrap;
+}
+.chip.rate{ border-color:var(--green); color:var(--green); }
+.chip.none{ border-style:dashed; color:var(--soft); font-weight:400; font-style:italic; }
+.chip.hot{ border-color:var(--red); color:var(--red); }
+.iconbtns{ display:flex; gap:.5rem; }
+.iconbtn{
+  width:2.1rem; height:2.1rem; display:grid; place-items:center; cursor:pointer;
+  border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--gray);
+}
+.iconbtn:hover{ border-color:var(--rust); color:var(--rust); }
+
+/* ---------- image mosaic ---------- */
+.mosaic{
+  display:grid; gap:.4rem; margin:1rem 0 1.4rem;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  height:min(46vw,22rem);
+}
+.mosaic .shot:first-child{ grid-row:span 2; }   /* lead image, then a 2×2 of thumbs */
+.shot{
+  border-radius:var(--r); overflow:hidden; position:relative;
+  background:
+    repeating-linear-gradient(45deg, var(--callout) 0 10px, var(--wash) 10px 20px);
+  border:1px solid var(--line);
+  display:grid; place-items:center; text-align:center; padding:.5rem;
+}
+.shot span{ font-size:.64rem; color:var(--soft); letter-spacing:.06em; text-transform:uppercase; font-weight:700; }
+.shot.more{ background:var(--callout); }
+.shot.more b{ font-size:.8rem; color:var(--gray); }
+
+/* ---------- two-column body ---------- */
+.cols{ display:grid; grid-template-columns:1fr 20.5rem; gap:2rem; align-items:start; }
+/* A grid item defaults to min-width:auto, so one nowrap price string is enough
+   to push the whole column wider than its track. */
+.cols > main{ min-width:0; }
+
+/* ---------- sticky booking card ----------
+   The stickiness lives on the column, not the card. On the card it would have
+   no room to travel: .cols uses align-items:start, so the aside is only as
+   tall as the box and the card reaches its own bottom edge immediately. */
+.cols > aside{ position:sticky; top:3.2rem; }
+.buybox{
+  border:1px solid var(--line); border-radius:var(--r);
+  background:var(--card); box-shadow:var(--shadow); overflow:hidden;
+}
+.buybox .bb{ padding:.9rem 1rem; border-bottom:1px solid var(--line); }
+.buybox .bb:last-child{ border-bottom:0; }
+.pricelead{ font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--soft); font-weight:700; }
+.pricebig{ font-family:var(--display); font-size:1.6rem; font-weight:800; letter-spacing:-.03em; color:var(--ink); }
+.pricebig small{ font-size:.72rem; font-weight:700; color:var(--soft); letter-spacing:0; }
+.linelist{ list-style:none; font-size:.78rem; }
+.linelist li{ display:flex; justify-content:space-between; gap:.8rem; padding:.28rem 0; border-bottom:1px dashed var(--line); }
+.linelist li:last-child{ border-bottom:0; }
+.linelist .v{ font-weight:700; color:var(--ink); white-space:nowrap; }
+.linelist .v.unknown{ color:var(--soft); font-weight:400; font-style:italic; }
+.cta{
+  display:block; width:100%; text-align:center; cursor:pointer;
+  font:inherit; font-size:.85rem; font-weight:800; letter-spacing:.02em;
+  background:var(--rust); color:#fff; border:0; border-radius:.45rem; padding:.7rem 1rem;
+}
+.cta:hover{ background:var(--rustd); }
+.cta.ghost{ background:transparent; color:var(--rust); border:1px solid var(--rust); margin-top:.5rem; }
+.cta.ghost:hover{ background:var(--rust); color:#fff; }
+.bbnote{ font-size:.7rem; color:var(--soft); margin-top:.5rem; line-height:1.4; }
+
+/* ---------- sticky tabs ---------- */
+.tabs{
+  position:sticky; top:0; z-index:20; display:flex; gap:.2rem; overflow-x:auto;
+  background:var(--paper); border-bottom:1px solid var(--line); margin-bottom:1.4rem;
+  scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{ display:none; }
+.tabs a{
+  flex:0 0 auto; font-size:.78rem; font-weight:700; color:var(--gray);
+  text-decoration:none; padding:.75rem .85rem; border-bottom:2px solid transparent;
+}
+.tabs a:hover{ color:var(--rust); }
+.tabs a.on{ color:var(--rust); border-bottom-color:var(--rust); }
+
+/* ---------- generic blocks ---------- */
+section.blk{ padding:0 0 2rem; }
+section.blk > h2{ font-size:1.15rem; margin-bottom:.2rem; }
+.sub{ font-size:.8rem; color:var(--soft); margin-bottom:.9rem; }
+
+.incl{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+.incl ul{ list-style:none; font-size:.83rem; }
+.incl li{ position:relative; padding-left:1.3rem; margin-bottom:.35rem; }
+.incl li svg{ position:absolute; left:0; top:.22em; }
+.incl .yes svg{ color:var(--green); }
+.incl .no svg{ color:var(--soft); }
+.incl h4{ font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--soft); margin-bottom:.5rem; }
+
+/* ---------- package / option tiles ---------- */
+.opts{ display:grid; gap:.6rem; }
+.opt{
+  border:1px solid var(--line); border-radius:var(--r); padding:.85rem 1rem; background:var(--card);
+  display:grid; grid-template-columns:1fr auto; gap:.4rem 1rem; align-items:start; cursor:pointer;
+}
+.opt:hover{ border-color:var(--rust); }
+.opt.pick{ border-color:var(--rust); box-shadow:inset 0 0 0 1px var(--rust); }
+.opt h4{ font-size:.88rem; }
+.opt p{ font-size:.78rem; margin-top:.2rem; }
+.opt .price{ font-family:var(--display); font-weight:800; color:var(--ink); font-size:.95rem; white-space:nowrap; text-align:right; }
+/* the sub-label is prose, not a figure — it must be allowed to wrap, or the
+   auto-sized price column drags the whole page wider than the viewport */
+.opt .price small{ display:block; font-size:.66rem; font-weight:400; color:var(--soft); white-space:normal; }
+.opt .tags{ grid-column:1/-1; display:flex; gap:.35rem; flex-wrap:wrap; margin-top:.15rem; }
+
+/* ---------- activity card grid ---------- */
+.grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(13rem,1fr)); gap:1rem; }
+.pcard{
+  border:1px solid var(--line); border-radius:var(--r); background:var(--card);
+  overflow:hidden; display:flex; flex-direction:column;
+}
+.pcard:hover{ box-shadow:var(--shadow); }
+.pcard .shot{ border:0; border-radius:0; height:7.5rem; }
+.pcard .pb{ padding:.7rem .8rem .8rem; display:flex; flex-direction:column; gap:.35rem; flex:1; }
+.pcard h4{ font-size:.85rem; line-height:1.25; }
+.pcard .meta{ display:flex; gap:.35rem; flex-wrap:wrap; }
+.pcard .foot{ margin-top:auto; padding-top:.4rem; display:flex; align-items:flex-end; justify-content:space-between; gap:.5rem; }
+.pcard .from{ font-size:.64rem; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); font-weight:700; }
+.pcard .amt{ font-family:var(--display); font-size:1.05rem; font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+.pcard .x5{ font-size:.68rem; color:var(--soft); }
+.mini{
+  font-size:.7rem; font-weight:800; letter-spacing:.03em; color:var(--rust);
+  border:1px solid var(--rust); border-radius:.35rem; padding:.25rem .5rem; background:transparent;
+  cursor:pointer; font-family:inherit; white-space:nowrap;
+}
+.mini:hover{ background:var(--rust); color:#fff; }
+
+/* ---------- itinerary accordion ---------- */
+.acc{ border:1px solid var(--line); border-radius:var(--r); overflow:hidden; }
+.acc details{ border-bottom:1px solid var(--line); }
+.acc details:last-child{ border-bottom:0; }
+.acc summary{
+  display:grid; grid-template-columns:3.4rem 1fr auto; gap:.8rem; align-items:center;
+  padding:.7rem .9rem; cursor:pointer; list-style:none; background:var(--card);
+}
+.acc summary::-webkit-details-marker{ display:none; }
+.acc summary:hover{ background:var(--wash); }
+.daytag{
+  font-size:.6rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  text-align:center; border-radius:.35rem; padding:.3rem .1rem; color:#fff; line-height:1.1;
+}
+.daytag b{ display:block; font-size:1rem; letter-spacing:-.02em; }
+.d-air{ background:var(--air); } .d-sg{ background:var(--sg); }
+.d-my{ background:var(--my); } .d-th{ background:var(--th); }
+.acc .dt{ font-size:.86rem; font-weight:700; color:var(--ink); }
+.acc .dd{ font-size:.73rem; color:var(--soft); }
+.acc .caret{ color:var(--soft); font-size:.8rem; }
+.acc details[open] .caret{ transform:rotate(180deg); }
+.acc .body{ padding:.2rem .9rem 1rem 5.1rem; font-size:.81rem; background:var(--card); }
+.acc .body ul{ list-style:none; }
+.acc .body li{ position:relative; padding-left:.9rem; margin-bottom:.25rem; }
+.acc .body li:before{ content:"•"; position:absolute; left:0; color:var(--soft); }
+
+/* ---------- review block ---------- */
+.revhead{ display:grid; grid-template-columns:auto 1fr; gap:1.4rem; align-items:center;
+          border:1px solid var(--line); border-radius:var(--r); padding:1rem; background:var(--card); }
+.revbig{ font-family:var(--display); font-size:2.4rem; font-weight:800; letter-spacing:-.04em; color:var(--soft); }
+.bars{ display:grid; gap:.25rem; }
+.bar{ display:grid; grid-template-columns:2.6rem 1fr; gap:.5rem; align-items:center; font-size:.7rem; color:var(--soft); }
+.bar i{ height:.4rem; border-radius:999px; background:var(--line); display:block; font-style:normal; }
+
+/* ---------- trust row ---------- */
+.trust{ display:grid; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr)); gap:1rem;
+        border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:1.1rem 0; margin:0 0 2rem; }
+.trust div{ display:grid; grid-template-columns:auto 1fr; gap:.55rem; align-items:start; font-size:.76rem; }
+.trust svg{ color:var(--rust); width:1.2em; height:1.2em; margin-top:.1em; }
+.trust b{ display:block; color:var(--ink); font-size:.8rem; }
+
+/* ---------- mobile bottom bar ---------- */
+.mobbar{ display:none; }
+
+/* ---------- verdict ---------- */
+.verdict{ background:var(--callout); border-radius:var(--r); padding:1.2rem 1.3rem; margin:0 0 2.5rem; }
+.verdict h3{ font-size:.95rem; margin-bottom:.6rem; }
+.verdict ul{ list-style:none; font-size:.83rem; }
+.verdict li{ position:relative; padding-left:1.3rem; margin-bottom:.45rem; }
+.verdict li svg{ position:absolute; left:0; top:.24em; }
+.verdict .win svg{ color:var(--green); }
+.verdict .lose svg{ color:var(--red); }
+
+@media (max-width:60rem){
+  .cols{ grid-template-columns:1fr; }
+  .cols > aside{ position:static; }
+}
+@media (max-width:40rem){
+  .mosaic{ grid-template-columns:1fr 1fr; grid-template-rows:8rem 5rem; height:auto; }
+  .mosaic .shot:first-child{ grid-row:span 1; grid-column:1/-1; }
+  .mosaic .shot:nth-child(n+4){ display:none; }
+  .incl{ grid-template-columns:1fr; }
+  .acc .body{ padding-left:.9rem; }
+  /* label over value — at this width a nowrap price and its label can't share a row */
+  .linelist li{ flex-direction:column; align-items:flex-start; gap:0; }
+  .linelist .v{ white-space:normal; }
+  .opt{ grid-template-columns:1fr; }
+  .opt .price{ text-align:left; }
+  body{ padding-bottom:4.5rem; }
+  .mobbar{
+    display:flex; position:fixed; left:0; right:0; bottom:0; z-index:30; gap:.8rem;
+    align-items:center; justify-content:space-between;
+    background:var(--card); border-top:1px solid var(--line); padding:.6rem .9rem;
+    box-shadow:0 -4px 16px -8px rgba(24,24,27,.35);
+  }
+  .mobbar .amt{ font-family:var(--display); font-weight:800; color:var(--ink); font-size:.95rem; }
+  .mobbar .lead{ font-size:.62rem; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); font-weight:700; }
+  .mobbar .cta{ width:auto; padding:.6rem 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true"><defs>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.6 5.6 6 .8-4.4 4.2 1.1 6.1L12 17l-5.3 2.9 1.1-6.1L3.4 9.6l6-.8z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.7-7.5-10a4.2 4.2 0 0 1 7.5-2.6A4.2 4.2 0 0 1 19.5 10c0 5.3-7.5 10-7.5 10z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.2 10.8l7.6-4M8.2 13.2l7.6 4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 15.5 3 9.8V7.2l2.2.5 1.4 2.1 5-.4-3-6.1 2.4.2 4.6 5.6 5.3-.4a1.6 1.6 0 0 1 0 3.2l-5.3-.4-4.6 5.6-2.4.2 3-6.1"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 6v13M3 12.5h13.5a4 4 0 0 1 4 4V19"/><circle cx="7.5" cy="9" r="2.2"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8.5 20l-2 2M15.5 20l2 2M7 16.5h.01M17 16.5h.01"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.5 21.5 20H2.5z"/><path d="M12 10v4.2M12 17.4h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.4 2.2"/></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path d="M4.5 11.5a10.5 10.5 0 0 1 15 0M8 15a5.6 5.6 0 0 1 8 0M12 18.6h.01"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.8 19.5a6.2 6.2 0 0 1 12.4 0M16.5 5.2a3.2 3.2 0 0 1 0 6M18 13.5a6.2 6.2 0 0 1 3.2 5.4"/></symbol>
+</defs></svg>
+
+<div class="studybar"><div class="wrap">
+  <b>Layout study</b>
+  <span>Our Southeast Asia trip in a travel-marketplace product layout · our palette, our type · not deployed, not a real listing</span>
+</div></div>
+
+<div class="wrap">
+
+  <nav class="crumbs">
+    <a href="#">Trips</a> › <a href="#">Southeast Asia</a> › <span>Singapore · Malaysia · Thailand, Dec 2026</span>
+  </nav>
+
+  <div class="titlerow">
+    <div>
+      <h1>Southeast Asia overland · Singapore, Kuala Lumpur, Bangkok</h1>
+      <div class="titlemeta">
+        <span class="chip none">no rating — we're the only five going</span>
+        <span class="chip"><svg class="ic"><use href="#i-clock"/></svg> 11 days · 10 nights</span>
+        <span class="chip"><svg class="ic"><use href="#i-people"/></svg> 5 travellers</span>
+        <span class="chip hot"><svg class="ic"><use href="#i-warn"/></svg> Return flight not booked</span>
+      </div>
+    </div>
+    <div class="iconbtns">
+      <button class="iconbtn" title="Save"><svg class="ic"><use href="#i-heart"/></svg></button>
+      <button class="iconbtn" title="Share"><svg class="ic"><use href="#i-share"/></svg></button>
+    </div>
+  </div>
+
+  <div class="mosaic">
+    <div class="shot"><span>Photo — Bangkok NYE</span></div>
+    <div class="shot"><span>Photo — Jewel</span></div>
+    <div class="shot"><span>Photo — Sleeper</span></div>
+    <div class="shot"><span>Photo — KL</span></div>
+    <div class="shot more"><b>+ 0 photos</b></div>
+  </div>
+
+  <nav class="tabs">
+    <a href="#overview" class="on">Overview</a>
+    <a href="#options">Options</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#stay">Stay</a>
+    <a href="#addons">Add-ons</a>
+    <a href="#cost">What it costs</a>
+    <a href="#reviews">Comments</a>
+  </nav>
+
+  <div class="cols">
+    <main>
+
+      <!-- ============ OVERVIEW ============ -->
+      <section class="blk" id="overview">
+        <h2>Overland from Singapore to Bangkok</h2>
+        <p class="sub">By train the whole way, arriving in Bangkok on New Year's Eve.</p>
+        <p style="font-size:.86rem">The Malaysia→Thailand run takes two days, so the middle of the trip is shaped
+        around catching <b>one sleeper train</b> that leaves once a day at 17:00. Singapore gets two full days;
+        Kuala Lumpur gets one. Everything before 31 December exists to put us in Bangkok in time for the fireworks.</p>
+
+        <div class="trust" style="margin-top:1.2rem">
+          <div><svg class="ic"><use href="#i-plane"/></svg><span><b>Outbound booked</b>25 Dec, Davao → Cebu → Singapore</span></div>
+          <div><svg class="ic"><use href="#i-train"/></svg><span><b>Four overland legs</b>Singapore to Bangkok without flying</span></div>
+          <div><svg class="ic"><use href="#i-signal"/></svg><span><b>One eSIM, three countries</b>No SIM swap at a border</span></div>
+          <div><svg class="ic"><use href="#i-warn"/></svg><span><b>Three arrival cards</b>All mandatory, all time-limited</span></div>
+        </div>
+
+        <div class="incl">
+          <div>
+            <h4>What's shared, split five ways</h4>
+            <ul>
+              <li class="yes"><svg class="ic"><use href="#i-check"/></svg> Accommodation, all three stops</li>
+              <li class="yes"><svg class="ic"><use href="#i-check"/></svg> Transport we book as a group</li>
+              <li class="yes"><svg class="ic"><use href="#i-check"/></svg> Activities we book as a group</li>
+            </ul>
+          </div>
+          <div>
+            <h4>What's personal</h4>
+            <ul>
+              <li class="no"><svg class="ic"><use href="#i-x"/></svg> Food and drink</li>
+              <li class="no"><svg class="ic"><use href="#i-x"/></svg> Shopping</li>
+              <li class="no"><svg class="ic"><use href="#i-x"/></svg> Anything anyone does on their own</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ OPTIONS ============ -->
+      <section class="blk" id="options">
+        <h2>Choose an option</h2>
+        <p class="sub">The one real fork in the trip — how we cover Kuala Lumpur to Bangkok on 30 December.</p>
+        <div class="opts">
+          <div class="opt">
+            <div>
+              <h4>A · Overnight sleeper, train no. 46</h4>
+              <p>16h 05m, departs 17:00, arrives 11:00. Cheapest, and the berth doubles as that night's bed —
+              but we land the morning of New Year's Eve with zero slack, and it runs <b>once a day</b>.</p>
+              <div class="tags">
+                <span class="chip">Current plan</span>
+                <span class="chip">No hotel that night</span>
+                <span class="chip hot">One missed connection ends it</span>
+              </div>
+            </div>
+            <div class="price">฿848–918<small>≈₱1,500 each</small></div>
+          </div>
+          <div class="opt pick">
+            <div>
+              <h4>B · Train to Hat Yai, then fly the last hop</h4>
+              <p>Still overland through Malaysia and across the border on foot — only the final hop flies.
+              Puts us in Bangkok the <b>evening of the 30th</b>, so we wake up rested on New Year's Eve.
+              <b>15 flights a day</b>, so a delay isn't fatal.</p>
+              <div class="tags">
+                <span class="chip" style="border-color:var(--rust);color:var(--rust)">Recommended</span>
+                <span class="chip">Adds one Bangkok hotel night</span>
+              </div>
+            </div>
+            <div class="price">≈₱2,000<small>+ hotel · ₱3,000–4,000 all in</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ITINERARY ============ -->
+      <section class="blk" id="itinerary">
+        <h2>Day by day</h2>
+        <p class="sub">Eleven days. Tap one to open it.</p>
+        <div class="acc">
+
+          <details open>
+            <summary>
+              <span class="daytag d-air">Day<b>1</b>Dec 25</span>
+              <span><span class="dt">Davao → Cebu → Singapore · Christmas Day</span><br>
+                    <span class="dd">Two flights · 6h 30m layover · lands 00:25</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li><b>13:00</b> Davao → Cebu, 1h 10m · booked</li>
+              <li><b>20:40</b> Cebu → Singapore, 3h 45m · booked, lands 00:25 on the 26th</li>
+              <li>Hotel must be booked for <b>Fri 25 Dec</b> — tell the property we arrive ~01:30</li>
+            </ul></div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-sg">Day<b>2</b>Dec 26</span>
+              <span><span class="dt">Singapore · half day, late start</span><br>
+                    <span class="dd">Jewel Changi · Gardens by the Bay</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li><b>13:00</b> Jewel Changi Airport — the Rain Vortex, allow 2–3h</li>
+              <li><b>evening</b> Garden Rhapsody at Supertree Grove, free, ~15 min</li>
+            </ul></div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-sg">Day<b>3</b>Dec 27</span>
+              <span><span class="dt">Universal Studios Singapore · Sentosa</span><br>
+                    <span class="dd">Ride order · 8 stops · dated tickets, peak week</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body">
+              <ul>
+                <li><b>At opening</b> — be at the gate. The whole plan depends on this</li>
+                <li><b>1st · TRANSFORMERS The Ride</b> — 3D simulator, ~4½ min. Longest queue in the park</li>
+                <li><b>2nd · Battlestar Galactica: CYLON</b> — inverted, feet dangling, ~90 sec. Ride HUMAN too if the queue allows</li>
+                <li><b>3rd · Revenge of the Mummy</b> — indoor coaster, near-total dark, backwards launch, ~3 min. Most people's favourite</li>
+                <li><b>Then · Minion Land</b> — newest zone, allow 1½h. Minion Mayhem · Silly Swirly · Buggie Boogie (Singapore-exclusive)</li>
+                <li><b>pm · Jurassic Park Rapids</b> — you get <i>soaked</i>, ~5 min. Save for the afternoon heat</li>
+                <li><b>pm · Puss in Boots' Giant Journey</b> — suspended family coaster, ~4 min, good views</li>
+                <li><b>Show · WaterWorld</b> — live stunt show with real explosions, ~25 min. Front rows get drenched</li>
+              </ul>
+              <p style="margin-top:.6rem;font-size:.76rem;color:var(--soft)">
+                Dry bag or poncho for phones on the Rapids · confirm opening hours, they shift seasonally ·
+                pack tonight, tomorrow is a travel day · price an express pass, it may double the rides.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-my">Day<b>4</b>Dec 28</span>
+              <span><span class="dt">Singapore → Johor Bahru → Kuala Lumpur</span><br>
+                    <span class="dd">Shuttle Tebrau + ETS · ~5–5.5h all in</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li>Both legs sell out — book ahead</li>
+              <li><b>Malaysia Arrival Card</b> due within 3 days of this crossing</li>
+            </ul></div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-my">Day<b>6</b>Dec 30</span>
+              <span><span class="dt">Kuala Lumpur → the Thai border → Bangkok</span><br>
+                    <span class="dd">The tightest link in the trip</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li>Take the <b>earliest</b> KL departure, not the one that only just connects</li>
+              <li><b>17:00</b> sleeper no. 46 departs Padang Besar — one a day</li>
+              <li>Thailand Arrival Card must already be submitted; we enter at the border station</li>
+            </ul></div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-th">Day<b>7</b>Dec 31</span>
+              <span><span class="dt">Arrive Bangkok · New Year's Eve</span><br>
+                    <span class="dd">Train in at 11:00 · fireworks spot not chosen</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li>Everything before this exists to get us here on time — and we arrive the same day</li>
+              <li>NYE hotels, rooftops and dinners <b>sell out weeks ahead</b></li>
+            </ul></div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-th">Day<b>8</b>Jan 1</span>
+              <span><span class="dt">Bangkok · New Year's Day — rest day</span><br>
+                    <span class="dd">Nothing scheduled, on purpose</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li>The slack in the trip. If New Year's Eve runs long, nothing downstream breaks</li>
+            </ul></div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="daytag d-air">Day<b>11</b>Jan 4</span>
+              <span><span class="dt">Fly home · provisional</span><br>
+                    <span class="dd">Return not booked — the date is a placeholder</span></span>
+              <span class="caret"><svg class="ic"><use href="#i-chev"/></svg></span>
+            </summary>
+            <div class="body"><ul>
+              <li>Booking this also solves the onward-travel proof problem</li>
+            </ul></div>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- ============ STAY ============ -->
+      <section class="blk" id="stay">
+        <h2>Where we sleep</h2>
+        <p class="sub">Three bookings, nine hotel nights. Ten if we take option B.</p>
+        <div class="grid">
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Singapore · 3 nights</h4>
+              <div class="meta"><span class="chip hot">Not booked</span><span class="chip">Fri 25 → Mon 28 Dec</span></div>
+              <p style="font-size:.75rem">From <b>Friday the 25th</b>, not Saturday — we reach the hotel ~01:30 on the 26th.</p>
+              <div class="foot"><div><span class="from">Rate</span><div class="amt" style="font-size:.8rem;font-weight:400;color:var(--soft);font-style:italic">not yet priced</div></div><button class="mini">Find</button></div>
+            </div>
+          </div>
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Kuala Lumpur · 2 nights</h4>
+              <div class="meta"><span class="chip">Not booked</span><span class="chip">Mon 28 → Wed 30 Dec</span></div>
+              <p style="font-size:.75rem">City and length still open — hold off on a non-refundable rate.</p>
+              <div class="foot"><div><span class="from">Rate</span><div class="amt" style="font-size:.8rem;font-weight:400;color:var(--soft);font-style:italic">not yet priced</div></div><button class="mini">Find</button></div>
+            </div>
+          </div>
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Bangkok · 4 nights</h4>
+              <div class="meta"><span class="chip hot">Not booked</span><span class="chip">Thu 31 Dec → Mon 4 Jan</span></div>
+              <p style="font-size:.75rem">Over New Year's Eve — the week the city books out. Book this one first.</p>
+              <div class="foot"><div><span class="from">Rate</span><div class="amt" style="font-size:.8rem;font-weight:400;color:var(--soft);font-style:italic">not yet priced</div></div><button class="mini">Find</button></div>
+            </div>
+          </div>
+          <div class="pcard" style="border-style:dashed">
+            <div class="shot" style="background:var(--callout)"><span>No photo</span></div>
+            <div class="pb">
+              <h4>On the sleeper train · 1 night</h4>
+              <div class="meta"><span class="chip">Wed 30 Dec</span></div>
+              <p style="font-size:.75rem"><b>No hotel — the berth is the bed.</b> Option B turns this into a fourth Bangkok night.</p>
+              <div class="foot"><div><span class="from">Included in fare</span><div class="amt">฿848–918</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ADD-ONS ============ -->
+      <section class="blk" id="addons">
+        <h2>Add-ons</h2>
+        <p class="sub">"From" prices, checked 25 July 2026. We travel in the busiest week of the year — budget above these.</p>
+        <div class="grid">
+
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Universal Studios Singapore</h4>
+              <div class="meta">
+                <span class="chip rate"><svg class="ic"><use href="#i-star"/></svg> 4.8</span>
+                <span class="chip">4M+ booked</span>
+              </div>
+              <p style="font-size:.75rem">Planned for Sun 27 Dec. Peak-week dates will price higher.</p>
+              <div class="foot">
+                <div><span class="from">From, each</span><div class="amt">₱3,258</div><div class="x5">₱16,290 for five</div></div>
+                <button class="mini">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Unlimited eSIM · South East Asia</h4>
+              <div class="meta">
+                <span class="chip none">no rating on file</span>
+                <span class="chip">3 countries</span>
+              </div>
+              <p style="font-size:.75rem">₱32 is the <b>1-day</b> entry tier. An 11-day plan costs meaningfully more.</p>
+              <div class="foot">
+                <div><span class="from">From, each</span><div class="amt">₱32</div><div class="x5">real price needs duration</div></div>
+                <button class="mini">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Singapore Oceanarium</h4>
+              <div class="meta">
+                <span class="chip none">no rating on file</span>
+                <span class="chip">Optional</span>
+              </div>
+              <p style="font-size:.75rem">On Sentosa, same island as Universal Studios.</p>
+              <div class="foot">
+                <div><span class="from">From, each</span><div class="amt">₱2,276</div><div class="x5">₱11,380 for five</div></div>
+                <button class="mini">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Skyline Luge Sentosa</h4>
+              <div class="meta">
+                <span class="chip none">no rating on file</span>
+                <span class="chip">Optional</span>
+              </div>
+              <p style="font-size:.75rem">Could bolt onto the Sentosa day.</p>
+              <div class="foot">
+                <div><span class="from">From, each</span><div class="amt">₱1,549</div><div class="x5">₱7,745 for five</div></div>
+                <button class="mini">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcard">
+            <div class="shot"><span>Photo</span></div>
+            <div class="pb">
+              <h4>Adventure Cove Waterpark</h4>
+              <div class="meta">
+                <span class="chip none">no rating on file</span>
+                <span class="chip">Optional</span>
+              </div>
+              <p style="font-size:.75rem">Also Sentosa.</p>
+              <div class="foot">
+                <div><span class="from">From, each</span><div class="amt">₱1,437</div><div class="x5">₱7,185 for five</div></div>
+                <button class="mini">Add</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ COST ============ -->
+      <section class="blk" id="cost">
+        <h2>What it costs</h2>
+        <p class="sub">Only the lines we actually have numbers for. The rest are blank on purpose.</p>
+        <ul class="linelist" style="border:1px solid var(--line);border-radius:var(--r);padding:.6rem 1rem;background:var(--card)">
+          <li><span>Outbound flights · Davao → Singapore</span><span class="v">booked — fare not published here</span></li>
+          <li><span>Overland, Singapore → Bangkok · 4 legs</span><span class="v">≈₱3,600–4,100</span></li>
+          <li><span>Pocket money · 11 days, incl. 10–15% buffer</span><span class="v">₱16,000–24,000</span></li>
+          <li><span>Universal Studios · from</span><span class="v">₱3,258</span></li>
+          <li><span>Accommodation · 9 nights, split five ways</span><span class="v unknown">not yet priced</span></li>
+          <li><span>Return flight home</span><span class="v unknown">not booked</span></li>
+          <li><span>eSIM · 11-day plan</span><span class="v unknown">tier not chosen</span></li>
+        </ul>
+        <p class="sub" style="margin-top:.7rem">Pocket money is day-to-day spending only — food, local transport, entry tickets,
+        drinks, a bit of shopping. It sits <b>on top of</b> what we book in advance. Bring roughly
+        <b>₱18,000–20,000 each</b> if you want one number; Singapore is about twice the daily cost of the other two.</p>
+      </section>
+
+      <!-- ============ COMMENTS ============ -->
+      <section class="blk" id="reviews">
+        <h2>Comments</h2>
+        <p class="sub">Where a marketplace puts reviews, we have the five of us talking to each other.</p>
+        <div class="revhead">
+          <div style="text-align:center">
+            <div class="revbig">—</div>
+            <div style="font-size:.68rem;color:var(--soft)">no reviews<br>this isn't a product</div>
+          </div>
+          <div class="bars">
+            <div class="bar"><span>Threads</span><i style="background:var(--line)"></i><span>12 open</span></div>
+            <div class="bar"><span>Posted</span><i style="background:var(--line)"></i><span>0 so far</span></div>
+            <div class="bar" style="grid-template-columns:1fr"><span style="font-size:.75rem;color:var(--gray)">Every day card and the stay section carries its own thread. Nobody has posted yet.</span></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============ STICKY BUY BOX ============ -->
+    <aside>
+      <div class="buybox">
+        <div class="bb">
+          <div class="pricelead">Per person, what we know</div>
+          <div class="pricebig">₱22,858–31,358 <small>and rising</small></div>
+          <div class="bbnote">Overland transport + pocket money + one Universal ticket. <b>Excludes flights,
+          all nine hotel nights and the eSIM</b> — so this is a floor, not a price.</div>
+        </div>
+        <div class="bb">
+          <ul class="linelist">
+            <li><span>Dates</span><span class="v">25 Dec – 4 Jan</span></li>
+            <li><span>Travellers</span><span class="v">5</span></li>
+            <li><span>Option</span><span class="v">B · fly last hop</span></li>
+            <li><span>Rooms</span><span class="v unknown">not decided</span></li>
+          </ul>
+        </div>
+        <div class="bb">
+          <button class="cta">Book the return flight</button>
+          <button class="cta ghost">Book Bangkok, 31 Dec</button>
+          <div class="bbnote">Two things gate everything else: the return flight sets the trip length
+          and solves onward-travel proof; Bangkok over New Year's Eve is what sells out first.</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ VERDICT ============ -->
+  <div class="verdict">
+    <h3>What this layout does to our content</h3>
+    <ul>
+      <li class="win"><svg class="ic"><use href="#i-check"/></svg> <b>The add-ons section is a straight win.</b> Universal, the Oceanarium, the Luge and the eSIM
+      really are products with a price each and a price ×5. Cards beat the table.</li>
+      <li class="win"><svg class="ic"><use href="#i-check"/></svg> <b>The option tiles suit the sleeper-vs-fly fork.</b> Two priced choices side by side, one marked
+      recommended, is clearer than the current prose comparison.</li>
+      <li class="win"><svg class="ic"><use href="#i-check"/></svg> <b>A sticky action panel gives the two urgent bookings somewhere permanent to live.</b>
+      Right now they're buried in a status table.</li>
+      <li class="lose"><svg class="ic"><use href="#i-x"/></svg> <b>The headline price can't be honest.</b> The layout's most prominent element wants one number;
+      we can't produce one until flights and hotels are booked. What's shown above is a floor with three
+      exclusions written under it — which is exactly the kind of hedging this layout is designed to hide.</li>
+      <li class="lose"><svg class="ic"><use href="#i-x"/></svg> <b>It is built for a decided product; ours is half-undecided.</b> Every "not booked" chip is
+      friction the marketplace layout treats as an error state. Our current page treats undecided as
+      first-class information, which is the thing that actually helps us.</li>
+      <li class="lose"><svg class="ic"><use href="#i-x"/></svg> <b>It needs photography we don't have.</b> Nine image slots on this page, zero images in the
+      workspace. Without them the mosaic and the cards read as broken rather than minimal.</li>
+      <li class="lose"><svg class="ic"><use href="#i-x"/></svg> <b>The itinerary loses information when it collapses.</b> Day 3 now carries the full Universal
+      Studios ride order, and it fits — but only once you open it. Ten of eleven days stay shut, the
+      summary line can hold about six words, and the side blocks (tickets, transport, watch-outs) had to
+      be flattened into a footnote. Our day cards show all of that at once, with the country rails
+      carrying the colour.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="mobbar">
+  <div><span class="lead">Per person, known</span><div class="amt">₱22,858–31,358</div></div>
+  <button class="cta">Book return</button>
+</div>
+
+<script>
+// Tab highlighting — the sticky sub-nav is the one bit of this layout that
+// needs behaviour to read correctly.
+(function(){
+  var links = [].slice.call(document.querySelectorAll('.tabs a'));
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var i = targets.indexOf(e.target);
+      if (i < 0) return;
+      links.forEach(function(a){ a.classList.remove('on'); });
+      links[i].classList.add('on');
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  targets.forEach(function(t){ if (t) obs.observe(t); });
+})();
+</script>
+
+</body>
+</html>
