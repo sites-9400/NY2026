@@ -5,11 +5,28 @@ remembers *why*, so we don't relitigate the same arguments in December.
 
 ## Fixed
 
-- **Outbound booked, one way, 25 Dec 2026** → Singapore.
+- **Outbound booked, one way, Fri 25 Dec 2026:**
+  - DVO → CEB, 13:00 – 14:10 (1h 10m)
+  - 6h 30m layover in Cebu
+  - CEB → SIN, 20:40 – 00:25 (3h 45m) — **lands Sat 26 Dec**, PH and SG are both UTC+8
 - **Route:** Singapore first, Malaysia in the middle, Bangkok for New Year's Eve.
 - **Travellers (5):** Gamaliel, Marianne, Alysson, Kevin, Jan.
 - **Money rule:** accommodation and group bookings split five ways; food and
   shopping are personal.
+- **Universal Studios Singapore on Sun 27 Dec**, its own full day. Not Sat 26 —
+  after a 00:25 landing nobody is up for a theme park the next morning.
+- **Bookings priced from Klook** (PH storefront) per the user's instruction.
+
+## Consequences of the 00:25 arrival
+
+Worked out 25 Jul 2026, and easy to get wrong:
+
+1. **The Singapore hotel must be booked for the night of Fri 25 Dec**, not Sat 26.
+   We check in around 01:30 on the 26th, against a room reserved for the 25th.
+   Tell the property the arrival time so it isn't released as a no-show.
+2. **No MRT.** Last trains out of Changi run before midnight, so it's Grab or taxi
+   into the city — probably two cars for five people plus luggage.
+3. **Sat 26 Dec is a half day at best.** Planned as a slow start.
 
 ## Open
 
@@ -35,3 +52,8 @@ remembers *why*, so we don't relitigate the same arguments in December.
 
 - *2026-07-25* · Trip workspace set up; published page is the single shared
   source of truth, sent to the group as one link.
+- *2026-07-25* · Flight details added. USS placed on Sun 27 Dec with a ride
+  order (rope-drop Transformers + Battlestar Galactica CYLON, the two longest
+  queues). Klook prices captured — USS from ₱3,258pp; Unlimited eSIM South East
+  Asia covers all three countries on one plan. All three digital arrival cards
+  (SGAC / MDAC / TDAC) confirmed mandatory, each in its own 3-day window.

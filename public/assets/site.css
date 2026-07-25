@@ -151,6 +151,21 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
   .slots .k{ text-align:left; }
 }
 
+/* ---------- flight legs ---------- */
+
+.legs{ list-style:none; display:grid; gap:.5rem; margin:.15rem 0 .2rem; }
+.legs li{ display:grid; grid-template-columns:auto 1fr; gap:.65rem; align-items:baseline; }
+.legs .route{
+  font-size:.82rem; font-weight:800; letter-spacing:.03em;
+  white-space:nowrap; color:var(--ink);
+}
+.legs .when{ font-size:.88rem; color:var(--gray); }
+.legs .when b{ color:var(--ink); font-weight:700; }
+.legs .gap{
+  grid-column:1 / -1; font-size:.78rem; color:var(--soft);
+  border-left:2px solid var(--line); padding:.1rem 0 .1rem .7rem; margin-left:.35rem;
+}
+
 /* ---------- callouts ---------- */
 
 .callout{
