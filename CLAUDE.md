@@ -114,11 +114,32 @@ way; this is a page other people type into.
 
 ## Design lineage
 
-The look — cream paper, rust and teal accents, coloured day rails — comes from
-the Hong Kong Jul 2026 itinerary, which was built for print. The originals are
-in `2026-07-HongKong/` if you want to see where a pattern came from. `site.css`
-is the same system adapted for screens, with dark mode and a print stylesheet
-that returns it to something close to the original.
+The rust and teal accents and the coloured day rails come from the Hong Kong
+Jul 2026 itinerary, which was built for print. The originals are in
+`2026-07-HongKong/` if you want to see where a pattern came from. `site.css` is
+that system adapted for screens, with dark mode and a print stylesheet.
+
+Two deliberate departures from the Hong Kong original, both at the user's
+request — don't drift back:
+
+- **A clean white ground, not the warm cream.** The cream read as a default
+  template rather than a choice.
+- **Monochrome stroke icons, never emoji.** Icons live in an SVG sprite and
+  inherit `currentColor`, so they take each day's accent. Emoji rendered
+  full-colour and differently on every platform — and note that plain glyphs
+  like `↗` also render as colour emoji on iOS, so use the sprite for those too.
+
+**Bump the `?v=` on the stylesheet link whenever `site.css` changes.** An early
+deploy sent CSS with `max-age=3600`; anyone who loaded the page in that window
+held a stale stylesheet for an hour and saw new markup against old CSS, which
+looks exactly like the site being broken. Versioning the URL makes a cached copy
+unreachable instead of relying on people hard-refreshing.
+
+**Tables stack on mobile.** Below 36rem each row becomes a block and every cell
+shows its column name, drawn from `data-label` attributes generated off the table
+head. Add `data-label` to new cells. Don't make the cell a grid container to get
+a two-column look — a grid makes every inline `<b>` its own item and splits
+sentences across the label column.
 
 **Type is Helvetica throughout** (`--display` and `--body`). The Hong Kong
 originals set headings in Georgia; that was switched out in Jul 2026. Keep it

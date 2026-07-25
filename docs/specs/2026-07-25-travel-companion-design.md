@@ -62,7 +62,7 @@ Travel Companion/
 
 ## Design system
 
-Carried over from the Hong Kong itinerary so the trips look related: cream paper
+Carried over from the Hong Kong itinerary so the trips look related (the cream ground and Georgia type were later dropped for a white ground and Helvetica): cream paper
 `#faf8f2`, Georgia display type, rust `#c1531f` and teal `#2c7a86` accents, and
 the coloured day rails from the one-page infographic — now mapped to countries
 (SG rose, MY teal, TH amber, travel days blue). Adapted for screens with a

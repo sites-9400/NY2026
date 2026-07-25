@@ -97,6 +97,29 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
 
 - *2026-07-25* · Trip workspace set up; published page is the single shared
   source of truth, sent to the group as one link.
+- *2026-07-25* · **Overland Singapore → Bangkok confirmed**, and it reshaped the
+  middle of the trip. The Malaysia→Thailand run takes two days, so the schedule
+  is built backwards from the one daily sleeper: leave Singapore the 28th,
+  Kuala Lumpur the 29th, the long haul the 30th.
+- *2026-07-25* · **Melaka rejected as a stopover.** It's the right town for that
+  stretch — UNESCO old town, Jonker Street — but the 30 Dec sleeper is fixed, so
+  it would have replaced the Kuala Lumpur day rather than added one. User wants
+  Kuala Lumpur. Don't re-propose it without a spare day.
+- *2026-07-25* · **Singapore gets two days and that's deliberate.** The 26th is a
+  half day after the 01:30 check-in; the user judged it enough, and wants Jewel
+  Changi seen properly since arrival is at 00:25 in the dark.
+- *2026-07-25* · **Sleeper vs fly is OPEN and blocking.** Train to Hat Yai then a
+  1h30 flight keeps the land crossing, costs ~₱2,000 plus a hotel night against
+  ~₱1,500 for the sleeper, and lands us in Bangkok the evening of the 30th
+  instead of 11:00 on the 31st. Fifteen flights a day versus one train. This is
+  the recommendation; the user hasn't decided.
+- *2026-07-25* · Pocket money estimated at **₱16,000–24,000 each**, separate from
+  pre-booked items. Singapore is roughly double the daily cost of the other two —
+  that's the usual under-budgeting mistake.
+- *2026-07-25* · **Per-day comments added** so the page is two-way. No login:
+  anyone with the link can post under any name, accepted as proportionate for
+  five friends on an unlisted URL. Comments are create-only, so nobody can wipe
+  a thread from the page.
 - *2026-07-25* · Flight details added. USS placed on Sun 27 Dec with a ride
   order (rope-drop Transformers + Battlestar Galactica CYLON, the two longest
   queues). Klook prices captured — USS from ₱3,258pp; Unlimited eSIM South East
