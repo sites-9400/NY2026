@@ -15,6 +15,23 @@
 **/*boarding*
 **/*passport*
 
+# ---- deploy-only: served from public/ but never committed ----------------
+# Check-in QR codes and the booking references they encode. These ARE on the
+# published page, which was a deliberate call: having them on the phone at the
+# airport beats the exposure of an unlisted noindex URL. GitHub is a different
+# matter, since it is public AND indexed, so they stop here.
+#
+# A QR encodes only the booking reference, so the code and the reference are one
+# secret, not two. That is why the references are in checkin.js rather than
+# written into index.html.
+#
+# Consequence: a fresh clone will not have these files, and the Check-in codes
+# block on the Siargao page renders a fallback line instead of the cards.
+# Firebase Hosting serves from public/ on disk, so the live page is unaffected.
+# The originals are in 2026-08-Siargao/bookings/.
+public/*/img/qr-*.png
+public/*/checkin.js
+
 # ---- OS / Dropbox noise -------------------------------------------------
 .DS_Store
 *.icloud

@@ -25,6 +25,7 @@
   --sg:#da345f;  --sgv:#e0567a;  --sgon:#18181b;  --sgbg:#fdeef2;
   --my:#188378;  --myv:#1fa899;  --myon:#18181b;  --mybg:#e7f6f4;
   --th:#aa6613;  --thv:#e8942e;  --thon:#18181b;  --thbg:#fdf2e2;
+  --ph:#0f7a55;  --phv:#17a06f;  --phon:#18181b;  --phbg:#e6f5ee;
   --air:#3b76c7; --airv:#3b76c7; --airon:#ffffff; --airbg:#e9f1fb;
   --tbd:#7d63c4; --tbdv:#7d63c4; --tbdon:#ffffff; --tbdbg:#f1ecfa;
 
@@ -52,8 +53,8 @@
     /* dark-mode accents are pale, so ink on them, not white */
     --onfill:#16151a;
     /* the vivid rails hold on a dark ground; only the text strengths flip */
-    --sg:#e0567a; --my:#1fa899; --th:#e8942e; --air:#4980cb; --tbd:#8870c9;
-    --sgbg:#2e1c24; --mybg:#132b29; --thbg:#2d2416; --airbg:#182333; --tbdbg:#231e33;
+    --sg:#e0567a; --my:#1fa899; --th:#e8942e; --ph:#2fbc89; --air:#4980cb; --tbd:#8870c9;
+    --sgbg:#2e1c24; --mybg:#132b29; --thbg:#2d2416; --phbg:#122a21; --airbg:#182333; --tbdbg:#231e33;
   }
 }
 
@@ -174,6 +175,30 @@ h4{ font-size:.82rem; font-weight:800; letter-spacing:.02em; margin:1.2rem 0 .3r
 @media (max-width:36rem){ .pay img{ width:100%; max-width:14rem; margin:0 auto; } }
 @media print{ .pay{ break-inside:avoid; } }
 
+/* Boarding-pass style QR cards, one per ticket. Same white-plate rule as .pay:
+   a QR must stay dark-on-light or scanners fail, so the plate never inverts in
+   dark mode. Two up on a phone, four across on a wide screen. */
+.qrs{
+  display:grid; gap:.7rem; margin:1rem 0;
+  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
+}
+.qrcard{
+  border:1px solid var(--line); border-radius:.6rem; background:var(--card);
+  padding:.7rem; text-align:center; break-inside:avoid;
+}
+.qrcard img{
+  width:100%; max-width:9rem; height:auto; display:block; margin:0 auto .5rem;
+  background:#fff; padding:.4rem; border-radius:.35rem;
+  image-rendering:pixelated;
+}
+.qrcard .qwho{ font-size:.8rem; font-weight:800; color:var(--ink); }
+.qrcard .qleg{ font-size:.72rem; color:var(--soft); margin-top:.1rem; }
+.qrcard .qref{
+  font-family:ui-monospace,Menlo,monospace; font-weight:700; font-size:.95rem;
+  letter-spacing:.08em; color:var(--accent); margin-top:.25rem;
+}
+@media print{ .qrcard{ break-inside:avoid; } }
+
 p{ margin:.6rem 0; }
 p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 
@@ -197,6 +222,7 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 .day.sg { --accent:var(--sg); --accentfill:var(--sgv); --onrail:var(--sgon); --accentbg:var(--sgbg); }
 .day.my { --accent:var(--my); --accentfill:var(--myv); --onrail:var(--myon); --accentbg:var(--mybg); }
 .day.th { --accent:var(--th); --accentfill:var(--thv); --onrail:var(--thon); --accentbg:var(--thbg); }
+.day.ph { --accent:var(--ph); --accentfill:var(--phv); --onrail:var(--phon); --accentbg:var(--phbg); }
 .day.air{ --accent:var(--air); --accentfill:var(--airv); --onrail:var(--airon); --accentbg:var(--airbg); }
 
 .rail{
