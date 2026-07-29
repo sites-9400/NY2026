@@ -106,6 +106,21 @@ The sanctuary is best roughly November to May, and this trip is 29 Aug to 1 Sep.
 lagoons are unaffected, but at ₱1,500 to ₱2,500 each plus a whole day it probably is not the
 right call this time. On the page as an open question rather than a recommendation.
 
+**29 Jul 2026 — the codes are on the hosted page but not in the repo, and that needed
+more than gitignoring the images.**
+The request was to gitignore the QR images before pushing. Gitignoring them alone would not
+have worked: the references were also written into `index.html` as plain text under each
+code, and since a QR here encodes only the reference, the code and the reference are one
+secret. Ignoring the pictures while committing the answer would have looked safe and not
+been. So both moved into `public/2026-08-siargao/checkin.js`, which builds the cards at load
+and is gitignored alongside `img/qr-*.png`.
+
+The line being drawn: an unlisted `noindex` URL shared with two people is a trade worth
+making for having the codes on a phone at the airport. GitHub is public **and** indexed, so
+it is not the same trade. Different exposure, different answer, same secret.
+
+Nothing needed purging from history, because the images were never committed.
+
 ## Deliberately left open
 
 Flights, the room, the bike and the transfer rate are all settled. What is left:

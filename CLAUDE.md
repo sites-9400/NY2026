@@ -43,6 +43,26 @@ secret — anyone with the link sees everything. Booking references, passport
 details, account numbers and bank statements stay in `bookings/`, which is
 gitignored. Pages carry `noindex` so they stay out of search results.
 
+**There are two levels of "public" here, and they need different answers.** The
+hosting URL is unlisted and `noindex`; the GitHub repo is public *and* indexed.
+Something can be an acceptable trade on one and not the other. Siargao Aug 2026
+put the check-in QR codes on the page deliberately, because having them on a
+phone at the airport beats the exposure of a link shared with two people, but
+they are gitignored so they never reach GitHub.
+
+The mechanism for that, if it comes up again: put the sensitive part in a
+gitignored file under the trip's `public/<slug>/` folder and have the page build
+it at load, leaving a fallback in the markup. Hosting serves from `public/` on
+disk, so the live page is complete while the committed one is not. See
+`public/2026-08-siargao/checkin.js` and the `.gitignore` rules
+`public/*/checkin.js` and `public/*/img/qr-*.png`.
+
+**Check what the secret actually is before hiding it.** A check-in QR encodes
+only the booking reference, so the image and the reference printed under it are
+one secret, not two. Gitignoring the images while committing the references in
+the HTML would have looked safe and leaked anyway. Ask what a value *is* before
+deciding where it can live.
+
 **Mark what isn't decided.** Use the `tbd` and `risk` pills and leave slots
 visibly empty rather than filling them with plausible guesses. Someone reading
 the page needs to tell instantly what's booked and what's still air. Never
@@ -184,6 +204,11 @@ cheap. Use colour and weight to subordinate instead.
 
 ## Trips
 
+- **`2026-08-Siargao/`** → `public/2026-08-siargao/` — Siargao, 29 Aug to
+  1 Sep 2026. Eve and Jude, first anniversary. Flights and the room both booked
+  and paid; the tickets cannot be changed, so the dates are fixed. A repeat
+  visit, so the page skips the standard sights and carries a "Quieter corners"
+  shortlist instead. Free cancellation on the room ends 14 Aug 2026.
 - **`2026-12-SEA/`** → `public/2026-12-sea/` — Singapore, Malaysia, Bangkok.
   25 Dec 2026 onward. Five travellers: Gamaliel, Marianne, Alysson, Kevin, Jan.
   Outbound booked one way; return not booked, which is also the trip's biggest
