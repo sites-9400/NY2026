@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Versions + tabs mockup</title>
+<style>
+  :root{
+    --brand:#8c2f4c; --ink:#1a1a1a; --soft:#6b6b6b; --line:#e5e2e4; --bg:#fff; --card:#fff;
+    --sg:#2e7d5b; --my:#2456c9; --th:#c8641a; --air:#64748b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+  h1{font-weight:800;letter-spacing:-.02em;font-size:1.5rem;margin:.2rem 0 .1rem}
+  .sub{color:var(--soft);margin:0 0 18px}
+  /* version tabs */
+  .tabs{display:flex;gap:6px;background:#f4f1f2;border:1px solid var(--line);border-radius:12px;padding:5px;margin:0 0 8px;position:sticky;top:8px;z-index:5}
+  .tab{flex:1;border:0;background:transparent;font:inherit;font-weight:700;color:var(--soft);padding:9px 8px;border-radius:8px;cursor:pointer;line-height:1.15;text-align:center}
+  .tab small{display:block;font-weight:500;font-size:.72rem;opacity:.8}
+  .tab[aria-selected="true"]{background:var(--brand);color:#fff}
+  /* summary strip */
+  .strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 4px;font-size:.9rem}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-weight:700}
+  .chip.sg{color:var(--sg)} .chip.my{color:var(--my)} .chip.th{color:var(--th)}
+  .strip .nye{margin-left:auto;color:var(--soft);font-weight:600}
+  .hint{color:var(--soft);font-size:.82rem;margin:6px 2px 14px}
+  /* day accordion */
+  .day{border:1px solid var(--line);border-radius:12px;margin:8px 0;overflow:hidden;background:var(--card)}
+  .day>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px}
+  .day>summary::-webkit-details-marker{display:none}
+  .rail{width:6px;align-self:stretch;border-radius:6px;background:var(--air);flex:0 0 6px;margin:-12px 0 -12px}
+  .day.sg .rail{background:var(--sg)} .day.my .rail{background:var(--my)} .day.th .rail{background:var(--th)}
+  .dnum{font-weight:800;font-size:.7rem;color:var(--soft);width:34px;flex:0 0 34px;line-height:1.05}
+  .dnum b{display:block;font-size:1.1rem;color:var(--ink)}
+  .dtitle{font-weight:700;flex:1}
+  .ddate{color:var(--soft);font-size:.82rem;white-space:nowrap}
+  .chev{color:var(--soft);transition:transform .15s;flex:0 0 auto}
+  .day[open] .chev{transform:rotate(90deg)}
+  .body{padding:2px 14px 14px 32px;border-top:1px solid var(--line);margin-top:2px}
+  .body ul{margin:10px 0 0;padding-left:18px}
+  .body li{margin:3px 0}
+  .tag{display:inline-block;font-size:.68rem;font-weight:700;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .tag.nye{background:#fbe9ef;color:var(--brand)}
+  .tag.fly{background:#eef2fb;color:var(--my)}
+  .note{color:var(--soft);font-size:.82rem;margin-top:22px;border-top:1px dashed var(--line);padding-top:12px}
+  [hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Southeast Asia · Dec 2026</h1>
+  <p class="sub">Three ways to split it. Tap a version, tap a day to open it.</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-v="1">V1<small>Singapore-lean</small></button>
+    <button class="tab" role="tab" aria-selected="false" data-v="2">V2<small>KL-lean</small></button>
+    <button class="tab" role="tab" aria-selected="false" data-v="3">V3<small>Equal 3/3/3</small></button>
+  </div>
+
+  <!-- ============ V1 ============ -->
+  <section data-panel="1">
+    <div class="strip"><span class="chip sg">SG 3</span><span class="chip my">KL 2</span><span class="chip th">BKK 4</span><span class="nye">NYE · Bangkok</span></div>
+    <p class="hint">Keeps NYE in Bangkok and wins back Singapore's culture day. KL is the thin one.</p>
+    <details class="day air"><summary><span class="rail"></span><span class="dnum">DAY<b>1</b></span><span class="dtitle">Land Singapore · slow start</span><span class="ddate">Sat 26</span><span class="chev">›</span></summary><div class="body"><ul><li>Land Changi 00:25, Grab to hotel</li><li>Jewel, Gardens by the Bay, Marina Bay, Lau Pa Sat</li></ul></div></details>
+    <details class="day sg"><summary><span class="rail"></span><span class="dnum">DAY<b>2</b></span><span class="dtitle">Universal Studios</span><span class="ddate">Sun 27</span><span class="chev">›</span></summary><div class="body"><ul><li>Rope-drop USS, Sentosa</li></ul></div></details>
+    <details class="day sg"><summary><span class="rail"></span><span class="dnum">DAY<b>3</b></span><span class="dtitle">Singapore culture day</span><span class="ddate">Mon 28</span><span class="chev">›</span></summary><div class="body"><ul><li>Chinatown, Little India, Haji Lane, Kampong Glam</li></ul></div></details>
+    <details class="day my"><summary><span class="rail"></span><span class="dnum">DAY<b>4</b></span><span class="dtitle">Fly to KL<span class="tag fly">FLY</span></span><span class="ddate">Tue 29</span><span class="chev">›</span></summary><div class="body"><ul><li>SIN→KL ~1h. Merdeka Square, Jalan Alor</li></ul></div></details>
+    <details class="day my"><summary><span class="rail"></span><span class="dnum">DAY<b>5</b></span><span class="dtitle">Kuala Lumpur full day</span><span class="ddate">Wed 30</span><span class="chev">›</span></summary><div class="body"><ul><li>Batu Caves, Thean Hou, Petronas, Bukit Bintang</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>6</b></span><span class="dtitle">Fly to Bangkok · NYE<span class="tag nye">NYE</span></span><span class="ddate">Thu 31</span><span class="chev">›</span></summary><div class="body"><ul><li>KL→BKK morning (peak fare). NYE fireworks in Bangkok</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>7-9</b></span><span class="dtitle">Bangkok · rest, old town, markets</span><span class="ddate">Jan 1-3</span><span class="chev">›</span></summary><div class="body"><ul><li>Rest / Siam shopping · old town + river · Chatuchak + Chinatown</li></ul></div></details>
+    <details class="day air"><summary><span class="rail"></span><span class="dnum">DAY<b>10</b></span><span class="dtitle">Fly home<span class="tag fly">FLY</span></span><span class="ddate">Mon 4</span><span class="chev">›</span></summary><div class="body"><ul><li>DMK→DVO 21:15, direct</li></ul></div></details>
+  </section>
+
+  <!-- ============ V2 ============ -->
+  <section data-panel="2" hidden>
+    <div class="strip"><span class="chip sg">SG 2</span><span class="chip my">KL 3</span><span class="chip th">BKK 4</span><span class="nye">NYE · Bangkok</span></div>
+    <p class="hint">Gives KL its second full day. Singapore shrinks to arrival + USS.</p>
+    <details class="day air"><summary><span class="rail"></span><span class="dnum">DAY<b>1</b></span><span class="dtitle">Land Singapore</span><span class="ddate">Sat 26</span><span class="chev">›</span></summary><div class="body"><ul><li>Jewel, Gardens, Marina Bay</li></ul></div></details>
+    <details class="day sg"><summary><span class="rail"></span><span class="dnum">DAY<b>2</b></span><span class="dtitle">Universal Studios</span><span class="ddate">Sun 27</span><span class="chev">›</span></summary><div class="body"><ul><li>USS, Sentosa</li></ul></div></details>
+    <details class="day my"><summary><span class="rail"></span><span class="dnum">DAY<b>3</b></span><span class="dtitle">Fly to KL<span class="tag fly">FLY</span></span><span class="ddate">Mon 28</span><span class="chev">›</span></summary><div class="body"><ul><li>SIN→KL. Jalan Alor</li></ul></div></details>
+    <details class="day my"><summary><span class="rail"></span><span class="dnum">DAY<b>4-5</b></span><span class="dtitle">Kuala Lumpur · two full days</span><span class="ddate">Tue 29-30</span><span class="chev">›</span></summary><div class="body"><ul><li>Batu Caves, Merdeka, Petronas, Thean Hou, Bukit Bintang</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>6</b></span><span class="dtitle">Fly to Bangkok · NYE<span class="tag nye">NYE</span></span><span class="ddate">Thu 31</span><span class="chev">›</span></summary><div class="body"><ul><li>KL→BKK. NYE in Bangkok</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>7-9</b></span><span class="dtitle">Bangkok</span><span class="ddate">Jan 1-3</span><span class="chev">›</span></summary><div class="body"><ul><li>rest · old town · markets</li></ul></div></details>
+    <details class="day air"><summary><span class="rail"></span><span class="dnum">DAY<b>10</b></span><span class="dtitle">Fly home<span class="tag fly">FLY</span></span><span class="ddate">Mon 4</span><span class="chev">›</span></summary><div class="body"><ul><li>DMK→DVO 21:15</li></ul></div></details>
+  </section>
+
+  <!-- ============ V3 ============ -->
+  <section data-panel="3" hidden>
+    <div class="strip"><span class="chip sg">SG 3</span><span class="chip my">KL 3</span><span class="chip th">BKK 3</span><span class="nye">NYE · Kuala Lumpur</span></div>
+    <p class="hint">The only truly equal split. NYE moves to the Petronas Towers, and the KL→BKK hop flies off-peak on Jan 1.</p>
+    <details class="day air"><summary><span class="rail"></span><span class="dnum">DAY<b>1</b></span><span class="dtitle">Land Singapore · slow start</span><span class="ddate">Sat 26</span><span class="chev">›</span></summary><div class="body"><ul><li>Land 00:25, Grab in</li><li>Jewel, Gardens by the Bay, Marina Bay, Lau Pa Sat</li></ul></div></details>
+    <details class="day sg"><summary><span class="rail"></span><span class="dnum">DAY<b>2</b></span><span class="dtitle">Universal Studios</span><span class="ddate">Sun 27</span><span class="chev">›</span></summary><div class="body"><ul><li>Rope-drop USS, Sentosa</li></ul></div></details>
+    <details class="day sg"><summary><span class="rail"></span><span class="dnum">DAY<b>3</b></span><span class="dtitle">Singapore culture day</span><span class="ddate">Mon 28</span><span class="chev">›</span></summary><div class="body"><ul><li>Chinatown, Little India, Haji Lane, Kampong Glam</li></ul></div></details>
+    <details class="day my"><summary><span class="rail"></span><span class="dnum">DAY<b>4</b></span><span class="dtitle">Fly to KL · ease in<span class="tag fly">FLY</span></span><span class="ddate">Tue 29</span><span class="chev">›</span></summary><div class="body"><ul><li>SIN→KL ~1h. Merdeka Square, Jalan Alor</li></ul></div></details>
+    <details class="day my"><summary><span class="rail"></span><span class="dnum">DAY<b>5</b></span><span class="dtitle">Kuala Lumpur full day</span><span class="ddate">Wed 30</span><span class="chev">›</span></summary><div class="body"><ul><li>Batu Caves, Thean Hou, Petronas at dusk, Bukit Bintang</li></ul></div></details>
+    <details class="day my" open><summary><span class="rail"></span><span class="dnum">DAY<b>6</b></span><span class="dtitle">NYE at the Petronas Towers<span class="tag nye">NYE</span></span><span class="ddate">Thu 31</span><span class="chev">›</span></summary><div class="body"><ul><li>Light daytime, Bukit Bintang / Pavilion</li><li><b>KLCC Park</b> for the Petronas fireworks, "Rhythm of KLCC 2026". Arrive hours early, bring a mat</li><li>Rooftop alternative: Traders SkyBar countdown package</li><li>Trains run late, to ~3:30am</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>7</b></span><span class="dtitle">Fly to Bangkok · ease in<span class="tag fly">FLY</span></span><span class="ddate">Fri 1</span><span class="chev">›</span></summary><div class="body"><ul><li>KL→BKK ~2h, off-peak. ICONSIAM, light first night</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>8</b></span><span class="dtitle">Old town + the river</span><span class="ddate">Sat 2</span><span class="chev">›</span></summary><div class="body"><ul><li>Wat Pho, Grand Palace, Wat Arun, river boat</li></ul></div></details>
+    <details class="day th"><summary><span class="rail"></span><span class="dnum">DAY<b>9</b></span><span class="dtitle">Market + last day</span><span class="ddate">Sun 3</span><span class="chev">›</span></summary><div class="body"><ul><li>Chatuchak, Siam shopping, Yaowarat dinner</li></ul></div></details>
+    <details class="day air"><summary><span class="rail"></span><span class="dnum">DAY<b>10</b></span><span class="dtitle">Fly home<span class="tag fly">FLY</span></span><span class="ddate">Mon 4</span><span class="chev">›</span></summary><div class="body"><ul><li>DMK→DVO 21:15, direct</li></ul></div></details>
+  </section>
+
+  <p class="note">Mockup only. Days are collapsed by default (this is the whole itinerary on one short screen); tap any day to open it. The practical sections (route, money, where we sleep, before we fly) would sit below, and switch with the version too.</p>
+</div>
+
+<script>
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('[data-panel]'));
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-selected', x===t?'true':'false')});
+      panels.forEach(function(p){ p.hidden = p.getAttribute('data-panel')!==t.dataset.v; });
+    });
+  });
+</script>
+</body>
+</html>

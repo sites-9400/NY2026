@@ -19,7 +19,8 @@ Travel Companion/
 ├── public/                    ← deployed to Firebase Hosting. Shareable, assume public.
 │   ├── index.html                 landing page listing all trips
 │   ├── assets/site.css            the shared design system — every page uses it
-│   └── <slug>/index.html          one page per trip
+│   └── <slug>/index.html          one page per trip (EXCEPT 2026-12-sea, which is
+│                                   split into six pages — see Trips)
 ├── _reference/
 │   ├── templates/trip-page.html   blank trip page, copy to start a new one
 │   └── render-to-pdf.sh           page → PDF, for offline/paper copies
@@ -211,6 +212,20 @@ cheap. Use colour and weight to subordinate instead.
   shortlist instead. Free cancellation on the room ends 14 Aug 2026.
 - **`2026-12-SEA/`** → `public/2026-12-sea/` — Singapore, Malaysia, Bangkok.
   25 Dec 2026 onward. Five travellers: Gamaliel, Marianne, Alysson, Kevin, Jan.
-  Outbound booked one way; return not booked, which is also the trip's biggest
-  open risk (onward-travel proof). Anchor: NYE fireworks in Bangkok, 31 Dec.
+  Outbound booked one way. **Return option found (not booked): CebPac Don Mueang
+  → Davao DIRECT, Mon/Wed/Fri, dep 21:15 — Mon 4 Jan fits and solves onward
+  proof.**
+  **This trip is MULTI-PAGE, not the usual single `index.html`** (rebuilt 2026-08-15):
+  six pages sharing one header/nav/footer — `index.html` (Dashboard), `itinerary.html`,
+  `route.html`, `money.html`, `accommodations.html`, `before.html`. The **Itinerary**
+  page carries a CSS-only 4-tab switcher (radio inputs) over **four versions** of the
+  trip: **Overland** (by-land + Pattaya + NYE Bangkok — the route the route/money/stay
+  pages describe), **V1** SG-lean, **V2** KL-lean, **V3** truly-equal 3/3/3 with NYE at
+  the Petronas Towers (KL). V1–V3 all fly the hops. Day cards are non-collapsing
+  `<details open>`; each version has one comment thread.
+  Gotchas: `firebase.json` has `cleanUrls:true` + `trailingSlash:true`, so pages serve
+  at `/2026-12-sea/<page>/` — **all internal links + CSS must be ABSOLUTE** (`/assets/…`,
+  `/2026-12-sea/<page>/`), relative paths break at that depth. Test with `firebase serve`
+  (honors cleanUrls), not plain http.server. Reasoning + full day-by-day live in
+  `2026-12-SEA/notes/` (planning.md, equal-split-versions.md, v3-itinerary.md).
 - **`2026-07-HongKong/`** — complete. Kept offline, not published.

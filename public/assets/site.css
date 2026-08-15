@@ -542,4 +542,74 @@ footer{
   .calbtn{ display:none; }
   .day, .callout, table{ break-inside:avoid; }
   a{ color:inherit; }
+  .vtablist{ display:none; }
+  .vpanel{ display:block !important; }
+  details.day > .fbody{ display:block !important; }
 }
+
+/* ============ VERSION TABS + DAY ACCORDION ============
+   CSS-only: radio inputs drive the tabs, native <details> drive the day
+   accordions. Both work with JavaScript off, like the rest of the page. */
+.vtabs > input[type="radio"]{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
+.vtablist{ display:flex; gap:.3rem; background:var(--callout); border:1px solid var(--line);
+  border-radius:12px; padding:.3rem; margin:.5rem 0 .2rem; }
+.vtablist label{ flex:1; text-align:center; font-weight:800; font-size:.92rem; color:var(--soft);
+  padding:.55rem .35rem; border-radius:8px; cursor:pointer; line-height:1.1; letter-spacing:-.01em; }
+.vtablist label small{ display:block; font-weight:600; font-size:.66rem; opacity:.85; letter-spacing:0; margin-top:.1rem; }
+.vtablist label:hover{ color:var(--ink); }
+.vpanel{ display:none; }
+#ver-ov:checked ~ .vtablist label[for="ver-ov"],
+#ver-v1:checked ~ .vtablist label[for="ver-v1"],
+#ver-v2:checked ~ .vtablist label[for="ver-v2"],
+#ver-v3:checked ~ .vtablist label[for="ver-v3"]{ background:var(--brand); color:var(--onbrand,#fff); }
+#ver-ov:checked ~ .vpanels .vpanel[data-ver="ov"],
+#ver-v1:checked ~ .vpanels .vpanel[data-ver="v1"],
+#ver-v2:checked ~ .vpanels .vpanel[data-ver="v2"],
+#ver-v3:checked ~ .vpanels .vpanel[data-ver="v3"]{ display:block; }
+.vtabs > input:focus-visible ~ .vtablist label{ } /* placeholder */
+.vtabs > input#ver-ov:focus-visible ~ .vtablist label[for="ver-ov"],
+.vtabs > input#ver-v1:focus-visible ~ .vtablist label[for="ver-v1"],
+.vtabs > input#ver-v2:focus-visible ~ .vtablist label[for="ver-v2"],
+.vtabs > input#ver-v3:focus-visible ~ .vtablist label[for="ver-v3"]{ outline:2px solid var(--brand); outline-offset:2px; }
+
+/* at-a-glance strip inside each version panel */
+.glance{ display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; margin:.8rem 0 .2rem; }
+.glance .chip{ border:1px solid var(--line); border-radius:999px; padding:.15rem .65rem; font-weight:800; font-size:.85rem; }
+.glance .chip.sg{ color:var(--sg); } .glance .chip.my{ color:var(--my); }
+.glance .chip.th{ color:var(--th); } .glance .chip.air{ color:var(--air); }
+.glance .nye{ margin-left:auto; color:var(--soft); font-weight:700; font-size:.85rem; }
+.gnote{ color:var(--soft); font-size:.86rem; margin:.35rem .1rem .7rem; }
+.gmeta{ font-size:.86rem; margin:.1rem .1rem .9rem; }
+.gmeta b{ color:var(--ink); }
+
+/* a .day rendered as an accordion (only when it is a <details> element) */
+details.day{ display:block; border:1px solid var(--line); border-radius:12px; margin:.5rem 0;
+  overflow:hidden; background:var(--card); }
+details.day > summary{ list-style:none; cursor:pointer; display:flex; align-items:stretch; gap:.7rem; padding:.7rem .8rem; }
+details.day > summary::-webkit-details-marker{ display:none; }
+details.day .frail{ width:6px; border-radius:6px; background:var(--accent); flex:0 0 6px; }
+details.day .fnum{ font-size:.58rem; font-weight:800; letter-spacing:.12em; color:var(--soft);
+  width:2.3rem; flex:0 0 2.3rem; align-self:center; line-height:1.05; }
+details.day .fnum b{ display:block; font-size:1.25rem; color:var(--ink); letter-spacing:-.03em; }
+details.day .ftitle{ font-weight:800; flex:1; align-self:center; letter-spacing:-.01em; }
+details.day .fdate{ color:var(--soft); font-size:.8rem; white-space:nowrap; align-self:center; }
+details.day .fchev{ color:var(--soft); align-self:center; transition:transform .15s; flex:0 0 auto; font-weight:800; }
+details.day[open] .fchev{ transform:rotate(90deg); }
+details.day > .fbody{ padding:.1rem .9rem .9rem 3.75rem; border-top:1px solid var(--line); }
+details.day > .fbody .lead{ margin:.6rem 0 .1rem; }
+details.day > .fbody ul{ margin:.5rem 0 0; padding-left:1.1rem; }
+details.day > .fbody li{ margin:.25rem 0; }
+details.day > .fbody .sb{ margin-top:.7rem; padding-top:.55rem; border-top:1px dashed var(--line); }
+details.day > .fbody .sb b.h{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:.15rem; }
+details.day .ftag{ display:inline-block; font-size:.62rem; font-weight:800; letter-spacing:.03em; border-radius:999px; padding:.05rem .5rem; margin-left:.4rem; vertical-align:middle; }
+details.day .ftag.nye{ background:var(--brandbg,#fbe9ef); color:var(--brand); }
+details.day .ftag.fly{ background:var(--airbg); color:var(--air); }
+
+/* The itinerary has its own page now, so days show in full: open, not collapsible.
+   Every card carries `open`; the header is inert and the chevron is hidden. */
+details.day > summary{ cursor:default; pointer-events:none; }
+details.day .fchev{ display:none; }
+
+/* active page in the cross-page nav (multi-page split) */
+nav.days a.on{ color:var(--brand); font-weight:800; }
+nav.days a.on::after{ content:""; display:block; height:2px; background:var(--brand); border-radius:2px; margin-top:1px; }
