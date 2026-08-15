@@ -289,4 +289,6 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   the money page's fund-QR `<img>` used a relative path that 404'd at the deeper URL,
   now absolute. **Site is LIVE** (deployed via `firebase deploy --only hosting`, verified
   on travel-f412b.web.app: all pages 200, old /days/ and /stay/ 404, CSS v24, QR loads).
-  **NOT committed to git yet** — hosting-only; a `git push` would archive the source.
+  **Committed + pushed** to origin/main (`d908608`, 2026-08-15). Note: the repo is
+  `sites-9400/NY2026`; pushing needs the **`sites-9400`** gh account active, not the
+  default `eveminggong` (which 403s) — `gh auth switch --user sites-9400`, push, switch back.
