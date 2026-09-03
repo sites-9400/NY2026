@@ -348,3 +348,20 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   - No `site.css` change, so **?v stays at 24 on all pages**. The one place that
     wanted a new style (a ticked-off checklist item) was reworded instead, since a
     CSS change forces a version bump on every page for one tick mark.
+- *2026-09-04* · **Arrival day (Sat 26 Dec) settled: airport, hotel, sleep.**
+  User's shape for the day, and it works, but only because of a constraint worth
+  writing down. **The Quay Hotel Little India checks in at 14:00 and out at 11:00**
+  (looked up, not assumed). We land 09:50 and are out of the terminal around 10:45,
+  so **Jewel Changi is not a nice-to-have, it is what fills the 3-hour gap** until
+  the room exists. Little India is about an hour from Changi on the MRT.
+  - **Afternoon is for sleeping**, so Gardens by the Bay and Lau Pa Sat moved to the
+    evening on that card. Garden Rhapsody is an evening show anyway, so nothing was
+    lost by the move.
+  - **Early check-in added as a to-do**, not as a plan. Free to request on the Agoda
+    booking, never guaranteed, and 26 Dec is peak week with the hotel full from the
+    night before. The day is written to work at 14:00; early check-in is upside.
+  - **Knock-on found on Day 4 (Mon 28):** checkout 11:00 against wanting Woodlands
+    by midday. That is tight with no slack, so the day card now says pack the night
+    before. Nobody had noticed this because the check-in times were never looked up.
+  - The dashboard's "what do we do on the arrival day" open question is closed and
+    removed, replaced by the early-check-in request as a tracked item.
