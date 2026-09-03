@@ -168,6 +168,15 @@ fix is a `**` rule for `no-cache` with the image rule after it. If you touch the
 headers, verify with `curl -sI` against the live URL rather than reading the
 config, because the config looked right the whole time.
 
+**The route map is a real projection, not a drawing.** Nodes in
+`public/2026-12-sea/route.html` are placed by
+`x = 102 + (lon - 100.52) * 27.86` and `y = 78 + (13.75 - lat) * 25.9`, which
+reproduces every existing node to within a pixel. Singapore and Johor Bahru are
+deliberately nudged apart because they are 25km apart in reality. To add or move
+a city, run its real latitude and longitude through that formula rather than
+eyeballing a position, then check the result against the coastline path data
+before rendering. Manila was placed this way in Sep 2026.
+
 **Tables stack on mobile.** Below 36rem each row becomes a block and every cell
 shows its column name, drawn from `data-label` attributes generated off the table
 head. Add `data-label` to new cells. Don't make the cell a grid container to get
@@ -212,9 +221,16 @@ cheap. Use colour and weight to subordinate instead.
   shortlist instead. Free cancellation on the room ends 14 Aug 2026.
 - **`2026-12-SEA/`** → `public/2026-12-sea/` — Singapore, Malaysia, Bangkok.
   25 Dec 2026 onward. Five travellers: Gamaliel, Marianne, Alysson, Kevin, Jan.
-  Outbound booked one way. **Return option found (not booked): CebPac Don Mueang
-  → Davao DIRECT, Mon/Wed/Fri, dep 21:15 — Mon 4 Jan fits and solves onward
-  proof.**
+  A sixth (Jude) is an open maybe, so every ÷5 figure is provisional.
+  **Outbound booked one way, rerouted by the airline on 2026-09-04:** 5J982 DVO
+  22:20 → MNL 00:25+1, 5h30 overnight layover, 5J817 MNL 05:55 → **SIN 09:50 on
+  Sat 26 Dec**. No alternative flight was offered, only cancellation. The old
+  routing (via Cebu, landing 00:25) is superseded everywhere. **Return option
+  found (not booked): CebPac Don Mueang → Davao DIRECT, Mon/Wed/Fri, dep 21:15 —
+  Mon 4 Jan fits and solves onward proof.**
+  **Singapore stay booked:** The Quay Hotel Little India, two triple rooms,
+  26–28 Dec, ₱32,360 (₱6,472 each ÷5), Agoda Book Now Pay Later, free
+  cancellation. Charge date and cancellation cut-off both still unknown.
   **This trip is MULTI-PAGE, not the usual single `index.html`** (rebuilt 2026-08-15):
   six pages sharing one header/nav/footer — `index.html` (Dashboard), `itinerary.html`,
   `route.html`, `money.html`, `accommodations.html`, `before.html`. The **Itinerary**
