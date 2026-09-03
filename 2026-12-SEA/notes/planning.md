@@ -5,28 +5,38 @@ remembers *why*, so we don't relitigate the same arguments in December.
 
 ## Fixed
 
-- **Outbound booked, one way, Fri 25 Dec 2026:**
-  - DVO → CEB, 13:00 – 14:10 (1h 10m)
-  - 6h 30m layover in Cebu
-  - CEB → SIN, 20:40 – 00:25 (3h 45m) — **lands Sat 26 Dec**, PH and SG are both UTC+8
+- **Outbound booked, one way, Fri 25 Dec 2026** (rerouted by Cebu Pacific, 4 Sep 2026):
+  - **5J982** DVO → MNL, 22:20 – 00:25+1 (2h 05m)
+  - 5h 30m overnight layover in Manila
+  - **5J817** MNL → SIN, 05:55 – 09:50 (3h 55m) — **lands Sat 26 Dec at 09:50**, PH and SG are both UTC+8
+  - *Superseded:* the original was DVO 13:00 → CEB, 6h 30m layover, CEB 20:40 → SIN 00:25.
 - **Route:** Singapore first, Malaysia in the middle, Bangkok for New Year's Eve.
 - **Travellers (5):** Gamaliel, Marianne, Alysson, Kevin, Jan.
 - **Money rule:** accommodation and group bookings split five ways; food and
   shopping are personal.
 - **Universal Studios Singapore on Sun 27 Dec**, its own full day. Not Sat 26 —
-  after a 00:25 landing nobody is up for a theme park the next morning.
+  the 09:50 landing follows a night in the air and a night in a Manila terminal.
+  (This held under the old 00:25 arrival too, for the same reason.)
+- **Singapore hotel booked, 26–28 Dec:** The Quay Hotel Little India, **two triple
+  rooms**, **₱32,360** total, Agoda Book Now Pay Later with free cancellation.
 - **Bookings priced from Klook** (PH storefront) per the user's instruction.
 
-## Consequences of the 00:25 arrival
+## Consequences of the arrival time
 
-Worked out 25 Jul 2026, and easy to get wrong:
+**Superseded 4 Sep 2026.** The three points below were worked out on 25 Jul 2026
+against the old 00:25 landing. Cebu Pacific's reroute killed all three, but they
+are kept here because the reasoning is the reason the hotel dates are what they
+are, and because the same trap returns if the flight ever moves back.
 
-1. **The Singapore hotel must be booked for the night of Fri 25 Dec**, not Sat 26.
+1. ~~**The Singapore hotel must be booked for the night of Fri 25 Dec**, not Sat 26.
    We check in around 01:30 on the 26th, against a room reserved for the 25th.
-   Tell the property the arrival time so it isn't released as a no-show.
-2. **No MRT.** Last trains out of Changi run before midnight, so it's Grab or taxi
-   into the city — probably two cars for five people plus luggage.
-3. **Sat 26 Dec is a half day at best.** Planned as a slow start.
+   Tell the property the arrival time so it isn't released as a no-show.~~
+   Gone. We now land at 09:50 on the 26th, so the 26th is the first hotel night.
+2. ~~**No MRT.** Last trains out of Changi run before midnight, so it's Grab or taxi
+   into the city — probably two cars for five people plus luggage.~~
+   Gone. A 09:50 landing is squarely in MRT hours.
+3. ~~**Sat 26 Dec is a half day at best.** Planned as a slow start.~~
+   Softened. It is a most-of-the-day day now, but on no proper sleep.
 
 ## Overland decision — 25 Jul 2026
 
@@ -38,10 +48,10 @@ Bangkok on 31 Dec, fixes the middle of the itinerary almost completely:
   reaching Bangkok 11:00 the next morning.
 - Working backwards from NYE: sleeper on 30 Dec → KL day on 29 Dec → leave
   Singapore 28 Dec. Confirmed with the user.
-- **Singapore gets two days** (26 Dec half day after the 01:30 check-in, 27 Dec
-  Universal Studios), then departs the 28th. User's call: the half day is enough
-  for spots, and they want to see Jewel Changi properly since arrival is at
-  00:25 in the dark.
+- **Singapore gets two days** (26 Dec, 27 Dec Universal Studios), then departs the
+  28th. User's call: two days is enough for the spots they want. Since the reroute
+  the 26th starts at 09:50 rather than at a 01:30 check-in, and **Jewel Changi is
+  now done on the way out of the airport** rather than as a separate trip back.
 - **Kuala Lumpur gets one real day.** That is the cost of going overland.
 
 **The single point of failure:** the sleeper runs once a day at 17:00. Miss it
@@ -292,3 +302,49 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   **Committed + pushed** to origin/main (`d908608`, 2026-08-15). Note: the repo is
   `sites-9400/NY2026`; pushing needs the **`sites-9400`** gh account active, not the
   default `eveminggong` (which 403s) — `gh auth switch --user sites-9400`, push, switch back.
+- *2026-09-04* · **Outbound rerouted by Cebu Pacific, and the Singapore hotel booked.**
+  Two updates arrived together, and they fit each other exactly.
+  - **Flight.** The booking now reads `MOVED TO NEW FLIGHT`: **5J982 DVO 22:20 →
+    MNL 00:25+1**, 5h 30m airport connection, **5J817 MNL 05:55 → SIN 09:50**.
+    11h 30m, one stop, still departing Fri 25 Dec. Manage-booking offers **no
+    alternative flight at all**, only cancellation, so the real choice was accept
+    or cancel. **User's call: keep it.**
+  - **Why it is a gain, not a loss.** The old 00:25 landing forced a Singapore room
+    for the night of Fri 25 Dec, which was the site's loudest open risk. Landing at
+    09:50 on the 26th removes that night entirely. A 25–28 Dec stay was quoted at
+    around **₱60,000**; the 26–28 booking came to **₱32,360**. Roughly ₱28,000 saved
+    by an airline schedule change.
+  - **The price paid** is an overnight terminal wait in Manila, 00:25 to 05:55, on
+    Christmas night. Added to `before.html` as a group to-do: confirm terminals,
+    decide on a lounge. Both legs are one booking so bags should through-check —
+    **not verified**, flagged on the page as something to confirm.
+  - **Hotel.** The Quay Hotel Little India, Little India, 3★, Agoda 7.5 from ~1,248
+    reviews. **Two triple rooms, 26–28 Dec, ₱32,360 total = ₱6,472 each across five.**
+    Booked **Book Now Pay Later** with free cancellation, so the charge date and the
+    cancellation cut-off are both still unknown and are now open questions on the
+    dashboard. Nothing about the booking reference goes on the page.
+  - **Two triple rooms sleeps six**, and the chat raised Jude joining. **Left as a
+    maybe**, user's call: the site still says five everywhere, with the spare bed
+    noted as an open question. If it becomes six, every ÷5 figure on the money page
+    moves.
+  - **Money page now has a real accommodation number for the first time.** Known
+    costs per person went ₱22,858–31,358 → **₱29,330–37,830**, so the fund shortfall
+    against ₱20,000 widened from ₱2,858–11,358 to **₱9,330–17,830**. That is not the
+    hotel being expensive, it is the first hotel simply being priced. Six hotel
+    nights are still unpriced.
+  - **Route map.** Cebu node replaced by **Manila at (672, 56)**, derived from the
+    page's own projection rather than eyeballed: `x = 102 + (lon − 100.52) × 27.86`,
+    `y = 78 + (13.75 − lat) × 25.9`, fitted against the five existing nodes (all
+    reproduce to within a pixel; Singapore and Johor Bahru are the documented
+    deliberate offsets). Manila 14.60N/120.98E lands on the Manila Bay coastline,
+    checked against the Natural Earth path data before rendering.
+  - **Calendar files rebuilt** and smoke-tested by running the page's own `build()`
+    in node: `20261225T142000Z/20261225T162500Z` and `20261225T215500Z/20261226T015000Z`,
+    which are 22:20→00:25 and 05:55→09:50 local. The per-leg download filename was
+    hardcoded `-25-dec-2026.ics`, which the second leg now falsifies; changed to
+    `sea-2026-<leg>.ics`.
+  - **Pre-existing bug fixed in passing:** the route table called 25 Dec 2026 a
+    Thursday. It is a Friday, which the itinerary and the airline both already said.
+  - No `site.css` change, so **?v stays at 24 on all pages**. The one place that
+    wanted a new style (a ticked-off checklist item) was reworded instead, since a
+    CSS change forces a version bump on every page for one tick mark.
