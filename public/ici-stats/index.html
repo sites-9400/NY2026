@@ -71,6 +71,9 @@ th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12px; p
 td { padding: 8px; border-bottom: 1px solid var(--mist); vertical-align: middle; }
 td.n, th.n { text-align: right; }
 td.t { min-width: 200px; }
+.vid { display: flex; align-items: center; gap: 12px; }
+.vid img { flex: 0 0 auto; width: 112px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; background: var(--mist); }
+@media (max-width: 560px) { .vid img { width: 80px; } }
 td small { display: block; color: var(--faint); font-size: 11px; }
 .scroll { overflow-x: auto; }
 .chg { font-size: 12px; font-weight: 600; white-space: nowrap; }
@@ -131,11 +134,9 @@ a { color: var(--primary); }
     <div class="two" id="yt-formats"></div>
 
     <h3 class="sec">Revenue</h3>
-    <p class="note">Estimated earnings for the same two 30-day windows, in USD. YouTube finalizes these figures after each month closes, so recent days can still shift a little.</p>
-    <div class="tiles" id="rev-tiles"></div>
+    <p class="note">Estimated earnings in USD for the same two 30-day windows. YouTube finalizes these after each month closes, so recent days can still shift a little.</p>
+    <div class="tiles" id="rev-tiles" style="grid-template-columns: repeat(auto-fill, minmax(200px, 260px))"></div>
     <div class="card"><h4>Daily estimated revenue</h4><div class="legend"><span>Last 30 days</span><span class="prev">30 days before</span></div><div class="chart" id="rev-daily"></div></div>
-    <div class="card"><h4>By format</h4><div class="sub">Estimated revenue</div><div class="scroll"><table id="rev-fmt"></table></div></div>
-    <div class="card"><h4>Top earning videos</h4><div class="sub">Last 30 days</div><div class="scroll"><table id="rev-top"></table></div></div>
 
     <h3 class="sec">Top videos, last 30 days</h3>
     <div class="tabs" role="tablist" id="top-tabs">
@@ -266,7 +267,7 @@ function renderYouTube(y) {
   const top = Array.isArray(y.top) ? { long: y.top, shorts: [] } : (y.top || { long: [], shorts: [] });
   const showTop = k => {
     $('yt-top').innerHTML = '<tr><th>#</th><th>Video</th><th class="n">Views</th><th class="n">Watch hours</th><th class="n">Likes</th></tr>' +
-      (top[k] || []).map((t, i) => `<tr><td>${i + 1}</td><td class="t"><a href="https://youtu.be/${esc(t.video)}" target="_blank" rel="noopener">${esc(t.title)}</a>${t.published ? `<small>Published ${day(t.published)}</small>` : ''}</td><td class="n">${full(t.views)}</td><td class="n">${full(t.estimatedMinutesWatched / 60)}</td><td class="n">${t.likes == null ? '–' : full(t.likes)}</td></tr>`).join('');
+      (top[k] || []).map((t, i) => `<tr><td>${i + 1}</td><td class="t"><div class="vid">${t.cover ? `<img src="${esc(t.cover)}" alt="" loading="lazy">` : ''}<div><a href="https://youtu.be/${esc(t.video)}" target="_blank" rel="noopener">${esc(t.title)}</a>${t.published ? `<small>Published ${day(t.published)}</small>` : ''}</div></div></td><td class="n">${full(t.views)}</td><td class="n">${full(t.estimatedMinutesWatched / 60)}</td><td class="n">${t.likes == null ? '–' : full(t.likes)}</td></tr>`).join('');
     document.querySelectorAll('#top-tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.k === k));
   };
   document.querySelectorAll('#top-tabs button').forEach(b => b.onclick = () => showTop(b.dataset.k));
@@ -274,21 +275,12 @@ function renderYouTube(y) {
 }
 
 function renderRevenue(y) {
-  const r = y.revenue; if (!r) { $('rev-tiles').closest('section') && ($('rev-tiles').innerHTML = ''); return; }
-  const m = r.month || {}, p = r.prevMonth || {};
-  const rpm = (rev, views) => views ? rev / views * 1000 : null;
-  $('rev-tiles').innerHTML = cmpTile('Estimated revenue', m.estimatedRevenue, p.estimatedRevenue, usd) +
-    cmpTile('Ad revenue', m.estimatedAdRevenue, p.estimatedAdRevenue, usd) +
-    cmpTile('YouTube Premium', m.estimatedRedPartnerRevenue, p.estimatedRedPartnerRevenue, usd) +
-    cmpTile('RPM', rpm(m.estimatedRevenue, y.month?.views), rpm(p.estimatedRevenue, y.prevMonth?.views), usd) +
-    cmpTile('CPM', m.cpm, p.cpm, usd) + cmpTile('Monetized playbacks', m.monetizedPlaybacks, p.monetizedPlaybacks);
-  const pts = rs => rs.map(x => ({ x: day(x.day), v: x.estimatedRevenue }));
-  chart($('rev-daily'), pts(r.daily || []), { label: 'Revenue', prev: (r.prevDaily || []).length ? pts(r.prevDaily) : null, money: true });
-  const by = (rows, t) => ((rows || []).find(x => x.creatorContentType === t) || {}).estimatedRevenue || 0;
-  $('rev-fmt').innerHTML = '<tr><th></th><th class="n">Last 30</th><th class="n">30 before</th><th class="n">Change</th></tr>' +
-    [['videoOnDemand', 'Long-form'], ['shorts', 'Shorts']].map(([t, n]) => `<tr><td>${n}</td><td class="n">${usd(by(r.byFormat, t))}</td><td class="n">${usd(by(r.prevByFormat, t))}</td><td class="n">${pct(change(by(r.byFormat, t), by(r.prevByFormat, t)))}</td></tr>`).join('');
-  $('rev-top').innerHTML = '<tr><th>#</th><th>Video</th><th class="n">Revenue</th><th class="n">Views</th></tr>' +
-    (r.top || []).map((t, i) => `<tr><td>${i + 1}</td><td class="t"><a href="https://youtu.be/${esc(t.video)}" target="_blank" rel="noopener">${esc(t.title)}</a></td><td class="n">${usd(t.estimatedRevenue)}</td><td class="n">${full(t.views)}</td></tr>`).join('');
+  const r = y.revenue;
+  if (!r || r.month == null) { $('rev-tiles').innerHTML = ''; return; }
+  $('rev-tiles').innerHTML = cmpTile('Estimated revenue', r.month, r.prevMonth, usd);
+  const pts = rs => (rs || []).map(x => ({ x: day(x.day), v: x.estimatedRevenue }));
+  if ((r.daily || []).length) chart($('rev-daily'), pts(r.daily), { label: 'Estimated revenue', prev: (r.prevDaily || []).length ? pts(r.prevDaily) : null, money: true });
+  else $('rev-daily').closest('.card').hidden = true;
 }
 
 function renderTopPosts(s) {
