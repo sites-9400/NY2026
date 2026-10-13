@@ -32,6 +32,18 @@ Travel Companion/
 └── docs/specs/                ← design docs for the workspace itself
 ```
 
+## Non-trip page: `public/ici-stats/`
+
+A daily channel-stats dashboard for Dr. Kara / ICI, parked here (added 2026-10-14)
+until it moves to drkarawada.com. It is not a trip page: it is owned by the ICI
+workspace (`02 Areas/ICI/ICI Operations/Stats Dashboard/`, see its README), whose
+launchd job `com.ici.stats-dashboard` rewrites `public/ici-stats/*.json` + `thumbs/`
+and runs `firebase deploy --only hosting` **every night at 00:00 PH**. Two
+consequences for trip work here: a half-edited trip page in `public/` goes live at
+midnight, and those data files are gitignored, so leave them alone. If Dropbox makes
+`public/` files online-only the nightly deploy skips (logged in `~/Library/Logs/ici-stats/`);
+keep this folder Available offline.
+
 ## The rules that matter
 
 **The published page is the single source of truth for the plan.** Don't keep a
