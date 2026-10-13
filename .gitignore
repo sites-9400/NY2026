@@ -42,3 +42,11 @@ Icon?
 node_modules/
 .firebase/
 *.log
+
+# ---- ICI stats dashboard data ------------------------------------------
+# public/ici-stats/ is a page for Dr. Kara's channel stats, parked here until
+# it moves to drkarawada.com. Its numbers are refreshed daily by a launchd job
+# (ICI workspace: ICI Operations/Stats Dashboard/) and deployed straight to
+# Hosting. Business metrics stay off the public repo; a fresh clone shows the
+# page's "could not load" line instead.
+public/ici-stats/*.json
