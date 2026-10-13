@@ -91,7 +91,8 @@ td small { display: block; color: var(--faint); font-size: 11px; }
 .bar-track i { display: block; height: 100%; background: var(--gold); }
 .posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; margin-top: 12px; }
 .post { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; gap: 12px; padding: 12px; }
-.post .thumb { flex: 0 0 72px; height: 90px; border-radius: 8px; background: var(--mist) center/cover no-repeat; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--muted); }
+.post .thumb { position: relative; flex: 0 0 80px; height: 120px; border-radius: 8px; background: var(--mist) center/cover no-repeat; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--muted); }
+.post .thumb.vid::after { content: ""; position: absolute; left: 50%; top: 50%; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; background: rgba(6, 6, 46, .55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l8 5-8 5z' fill='%23fff'/%3E%3C/svg%3E") center/18px no-repeat; }
 .post .rank { font-size: 12px; font-weight: 600; color: var(--gold); }
 .post .cap { font-size: 13px; margin: 2px 0 6px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .post .by { font-size: 11px; color: var(--faint); }
@@ -133,10 +134,8 @@ a { color: var(--primary); }
     <p class="note">Estimated earnings for the same two 30-day windows, in USD. YouTube finalizes these figures after each month closes, so recent days can still shift a little.</p>
     <div class="tiles" id="rev-tiles"></div>
     <div class="card"><h4>Daily estimated revenue</h4><div class="legend"><span>Last 30 days</span><span class="prev">30 days before</span></div><div class="chart" id="rev-daily"></div></div>
-    <div class="two">
-      <div class="card"><h4>By format</h4><div class="sub">Estimated revenue</div><div class="scroll"><table id="rev-fmt"></table></div></div>
-      <div class="card"><h4>Top earning videos</h4><div class="sub">Last 30 days</div><div class="scroll"><table id="rev-top"></table></div></div>
-    </div>
+    <div class="card"><h4>By format</h4><div class="sub">Estimated revenue</div><div class="scroll"><table id="rev-fmt"></table></div></div>
+    <div class="card"><h4>Top earning videos</h4><div class="sub">Last 30 days</div><div class="scroll"><table id="rev-top"></table></div></div>
 
     <h3 class="sec">Top videos, last 30 days</h3>
     <div class="tabs" role="tablist" id="top-tabs">
@@ -296,7 +295,7 @@ function renderTopPosts(s) {
   const tp = s.topPosts || [];
   $('tp-note').textContent = tp.length ? `Ranked by engagement (likes + comments + shares) across ${s.postsScanned} posts published through the GHL Social Planner. Facebook and Instagram report these numbers; TikTok mostly reads zero there and Threads posts are not listed, so they rarely appear here.` : 'No post engagement reported yet.';
   $('top-posts').innerHTML = tp.map((p, i) => `<div class="post">
-    <div class="thumb" ${p.image ? `style="background-image:url('${esc(p.image)}')"` : ''}>${p.image ? '' : (p.isVideo ? 'Video' : 'Text')}</div>
+    <div class="thumb${p.isVideo && p.image ? ' vid' : ''}" ${p.image ? `style="background-image:url('${esc(p.image)}')"` : ''}>${p.image ? '' : (p.isVideo ? 'Video' : 'Text')}</div>
     <div style="min-width:0">
       <div class="rank">#${i + 1} · ${PLAT[p.platform] || p.platform}</div>
       <div class="cap">${esc(p.caption)}</div>

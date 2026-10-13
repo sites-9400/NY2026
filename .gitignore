@@ -50,3 +50,4 @@ node_modules/
 # Hosting. Business metrics stay off the public repo; a fresh clone shows the
 # page's "could not load" line instead.
 public/ici-stats/*.json
+public/ici-stats/thumbs/
