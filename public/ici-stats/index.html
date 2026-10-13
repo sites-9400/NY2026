@@ -9,118 +9,139 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <!--
-  ICI stats dashboard. Self-contained (inline CSS + JS) so it can move into a
-  drkarawada.com custom-code block as-is; it only needs data.json beside it.
-  data.json + history.json are written daily by
+  ICI stats dashboard, ICI Kit C (navy + gold). Self-contained (inline CSS + JS)
+  so it can move into a GHL custom-code block as-is; it only needs data.json
+  beside it. data.json, history.json and social-daily.json are written daily by
   ICI/ICI Operations/Stats Dashboard/fetch-stats.mjs and are gitignored.
 -->
 <style>
 :root {
-  --primary: hsl(170, 50%, 21%);
-  --ink: hsl(170, 55%, 16%);
-  --muted: hsl(160, 12%, 36%);
-  --faint: hsl(160, 8%, 55%);
-  --bg: hsl(60, 20%, 97%);
+  --primary: hsl(225, 46%, 29%);
+  --ink: hsl(225, 38%, 22%);
+  --muted: hsl(222, 14%, 44%);
+  --faint: hsl(222, 12%, 58%);
+  --bg: hsl(220, 40%, 98%);
   --card: #ffffff;
-  --border: hsl(80, 5%, 90%);
-  --grid: hsl(80, 5%, 92%);
-  --gold: hsl(37, 60%, 58%);
-  --series: hsl(170, 45%, 30%);
-  --series-2: hsl(37, 60%, 52%);
-  --up: hsl(150, 45%, 30%);
-  --down: hsl(4, 60%, 45%);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --primary: hsl(165, 40%, 72%);
-    --ink: hsl(60, 15%, 92%);
-    --muted: hsl(160, 8%, 70%);
-    --faint: hsl(160, 6%, 52%);
-    --bg: hsl(170, 30%, 8%);
-    --card: hsl(170, 25%, 12%);
-    --border: hsl(170, 15%, 20%);
-    --grid: hsl(170, 12%, 18%);
-    --series: hsl(168, 45%, 55%);
-    --series-2: hsl(39, 65%, 62%);
-    --up: hsl(150, 45%, 62%);
-    --down: hsl(4, 70%, 68%);
-  }
-}
-:root[data-theme="dark"] {
-  --primary: hsl(165, 40%, 72%); --ink: hsl(60, 15%, 92%); --muted: hsl(160, 8%, 70%);
-  --faint: hsl(160, 6%, 52%); --bg: hsl(170, 30%, 8%); --card: hsl(170, 25%, 12%);
-  --border: hsl(170, 15%, 20%); --grid: hsl(170, 12%, 18%); --series: hsl(168, 45%, 55%);
-  --series-2: hsl(39, 65%, 62%); --up: hsl(150, 45%, 62%); --down: hsl(4, 70%, 68%);
+  --border: hsl(224, 22%, 90%);
+  --mist: hsl(222, 32%, 95%);
+  --gold: hsl(37, 45%, 51%);
+  --gold-light: hsl(40, 56%, 61%);
+  --navy-700: hsl(225, 50%, 22%);
+  --navy-deep: hsl(240, 58%, 11%);
+  /* chart marks, validated as a pair (dataviz validator, light surface): */
+  --series: #3D5BB5;     /* this period */
+  --series-prev: #B47A2A; /* previous period */
+  --up: hsl(150, 50%, 30%);
+  --down: hsl(4, 62%, 44%);
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 15px/1.5 Montserrat, system-ui, sans-serif; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 32px 16px 64px; }
-h1, h2 { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; color: var(--primary); margin: 0; }
-h1 { font-size: clamp(28px, 5vw, 40px); }
-h2 { font-size: 24px; margin-bottom: 4px; }
-.kicker { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-.meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
-.note { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
-section { margin-top: 40px; }
-.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
-.tile { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.hero { background: radial-gradient(ellipse at 85% 0%, hsla(37, 45%, 51%, .15), transparent 55%), linear-gradient(135deg, var(--navy-deep), var(--navy-700) 60%, var(--primary)); color: #fff; }
+.hero .in { max-width: 1080px; margin: 0 auto; padding: 40px 16px 36px; }
+.hero h1 { color: #fff; font-size: clamp(32px, 6vw, 42px); }
+.hero .meta { color: rgba(255,255,255,.66); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 8px 16px 64px; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; margin: 0; line-height: 1.2; }
+h2 { font-size: 32px; color: var(--primary); }
+h3.sec { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; font-size: 24px; color: var(--primary); margin: 28px 0 0; }
+.kicker { font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.meta { font-size: 13px; margin-top: 8px; }
+.note { color: var(--muted); font-size: 13px; margin: 6px 0 0; max-width: 720px; }
+section { margin-top: 48px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0 0; }
+.tile { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
 .tile .lbl { font-size: 12px; color: var(--muted); font-weight: 500; }
-.tile .val { font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
-.tile .sub { font-size: 12px; color: var(--faint); }
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 12px; }
-.card h3 { font-size: 14px; font-weight: 600; margin: 0 0 2px; }
-.card .sub { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.tile .val { font-size: 26px; font-weight: 600; color: var(--primary); font-variant-numeric: tabular-nums; margin-top: 2px; }
+.tile .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px; }
+.card h4 { font-size: 14px; font-weight: 600; margin: 0 0 2px; color: var(--ink); }
+.card .sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--series); }
+.legend span.prev::before { height: 2px; vertical-align: 3px; background: var(--series-prev); }
 .chart { position: relative; }
 .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
 .chart text { fill: var(--faint); font: 400 11px Montserrat, sans-serif; }
-.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12px; padding: 6px 8px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%); opacity: 0; transition: opacity .1s; }
+.tip { position: absolute; pointer-events: none; background: var(--navy-deep); color: #fff; font-size: 12px; padding: 6px 8px; border-radius: 8px; white-space: nowrap; transform: translate(-50%, -110%); opacity: 0; transition: opacity .1s; z-index: 2; }
 .tip b { font-weight: 600; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.two .card { margin-top: 12px; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
-th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12px; padding: 6px 8px; border-bottom: 1px solid var(--border); }
-td { padding: 8px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12px; padding: 6px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+td { padding: 8px; border-bottom: 1px solid var(--mist); vertical-align: middle; }
 td.n, th.n { text-align: right; }
+td.t { min-width: 200px; }
+td small { display: block; color: var(--faint); font-size: 11px; }
 .scroll { overflow-x: auto; }
-.up { color: var(--up); } .down { color: var(--down); }
+.chg { font-size: 12px; font-weight: 600; white-space: nowrap; }
+.up { color: var(--up); } .down { color: var(--down); } .flat { color: var(--faint); font-weight: 400; }
 .acct { display: flex; align-items: center; gap: 8px; min-width: 180px; }
-.acct img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; background: var(--grid); }
+.acct img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; background: var(--mist); }
 .acct small { display: block; color: var(--faint); font-size: 11px; text-transform: capitalize; }
-.split { display: grid; gap: 10px; }
-.split .row { display: grid; grid-template-columns: 100px 1fr 90px; gap: 10px; align-items: center; font-size: 13px; }
-.split .bar { height: 14px; background: var(--grid); border-radius: 4px; overflow: hidden; }
-.split .bar i { display: block; height: 100%; background: var(--series); border-radius: 0 4px 4px 0; }
+.fmt .big { font-size: 22px; font-weight: 600; color: var(--primary); }
+.fmt table td:first-child { color: var(--muted); }
+.share { height: 8px; background: var(--mist); border-radius: 4px; overflow: hidden; margin: 6px 0 12px; }
+.share i { display: block; height: 100%; background: var(--series); border-radius: 0 4px 4px 0; }
+.tabs { display: inline-flex; background: var(--mist); border-radius: 9999px; padding: 3px; margin: 14px 0 0; }
+.tabs button { border: 0; background: transparent; font: 500 13px Montserrat, sans-serif; color: var(--muted); padding: 6px 14px; border-radius: 9999px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--card); color: var(--primary); box-shadow: 0 1px 2px hsla(225, 46%, 29%, .12); }
+.pending { background: var(--mist); border-radius: 12px; padding: 14px 16px; font-size: 13px; color: var(--muted); margin-top: 12px; }
+.pending b { color: var(--ink); font-weight: 600; }
+.bar-track { height: 6px; background: var(--card); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+.bar-track i { display: block; height: 100%; background: var(--gold); }
 details summary { cursor: pointer; color: var(--muted); font-size: 13px; margin-top: 10px; }
-.err { background: var(--card); border: 1px solid var(--down); color: var(--down); border-radius: 10px; padding: 10px 14px; font-size: 13px; margin-top: 16px; }
+.err { background: var(--card); border: 1px solid var(--down); color: var(--down); border-radius: 12px; padding: 10px 14px; font-size: 13px; margin-top: 16px; }
 a { color: var(--primary); }
-@media (max-width: 560px) { .split .row { grid-template-columns: 80px 1fr 70px; } .tile .val { font-size: 22px; } }
+@media (max-width: 720px) { .two { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .tile .val { font-size: 22px; } h2 { font-size: 28px; } }
 </style>
 </head>
 <body>
+<header class="hero"><div class="in">
+  <div class="kicker">Immune Confident Institute · Dr. Kara Wada</div>
+  <h1>Channel Stats</h1>
+  <div class="meta" id="updated">Loading…</div>
+</div></header>
+
 <div class="wrap">
-  <header>
-    <div class="kicker">Dr. Kara Wada · Immune Confident Institute</div>
-    <h1>Channel Stats</h1>
-    <div class="meta" id="updated">Loading…</div>
-  </header>
   <div id="errors"></div>
 
   <section id="yt">
     <div class="kicker">YouTube</div>
     <h2 id="yt-title">YouTube</h2>
-    <p class="note">Subscriber and lifetime view counts are live as of the last refresh. Daily figures come from YouTube Analytics, which runs 2 to 3 days behind.</p>
-    <div class="tiles" id="yt-tiles"></div>
-    <div class="card"><h3>Daily views</h3><div class="sub" id="yt-range"></div><div class="chart" id="yt-views"></div></div>
-    <div class="card"><h3>Net new subscribers per day</h3><div class="sub">Gained minus lost</div><div class="chart" id="yt-subs"></div></div>
-    <div class="card"><h3>Shorts vs long-form</h3><div class="sub">Views in the same 30-day window</div><div class="split" id="yt-split"></div></div>
-    <div class="card"><h3>Top videos</h3><div class="sub">By views in the same 30-day window</div><div class="scroll"><table id="yt-top"></table></div></div>
+    <div class="tiles" id="yt-live"></div>
+
+    <h3 class="sec">Last 30 days vs the 30 before</h3>
+    <p class="note" id="yt-range"></p>
+    <div class="tiles" id="yt-month"></div>
+    <div class="card"><h4>Daily views</h4><div class="legend"><span>Last 30 days</span><span class="prev">30 days before</span></div><div class="chart" id="yt-views"></div></div>
+    <div class="card"><h4>Net new subscribers per day</h4><div class="sub">Gained minus lost</div><div class="legend"><span>Last 30 days</span><span class="prev">30 days before</span></div><div class="chart" id="yt-subs"></div></div>
+
+    <h3 class="sec">Long-form vs Shorts</h3>
+    <p class="note">Same two 30-day windows, split by format.</p>
+    <div class="two" id="yt-formats"></div>
+
+    <h3 class="sec">Top videos, last 30 days</h3>
+    <div class="tabs" role="tablist" id="top-tabs">
+      <button role="tab" aria-selected="true" data-k="long">Long-form</button>
+      <button role="tab" aria-selected="false" data-k="shorts">Shorts</button>
+    </div>
+    <div class="card"><div class="scroll"><table id="yt-top"></table></div></div>
   </section>
 
   <section id="social">
     <div class="kicker">Social</div>
-    <h2>Last 7 days</h2>
+    <h2>Facebook, Instagram, Threads, TikTok</h2>
+
+    <h3 class="sec">Last 30 days vs the 30 before</h3>
+    <p class="note" id="sm-note"></p>
+    <div id="sm-body"></div>
+
+    <h3 class="sec">Last 7 days</h3>
     <p class="note" id="social-range"></p>
     <div class="tiles" id="social-tiles"></div>
-    <div class="card"><h3>Impressions by day, all accounts</h3><div class="sub">Facebook, Instagram, Threads and TikTok combined</div><div class="chart" id="social-impr"></div></div>
-    <div class="card"><h3>By account</h3><div class="sub">Change is against the 7 days before</div><div class="scroll"><table id="social-table"></table></div>
+    <div class="card"><h4>Impressions by day, all accounts</h4><div class="chart" id="social-impr"></div></div>
+    <div class="card"><h4>By account</h4><div class="sub">Change is against the 7 days before</div><div class="scroll"><table id="social-table"></table></div>
       <details id="quiet-wrap"><summary>Quieter accounts</summary><div class="scroll"><table id="social-quiet"></table></div></details>
     </div>
   </section>
@@ -135,50 +156,48 @@ a { color: var(--primary); }
 
 <script>
 const $ = id => document.getElementById(id);
-const fmt = n => n == null ? '–' : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 1 : 2).replace(/\.0+$/, '') + 'M' : Math.abs(n) >= 1e4 ? (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K' : Math.round(n).toLocaleString();
+const fmt = n => n == null ? '–' : Math.abs(n) >= 1e6 ? (n / 1e6).toFixed(Math.abs(n) >= 1e7 ? 1 : 2).replace(/\.?0+$/, '') + 'M' : Math.abs(n) >= 1e4 ? (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K' : Math.round(n).toLocaleString();
 const full = n => n == null ? '–' : Math.round(n).toLocaleString();
 const day = s => new Date(s + 'T12:00:00Z').toLocaleDateString(undefined, { month: 'short', day: 'numeric', timeZone: 'UTC' });
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const pct = v => v == null || v === 0 ? '<span style="color:var(--faint)">–</span>' : `<span class="${v > 0 ? 'up' : 'down'}">${v > 0 ? '▲' : '▼'} ${Math.abs(v).toFixed(0)}%</span>`;
+const change = (cur, prev) => prev ? (cur - prev) / Math.abs(prev) * 100 : null;
+const pct = v => v == null || !isFinite(v) || Math.round(v) === 0 ? '<span class="chg flat">no change</span>'
+  : `<span class="chg ${v > 0 ? 'up' : 'down'}">${v > 0 ? '▲' : '▼'} ${Math.abs(v) >= 1000 ? fmt(Math.abs(v)) : Math.abs(v).toFixed(0)}%</span>`;
 const tile = (lbl, val, sub) => `<div class="tile"><div class="lbl">${lbl}</div><div class="val">${val}</div>${sub ? `<div class="sub">${sub}</div>` : ''}</div>`;
+const cmpTile = (lbl, cur, prev, f = fmt) => tile(lbl, f(cur), `${pct(change(cur, prev))} <span style="color:var(--faint)">vs ${f(prev)}</span>`);
 const PLAT = { facebook: 'Facebook', instagram: 'Instagram', threads: 'Threads', tiktok: 'TikTok', youtube: 'YouTube' };
 
-// Single-series chart: bars (with a zero baseline that handles negatives) or a line.
+// Bar chart for this period, optional line for the previous period (aligned by day index).
 const charts = [];
 function chart(el, points, opts = {}) {
   if (!el._chart) charts.push(el);
   el._chart = [points, opts];
-  const { type = 'bar', label = 'Value' } = opts;
+  const { type = 'bar', label = 'Value', prev = null, prevLabel = '30 days before' } = opts;
   const W = Math.max(280, el.clientWidth || 720);
   const h = W < 500 ? Math.round((opts.h || 200) * 0.8) : (opts.h || 200);
   const P = { t: 10, r: 8, b: 26, l: 44 };
-  const vals = points.map(p => p.v);
-  const max = Math.max(0, ...vals), min = Math.min(0, ...vals);
-  const lo = type === 'line' ? Math.min(...vals) : min, hi = type === 'line' ? Math.max(...vals) : max;
-  const span = (hi - lo) || 1, pad = type === 'line' ? span * 0.1 : 0;
-  const y0 = lo - pad, y1 = hi + pad;
-  const Y = v => P.t + (1 - (v - y0) / (y1 - y0)) * (h - P.t - P.b);
+  const vals = points.map(p => p.v).concat(prev ? prev.map(p => p.v) : []);
+  const line = type === 'line';
+  let lo = line ? Math.min(...vals) : Math.min(0, ...vals), hi = Math.max(line ? -Infinity : 0, ...vals);
+  const pad = line ? ((hi - lo) || 1) * 0.1 : 0; lo -= pad; hi += pad; if (hi === lo) hi = lo + 1;
+  const Y = v => P.t + (1 - (v - lo) / (hi - lo)) * (h - P.t - P.b);
   const step = (W - P.l - P.r) / points.length;
   const X = i => P.l + step * i + step / 2;
-  const ticks = [y0, (y0 + y1) / 2, y1];
   let svg = `<svg viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(label)}">`;
-  ticks.forEach(t => { svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--grid)"/><text x="${P.l - 6}" y="${Y(t) + 4}" text-anchor="end">${fmt(t)}</text>`; });
+  [lo, (lo + hi) / 2, hi].forEach(t => { svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--mist)"/><text x="${P.l - 6}" y="${Y(t) + 4}" text-anchor="end">${fmt(t)}</text>`; });
   const every = Math.ceil(points.length / (W < 500 ? 4 : 7));
   points.forEach((p, i) => { if (i % every === 0 || i === points.length - 1) svg += `<text x="${X(i)}" y="${h - 6}" text-anchor="middle">${esc(p.x)}</text>`; });
-  if (type === 'bar') {
-    const bw = Math.max(2, Math.min(28, step - 2));
-    const base = Y(Math.max(0, y0));
+  if (!line) {
+    const bw = Math.max(2, Math.min(24, step - 2)), base = Y(Math.max(0, lo));
     points.forEach((p, i) => {
       const y = Y(p.v), top = Math.min(y, base), hh = Math.max(1, Math.abs(base - y));
-      const r = Math.min(4, bw / 2, hh);
-      svg += `<rect x="${X(i) - bw / 2}" y="${top}" width="${bw}" height="${hh}" rx="${r}" fill="var(--series)"/>`;
+      svg += `<rect x="${X(i) - bw / 2}" y="${top}" width="${bw}" height="${hh}" rx="${Math.min(4, bw / 2, hh)}" fill="var(--series)"/>`;
     });
-    if (y0 < 0) svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${base}" y2="${base}" stroke="var(--faint)"/>`;
-  } else {
-    svg += `<path d="${points.map((p, i) => (i ? 'L' : 'M') + X(i) + ' ' + Y(p.v)).join(' ')}" fill="none" stroke="var(--series)" stroke-width="2" stroke-linejoin="round"/>`;
-    const last = points.length - 1;
-    svg += `<circle cx="${X(last)}" cy="${Y(points[last].v)}" r="4" fill="var(--series)" stroke="var(--card)" stroke-width="2"/>`;
+    if (lo < 0) svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${base}" y2="${base}" stroke="var(--faint)"/>`;
   }
+  const path = (pts, color) => `<path d="${pts.map((p, i) => (i ? 'L' : 'M') + X(i) + ' ' + Y(p.v)).join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  if (prev) svg += path(prev, 'var(--series-prev)');
+  if (line) { svg += path(points, 'var(--series)'); const L = points.length - 1; svg += `<circle cx="${X(L)}" cy="${Y(points[L].v)}" r="4" fill="var(--series)" stroke="#fff" stroke-width="2"/>`; }
   svg += `<line class="cross" x1="0" x2="0" y1="${P.t}" y2="${h - P.b}" stroke="var(--faint)" stroke-dasharray="3 3" opacity="0"/>`;
   points.forEach((p, i) => { svg += `<rect data-i="${i}" x="${P.l + step * i}" y="0" width="${step}" height="${h}" fill="transparent"/>`; });
   svg += '</svg><div class="tip"></div>';
@@ -186,39 +205,69 @@ function chart(el, points, opts = {}) {
   const tip = el.querySelector('.tip'), cross = el.querySelector('.cross'), s = el.querySelector('svg');
   s.addEventListener('pointermove', e => {
     const i = e.target.dataset?.i; if (i == null) return;
-    const p = points[i], sc = s.getBoundingClientRect().width / W;
-    tip.innerHTML = `${esc(p.label || p.x)}<br><b>${full(p.v)}</b> ${esc(label.toLowerCase())}`;
-    tip.style.left = X(+i) * sc + 'px'; tip.style.top = Y(p.v) * sc + 'px'; tip.style.opacity = 1;
+    const p = points[i], q = prev?.[i], sc = s.getBoundingClientRect().width / W;
+    tip.innerHTML = `${esc(p.label || p.x)}: <b>${full(p.v)}</b>` + (q ? `<br>${esc(q.label || q.x)}: <b>${full(q.v)}</b>` : '');
+    tip.style.left = X(+i) * sc + 'px'; tip.style.top = Y(Math.max(p.v, q?.v ?? -Infinity)) * sc + 'px'; tip.style.opacity = 1;
     cross.setAttribute('x1', X(+i)); cross.setAttribute('x2', X(+i)); cross.setAttribute('opacity', 1);
   });
   s.addEventListener('pointerleave', () => { tip.style.opacity = 0; cross.setAttribute('opacity', 0); });
 }
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => charts.forEach(el => chart(el, ...el._chart)), 150); });
 
 function renderYouTube(y) {
   $('yt-title').textContent = y.channel;
-  const d = y.daily || [];
-  const sum = k => d.reduce((a, r) => a + (r[k] || 0), 0);
-  const net = sum('subscribersGained') - sum('subscribersLost');
-  $('yt-tiles').innerHTML =
-    tile('Subscribers', fmt(y.live.subscribers), 'Live, rounded by YouTube') +
-    tile('Lifetime views', fmt(y.live.views), full(y.live.videos) + ' videos') +
-    tile('Views, 30 days', fmt(sum('views')), d.length + ' days of data') +
-    tile('Net subscribers, 30 days', (net >= 0 ? '+' : '') + full(net), full(sum('subscribersGained')) + ' gained') +
-    tile('Watch hours, 30 days', fmt(sum('estimatedMinutesWatched') / 60));
-  if (d.length) $('yt-range').textContent = `${day(d[0].day)} to ${day(d[d.length - 1].day)}`;
-  chart($('yt-views'), d.map(r => ({ x: day(r.day), v: r.views })), { label: 'Views' });
-  chart($('yt-subs'), d.map(r => ({ x: day(r.day), v: r.subscribersGained - r.subscribersLost })), { label: 'Net subscribers', h: 160 });
-  const names = { shorts: 'Shorts', videoOnDemand: 'Long-form', liveStream: 'Live' };
-  const split = (y.split || []).filter(r => r.views > 0).sort((a, b) => b.views - a.views);
-  const tot = split.reduce((a, r) => a + r.views, 0) || 1;
-  $('yt-split').innerHTML = split.map(r => `<div class="row"><span>${names[r.creatorContentType] || r.creatorContentType}</span><div class="bar"><i style="width:${(r.views / tot * 100).toFixed(1)}%"></i></div><span style="text-align:right">${fmt(r.views)} · ${(r.views / tot * 100).toFixed(0)}%</span></div>`).join('');
-  $('yt-top').innerHTML = '<tr><th>#</th><th>Video</th><th class="n">Views</th><th class="n">Watch hours</th></tr>' +
-    (y.top || []).map((t, i) => `<tr><td>${i + 1}</td><td><a href="https://youtu.be/${esc(t.video)}" target="_blank" rel="noopener">${esc(t.title)}</a></td><td class="n">${full(t.views)}</td><td class="n">${full(t.estimatedMinutesWatched / 60)}</td></tr>`).join('');
+  $('yt-live').innerHTML = tile('Subscribers', fmt(y.live.subscribers), 'Live, rounded by YouTube') +
+    tile('Lifetime views', fmt(y.live.views), 'Live') + tile('Videos', full(y.live.videos), 'Published');
+  const m = y.month || {}, p = y.prevMonth || {};
+  const net = r => (r.subscribersGained || 0) - (r.subscribersLost || 0);
+  $('yt-range').textContent = `${day(y.range.startDate)} to ${day(y.range.endDate)}, against ${day(y.prevRange.startDate)} to ${day(y.prevRange.endDate)}. YouTube Analytics runs 2 to 3 days behind, so the window ends on the latest day it has reported.`;
+  $('yt-month').innerHTML = cmpTile('Views', m.views, p.views) + cmpTile('Watch hours', m.estimatedMinutesWatched / 60, p.estimatedMinutesWatched / 60) +
+    cmpTile('Net subscribers', net(m), net(p), v => (v > 0 ? '+' : '') + full(v)) + cmpTile('Likes', m.likes, p.likes) +
+    cmpTile('Comments', m.comments, p.comments) + cmpTile('Shares', m.shares, p.shares);
+  const cur = y.daily || [], prv = y.prevDaily || [];
+  const pts = (rs, f) => rs.map(r => ({ x: day(r.day), v: f(r) }));
+  chart($('yt-views'), pts(cur, r => r.views), { label: 'Views', prev: prv.length ? pts(prv, r => r.views) : null });
+  chart($('yt-subs'), pts(cur, net), { label: 'Net subscribers', h: 170, prev: prv.length ? pts(prv, net) : null });
+
+  const by = (rows, t) => (rows || []).find(r => r.creatorContentType === t) || {};
+  const totViews = (rows) => (rows || []).reduce((a, r) => a + (r.views || 0), 0) || 1;
+  $('yt-formats').innerHTML = [['videoOnDemand', 'Long-form'], ['shorts', 'Shorts']].map(([t, name]) => {
+    const c = by(y.split, t), q = by(y.prevSplit, t), share = (c.views || 0) / totViews(y.split) * 100;
+    const r = (lbl, a, b, f = full) => `<tr><td>${lbl}</td><td class="n">${f(a)}</td><td class="n">${f(b)}</td><td class="n">${pct(change(a, b))}</td></tr>`;
+    return `<div class="card fmt"><h4>${name}</h4><div class="sub">${share.toFixed(0)}% of views in the last 30 days</div>
+      <div class="share"><i style="width:${share.toFixed(1)}%"></i></div>
+      <table><tr><th></th><th class="n">Last 30</th><th class="n">30 before</th><th class="n">Change</th></tr>
+      ${r('Views', c.views, q.views)}${r('Watch hours', (c.estimatedMinutesWatched || 0) / 60, (q.estimatedMinutesWatched || 0) / 60)}
+      ${r('Subscribers gained', c.subscribersGained, q.subscribersGained)}${r('Likes', c.likes, q.likes)}</table></div>`;
+  }).join('');
+
+  const top = Array.isArray(y.top) ? { long: y.top, shorts: [] } : (y.top || { long: [], shorts: [] });
+  const showTop = k => {
+    $('yt-top').innerHTML = '<tr><th>#</th><th>Video</th><th class="n">Views</th><th class="n">Watch hours</th><th class="n">Likes</th></tr>' +
+      (top[k] || []).map((t, i) => `<tr><td>${i + 1}</td><td class="t"><a href="https://youtu.be/${esc(t.video)}" target="_blank" rel="noopener">${esc(t.title)}</a>${t.published ? `<small>Published ${day(t.published)}</small>` : ''}</td><td class="n">${full(t.views)}</td><td class="n">${full(t.estimatedMinutesWatched / 60)}</td><td class="n">${t.likes == null ? '–' : full(t.likes)}</td></tr>`).join('');
+    document.querySelectorAll('#top-tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.k === k));
+  };
+  document.querySelectorAll('#top-tabs button').forEach(b => b.onclick = () => showTop(b.dataset.k));
+  showTop('long');
+}
+
+function renderSocialMonth(s) {
+  const m = s.month, p = s.prevMonth;
+  if (!m) { $('sm-note').textContent = ''; return; }
+  const sum = (w, k) => Object.entries(w.accounts).filter(([a]) => !a.startsWith('youtube:')).reduce((t, [, v]) => t + (v[k] || 0), 0);
+  const covered = m.daysCovered, prevCovered = p?.daysCovered || 0;
+  $('sm-note').textContent = `${day(m.start)} to ${day(m.end)}. GHL only reports 7 days at a time, so the dashboard saves each day as it comes in and adds them up here.`;
+  const keys = [['impressions', 'Impressions'], ['likes', 'Likes'], ['comments', 'Comments'], ['followers', 'New followers'], ['posts', 'Posts']];
+  let html = '';
+  if (covered < 30) html += `<div class="pending"><b>${covered} of 30 days collected.</b> These totals cover the days saved so far and grow each day. The comparison with the 30 days before starts once ${prevCovered ? prevCovered + ' of those' : 'those'} days are saved too (about ${Math.max(0, 60 - covered)} more days).<div class="bar-track"><i style="width:${covered / 30 * 100}%"></i></div></div>`;
+  const full30 = prevCovered >= 30 && covered >= 30;
+  html += '<div class="tiles">' + keys.map(([k, lbl]) => full30 ? cmpTile(lbl, sum(m, k), sum(p, k)) : tile(lbl, fmt(sum(m, k)), covered < 30 ? `${covered} days so far` : 'Comparison starts at 60 days')).join('') + '</div>';
+  $('sm-body').innerHTML = html;
 }
 
 function renderSocial(s) {
-  const accts = s.accounts.filter(a => a.platform !== 'youtube'); // YouTube has its own section above
-  $('social-range').textContent = `${day(s.window.start)} to ${day(s.window.end)}, from the GHL Social Planner. Followers means new followers gained in the window.`;
+  const accts = s.accounts.filter(a => a.platform !== 'youtube'); // YouTube has its own section
+  $('social-range').textContent = `${day(s.window.start)} to ${day(s.window.end)}, from the GHL Social Planner. New followers means followers gained in the window.`;
   const T = k => accts.reduce((a, x) => a + (x.totals[k] || 0), 0);
   $('social-tiles').innerHTML = tile('Impressions', fmt(T('impressions'))) + tile('Reach', fmt(T('reach'))) +
     tile('Likes', fmt(T('likes'))) + tile('Comments', fmt(T('comments'))) + tile('New followers', fmt(T('followers'))) + tile('Posts', full(T('posts')));
@@ -229,6 +278,7 @@ function renderSocial(s) {
   const active = sorted.filter(a => a.totals.posts > 0 || a.totals.impressions >= 1000), quiet = sorted.filter(a => !active.includes(a));
   $('social-table').innerHTML = head + active.map(row).join('');
   if (quiet.length) $('social-quiet').innerHTML = head + quiet.map(row).join(''); else $('quiet-wrap').hidden = true;
+  renderSocialMonth(s);
 }
 
 function renderTrend(h) {
@@ -239,14 +289,11 @@ function renderTrend(h) {
   chart($('trend-chart'), pts.map(r => ({ x: day(r.date), v: r.ytSubscribers })), { type: 'line', label: 'Subscribers', h: 180 });
 }
 
-let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => charts.forEach(el => chart(el, ...el._chart)), 150); });
-
 fetch('data.json', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error('data.json ' + r.status); return r.json(); }).then(data => {
-  const when = new Date(data.generatedAt);
-  $('updated').textContent = 'Updated ' + when.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) + ' · refreshes daily';
+  $('updated').textContent = 'Updated ' + new Date(data.generatedAt).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) + ' · refreshes daily';
   const errs = [...(data.errors || [])];
-  if (data.youtube?.stale) errs.unshift('YouTube numbers are from ' + new Date(data.youtube.stale).toLocaleDateString() + ' (today\'s pull failed).');
-  if (data.social?.stale) errs.unshift('Social numbers are from ' + new Date(data.social.stale).toLocaleDateString() + ' (today\'s pull failed).');
+  if (data.youtube?.stale) errs.unshift('YouTube numbers are from ' + new Date(data.youtube.stale).toLocaleDateString() + " (today's pull failed).");
+  if (data.social?.stale) errs.unshift('Social numbers are from ' + new Date(data.social.stale).toLocaleDateString() + " (today's pull failed).");
   if (errs.length) $('errors').innerHTML = `<div class="err">${errs.map(esc).join('<br>')}</div>`;
   if (data.youtube) renderYouTube(data.youtube); else $('yt').hidden = true;
   if (data.social) renderSocial(data.social); else $('social').hidden = true;
