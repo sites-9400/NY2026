@@ -89,6 +89,14 @@ td small { display: block; color: var(--faint); font-size: 11px; }
 .pending b { color: var(--ink); font-weight: 600; }
 .bar-track { height: 6px; background: var(--card); border-radius: 3px; overflow: hidden; margin-top: 8px; }
 .bar-track i { display: block; height: 100%; background: var(--gold); }
+.posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; margin-top: 12px; }
+.post { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; gap: 12px; padding: 12px; }
+.post .thumb { flex: 0 0 72px; height: 90px; border-radius: 8px; background: var(--mist) center/cover no-repeat; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--muted); }
+.post .rank { font-size: 12px; font-weight: 600; color: var(--gold); }
+.post .cap { font-size: 13px; margin: 2px 0 6px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.post .by { font-size: 11px; color: var(--faint); }
+.post .eng { font-size: 12px; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.post .eng b { color: var(--primary); font-weight: 600; }
 details summary { cursor: pointer; color: var(--muted); font-size: 13px; margin-top: 10px; }
 .err { background: var(--card); border: 1px solid var(--down); color: var(--down); border-radius: 12px; padding: 10px 14px; font-size: 13px; margin-top: 16px; }
 a { color: var(--primary); }
@@ -121,6 +129,15 @@ a { color: var(--primary); }
     <p class="note">Same two 30-day windows, split by format.</p>
     <div class="two" id="yt-formats"></div>
 
+    <h3 class="sec">Revenue</h3>
+    <p class="note">Estimated earnings for the same two 30-day windows, in USD. YouTube finalizes these figures after each month closes, so recent days can still shift a little.</p>
+    <div class="tiles" id="rev-tiles"></div>
+    <div class="card"><h4>Daily estimated revenue</h4><div class="legend"><span>Last 30 days</span><span class="prev">30 days before</span></div><div class="chart" id="rev-daily"></div></div>
+    <div class="two">
+      <div class="card"><h4>By format</h4><div class="sub">Estimated revenue</div><div class="scroll"><table id="rev-fmt"></table></div></div>
+      <div class="card"><h4>Top earning videos</h4><div class="sub">Last 30 days</div><div class="scroll"><table id="rev-top"></table></div></div>
+    </div>
+
     <h3 class="sec">Top videos, last 30 days</h3>
     <div class="tabs" role="tablist" id="top-tabs">
       <button role="tab" aria-selected="true" data-k="long">Long-form</button>
@@ -136,6 +153,10 @@ a { color: var(--primary); }
     <h3 class="sec">Last 30 days vs the 30 before</h3>
     <p class="note" id="sm-note"></p>
     <div id="sm-body"></div>
+
+    <h3 class="sec">Top posts, last 30 days</h3>
+    <p class="note" id="tp-note"></p>
+    <div class="posts" id="top-posts"></div>
 
     <h3 class="sec">Last 7 days</h3>
     <p class="note" id="social-range"></p>
@@ -165,6 +186,7 @@ const pct = v => v == null || !isFinite(v) || Math.round(v) === 0 ? '<span class
   : `<span class="chg ${v > 0 ? 'up' : 'down'}">${v > 0 ? '▲' : '▼'} ${Math.abs(v) >= 1000 ? fmt(Math.abs(v)) : Math.abs(v).toFixed(0)}%</span>`;
 const tile = (lbl, val, sub) => `<div class="tile"><div class="lbl">${lbl}</div><div class="val">${val}</div>${sub ? `<div class="sub">${sub}</div>` : ''}</div>`;
 const cmpTile = (lbl, cur, prev, f = fmt) => tile(lbl, f(cur), `${pct(change(cur, prev))} <span style="color:var(--faint)">vs ${f(prev)}</span>`);
+const usd = n => n == null ? '–' : '$' + (Math.abs(n) >= 1e4 ? fmt(n) : n.toLocaleString(undefined, { minimumFractionDigits: n < 100 ? 2 : 0, maximumFractionDigits: n < 100 ? 2 : 0 }));
 const PLAT = { facebook: 'Facebook', instagram: 'Instagram', threads: 'Threads', tiktok: 'TikTok', youtube: 'YouTube' };
 
 // Bar chart for this period, optional line for the previous period (aligned by day index).
@@ -172,7 +194,8 @@ const charts = [];
 function chart(el, points, opts = {}) {
   if (!el._chart) charts.push(el);
   el._chart = [points, opts];
-  const { type = 'bar', label = 'Value', prev = null, prevLabel = '30 days before' } = opts;
+  const { type = 'bar', label = 'Value', prev = null, money = false } = opts;
+  const f = money ? usd : fmt, ff = money ? usd : full;
   const W = Math.max(280, el.clientWidth || 720);
   const h = W < 500 ? Math.round((opts.h || 200) * 0.8) : (opts.h || 200);
   const P = { t: 10, r: 8, b: 26, l: 44 };
@@ -184,7 +207,7 @@ function chart(el, points, opts = {}) {
   const step = (W - P.l - P.r) / points.length;
   const X = i => P.l + step * i + step / 2;
   let svg = `<svg viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(label)}">`;
-  [lo, (lo + hi) / 2, hi].forEach(t => { svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--mist)"/><text x="${P.l - 6}" y="${Y(t) + 4}" text-anchor="end">${fmt(t)}</text>`; });
+  [lo, (lo + hi) / 2, hi].forEach(t => { svg += `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--mist)"/><text x="${P.l - 6}" y="${Y(t) + 4}" text-anchor="end">${f(t)}</text>`; });
   const every = Math.ceil(points.length / (W < 500 ? 4 : 7));
   points.forEach((p, i) => { if (i % every === 0 || i === points.length - 1) svg += `<text x="${X(i)}" y="${h - 6}" text-anchor="middle">${esc(p.x)}</text>`; });
   if (!line) {
@@ -206,7 +229,7 @@ function chart(el, points, opts = {}) {
   s.addEventListener('pointermove', e => {
     const i = e.target.dataset?.i; if (i == null) return;
     const p = points[i], q = prev?.[i], sc = s.getBoundingClientRect().width / W;
-    tip.innerHTML = `${esc(p.label || p.x)}: <b>${full(p.v)}</b>` + (q ? `<br>${esc(q.label || q.x)}: <b>${full(q.v)}</b>` : '');
+    tip.innerHTML = `${esc(p.label || p.x)}: <b>${ff(p.v)}</b>` + (q ? `<br>${esc(q.label || q.x)}: <b>${ff(q.v)}</b>` : '');
     tip.style.left = X(+i) * sc + 'px'; tip.style.top = Y(Math.max(p.v, q?.v ?? -Infinity)) * sc + 'px'; tip.style.opacity = 1;
     cross.setAttribute('x1', X(+i)); cross.setAttribute('x2', X(+i)); cross.setAttribute('opacity', 1);
   });
@@ -251,6 +274,37 @@ function renderYouTube(y) {
   showTop('long');
 }
 
+function renderRevenue(y) {
+  const r = y.revenue; if (!r) { $('rev-tiles').closest('section') && ($('rev-tiles').innerHTML = ''); return; }
+  const m = r.month || {}, p = r.prevMonth || {};
+  const rpm = (rev, views) => views ? rev / views * 1000 : null;
+  $('rev-tiles').innerHTML = cmpTile('Estimated revenue', m.estimatedRevenue, p.estimatedRevenue, usd) +
+    cmpTile('Ad revenue', m.estimatedAdRevenue, p.estimatedAdRevenue, usd) +
+    cmpTile('YouTube Premium', m.estimatedRedPartnerRevenue, p.estimatedRedPartnerRevenue, usd) +
+    cmpTile('RPM', rpm(m.estimatedRevenue, y.month?.views), rpm(p.estimatedRevenue, y.prevMonth?.views), usd) +
+    cmpTile('CPM', m.cpm, p.cpm, usd) + cmpTile('Monetized playbacks', m.monetizedPlaybacks, p.monetizedPlaybacks);
+  const pts = rs => rs.map(x => ({ x: day(x.day), v: x.estimatedRevenue }));
+  chart($('rev-daily'), pts(r.daily || []), { label: 'Revenue', prev: (r.prevDaily || []).length ? pts(r.prevDaily) : null, money: true });
+  const by = (rows, t) => ((rows || []).find(x => x.creatorContentType === t) || {}).estimatedRevenue || 0;
+  $('rev-fmt').innerHTML = '<tr><th></th><th class="n">Last 30</th><th class="n">30 before</th><th class="n">Change</th></tr>' +
+    [['videoOnDemand', 'Long-form'], ['shorts', 'Shorts']].map(([t, n]) => `<tr><td>${n}</td><td class="n">${usd(by(r.byFormat, t))}</td><td class="n">${usd(by(r.prevByFormat, t))}</td><td class="n">${pct(change(by(r.byFormat, t), by(r.prevByFormat, t)))}</td></tr>`).join('');
+  $('rev-top').innerHTML = '<tr><th>#</th><th>Video</th><th class="n">Revenue</th><th class="n">Views</th></tr>' +
+    (r.top || []).map((t, i) => `<tr><td>${i + 1}</td><td class="t"><a href="https://youtu.be/${esc(t.video)}" target="_blank" rel="noopener">${esc(t.title)}</a></td><td class="n">${usd(t.estimatedRevenue)}</td><td class="n">${full(t.views)}</td></tr>`).join('');
+}
+
+function renderTopPosts(s) {
+  const tp = s.topPosts || [];
+  $('tp-note').textContent = tp.length ? `Ranked by engagement (likes + comments + shares) across ${s.postsScanned} posts published through the GHL Social Planner. Facebook and Instagram report these numbers; TikTok mostly reads zero there and Threads posts are not listed, so they rarely appear here.` : 'No post engagement reported yet.';
+  $('top-posts').innerHTML = tp.map((p, i) => `<div class="post">
+    <div class="thumb" ${p.image ? `style="background-image:url('${esc(p.image)}')"` : ''}>${p.image ? '' : (p.isVideo ? 'Video' : 'Text')}</div>
+    <div style="min-width:0">
+      <div class="rank">#${i + 1} · ${PLAT[p.platform] || p.platform}</div>
+      <div class="cap">${esc(p.caption)}</div>
+      <div class="by">${esc(p.account)} · ${p.published ? day(p.published) : ''}${p.link ? ` · <a href="${esc(p.link)}" target="_blank" rel="noopener">View post</a>` : ''}</div>
+      <div class="eng"><b>${full(p.likes + p.comments + p.shares)}</b> engagements · ${full(p.likes)} likes · ${full(p.comments)} comments · ${full(p.shares)} shares</div>
+    </div></div>`).join('');
+}
+
 function renderSocialMonth(s) {
   const m = s.month, p = s.prevMonth;
   if (!m) { $('sm-note').textContent = ''; return; }
@@ -279,6 +333,7 @@ function renderSocial(s) {
   $('social-table').innerHTML = head + active.map(row).join('');
   if (quiet.length) $('social-quiet').innerHTML = head + quiet.map(row).join(''); else $('quiet-wrap').hidden = true;
   renderSocialMonth(s);
+  renderTopPosts(s);
 }
 
 function renderTrend(h) {
@@ -295,7 +350,7 @@ fetch('data.json', { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error
   if (data.youtube?.stale) errs.unshift('YouTube numbers are from ' + new Date(data.youtube.stale).toLocaleDateString() + " (today's pull failed).");
   if (data.social?.stale) errs.unshift('Social numbers are from ' + new Date(data.social.stale).toLocaleDateString() + " (today's pull failed).");
   if (errs.length) $('errors').innerHTML = `<div class="err">${errs.map(esc).join('<br>')}</div>`;
-  if (data.youtube) renderYouTube(data.youtube); else $('yt').hidden = true;
+  if (data.youtube) { renderYouTube(data.youtube); renderRevenue(data.youtube); } else $('yt').hidden = true;
   if (data.social) renderSocial(data.social); else $('social').hidden = true;
   renderTrend(data.history);
 }).catch(e => { $('updated').textContent = ''; $('errors').innerHTML = `<div class="err">Could not load the stats (${esc(e.message)}).</div>`; });
