@@ -414,3 +414,12 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
     "incl. 10–15% buffer" label: the old figures never actually applied it.
   - **New open question (Dashboard):** how the Bangkok rooms and KL→BKK flight split
     now that Gamaliel isn't there. Deliberately NOT decided on the page.
+- *2026-11-07* · **SIN→KL fare checked, much higher than the estimate.** Google Flights,
+  Tue 29 Dec, one adult, one way, rated "typical": cheapest Scoot ₱5,078 (04:40, 09:00,
+  15:00, 17:00, 19:45) and AirAsia ₱5,162 (07:55, 08:55, 10:00, 16:25, 20:15); Batik
+  ₱7,330; SIA from ₱10,490; MH from ₱12,261. All nonstop ~1h, before checked bags.
+  The site had ~₱2,000–3,500. **Best fit: Scoot 09:00 → 10:15.** Not booked.
+  Updated dashboard, route (table + map panel + note), V1 and V3 tabs, money. V2 tab
+  left at the old estimate (it flies Mon 28, not checked). Money knock-on: known costs
+  staying to 6 Jan ₱36,000–44,200 (short ₱16,000–24,200); Gamaliel ₱25,300–28,900
+  (short ₱5,300–8,900). Coach SIN→KL is a cheaper alternative, not priced.
