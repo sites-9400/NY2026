@@ -423,3 +423,29 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   left at the old estimate (it flies Mon 28, not checked). Money knock-on: known costs
   staying to 6 Jan ₱36,000–44,200 (short ₱16,000–24,200); Gamaliel ₱25,300–28,900
   (short ₱5,300–8,900). Coach SIN→KL is a cheaper alternative, not priced.
+- *2026-11-08* · **SIN→KL: no reason to wait.** Google price history for 29 Dec is
+  flat at ₱5,100–5,240 for 6 weeks (₱6,800 two months ago, one-day low ₱4,710).
+  Mon 28 and Wed 30 Dec have the same ₱5,078 Scoot floor, so moving the date saves
+  nothing. Not booked.
+- *2026-11-08* · **Gamaliel's KUL→DVO 1 Jan is RISING.** ₱6,700 two months ago →
+  ₱7,300 → ₱9,500 → ₱11,947 now (Google: "high"; usual ₱5,400–8,400). Sat 2 Jan is
+  no better (₱11,948 with a ~15h Singapore wait, or ₱13,424 at 22:00); Sun 3 is
+  ₱15,289. Thu 31 Dec is ₱8,296 but misses NYE. Read: waiting looks likelier to cost
+  than save (a guess). Not booked; check Scoot's change rules first (exam date open).
+- *2026-11-08* · **Three fare alerts on KUL→DVO 1 Jan, limit ₱10,000.** User wanted a
+  daily email. All tested end to end; test email confirmed received.
+  - **Google Flights "Track prices"** (1 Jan only, not "Any dates") on
+    Gamaliel's personal Google account. Google decides when to email; no threshold possible.
+  - **GitHub Actions, private repo `sites-9400/fare-watch`** (local clone
+    `~/Library/Scripts/fare-watch/cloud/`). Daily ~09:07 PH: comments the fare on
+    issue #2 (emailed), opens a separate issue below ₱10k or if the check breaks.
+    Reads the price-history series embedded in the Google Flights page via plain
+    HTTP; GitHub's servers see the same ₱11,948 as the Mac. Stops after 1 Jan.
+  - **Mac launchd** `com.travel.fare-watch.kul-dvo`, 09:00, notification only, needs
+    the Mac awake. Script `~/Library/Scripts/fare-watch/kul-dvo.py`, log
+    `~/Library/Logs/fare-watch/kul-dvo.log`.
+  - **Never on `eveminggong`, that's the ICI work account** (user's instruction).
+    An empty private `eveminggong/fare-watch` was made first by mistake; nothing
+    pushed, no permission granted. Deleting it is the user's call.
+  - Bugs caught by testing, all fixed: peso sign broke the Mac notification;
+    GitHub's UTC clock dated the email a day early.
