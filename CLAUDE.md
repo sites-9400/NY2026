@@ -237,9 +237,18 @@ cheap. Use colour and weight to subordinate instead.
   **Outbound booked one way, rerouted by the airline on 2026-09-04:** 5J982 DVO
   22:20 → MNL 00:25+1, 5h30 overnight layover, 5J817 MNL 05:55 → **SIN 09:50 on
   Sat 26 Dec**. No alternative flight was offered, only cancellation. The old
-  routing (via Cebu, landing 00:25) is superseded everywhere. **Return option
-  found (not booked): CebPac Don Mueang → Davao DIRECT, Mon/Wed/Fri, dep 21:15 —
-  Mon 4 Jan fits and solves onward proof.**
+  routing (via Cebu, landing 00:25) is superseded everywhere. **Return is SPLIT
+  (2026-10-28):** Marianne, Alysson, Jan booked for **Wed 6 Jan** (flight details
+  not yet given). Gamaliel has a Civ Pro final possibly Tue 5 Jan, so flies early:
+  recommended CebPac Don Mueang → Davao DIRECT **Fri 1 Jan** 21:15 (lands ~02:50;
+  route is Mon/Wed/Fri only, so Mon 4 lands on exam day). Not booked. Kevin unknown.
+  Mon 4 Jan is no longer anyone's flight; the plan for 4 to 6 Jan is open.
+  **V3 CHOSEN (2026-11-07): NYE at Petronas, KL.** Gamaliel now flies home from KL
+  Fri 1 Jan (best fit Scoot 22:00 KUL→SIN→DVO 04:55, not booked; no KUL–DVO nonstop
+  exists), the DMK direct above is superseded for him. Group flies KL→BKK 1 Jan,
+  Bangkok to 6 Jan. Needs a 3rd Singapore night (28 Dec). All six pages now describe
+  V3; the Itinerary keeps the other versions as comparison tabs. Open: how Bangkok
+  splits without Gamaliel.
   **Singapore stay booked:** The Quay Hotel Little India, two triple rooms,
   26–28 Dec, ₱32,360 (₱6,472 each ÷5), Agoda Book Now Pay Later, free
   cancellation. Charge date and cancellation cut-off both still unknown.

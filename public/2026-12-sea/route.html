@@ -38,10 +38,10 @@
 <header class="top">
   <div class="eyebrow">25 December 2026 &nbsp;·&nbsp; Five of us</div>
   <h1>Singapore, Malaysia<br>&amp; Bangkok</h1>
-  <div class="sub">Christmas in Singapore, New Year under the Bangkok fireworks.</div>
+  <div class="sub">Christmas in Singapore, New Year under the Petronas Towers.</div>
   <div class="chips">
     <span class="chip hot">Outbound booked · DVO–MNL–SIN, 25 Dec</span>
-    <span class="chip">Return · not booked</span>
+    <span class="chip">Return · 3 of 5 booked</span>
     <span class="chip">Singapore</span>
     <span class="chip">Malaysia</span>
     <span class="chip">Bangkok</span>
@@ -63,14 +63,11 @@
 <section id="route">
   <h2>The route</h2>
   <div class="rule"></div>
-  <p class="note"><b>This is the Overland option.</b> The map and the sleeper comparison below
-  describe the by-land route. V1–V3 fly between the three cities: see the tabs under
-  <a href="/2026-12-sea/itinerary/">the itinerary</a>. · Cities are placed by real latitude and longitude, so the distances read
-  true. Except Singapore and Johor Bahru, which are 25km apart and drawn separated so
-  you can see them. <b>Tap any leg</b> for its dates, duration and cost.</p>
+  <p class="note">We fly between all three cities. Cities are placed by real latitude and
+  longitude, so the distances read true. <b>Tap any leg</b> for its dates, duration and cost.</p>
 
   <div class="mapwrap">
-    <svg id="routemap" viewBox="0 0 980 480" role="img" aria-label="Route map from Davao to Bangkok">
+    <svg id="routemap" viewBox="0 0 980 480" role="img" aria-label="Route map from Davao to Singapore, Kuala Lumpur and Bangkok">
       <defs>
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4" result="b"/>
@@ -91,30 +88,24 @@
           <line class="hit" x1="672" y1="56" x2="210" y2="415"/>
           <line class="ln" x1="672" y1="56" x2="210" y2="415"/>
         </g>
-        <g class="leg land" data-leg="sin-jb" tabindex="0" role="button" aria-label="Singapore to Johor Bahru leg">
-          <line class="hit" x1="210" y1="415" x2="170" y2="392"/>
-          <line class="ln" x1="210" y1="415" x2="170" y2="392"/>
+        <g class="leg air home" data-leg="kl-dvo" tabindex="0" role="button" aria-label="Gamaliel's flight home, Kuala Lumpur to Davao via Singapore">
+          <polyline class="hit" fill="none" points="135,353 210,415 801,251"/>
+          <polyline class="ln" fill="none" points="135,353 210,415 801,251"/>
         </g>
-        <g class="leg land" data-leg="jb-kl" tabindex="0" role="button" aria-label="Johor Bahru to Kuala Lumpur leg">
-          <line class="hit" x1="170" y1="392" x2="135" y2="353"/>
-          <line class="ln" x1="170" y1="392" x2="135" y2="353"/>
+        <g class="leg air" data-leg="sin-kl" tabindex="0" role="button" aria-label="Singapore to Kuala Lumpur leg">
+          <line class="hit" x1="210" y1="415" x2="135" y2="353"/>
+          <line class="ln" x1="210" y1="415" x2="135" y2="353"/>
         </g>
-        <g class="leg land" data-leg="kl-pdb" tabindex="0" role="button" aria-label="Kuala Lumpur to Padang Besar leg">
-          <line class="hit" x1="135" y1="353" x2="97" y2="262"/>
-          <line class="ln" x1="135" y1="353" x2="97" y2="262"/>
-        </g>
-        <g class="leg land" data-leg="pdb-bkk" tabindex="0" role="button" aria-label="Padang Besar to Bangkok sleeper leg">
-          <line class="hit" x1="97" y1="262" x2="102" y2="78"/>
-          <line class="ln" x1="97" y1="262" x2="102" y2="78"/>
+        <g class="leg air" data-leg="kl-bkk" tabindex="0" role="button" aria-label="Kuala Lumpur to Bangkok leg">
+          <line class="hit" x1="135" y1="353" x2="102" y2="78"/>
+          <line class="ln" x1="135" y1="353" x2="102" y2="78"/>
         </g>
       </g>
 
       <g id="nodes">
-        <g class="node th"><circle cx="102" cy="78" r="7"/><text x="118" y="76">Bangkok</text><text class="cap" x="118" y="90">31 Dec · New Year</text></g>
-        <g class="node th"><circle cx="97" cy="262" r="5"/><text x="113" y="260">Padang Besar</text><text class="cap" x="113" y="274">30 Dec · border</text></g>
-        <g class="node my"><circle cx="135" cy="353" r="7"/><text x="151" y="351">Kuala Lumpur</text><text class="cap" x="151" y="365">29 Dec</text></g>
-        <g class="node my"><circle cx="170" cy="392" r="5"/><text class="lft" x="158" y="390">Johor Bahru</text><text class="cap lft" x="158" y="404">28 Dec</text></g>
-        <g class="node sg"><circle cx="210" cy="415" r="7"/><text x="226" y="413">Singapore</text><text class="cap" x="226" y="427">26–28 Dec</text></g>
+        <g class="node th"><circle cx="102" cy="78" r="7"/><text x="118" y="76">Bangkok</text><text class="cap" x="118" y="90">1–6 Jan</text></g>
+        <g class="node my"><circle cx="135" cy="353" r="7"/><text x="151" y="351">Kuala Lumpur</text><text class="cap" x="151" y="365">29 Dec–1 Jan · New Year</text></g>
+        <g class="node sg"><circle cx="210" cy="415" r="7"/><text x="226" y="413">Singapore</text><text class="cap" x="226" y="427">26–29 Dec</text></g>
         <g class="node air"><circle cx="672" cy="56" r="5"/><text x="688" y="54">Manila</text><text class="cap" x="688" y="68">26 Dec · 5h30 layover</text></g>
         <g class="node air"><circle cx="801" cy="251" r="7"/><text x="817" y="249">Davao</text><text class="cap" x="817" y="263">25 Dec · 22:20 start</text></g>
       </g>
@@ -123,88 +114,45 @@
 
   <div class="mapinfo" id="mapinfo" aria-live="polite">
     <div class="mi-head">Tap a leg on the map</div>
-    <div class="mi-body">Six legs, two by air and four overland. Total land cost from Singapore
-    to Bangkok is roughly <b>₱3,600–4,100 each</b>.</div>
+    <div class="mi-body">Two flights out, booked. Two hops between cities, not booked.
+    On 1 Jan Gamaliel flies home from KL via Singapore while everyone else flies on to Bangkok.</div>
   </div>
 
   <div class="tablewrap">
   <table>
     <thead>
-      <tr><th scope="col">Leg</th><th scope="col">When</th><th scope="col">Mode</th><th scope="col">Duration</th><th scope="col" class="r">Cost each</th><th scope="col">Status</th></tr>
+      <tr><th scope="col">Leg</th><th scope="col">When</th><th scope="col">Who</th><th scope="col">Duration</th><th scope="col" class="r">Cost each</th><th scope="col">Status</th></tr>
     </thead>
     <tbody>
-      <tr><td data-label="Leg">Davao → Manila</td><td data-label="When">Fri 25 → Sat 26 Dec</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight</td><td data-label="Duration">2h 05m</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span> <button type="button" class="calbtn" data-cal="dvo-mnl" aria-label="Add the Davao to Manila flight to your calendar"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span class="lbl">Add</span></button></td></tr>
-      <tr><td data-label="Leg"><i>Manila layover</i></td><td data-label="When">26 Dec, overnight</td><td data-label="Mode">—</td><td data-label="Duration">5h 30m</td><td class="r" data-label="Cost each">—</td><td data-label="Status">—</td></tr>
-      <tr><td data-label="Leg">Manila → Singapore</td><td data-label="When">Sat 26 Dec</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight</td><td data-label="Duration">3h 55m</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span> <button type="button" class="calbtn" data-cal="mnl-sin" aria-label="Add the Manila to Singapore flight to your calendar"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span class="lbl">Add</span></button></td></tr>
-      <tr><td data-label="Leg">Singapore → Johor Bahru</td><td data-label="When">Mon 28 Dec</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> Shuttle Tebrau</td><td data-label="Duration">5m ride · 20–40m with checkpoints</td><td class="r amt" data-label="Cost each">S$5 <span class="soft">≈₱220</span></td><td data-label="Status"><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill tbd">Book </span></a></td></tr>
-      <tr><td data-label="Leg">Johor Bahru → Kuala Lumpur</td><td data-label="When">Mon 28 Dec</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS</td><td data-label="Duration">4h 10m Platinum · 4h 36m Gold</td><td class="r amt" data-label="Cost each">RM73–81 <span class="soft">≈₱950–1,055</span></td><td data-label="Status"><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill tbd">Book </span></a></td></tr>
-      <tr><td data-label="Leg">Kuala Lumpur → Padang Besar</td><td data-label="When">Wed 30 Dec</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS</td><td data-label="Duration">~5h 30m</td><td class="r amt" data-label="Cost each">~RM70–90 <span class="soft">≈₱910–1,170</span></td><td data-label="Status"><a href="https://online.ktmb.com.my/" target="_blank" rel="noopener"><span class="pill risk">Check fare </span></a></td></tr>
-      <tr><td data-label="Leg">Padang Besar → Bangkok</td><td data-label="When">30 → 31 Dec</td><td data-label="Mode"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Overnight sleeper</td><td data-label="Duration">16h 05m · dep 17:00 Thai, arr 09:05</td><td class="r amt" data-label="Cost each">฿848–918 <span class="soft">≈₱1,485–1,605</span></td><td data-label="Status"><a href="https://www.dticket.railway.co.th/" target="_blank" rel="noopener"><span class="pill tbd">Book </span></a></td></tr>
-      <tr class="total"><td data-label="Leg">Singapore → Bangkok overland</td><td data-label="When">28 → 31 Dec</td><td data-label="Mode">4 legs</td><td data-label="Duration">≈2 days elapsed</td><td class="r amt" data-label="Cost each">≈₱3,600–4,100</td><td data-label="Status">≈₱18,000–20,500 for five</td></tr>
+      <tr><td data-label="Leg">Davao → Manila</td><td data-label="When">Fri 25 → Sat 26 Dec</td><td data-label="Who">All five</td><td data-label="Duration">2h 05m</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span> <button type="button" class="calbtn" data-cal="dvo-mnl" aria-label="Add the Davao to Manila flight to your calendar"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span class="lbl">Add</span></button></td></tr>
+      <tr><td data-label="Leg"><i>Manila layover</i></td><td data-label="When">26 Dec, overnight</td><td data-label="Who">All five</td><td data-label="Duration">5h 30m</td><td class="r" data-label="Cost each">—</td><td data-label="Status">—</td></tr>
+      <tr><td data-label="Leg">Manila → Singapore</td><td data-label="When">Sat 26 Dec</td><td data-label="Who">All five</td><td data-label="Duration">3h 55m</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span> <button type="button" class="calbtn" data-cal="mnl-sin" aria-label="Add the Manila to Singapore flight to your calendar"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><span class="lbl">Add</span></button></td></tr>
+      <tr><td data-label="Leg">Singapore → Kuala Lumpur</td><td data-label="When">Tue 29 Dec</td><td data-label="Who">All five</td><td data-label="Duration">~1h</td><td class="r amt" data-label="Cost each">~₱2,000–3,500</td><td data-label="Status"><span class="pill tbd">Not booked</span></td></tr>
+      <tr><td data-label="Leg">Kuala Lumpur → Bangkok</td><td data-label="When">Fri 1 Jan</td><td data-label="Who">Everyone except Gamaliel</td><td data-label="Duration">~2h 10m</td><td class="r amt" data-label="Cost each">~₱3,700–4,800 <span class="soft">off-peak</span></td><td data-label="Status"><span class="pill tbd">Not booked</span></td></tr>
+      <tr><td data-label="Leg">Kuala Lumpur → Singapore → Davao</td><td data-label="When">Fri 1 → Sat 2 Jan</td><td data-label="Who">Gamaliel</td><td data-label="Duration">6h 55m · dep 22:00, arr 04:55</td><td class="r amt" data-label="Cost each">~₱11,948</td><td data-label="Status"><span class="pill tbd">Not booked</span></td></tr>
+      <tr><td data-label="Leg">Bangkok → Davao</td><td data-label="When">Wed 6 Jan</td><td data-label="Who">Marianne, Alysson, Jan</td><td data-label="Duration">—</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill booked">Booked</span> <span class="soft">times not on the page yet</span></td></tr>
+      <tr><td data-label="Leg">Home</td><td data-label="When">—</td><td data-label="Who">Kevin</td><td data-label="Duration">—</td><td class="r" data-label="Cost each">—</td><td data-label="Status"><span class="pill tbd">TBD</span></td></tr>
     </tbody>
   </table>
   </div>
-  <p class="note">Converted at roughly ₱44/S$, ₱13/RM and ₱1.75/฿. Check live rates before
-  budgeting. The Kuala Lumpur → Padang Besar fare is an estimate; Malaysia's railway site
-  publishes the real one.</p>
-
-  <h3>Do we have to do 16 hours on a train?</h3>
-  <p>All three options happen on <b>Wed 30 Dec</b>. No, the overnight sleeper is the cheapest way and it doubles as a bed for the night,
-  but it is not the only way, and it is the riskiest part of the trip, because it runs
-  once a day and everything depends on catching it.</p>
-
-  <div class="tablewrap">
-  <table>
-    <thead>
-      <tr><th scope="col">Option</th><th scope="col">How long</th><th scope="col" class="r">Cost each</th><th scope="col">What it gets us</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="Option"><b>A · Overnight sleeper</b><br><span class="soft">current plan</span></td>
-        <td data-label="How long">16h 05m<br><span class="soft">17:00 → 09:05</span></td>
-        <td class="r amt" data-label="Cost each">฿848–918<br><span class="soft">≈₱1,500</span></td>
-        <td data-label="What it gets us">Cheapest, and no hotel needed that night. But we land <b>the morning of New Year's Eve</b> with zero slack, and one missed connection ends it.</td>
-      </tr>
-      <tr>
-        <td data-label="Option"><b>B · Train to Hat Yai, then fly</b><br><span class="soft">recommended</span></td>
-        <td data-label="How long">~8h total<br><span class="soft">all in one day</span></td>
-        <td class="r amt" data-label="Cost each">≈₱2,000 flight<br><span class="soft">+ a hotel night</span></td>
-        <td data-label="What it gets us">Still overland through Malaysia and across the border on foot. Only the last hop flies. Puts us in Bangkok <b>the evening of the 30th</b>, so we wake up rested on New Year's Eve. <b>15 flights a day</b>, so a delay isn't fatal.</td>
-      </tr>
-      <tr>
-        <td data-label="Option"><b>C · Fly Kuala Lumpur → Bangkok</b></td>
-        <td data-label="How long">2h 10m</td>
-        <td class="r amt" data-label="Cost each">₱6,000–10,000<br><span class="soft">31 Dec is NYE peak · ~₱3,700–4,800 off-peak</span></td>
-        <td data-label="What it gets us">Simplest and most forgiving, and the <b>only way to get a second full Kuala Lumpur day</b>: stay through the 30th and fly the morning of the 31st, still in time for New Year's Eve. The cost is the land crossing, dropped, plus one extra KL hotel night. See below.</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+  <p class="note">Fares for the two city hops are estimates from earlier searches. Gamaliel's is the
+  Google Flights price for 1 Jan, checked 7 Nov, which Google rated "currently high".</p>
 
   <div class="callout">
-    <div class="ct"><svg class="ic" aria-hidden="true"><use href="#i-tip"/></svg> Why option B is probably the answer</div>
+    <div class="ct"><svg class="ic" aria-hidden="true"><use href="#i-tip"/></svg> Flying in means two arrival forms</div>
     <ul>
-      <li>It keeps the trip a <b>land journey</b>: we still ride the train the length of
-      Malaysia and walk across the border at Padang Besar. Only the last 1½ hours flies.</li>
-      <li>It buys <b>a whole extra evening and night in Bangkok</b> before New Year's Eve,
-      instead of arriving at 09:05 that same morning off an overnight train.</li>
-      <li>Hat Yai is the airport just inside Thailand, <b>45–55 minutes</b> from the border
-      station. Fifteen flights a day to Bangkok, from about ₱2,000.</li>
-      <li>The real cost is a Bangkok hotel night the sleeper would have saved us, so
-      call it <b>₱3,000–4,000 each</b> all in, against roughly ₱1,500 for the train.</li>
-      <li>Whichever we pick, the <b>Thailand Arrival Card</b> is still needed. We enter
-      Thailand by land at Padang Besar in both A and B.</li>
+      <li><b>Malaysia Arrival Card</b> before the KL flight on 29 Dec.</li>
+      <li><b>Thailand Arrival Card</b> before the Bangkok flight on 1 Jan. Not needed for Gamaliel.</li>
+      <li>Book <b>Singapore → KL early</b>: it is also our proof that we're leaving Singapore.</li>
     </ul>
   </div>
 
   <div class="callout">
-    <div class="ct"><svg class="ic" aria-hidden="true"><use href="#i-tip"/></svg> Want a second Kuala Lumpur day?</div>
+    <div class="ct"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Gamaliel's flight home</div>
     <ul>
-      <li>As it stands, Kuala Lumpur gets <b>one full day</b> (29 Dec). It's bookended by travel: we arrive the evening of the 28th and leave the morning of the 30th for the border.</li>
-      <li>To get a <b>second full KL day</b>, take <b>option C</b>: stay in KL through the 30th and <b>fly KL → Bangkok (Don Mueang) the morning of the 31st</b> (2h 10m, 15+ flights a day). Dec 30 becomes a full KL day and we still land in Bangkok well before New Year's Eve.</li>
-      <li><b>Budget it as a NYE-peak fare</b>: ≈<b>₱6,000–10,000 each</b> on 31 Dec, well above the ~₱3,700–4,800 off-peak base. Book early: five seats together on the busiest travel day of the year go fast. Check the live fare for 31 Dec 2026 before committing.</li>
-      <li>The cost: it <b>drops the overland border crossing</b>, and adds <b>one extra KL hotel night</b> (the 30th), so hotel nights go from nine to ten. Thailand entry is then by air, not by land.</li>
-      <li>This is an <b>option, not the current plan</b>. The itinerary still shows the overland route.</li>
+      <li>No airline flies Kuala Lumpur to Davao nonstop. The Scoot connection through Singapore is the best fit: fireworks, a night's sleep, a day in KL, then the 22:00 flight.</li>
+      <li>The Singapore stop is only <b>1h 35m</b>. Check it is one ticket, so the bag goes through to Davao.</li>
+      <li>Book a fare that can be changed while the exam date is unconfirmed.</li>
     </ul>
   </div>
 </section>
@@ -223,14 +171,12 @@
                  n:'Flight 5J982. Departs 22:20 on Christmas night, lands 00:25 on the 26th, then 5h 30m in the terminal.' },
     'mnl-sin': { t:'Manila → Singapore · Sat 26 Dec', m:'<svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight', d:'3h 55m', p:'Part of the booked fare',
                  n:'Flight 5J817. Departs 05:55, lands 09:50. Philippines and Singapore are both UTC+8, so the clock does not shift.' },
-    'sin-jb':  { t:'Singapore → Johor Bahru · Mon 28 Dec', m:'<svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> KTM Shuttle Tebrau', d:'5 min ride · 20–40 min checkpoint to checkpoint',
-                 p:'S$5 each (≈₱220) · RM5 coming back', n:'Runs 31 times a day and sells out. Book ahead. Cross mid-morning, mid-week; evenings and holidays are the worst congestion. A new cross-border rail shuttle, the RTS Link, is due to open in Dec 2026. Worth checking whether it is running by then.' },
-    'jb-kl':   { t:'Johor Bahru → Kuala Lumpur · Mon 28 Dec', m:'<svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS', d:'4h 10m Platinum · 4h 36m Gold',
-                 p:'RM73–81 Gold, RM96–109 Platinum (≈₱950–1,420)', n:'Direct JB Sentral to KL Sentral. Whole Singapore-to-KL journey runs about 5–5.5 hours including immigration and the changeover.' },
-    'kl-pdb':  { t:'Kuala Lumpur → Padang Besar · Wed 30 Dec', m:'<svg class="ic" aria-hidden="true"><use href="#i-train"/></svg> ETS', d:'~5h 30m',
-                 p:'≈RM70–90 (estimate. Check Malaysia\'s railway site)', n:'Padang Besar station handles Malaysian exit and Thai entry in the same building. Take the earliest departure you can: everything downstream hangs on making the 17:00 sleeper.' },
-    'pdb-bkk': { t:'Padang Besar → Bangkok · 30 → 31 Dec', m:'<svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Sleeper train #46', d:'16h 05m · departs 17:00 Thai, arrives 09:05',
-                 p:'฿848–918 per berth (≈₱1,485–1,605)', n:'Second-class sleeper, and the only daily service. This is also the night’s accommodation. Five berths together need booking well ahead, especially over New Year.' }
+    'sin-kl':  { t:'Singapore → Kuala Lumpur · Tue 29 Dec', m:'<svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight', d:'~1h',
+                 p:'~₱2,000–3,500 each', n:'All five. Not booked. Book it early: it is also our proof of leaving Singapore. Malaysia Arrival Card before flying.' },
+    'kl-bkk':  { t:'Kuala Lumpur → Bangkok · Fri 1 Jan', m:'<svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Flight', d:'~2h 10m',
+                 p:'~₱3,700–4,800 each, off-peak', n:'Everyone except Gamaliel. Not booked. New Year\'s Day is off-peak, so this costs less than flying on the 31st would have. Thailand Arrival Card before flying.' },
+    'kl-dvo':  { t:'Gamaliel home · KL → Singapore → Davao · Fri 1 → Sat 2 Jan', m:'<svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Scoot, one stop', d:'6h 55m · departs 22:00, lands 04:55',
+                 p:'~₱11,948 one way', n:'Not booked. 1h 35m stop in Singapore. No airline flies KL to Davao nonstop.' }
   };
   var info = document.getElementById('mapinfo');
   var legs = [].slice.call(document.querySelectorAll('.leg'));

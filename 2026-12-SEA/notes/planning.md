@@ -365,3 +365,52 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
     before. Nobody had noticed this because the check-in times were never looked up.
   - The dashboard's "what do we do on the arrival day" open question is closed and
     removed, replaced by the early-check-in request as a tracked item.
+- *2026-10-28* · **Return flight is now split. Supersedes "home Mon 4 Jan".**
+  - **Marianne, Alysson and Jan booked for Wed 6 Jan.** Flight details not yet
+    given; not assumed to be the CebPac direct.
+  - **Gamaliel flies home early** for a Civ Pro final that may be on Tue 5 Jan.
+    CebPac DMK → DVO direct is Mon/Wed/Fri only, departs 21:15, lands ~02:50
+    (re-checked 2026-10-28: SunStar, FlightConnections; route restarted 26 Oct).
+    Mon 4 Jan would land at 03:00 on exam day, so **recommended Fri 1 Jan**
+    (keeps NYE in Bangkok, 3 days before the exam). Fallback: Sat 2 / Sun 3 Jan
+    via Manila, unverified. Not booked. Book a changeable fare while the exam
+    date is unconfirmed.
+  - **Kevin:** return not known.
+  - Knock-ons left open on the page, not resolved: what the group does 4 to 6
+    Jan, and the Bangkok/Pattaya nights (Pattaya row marked "Will move"). Day 11
+    cards on every itinerary version carry a "Changed" pill instead of being
+    rewritten, since there is no plan yet to replace them with.
+- *2026-11-07* · **V3 chosen: New Year at the Petronas Towers.** User's call ("I think
+  we'll have new year in petronas"). Supersedes Overland as the working plan.
+  - **Gamaliel's return moves to KL.** No KUL→DVO nonstop exists (Skyscanner, Google
+    Flights, FlightConnections; AirAsia's old direct is gone). Google Flights for Fri
+    1 Jan 2027, checked 2026-11-07: **Scoot 22:00 KUL → SIN (1h35) → DVO 04:55 Sat 2,
+    ₱11,948** is the fit: fireworks, sleep, a day, fly. Alternatives: PAL via MNL
+    02:20→10:20 ₱15,849; CebPac via MNL 01:05→13:05 ₱13,445; MH+PAL 08:30→16:20
+    ₱27,860. Google flagged prices "currently high". Not booked. Through-check of
+    bags on the SIN connection not verified.
+  - **Rest of group:** KL→BKK Fri 1 Jan (off-peak), Bangkok 1 to 6 Jan, five nights.
+    Mon 4 and Tue 5 shown as open TBD days on the V3 tab; Wed 6 home (3 booked).
+  - **Knock-on found:** V3 keeps Singapore to Tue 29, but the Quay booking ends the
+    morning of 28 Dec. **One more Singapore night is needed**, flagged on Day 4 and the
+    dashboard.
+  - Page: V3 tab is now first and selected by default ("Our plan"); other tabs kept for
+    comparison. Dashboard rewritten for V3 (overland train rows replaced by the two
+    flights, KL-one-day-or-two question dropped, onward-travel proof reworded).
+    Header subtitle on all six pages now "New Year under the Petronas Towers".
+  - **Route, Money, Accommodations still describe Overland**, each carries an "Out of
+    date" line. Redoing them for V3 is the next job.
+- *2026-11-07* · **Route, Money, Accommodations, Before we fly redone for V3. Deployed.**
+  "Out of date" lines removed.
+  - **Route:** map is now all air: DVO→MNL→SIN, SIN→KL, KL→BKK, plus Gamaliel's
+    KL→SIN→DVO as a polyline. JB and Padang Besar nodes removed (coastline untouched).
+    Leg table gained a "Who" column. Sleeper / Hat Yai / second-KL-day sections dropped.
+  - **Accommodations:** SG 2 booked + 1 to book, KL 3 (over NYE, "book first"), BKK 5
+    (without Gamaliel). 11 hotel nights for the group, 6 for Gamaliel.
+  - **Money:** pocket money and "known so far" now in two figures. Staying to 6 Jan:
+    pocket ₱17,500–24,500, known ₱32,930–42,530, short of the ₱20k fund by
+    ₱12,930–22,530. Gamaliel: pocket ₱10,500–14,000, known ₱22,230–27,230 (excludes
+    his ~₱11,948 return, as returns are excluded for everyone). Dropped the old
+    "incl. 10–15% buffer" label: the old figures never actually applied it.
+  - **New open question (Dashboard):** how the Bangkok rooms and KL→BKK flight split
+    now that Gamaliel isn't there. Deliberately NOT decided on the page.
