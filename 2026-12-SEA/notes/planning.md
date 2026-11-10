@@ -460,3 +460,10 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   13:29 PH). The skip on a *scheduled* run is **not yet verified on GitHub**: no
   scheduled run had started by 13:53 PH on 10 Nov. Check: if any day gets two daily
   emails, the skip is broken. Mac log: 9 Nov failed with no network after the Mac woke from sleep, 10 Nov ok.
+- *2026-11-10* · **Daily fare email: the Mac now triggers it.** GitHub's schedule had
+  still not run by 15:29 PH (8-9 Nov it ran 6-7h late), so `kul-dvo.py` (launchd 09:00,
+  or on wake if asleep) now starts the GitHub run with `daily=true`; the GitHub schedule
+  stays as backup. The script also retries the network for ~2 min after wake (the 9 Nov
+  failure). Verified via `launchctl kickstart`: run started, GitHub skipped it because
+  the day's fare was already posted. If the Mac is off all day, it falls back to GitHub's
+  late schedule.
