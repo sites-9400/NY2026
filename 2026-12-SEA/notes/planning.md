@@ -437,7 +437,9 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   - **Google Flights "Track prices"** (1 Jan only, not "Any dates") on
     Gamaliel's personal Google account. Google decides when to email; no threshold possible.
   - **GitHub Actions, private repo `sites-9400/fare-watch`** (local clone
-    `~/Library/Scripts/fare-watch/cloud/`). Daily ~09:07 PH: comments the fare on
+    `~/Library/Scripts/fare-watch/cloud/`). Tries 09:07, 11:07, 13:07 PH (GitHub ran
+    the single 09:07 slot 6-7h late on 8-9 Nov; fixed 2026-11-10, later tries skip
+    once the day's fare is posted). Comments the fare on
     issue #2 (emailed), opens a separate issue below ₱10k or if the check breaks.
     Reads the price-history series embedded in the Google Flights page via plain
     HTTP; GitHub's servers see the same ₱11,948 as the Mac. Stops after 1 Jan.
