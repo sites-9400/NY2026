@@ -456,3 +456,7 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   flat. Scoot's own site blocks automated checks, so prices are Google's. Before booking:
   check Scoot's change rules (exam date open) and bag fees. After booking: turn off the
   three fare alerts (GitHub repo, Mac launchd job, Google tracking).
+- *2026-11-10* · **Fare-alert fix status.** Manual run verified (posted ₱11,970 at
+  13:29 PH). The skip on a *scheduled* run is **not yet verified on GitHub**: no
+  scheduled run had started by 13:53 PH on 10 Nov. Check: if any day gets two daily
+  emails, the skip is broken. Mac log: 9 Nov failed with no network after the Mac woke from sleep, 10 Nov ok.
