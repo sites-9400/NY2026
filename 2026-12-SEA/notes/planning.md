@@ -451,3 +451,8 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
     pushed, no permission granted. Deleting it is the user's call.
   - Bugs caught by testing, all fixed: peso sign broke the Mac notification;
     GitHub's UTC clock dated the email a day early.
+- *2026-11-10* · **Gamaliel books KUL→DVO 1 Jan after 15 Nov** (his call). Scoot 22:00
+  via SIN is still the cheapest at ₱11,970 (Google, 10 Nov); SIN→KL Scoot 29 Dec ₱5,092,
+  flat. Scoot's own site blocks automated checks, so prices are Google's. Before booking:
+  check Scoot's change rules (exam date open) and bag fees. After booking: turn off the
+  three fare alerts (GitHub repo, Mac launchd job, Google tracking).
