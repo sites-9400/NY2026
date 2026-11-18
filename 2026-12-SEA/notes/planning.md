@@ -514,3 +514,11 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   other versions". Overland, V1, V2 and the tab switcher removed from the page (git history
   and equal-split-versions.md still have them). Checked first: none of their comment
   threads had comments. Dashboard's "We're going with V3" now reads "The plan".
+- *2026-11-18* · **"Before we fly" rebuilt: border by border, rooms to book, tickets to book.**
+  Checked for Philippine passports (web, 18 Nov; not yet against each government site):
+  Singapore visa-free 30 days + SG Arrival Card in the 3 days before; Malaysia visa-free
+  30 days + MDAC in the 3 days before, applies at the Johor land crossing; **Thailand cut
+  visa-free from 60 to 30 days on 15 Sep 2026** (TAT), TDAC in the 3 days before;
+  Philippine eTravel within 72h (at least 3h before) on departure and arrival; travel tax
+  ₱1,620 economy (GMA, Top Gear). Flagged: Kevin has no return ticket, an offloading risk
+  at Davao on 25 Dec.
