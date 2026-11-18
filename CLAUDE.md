@@ -232,9 +232,8 @@ on all six pages when it changes, same rule as `site.css`.
 **The SEA itinerary is a timeline, not stacked cards** (2026-11-18, polish pass
 using Impeccable's guidance, read from its repo and not installed). One coloured
 spine runs down the page in each day's country colour, with a ring per day; city
-chapters (`h3.chap`) break the plan tab; the "SG 2 · KL 4" glance is a bar sized
-by nights (`style="--n:4"` on each chip). Markup is unchanged `details.day`, so
-the comparison tabs got it for free. Don't box the days back up.
+chapters (`h3.chap`) break the plan; the "SG 2 · KL 4" glance is a bar sized
+by nights (`style="--n:4"` on each chip). Don't box the days back up.
 
 **Type is Helvetica throughout** (`--display` and `--body`). The Hong Kong
 originals set headings in Georgia; that was switched out in Jul 2026. Keep it
@@ -268,7 +267,7 @@ cheap. Use colour and weight to subordinate instead.
   Bangkok to 6 Jan. **SG→KL by train Mon 28 Dec (2026-11-18, Marianne):** Shuttle
   Tebrau + ETS, not booked; replaces the SIN→KL flight, so Singapore is 2 nights (the
   Quay booking, no 3rd night needed) and KL 4 (28 Dec–1 Jan). All six pages now describe
-  V3; the Itinerary keeps the other versions as comparison tabs. Open: how Bangkok
+  V3. Open: how Bangkok
   splits without Gamaliel.
   **Singapore stay booked:** The Quay Hotel Little India, two triple rooms,
   26–28 Dec, ₱32,360 (₱6,472 each ÷5), Agoda Book Now Pay Later, free
@@ -276,11 +275,11 @@ cheap. Use colour and weight to subordinate instead.
   **This trip is MULTI-PAGE, not the usual single `index.html`** (rebuilt 2026-08-15):
   six pages sharing one header/nav/footer — `index.html` (Dashboard), `itinerary.html`,
   `route.html`, `money.html`, `accommodations.html`, `before.html`. The **Itinerary**
-  page carries a CSS-only 4-tab switcher (radio inputs) over **four versions** of the
-  trip: **Overland** (by-land + Pattaya + NYE Bangkok — the route the route/money/stay
-  pages describe), **V1** SG-lean, **V2** KL-lean, **V3** truly-equal 3/3/3 with NYE at
-  the Petronas Towers (KL). V1–V3 all fly the hops. Day cards are non-collapsing
-  `<details open>`; each version has one comment thread.
+  shows the chosen plan only (V3). The other versions (Overland, V1, V2) and their
+  tab switcher were removed 2026-11-18 at the user's request ("too much to read");
+  they live in git history and `notes/equal-split-versions.md`. Their comment
+  threads had no comments. Day cards are non-collapsing `<details open>`; the page
+  has one comment thread, still keyed `ver-v3`.
   Gotchas: `firebase.json` has `cleanUrls:true` + `trailingSlash:true`, so pages serve
   at `/2026-12-sea/<page>/` — **all internal links + CSS must be ABSOLUTE** (`/assets/…`,
   `/2026-12-sea/<page>/`), relative paths break at that depth. Test with `firebase serve`

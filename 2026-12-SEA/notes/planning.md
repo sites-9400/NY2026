@@ -510,3 +510,7 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   DM Serif Display + Barlow Condensed. Checked at 375px and 1280px, light and dark; no sideways
   scroll. Impeccable detector: fixed two sub-11px labels; remaining hits are display leading,
   the borderless timeline and the empty-cell dashes (deliberate).
+- *2026-11-18* · **Itinerary trimmed to the plan only.** User: "too much to read, remove the
+  other versions". Overland, V1, V2 and the tab switcher removed from the page (git history
+  and equal-split-versions.md still have them). Checked first: none of their comment
+  threads had comments. Dashboard's "We're going with V3" now reads "The plan".
