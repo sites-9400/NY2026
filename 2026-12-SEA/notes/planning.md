@@ -486,3 +486,14 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
     ₱12,100–20,500. Gamaliel ₱21,400–25,200, short ₱1,400–5,200.
   - Checkout 11:00 vs the train: pack the night before (same constraint the Overland
     plan had). Train times not chosen. V1, V2, Overland tabs left as they were.
+- *2026-11-18* · **KTMB checked for Mon 28 Dec, 5 pax (online.ktmb.com.my, not logged in).**
+  - **Shuttle Tebrau Woodlands → JB: every departure up to 12:30 shows 0 seats**, and
+    18:45 too. Open: 13:45 (147), 15:00 (258), 16:15, 17:30, 20:00 (33), later. RM16.10.
+  - **ETS JB Sentral → KL Sentral:** Gold 9442 07:35 (RM88, 45 seats); Platinum 08:40,
+    09:55 (8 seats), 11:25 (9), 12:45 (112), **15:00 → 19:20 (88, RM115)**, 16:20 →
+    20:40 (198). Min fares only; "login to view" the rest.
+  - **Picked: Shuttle 13:45 + ETS 15:00**, 70 min at JB for Malaysia immigration;
+    16:20 is the fallback. Page updated to these, ≈₱1,350–1,760 each at ₱13/RM.
+    Money knock-on: known staying ₱32,300–40,800; Gamaliel ₱21,600–25,500.
+  - **Not booked.** Booking needs a KITS login, each passenger's passport details and
+    payment, so Gamaliel books it himself.
