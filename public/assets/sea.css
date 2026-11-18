@@ -73,7 +73,6 @@ p.note{ font-style:normal; color:var(--soft); }
   background:var(--sign); color:var(--onsign); padding:1.1rem 1.15rem 1.15rem; margin:0 0 .6rem;
   border-radius:4px;
 }
-.sign-k{ font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--signsoft); }
 .sign-h{ font-size:clamp(1.7rem, 6.5vw, 2.3rem); font-weight:800; letter-spacing:-.035em; line-height:1.05; margin:.35rem 0 .45rem; }
 .sign-t{ font-size:1rem; color:var(--signsoft); line-height:1.45; max-width:42ch; }
 .sign-s{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; margin-top:.8rem; }
@@ -187,12 +186,6 @@ table.tickets td[data-label="Status"]::before{ display:none; }
   table.tickets tr{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"leg leg" "when who" "dur cost" "st st"; }
   table.tickets td[data-label="Status"]{ flex-direction:row; justify-content:flex-start; }
 }
-
-/* ---------- route map read-out: a departure-board panel, no side stripe ---------- */
-.mapinfo{ background:var(--sign); color:var(--onsign); border-left:0; border-radius:4px; padding:.9rem 1.1rem; }
-.mapinfo .mi-head{ color:var(--onsign); font-size:1.1rem; letter-spacing:-.015em; }
-.mapinfo .mi-meta span{ color:var(--onsign); }
-.mapinfo .mi-body{ color:var(--signsoft); }
 
 /* ---------- small things ---------- */
 /* Legibility floor: no functional text under 11px. */

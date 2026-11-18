@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T07:34:38.759707+00:00",
+  "title": "Design System: SEA Dec 2026 trip site",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Platform Black",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "oklch(15% 0.0 0)",
+          "oklch(25% 0.0 0)",
+          "oklch(35% 0.0 0)",
+          "oklch(45% 0.0 0)",
+          "oklch(60% 0.0 0)",
+          "oklch(75% 0.0 0)",
+          "oklch(87% 0.0 0)",
+          "oklch(95% 0.0 0)"
+        ],
+        "darkMode": "#f2f2f2"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.0 0)",
+          "oklch(25% 0.0 0)",
+          "oklch(35% 0.0 0)",
+          "oklch(45% 0.0 0)",
+          "oklch(60% 0.0 0)",
+          "oklch(75% 0.0 0)",
+          "oklch(87% 0.0 0)",
+          "oklch(95% 0.0 0)"
+        ],
+        "darkMode": "#16151a"
+      },
+      "gray": {
+        "role": "neutral",
+        "displayName": "Gray",
+        "canonical": "#4a4a4f",
+        "tonalRamp": [
+          "oklch(15% 0.004 285)",
+          "oklch(25% 0.006 285)",
+          "oklch(35% 0.007 285)",
+          "oklch(45% 0.009 285)",
+          "oklch(60% 0.009 285)",
+          "oklch(75% 0.007 285)",
+          "oklch(87% 0.005 285)",
+          "oklch(95% 0.004 285)"
+        ],
+        "darkMode": "#c4c4c8"
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft Gray",
+        "canonical": "#5f5f66",
+        "tonalRamp": [
+          "oklch(15% 0.005 285)",
+          "oklch(25% 0.007 285)",
+          "oklch(35% 0.009 285)",
+          "oklch(45% 0.01 285)",
+          "oklch(60% 0.011 285)",
+          "oklch(75% 0.009 285)",
+          "oklch(87% 0.006 285)",
+          "oklch(95% 0.005 285)"
+        ],
+        "darkMode": "#a5a5ad"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#dcdce0",
+        "tonalRamp": [
+          "oklch(15% 0.003 285)",
+          "oklch(25% 0.005 285)",
+          "oklch(35% 0.006 285)",
+          "oklch(45% 0.007 285)",
+          "oklch(60% 0.007 285)",
+          "oklch(75% 0.006 285)",
+          "oklch(87% 0.004 285)",
+          "oklch(95% 0.003 285)"
+        ],
+        "darkMode": "#34343a"
+      },
+      "fold-ground": {
+        "role": "neutral",
+        "displayName": "Fold Ground",
+        "canonical": "#f3f3f4",
+        "tonalRamp": [
+          "oklch(15% 0.002 285)",
+          "oklch(25% 0.002 285)",
+          "oklch(35% 0.003 285)",
+          "oklch(45% 0.003 285)",
+          "oklch(60% 0.004 285)",
+          "oklch(75% 0.003 285)",
+          "oklch(87% 0.002 285)",
+          "oklch(95% 0.002 285)"
+        ],
+        "darkMode": "#202024"
+      },
+      "sign": {
+        "role": "primary",
+        "displayName": "Sign Black",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "oklch(15% 0.0 0)",
+          "oklch(25% 0.0 0)",
+          "oklch(35% 0.0 0)",
+          "oklch(45% 0.0 0)",
+          "oklch(60% 0.0 0)",
+          "oklch(75% 0.0 0)",
+          "oklch(87% 0.0 0)",
+          "oklch(95% 0.0 0)"
+        ],
+        "darkMode": "#000000"
+      },
+      "on-sign": {
+        "role": "neutral",
+        "displayName": "On Sign",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.0 0)",
+          "oklch(25% 0.0 0)",
+          "oklch(35% 0.0 0)",
+          "oklch(45% 0.0 0)",
+          "oklch(60% 0.0 0)",
+          "oklch(75% 0.0 0)",
+          "oklch(87% 0.0 0)",
+          "oklch(95% 0.0 0)"
+        ]
+      },
+      "sign-soft": {
+        "role": "neutral",
+        "displayName": "Sign Soft",
+        "canonical": "#c4c4c8",
+        "tonalRamp": [
+          "oklch(15% 0.003 285)",
+          "oklch(25% 0.005 285)",
+          "oklch(35% 0.006 285)",
+          "oklch(45% 0.007 285)",
+          "oklch(60% 0.007 285)",
+          "oklch(75% 0.006 285)",
+          "oklch(87% 0.004 285)",
+          "oklch(95% 0.003 285)"
+        ],
+        "darkMode": "#b3b3b8"
+      },
+      "link": {
+        "role": "neutral",
+        "displayName": "Link Blue",
+        "canonical": "#1d5bb0",
+        "tonalRamp": [
+          "oklch(15% 0.063 258)",
+          "oklch(25% 0.085 258)",
+          "oklch(35% 0.106 258)",
+          "oklch(45% 0.128 258)",
+          "oklch(60% 0.139 258)",
+          "oklch(75% 0.106 258)",
+          "oklch(87% 0.08 258)",
+          "oklch(95% 0.063 258)"
+        ],
+        "darkMode": "#8db8f2"
+      },
+      "booked-green": {
+        "role": "tertiary",
+        "displayName": "Booked Green",
+        "canonical": "#147a50",
+        "tonalRamp": [
+          "oklch(15% 0.05 160)",
+          "oklch(25% 0.068 160)",
+          "oklch(35% 0.085 160)",
+          "oklch(45% 0.103 160)",
+          "oklch(60% 0.111 160)",
+          "oklch(75% 0.085 160)",
+          "oklch(87% 0.064 160)",
+          "oklch(95% 0.05 160)"
+        ],
+        "darkMode": "#3fb27f"
+      },
+      "book-now-red": {
+        "role": "tertiary",
+        "displayName": "Book-now Red",
+        "canonical": "#c8102e",
+        "tonalRamp": [
+          "oklch(15% 0.088 22)",
+          "oklch(25% 0.118 22)",
+          "oklch(35% 0.149 22)",
+          "oklch(45% 0.179 22)",
+          "oklch(60% 0.195 22)",
+          "oklch(75% 0.149 22)",
+          "oklch(87% 0.112 22)",
+          "oklch(95% 0.088 22)"
+        ],
+        "darkMode": "#ff6b7f"
+      },
+      "singapore-pink": {
+        "role": "secondary",
+        "displayName": "Singapore Pink",
+        "canonical": "#e0567a",
+        "tonalRamp": [
+          "oklch(15% 0.071 5)",
+          "oklch(25% 0.096 5)",
+          "oklch(35% 0.121 5)",
+          "oklch(45% 0.145 5)",
+          "oklch(60% 0.158 5)",
+          "oklch(75% 0.121 5)",
+          "oklch(87% 0.091 5)",
+          "oklch(95% 0.071 5)"
+        ]
+      },
+      "malaysia-teal": {
+        "role": "secondary",
+        "displayName": "Malaysia Teal",
+        "canonical": "#1fa899",
+        "tonalRamp": [
+          "oklch(15% 0.05 180)",
+          "oklch(25% 0.068 180)",
+          "oklch(35% 0.085 180)",
+          "oklch(45% 0.103 180)",
+          "oklch(60% 0.111 180)",
+          "oklch(75% 0.085 180)",
+          "oklch(87% 0.064 180)",
+          "oklch(95% 0.05 180)"
+        ]
+      },
+      "thailand-amber": {
+        "role": "secondary",
+        "displayName": "Thailand Amber",
+        "canonical": "#e8942e",
+        "tonalRamp": [
+          "oklch(15% 0.063 65)",
+          "oklch(25% 0.085 65)",
+          "oklch(35% 0.106 65)",
+          "oklch(45% 0.128 65)",
+          "oklch(60% 0.139 65)",
+          "oklch(75% 0.106 65)",
+          "oklch(87% 0.08 65)",
+          "oklch(95% 0.063 65)"
+        ]
+      },
+      "air-blue": {
+        "role": "secondary",
+        "displayName": "Air Blue",
+        "canonical": "#3b76c7",
+        "tonalRamp": [
+          "oklch(15% 0.059 258)",
+          "oklch(25% 0.079 258)",
+          "oklch(35% 0.099 258)",
+          "oklch(45% 0.12 258)",
+          "oklch(60% 0.13 258)",
+          "oklch(75% 0.099 258)",
+          "oklch(87% 0.075 258)",
+          "oklch(95% 0.059 258)"
+        ]
+      },
+      "air-code-blue": {
+        "role": "secondary",
+        "displayName": "Air Code Blue",
+        "canonical": "#2a5ea6",
+        "tonalRamp": [
+          "oklch(15% 0.054 258)",
+          "oklch(25% 0.073 258)",
+          "oklch(35% 0.092 258)",
+          "oklch(45% 0.111 258)",
+          "oklch(60% 0.121 258)",
+          "oklch(75% 0.092 258)",
+          "oklch(87% 0.069 258)",
+          "oklch(95% 0.054 258)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "sign-time": {
+        "displayName": "Sign time",
+        "purpose": "Departure time on the black sign. 2.6rem on phones."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page name in the masthead. 1.45rem on phones."
+      },
+      "sign-route": {
+        "displayName": "Sign route",
+        "purpose": "Route line on the sign, code tiles inline at 0.42em."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "h2, followed by the three-colour rule."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "City name at each station."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "h3."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose and lists; lede max 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Status tiles, uppercase. Floor is 11px."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "36rem",
+        "note": "max-width; masthead shrinks, tables stack, board rows reflow"
+      }
+    ],
+    "scope": {
+      "appliesTo": [
+        "public/2026-12-sea/index.html",
+        "public/2026-12-sea/itinerary.html",
+        "public/2026-12-sea/route.html",
+        "public/2026-12-sea/money.html",
+        "public/2026-12-sea/accommodations.html",
+        "public/2026-12-sea/before.html"
+      ],
+      "stylesheets": [
+        "public/assets/site.css",
+        "public/assets/sea.css"
+      ],
+      "excludes": [
+        "public/index.html",
+        "public/2026-08-siargao/"
+      ],
+      "note": "Landing and Siargao keep the older site.css system: white ground, wine accent #8c2f4c, Helvetica, coloured day rails. Never link sea.css from them."
+    },
+    "cacheBust": "Bump ?v= on the sea.css link on all six SEA pages whenever sea.css changes (currently v=10)."
+  },
+  "components": [
+    {
+      "name": "Sign Panel",
+      "kind": "card",
+      "refersTo": "sign-panel",
+      "description": "The next departure. One per page at most; black is reserved for it.",
+      "html": "<div class=\"ds-sign\"><div class=\"ds-sign-h\"><span class=\"ds-code ds-code-air\">DVO</span> Davao &#8594; <span class=\"ds-code ds-code-sg\">SG</span> Singapore</div><div class=\"ds-sign-time\"><b>22:20</b><span>Fri 25 Dec · via Manila</span></div><div class=\"ds-sign-s\"><span class=\"ds-tile ds-tile-ok\">Booked</span><button class=\"ds-calbtn\" type=\"button\">Add to calendar</button></div></div>",
+      "css": ".ds-sign{background:#111;color:#fff;padding:1.1rem 1.15rem 1.15rem;border-radius:4px;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;} .ds-sign-h{font-size:2rem;font-weight:800;letter-spacing:-.035em;line-height:1.05;margin:0 0 .45rem;} .ds-code{display:inline-block;vertical-align:.2em;padding:.08rem .35rem;font-size:.42em;font-weight:800;letter-spacing:.04em;color:#111;} .ds-code-air{background:#2a5ea6;color:#fff;} .ds-code-sg{background:#e0567a;} .ds-sign-time{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .8rem;} .ds-sign-time b{font-size:3.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;} .ds-sign-time span{color:#c4c4c8;} .ds-sign-s{display:flex;gap:.6rem;align-items:center;margin-top:.8rem;} .ds-tile{display:inline-flex;align-items:center;min-height:24px;padding:.12rem .5rem;border:1.5px solid currentColor;border-radius:3px;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;} .ds-tile-ok{background:#147a50;border-color:#147a50;color:#fff;} .ds-calbtn{font:inherit;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;min-height:28px;padding:.1rem .6rem;border-radius:3px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);cursor:pointer;} .ds-calbtn:hover{background:#fff;color:#111;} .ds-calbtn:focus-visible{outline:2px solid #fff;outline-offset:2px;}"
+    },
+    {
+      "name": "Status Tile: Booked",
+      "kind": "chip",
+      "refersTo": "tile-booked",
+      "description": "Solid green. The only way to say booked.",
+      "html": "<span class=\"ds-tile-booked\">Booked</span>",
+      "css": ".ds-tile-booked{display:inline-flex;align-items:center;min-height:24px;padding:.12rem .5rem;border:1.5px solid #147a50;border-radius:3px;background:#147a50;color:#fff;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}"
+    },
+    {
+      "name": "Status Tile: Not booked / TBD",
+      "kind": "chip",
+      "refersTo": "tile-not-yet",
+      "description": "Black outline. Not booked, or not decided.",
+      "html": "<span class=\"ds-tile-out\">Not booked</span> <span class=\"ds-tile-out\">TBD</span>",
+      "css": ".ds-tile-out{display:inline-flex;align-items:center;min-height:24px;padding:.12rem .5rem;border:1.5px solid #111;border-radius:3px;background:transparent;color:#111;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}"
+    },
+    {
+      "name": "Status Tile: Book now",
+      "kind": "chip",
+      "refersTo": "tile-book-now",
+      "description": "Red outline. Act on this soon.",
+      "html": "<span class=\"ds-tile-now\">Book now</span>",
+      "css": ".ds-tile-now{display:inline-flex;align-items:center;min-height:24px;padding:.12rem .5rem;border:1.5px solid #c8102e;border-radius:3px;background:transparent;color:#c8102e;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}"
+    },
+    {
+      "name": "The Line",
+      "kind": "custom",
+      "refersTo": "code-tile-singapore",
+      "description": "One stop per city: segment bar, station ring, code tile, status lines. Red ring and tag on today's stop.",
+      "html": "<ol class=\"ds-line\"><li class=\"ds-stop ds-sg ds-here\"><span class=\"ds-here-tag\">You are here</span><span class=\"ds-code\">SG</span><b>Singapore</b><span class=\"ds-when\">26 to 28 Dec · 2 nights</span><span class=\"ds-st\"><span class=\"ds-t ds-ok\">Booked</span> The Quay Hotel</span></li><li class=\"ds-stop ds-my\"><span class=\"ds-code\">KL</span><b>Kuala Lumpur</b><span class=\"ds-when\">28 Dec to 1 Jan</span><span class=\"ds-st\"><span class=\"ds-t ds-no\">Book now</span> Rooms</span></li><li class=\"ds-stop ds-th\"><span class=\"ds-code\">BKK</span><b>Bangkok</b><span class=\"ds-when\">1 to 6 Jan</span><span class=\"ds-st\"><span class=\"ds-t\">Not booked</span> Flight, rooms</span></li></ol>",
+      "css": ".ds-line{list-style:none;margin:0;padding:0;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;color:#111;} .ds-stop{--seg:#3b76c7;position:relative;padding:.2rem 0 1.5rem 3.4rem;min-height:4.2rem;} .ds-sg{--seg:#e0567a;} .ds-my{--seg:#1fa899;} .ds-th{--seg:#e8942e;} .ds-stop::before{content:'';position:absolute;left:.95rem;top:0;bottom:0;width:10px;background:var(--seg);} .ds-stop::after{content:'';position:absolute;left:.55rem;top:.35rem;width:26px;height:26px;border-radius:50%;background:#fff;border:5px solid #111;box-sizing:border-box;} .ds-here::after{border-color:#c8102e;background:#c8102e;} .ds-here-tag{display:table;margin:0 0 .35rem;padding:.12rem .45rem;background:#c8102e;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;} .ds-code{display:inline-block;min-width:2.6rem;text-align:center;margin-right:.5rem;padding:.1rem .35rem;background:var(--seg);color:#111;font-size:.78rem;font-weight:800;letter-spacing:.04em;vertical-align:.15em;} .ds-stop b{font-size:1.35rem;font-weight:800;letter-spacing:-.025em;} .ds-when{display:block;color:#5f5f66;font-size:.9rem;margin:.15rem 0 .35rem;} .ds-st{display:flex;align-items:flex-start;gap:.4rem;font-size:.92rem;margin-top:.3rem;} .ds-t{flex:0 0 auto;display:inline-flex;align-items:center;min-height:24px;padding:.12rem .5rem;border:1.5px solid #111;border-radius:3px;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;} .ds-ok{background:#147a50;border-color:#147a50;color:#fff;} .ds-no{border-color:#c8102e;color:#c8102e;}"
+    },
+    {
+      "name": "Sign Tab Nav",
+      "kind": "nav",
+      "refersTo": "nav-tab",
+      "description": "Page tabs as square sign tabs; the current page is solid black.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-on\" href=\"#\">Dashboard</a><a href=\"#\">Itinerary</a><a href=\"#\">Route</a><a href=\"#\">Money</a></nav>",
+      "css": ".ds-nav{display:flex;gap:.4rem;overflow-x:auto;padding:.65rem 0;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;border-bottom:1px solid #dcdce0;} .ds-nav a{flex:0 0 auto;border-radius:4px;border:1.5px solid #dcdce0;color:#111;font-size:.8rem;font-weight:800;letter-spacing:.02em;padding:.38rem .75rem;text-decoration:none;} .ds-nav a:hover{border-color:#111;} .ds-nav a:focus-visible{outline:2px solid #1d5bb0;outline-offset:2px;} .ds-nav a.ds-on{background:#111;color:#fff;border-color:#111;}"
+    },
+    {
+      "name": "Fold Row",
+      "kind": "custom",
+      "refersTo": "fold-row",
+      "description": "Detail folds behind a + row; the flag variant is red.",
+      "html": "<details class=\"ds-more\"><summary>Every booking, item by item</summary><p>Folded detail lives here.</p></details><details class=\"ds-more ds-flag\"><summary>One-way ticket. Sort this first</summary><p>Folded warning.</p></details>",
+      "css": ".ds-more{margin:1rem 0;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;color:#111;} .ds-more>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.5rem;min-height:44px;padding:.55rem .1rem;font-weight:800;font-size:.98rem;letter-spacing:-.01em;border-top:1.5px solid #111;border-bottom:1px solid #dcdce0;} .ds-more>summary::-webkit-details-marker{display:none;} .ds-more>summary::after{content:'+';margin-left:auto;font-size:1.3rem;font-weight:700;line-height:1;color:#5f5f66;} .ds-more[open]>summary::after{content:'\\2212';} .ds-more>summary:focus-visible{outline:2px solid #1d5bb0;outline-offset:2px;} .ds-flag>summary{color:#c8102e;border-top-color:#c8102e;} .ds-more p{padding:.7rem .1rem;}"
+    },
+    {
+      "name": "Departure Board Row",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Route legs and money figures: black top rule, hairline rows, time first, status right.",
+      "html": "<ol class=\"ds-board\"><li><span class=\"ds-bt\"><b>Mon 28 Dec</b>15:00</span><span class=\"ds-br\">Johor Bahru &#8594; KL Sentral</span><span class=\"ds-tn\">Book now</span></li></ol>",
+      "css": ".ds-board{list-style:none;padding:0;margin:0;border-top:1.5px solid #111;font-family:\"Helvetica Neue\", Helvetica, Inter, Arial, sans-serif;color:#111;} .ds-board li{display:grid;grid-template-columns:7.5rem minmax(0,1fr) auto;align-items:center;gap:.4rem .9rem;padding:.75rem 0;border-bottom:1px solid #dcdce0;} .ds-bt{font-variant-numeric:tabular-nums;color:#5f5f66;font-size:.9rem;} .ds-bt b{display:block;color:#111;font-size:1rem;} .ds-br{font-weight:800;font-size:1.02rem;letter-spacing:-.01em;} .ds-tn{display:inline-flex;align-items:center;min-height:24px;padding:.12rem .5rem;border:1.5px solid #c8102e;border-radius:3px;color:#c8102e;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Station signs",
+    "overview": "**Creative North Star: \"Station signs\"**\n\nThe trip is one rail line read like MRT, LRT and BTS wayfinding: where we are, the next departure, and which stations are confirmed. White ground, black Helvetica at heavy weights, one vertical line in segment colours, station rings, coloured city code tiles, a black sign panel for the next departure and a red You are here marker. Status is a tile: solid when booked, outline when not yet.\n\nThe system is built for five people reading on phones in airports and on platforms. Status comes before story. Every page answers \"what is booked and what is next\" in the first screen, and everything else folds behind a \"+\" row, one tap away. Density is low on purpose: less visible text, never less information.\n\nIt refuses photo day cards, a blue brand accent, stamps, patterns, serif type and walls of tables and callouts.\n\n**Scope.** This system applies to the six SEA Dec 2026 pages only (`public/2026-12-sea/`: index, itinerary, route, money, accommodations, before). They load `public/assets/site.css` first and `public/assets/sea.css` on top. The landing page (`public/index.html`) and the Siargao page (`public/2026-08-siargao/`) keep the older site.css system: white ground, wine accent `#8c2f4c`, Helvetica, coloured day rails. Do not link sea.css from them and do not port these rules to them.",
+    "keyCharacteristics": [
+      "White ground, black type, heavy Helvetica (800) with negative tracking.",
+      "One line in four segment colours: air blue, Singapore pink, Malaysia teal, Thailand amber.",
+      "Exactly four status labels: Booked, Not booked, TBD, Book now.",
+      "Black is reserved for the next departure.",
+      "Detail collapses behind \"+\" rows; it is never deleted."
+    ],
+    "rules": [
+      {
+        "name": "The Reserved Black Rule",
+        "body": "A black panel means \"the next departure\". One per page at most; money figures, map read-outs and callouts stay on white.",
+        "section": "colors"
+      },
+      {
+        "name": "The Four Labels Rule",
+        "body": "Status uses exactly four words: Booked (solid green tile), Not booked and TBD (black outline tile), Book now (red outline tile). No other status words, colours or shapes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Eleven Pixel Floor",
+        "body": "No functional text under 11px.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Oblique Rule",
+        "body": "No italic or oblique anywhere. Subordinate with weight and the soft gray.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** use exactly the four status labels and their tiles: Booked solid green, Not booked and TBD black outline, Book now red outline.",
+      "**Do** keep black panels for the next departure only.",
+      "**Do** fold detail behind a details/summary \"+\" row instead of deleting it.",
+      "**Do** mark anything undecided visibly with a Not booked or TBD tile, or leave the slot empty; an empty table cell carries a lone \"—\" as its marker.",
+      "**Do** keep copy terse: state the fact and stop. Reasoning stays in `2026-12-SEA/notes/`.",
+      "**Do** use the segment fills with black text, and site.css's darker `--sg`/`--my`/`--th` when a country colour must be text.",
+      "**Do** bump the `?v=` on the sea.css link on all six SEA pages whenever sea.css changes (and on every page that loads site.css when site.css changes).",
+      "**Do** keep all text at 11px or larger and summary rows at 44px tap height."
+    ],
+    "donts": [
+      "**Don't** use em dashes in prose. Use a full stop, a colon or a list. The lone \"—\" in an empty table cell is a marker, not prose.",
+      "**Don't** use emoji, or glyphs that iOS renders as emoji (such as ↗). Icons come from the SVG sprite only.",
+      "**Don't** add a fifth status word, colour or shape, or stamps and patterns.",
+      "**Don't** add serif type, italics, shadows or photo cards.",
+      "**Don't** fill an undecided slot with a plausible guess.",
+      "**Don't** apply sea.css or these rules to the landing page or the Siargao page.",
+      "**Don't** put booking references or other private values in `public/`; the repo is public."
+    ]
+  }
+}
