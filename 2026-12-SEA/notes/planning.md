@@ -497,3 +497,11 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
     Money knock-on: known staying ₱32,300–40,800; Gamaliel ₱21,600–25,500.
   - **Not booked.** Booking needs a KITS login, each passenger's passport details and
     payment, so Gamaliel books it himself.
+- *2026-11-18* · **Site-wide polish (Impeccable plugin installed, user scope).**
+  Stale copy fixed: Dashboard still said "three nights in Singapore, three in KL, flying";
+  landing page put NYE in Bangkok and called Siargao upcoming. Pocket money moved to
+  2 Singapore days and 4 KL days to follow the nights (28 Dec counted in KL, a
+  modelling choice): ₱16,700–23,600 staying, ₱9,700–13,100 Gamaliel. Known costs now
+  ₱31,500–39,900 (short ₱11,500–19,900) and Gamaliel ₱20,800–24,600 (short ₱800–4,600).
+  Design: callouts lost their side stripe for tinted panels, landing page is a list
+  with the next trip leading, --soft darkened to #6b6b73 for 4.5:1. CSS v27.

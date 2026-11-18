@@ -11,8 +11,9 @@
   /* Clean white ground with neutral greys. The Hong Kong original was warm
      cream; this is deliberately cooler and plainer so the accent colours and
      the day rails do all the talking. */
-  --paper:#ffffff; --card:#ffffff; --ink:#18181b; --gray:#52525b; --soft:#8b8b93;
+  --paper:#ffffff; --card:#ffffff; --ink:#18181b; --gray:#52525b; --soft:#6b6b73;
   --line:#e4e4e7; --callout:#f4f4f5;
+  --brandbg:#f8eef1; --warnbg:#fbf3e6;
   /* accents */
   --brand:#8c2f4c; --brandd:#74253d; --red:#b23a1c; --warn:#9a5a12;
   --green:#1a7f5a;
@@ -48,6 +49,7 @@
   :root{
     --paper:#16151a; --card:#1e1d24; --ink:#ece9e2; --gray:#a8a49b; --soft:#8a867c;
     --line:#33313a; --callout:#26242c;
+    --brandbg:#2a1d23; --warnbg:#2b2418;
     --brand:#e08098; --brandd:#eb9dae; --red:#e8785c; --warn:#d9a04a;
     --green:#4fb08a;
     /* dark-mode accents are pale, so ink on them, not white */
@@ -418,18 +420,23 @@ td .soft{ color:var(--soft); font-weight:400; white-space:nowrap; }
 
 /* ---------- callouts ---------- */
 
+/* Tinted panels, no side stripe: the tint and the coloured title carry the
+   meaning. A thick coloured border-left reads as a template, not a choice. */
 .callout{
-  background:var(--callout); border-left:4px solid var(--brand); border-radius:.35rem;
-  padding:.85rem 1rem; margin:1.1rem 0;
+  background:var(--brandbg); border-radius:.75rem;
+  padding:1rem 1.15rem 1.05rem; margin:1.3rem 0;
 }
 .callout .ct{
-  font-weight:800; color:var(--brandd); font-size:.85rem;
-  letter-spacing:.02em; margin-bottom:.4rem;
+  display:flex; align-items:center; gap:.4rem;
+  font-weight:800; color:var(--brandd); font-size:.95rem;
+  letter-spacing:-.01em; margin-bottom:.5rem; line-height:1.3;
 }
-.callout.flag{ border-left-color:var(--warn); }
+.callout.flag{ background:var(--warnbg); }
 .callout.flag .ct{ color:var(--warn); }
+.callout.flag li:before{ color:var(--warn); }
 .callout ul{ list-style:none; }
-.callout li{ position:relative; padding-left:.9rem; margin-bottom:.25rem; font-size:.9rem; color:var(--gray); }
+.callout li{ position:relative; padding-left:.95rem; margin-bottom:.35rem; font-size:.92rem; color:var(--ink); max-width:72ch; }
+.callout li li{ color:var(--gray); }
 .callout li:before{ content:"•"; position:absolute; left:.1rem; color:var(--brand); }
 
 /* ---------- status pills ---------- */
@@ -513,17 +520,28 @@ tr.total td{ border-top:1.5px solid var(--ink); border-bottom:none; font-weight:
 
 /* ---------- trip index cards (landing page) ---------- */
 
-.trips{ display:grid; gap:1rem; margin-top:1.4rem; }
+/* A list of trips, not a stack of cards. The next trip leads, large; done
+   trips step back. The arrow is the only affordance a link row needs. */
+.trips{ margin-top:.6rem; }
 .trip{
-  display:block; background:var(--card); border:1px solid var(--line);
-  border-radius:.85rem; padding:1.2rem 1.3rem; color:inherit; text-decoration:none;
-  border-left:6px solid var(--brand); transition:transform .12s ease, box-shadow .12s ease;
+  position:relative; display:block; color:inherit; text-decoration:none;
+  padding:1.35rem 2.4rem 1.4rem 0; border-bottom:1px solid var(--line);
 }
-.trip:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(20,20,20,.09); text-decoration:none; }
-.trip.past{ border-left-color:var(--soft); opacity:.75; }
-.trip .tname{ font-family:var(--display); font-size:1.35rem; font-weight:800; letter-spacing:-.03em; }
-.trip .tmeta{ font-size:.82rem; color:var(--soft); margin-top:.15rem; }
-.trip .tdesc{ font-size:.9rem; color:var(--gray); margin-top:.55rem; }
+a.trip::after{
+  content:"\2192"; position:absolute; right:.2rem; top:1.35rem;
+  font-size:1.3rem; font-weight:700; color:var(--soft);
+  transition:transform .25s cubic-bezier(.16,1,.3,1), color .2s;
+}
+a.trip:hover{ text-decoration:none; }
+a.trip:hover::after{ transform:translateX(5px); color:var(--brand); }
+a.trip:hover .tname{ color:var(--brand); }
+.trip .tname{ font-family:var(--display); font-size:1.5rem; font-weight:800; letter-spacing:-.03em; line-height:1.15; transition:color .2s; }
+.trip.next .tname{ font-size:2.1rem; letter-spacing:-.04em; }
+.trip .tmeta{ font-size:.85rem; font-weight:600; color:var(--brand); margin-top:.3rem; font-variant-numeric:tabular-nums; }
+.trip .tdesc{ font-size:.95rem; color:var(--gray); margin-top:.45rem; max-width:62ch; }
+.trip.past .tname{ font-size:1.15rem; color:var(--gray); }
+.trip.past .tmeta{ color:var(--soft); }
+.trip.past .tdesc{ font-size:.88rem; color:var(--soft); }
 
 /* ---------- footer ---------- */
 
