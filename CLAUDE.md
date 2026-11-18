@@ -232,6 +232,11 @@ rows (collapse, never delete). The Dashboard's red "Departs in N days" / "You ar
 here" marker is computed from `data-from`/`data-to` on each stop. Design system:
 `DESIGN.md` (root); product truth: `PRODUCT.md`; direction contract:
 `.impeccable/surfaces/`. Bump `sea.css?v=` on all six pages when it changes.
+**Light/dark switch** (2026-11-18): `assets/theme.js`, loaded in `<head>` on the six
+SEA pages, adds a button to `header.top` and sets `data-theme` on `<html>` (saved per
+phone in localStorage `sea-theme`). Every dark rule must therefore come in two forms:
+`@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) … }` and
+`:root[data-theme="dark"] …`. A bare dark media query will ignore the switch.
 
 **The SEA itinerary is a timeline, not stacked cards** (2026-11-18, polish pass
 using Impeccable's guidance, read from its repo and not installed). One coloured
