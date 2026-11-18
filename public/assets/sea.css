@@ -16,13 +16,21 @@
   --sign:#111111; --onsign:#ffffff; --signsoft:#c4c4c8;
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --ink:#f2f2f2; --gray:#c4c4c8; --soft:#a5a5ad; --line:#34343a;
     --brand:#f2f2f2; --brandd:#f2f2f2; --brandbg:#202024; --onbrand:#111111;
     --link:#8db8f2;
     --ok:#3fb27f; --no:#ff6b7f;
     --sign:#000000; --onsign:#ffffff; --signsoft:#b3b3b8;
   }
+}
+/* The header switch (/assets/theme.js) sets data-theme; it overrides the phone setting. */
+:root[data-theme="dark"]{
+    --ink:#f2f2f2; --gray:#c4c4c8; --soft:#a5a5ad; --line:#34343a;
+    --brand:#f2f2f2; --brandd:#f2f2f2; --brandbg:#202024; --onbrand:#111111;
+    --link:#8db8f2;
+    --ok:#3fb27f; --no:#ff6b7f;
+    --sign:#000000; --onsign:#ffffff; --signsoft:#b3b3b8;
 }
 
 body{ overflow-x:clip; }
@@ -66,7 +74,8 @@ p.note{ font-style:normal; color:var(--soft); }
 /* One rule everywhere: solid = booked; outline = not yet; red outline = do it now. */
 .tile.no, .pill.risk{ background:transparent; border-color:var(--no); color:var(--no); }
 .pill.tbd, .pill.next{ color:var(--ink); }
-@media (prefers-color-scheme:dark){ .tile.ok, .pill.booked, .pill.done{ color:#111; } }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) :is(.tile.ok, .pill.booked, .pill.done){ color:#111; } }
+:root[data-theme="dark"] :is(.tile.ok, .pill.booked, .pill.done){ color:#111; }
 
 /* ---------- sign panels: what's next ---------- */
 .sign{
@@ -213,7 +222,8 @@ th{ font-size:.72rem; }
   font-size:.72rem; font-weight:800; letter-spacing:.04em;
 }
 .stop .here-tag{ display:table; }
-@media (prefers-color-scheme:dark){ .here-tag{ color:#111; } }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .here-tag{ color:#111; } }
+:root[data-theme="dark"] .here-tag{ color:#111; }
 
 /* The opening line of a page: one or two short sentences, nothing more. */
 .lede{ font-size:1.02rem; line-height:1.5; margin:.2rem 0 1rem; max-width:60ch; }
@@ -301,3 +311,18 @@ details.callout.flag{ background:none; }
 /* A status line wraps beside its tile, never under it. */
 .stop .st{ display:flex; align-items:flex-start; gap:.4rem; }
 .stop .st .tile{ margin-right:0; flex:0 0 auto; }
+
+/* ---------- light / dark switch (built by /assets/theme.js) ---------- */
+:root[data-theme="dark"]{ color-scheme:dark; }
+:root[data-theme="light"]{ color-scheme:light; }
+header.top{ position:relative; }
+.theme-btn{
+  position:absolute; right:0; top:calc(10px + 1rem);
+  width:44px; height:44px; display:grid; place-items:center;
+  background:transparent; color:var(--ink); border:1.5px solid var(--line); border-radius:4px;
+  font-size:1.2rem; cursor:pointer;
+}
+.theme-btn:hover{ border-color:var(--ink); }
+.theme-btn:focus-visible{ outline:2px solid var(--link); outline-offset:2px; }
+header.top h1{ padding-right:3.4rem; }
+@media print{ .theme-btn{ display:none; } }

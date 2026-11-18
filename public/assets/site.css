@@ -46,7 +46,7 @@
 }
 
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --paper:#16151a; --card:#1e1d24; --ink:#ece9e2; --gray:#a8a49b; --soft:#8a867c;
     --line:#33313a; --callout:#26242c;
     --brandbg:#2a1d23; --warnbg:#2b2418;
@@ -58,6 +58,19 @@
     --sg:#e0567a; --my:#1fa899; --th:#e8942e; --ph:#2fbc89; --air:#4980cb; --tbd:#8870c9;
     --sgbg:#2e1c24; --mybg:#132b29; --thbg:#2d2416; --phbg:#122a21; --airbg:#182333; --tbdbg:#231e33;
   }
+}
+/* The header switch (/assets/theme.js) sets data-theme; it overrides the phone setting. */
+:root[data-theme="dark"]{
+    --paper:#16151a; --card:#1e1d24; --ink:#ece9e2; --gray:#a8a49b; --soft:#8a867c;
+    --line:#33313a; --callout:#26242c;
+    --brandbg:#2a1d23; --warnbg:#2b2418;
+    --brand:#e08098; --brandd:#eb9dae; --red:#e8785c; --warn:#d9a04a;
+    --green:#4fb08a;
+    /* dark-mode accents are pale, so ink on them, not white */
+    --onfill:#16151a;
+    /* the vivid rails hold on a dark ground; only the text strengths flip */
+    --sg:#e0567a; --my:#1fa899; --th:#e8942e; --ph:#2fbc89; --air:#4980cb; --tbd:#8870c9;
+    --sgbg:#2e1c24; --mybg:#132b29; --thbg:#2d2416; --phbg:#122a21; --airbg:#182333; --tbdbg:#231e33;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -370,7 +383,7 @@ p.note{ color:var(--soft); font-style:italic; font-size:.88rem; }
 
 /* coastline behind the route — Natural Earth 50m, same projection as the nodes */
 #land path{ fill:#eceef1; stroke:#dcdfe4; stroke-width:.6; }
-@media (prefers-color-scheme:dark){ #land path{ fill:#262530; stroke:#343240; } }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) #land path{ fill:#262530; stroke:#343240; } }
 :root[data-theme="dark"] #land path{ fill:#262530; stroke:#343240; }
 :root[data-theme="light"] #land path{ fill:#eceef1; stroke:#dcdfe4; }
 
