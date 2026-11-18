@@ -522,3 +522,9 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   Philippine eTravel within 72h (at least 3h before) on departure and arrival; travel tax
   ₱1,620 economy (GMA, Top Gear). Flagged: Kevin has no return ticket, an offloading risk
   at Davao on 25 Dec.
+- *2026-11-18* · **Booking links added** (Before we fly, Accommodations, Dashboard). The Quay
+  on Agoda: agoda.com/the-quay-hotel-little-india/hotel/singapore-sg.html (195 Serangoon Rd;
+  NOT "The Quay Hotel" at Clarke Quay, a different property). Agoda My bookings for the
+  charge date and cancellation cut-off. KL and Bangkok link to Agoda's city pages (checked
+  they open the right city). Arrival cards link to the government sites. All links tested;
+  Klook and Scoot block automated checks (403) but open in a browser.
