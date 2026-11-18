@@ -505,3 +505,8 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   ₱31,500–39,900 (short ₱11,500–19,900) and Gamaliel ₱20,800–24,600 (short ₱800–4,600).
   Design: callouts lost their side stripe for tinted panels, landing page is a list
   with the next trip leading, --soft darkened to #6b6b73 for 4.5:1. CSS v27.
+- *2026-11-18* · **SEA pages themed "tickets + patterns"** (user's pick of four directions;
+  user allowed breaking white/wine/Helvetica for these pages). New `assets/sea.css`, self-hosted
+  DM Serif Display + Barlow Condensed. Checked at 375px and 1280px, light and dark; no sideways
+  scroll. Impeccable detector: fixed two sub-11px labels; remaining hits are display leading,
+  the borderless timeline and the empty-cell dashes (deliberate).
