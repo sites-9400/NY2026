@@ -545,6 +545,7 @@ footer{
   .vtablist{ display:none; }
   .vpanel{ display:block !important; }
   details.day > .fbody{ display:block !important; }
+  details.day{ break-inside:avoid; }
 }
 
 /* ============ VERSION TABS + DAY ACCORDION ============
@@ -572,43 +573,116 @@ footer{
 .vtabs > input#ver-v2:focus-visible ~ .vtablist label[for="ver-v2"],
 .vtabs > input#ver-v3:focus-visible ~ .vtablist label[for="ver-v3"]{ outline:2px solid var(--brand); outline-offset:2px; }
 
-/* at-a-glance strip inside each version panel */
-.glance{ display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; margin:.8rem 0 .2rem; }
-.glance .chip{ border:1px solid var(--line); border-radius:999px; padding:.15rem .65rem; font-weight:800; font-size:.85rem; }
-.glance .chip.sg{ color:var(--sg); } .glance .chip.my{ color:var(--my); }
-.glance .chip.th{ color:var(--th); } .glance .chip.air{ color:var(--air); }
-.glance .nye{ margin-left:auto; color:var(--soft); font-weight:700; font-size:.85rem; }
-.gnote{ color:var(--soft); font-size:.86rem; margin:.35rem .1rem .7rem; }
-.gmeta{ font-size:.86rem; margin:.1rem .1rem .9rem; }
+/* at-a-glance strip inside each version panel.
+   The nights read as a bar: each city's segment grows by its night count
+   (--n, set inline), so "KL 4, BKK 5" is a shape you see before you read it. */
+.glance{ display:flex; flex-wrap:wrap; gap:.55rem .9rem; align-items:center; margin:1.1rem 0 .3rem; }
+.glance .bar{ display:flex; gap:3px; flex:1 1 16rem; min-width:0; }
+.glance .bar .chip{
+  flex:var(--n,1) 1 0; min-width:0; border:0; border-radius:3px; padding:.45rem .55rem .4rem;
+  font-size:.78rem; font-weight:800; letter-spacing:.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  background:var(--accentfill); color:var(--onrail);
+}
+.glance .bar .chip:first-child{ border-radius:6px 3px 3px 6px; }
+.glance .bar .chip:last-child{ border-radius:3px 6px 6px 3px; }
+.glance .chip.sg{ --accentfill:var(--sgv); --onrail:var(--sgon); }
+.glance .chip.my{ --accentfill:var(--myv); --onrail:var(--myon); }
+.glance .chip.th{ --accentfill:var(--thv); --onrail:var(--thon); }
+.glance .chip.air{ --accentfill:var(--airv); --onrail:var(--airon); }
+.glance .chip.th + .chip.th{ opacity:.72; }
+.glance .nye{ color:var(--brand); font-weight:800; font-size:.85rem; white-space:nowrap; }
+.gnote{ color:var(--gray); font-size:.95rem; line-height:1.55; margin:.6rem 0 .5rem; max-width:62ch; }
+.gmeta{ font-size:.86rem; color:var(--gray); margin:0 0 1.6rem; max-width:68ch; }
 .gmeta b{ color:var(--ink); }
 
-/* a .day rendered as an accordion (only when it is a <details> element) */
-details.day{ display:block; border:1px solid var(--line); border-radius:12px; margin:.5rem 0;
-  overflow:hidden; background:var(--card); }
-details.day > summary{ list-style:none; cursor:pointer; display:flex; align-items:stretch; gap:.7rem; padding:.7rem .8rem; }
-details.day > summary::-webkit-details-marker{ display:none; }
-details.day .frail{ width:6px; border-radius:6px; background:var(--accent); flex:0 0 6px; }
-details.day .fnum{ font-size:.58rem; font-weight:800; letter-spacing:.12em; color:var(--soft);
-  width:2.3rem; flex:0 0 2.3rem; align-self:center; line-height:1.05; }
-details.day .fnum b{ display:block; font-size:1.25rem; color:var(--ink); letter-spacing:-.03em; }
-details.day .ftitle{ font-weight:800; flex:1; align-self:center; letter-spacing:-.01em; }
-details.day .fdate{ color:var(--soft); font-size:.8rem; white-space:nowrap; align-self:center; }
-details.day .fchev{ color:var(--soft); align-self:center; transition:transform .15s; flex:0 0 auto; font-weight:800; }
-details.day[open] .fchev{ transform:rotate(90deg); }
-details.day > .fbody{ padding:.1rem .9rem .9rem 3.75rem; border-top:1px solid var(--line); }
-details.day > .fbody .lead{ margin:.6rem 0 .1rem; }
-details.day > .fbody ul{ margin:.5rem 0 0; padding-left:1.1rem; }
-details.day > .fbody li{ margin:.25rem 0; }
-details.day > .fbody .sb{ margin-top:.7rem; padding-top:.55rem; border-top:1px dashed var(--line); }
-details.day > .fbody .sb b.h{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:.15rem; }
-details.day .ftag{ display:inline-block; font-size:.62rem; font-weight:800; letter-spacing:.03em; border-radius:999px; padding:.05rem .5rem; margin-left:.4rem; vertical-align:middle; }
-details.day .ftag.nye{ background:var(--brandbg,#fbe9ef); color:var(--brand); }
-details.day .ftag.fly{ background:var(--airbg); color:var(--air); }
+/* City chapters between runs of days: the itinerary's own table of contents. */
+.chap{
+  display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
+  font-family:var(--display); font-size:1.35rem; font-weight:800; letter-spacing:-.025em;
+  color:var(--accent); margin:1.4rem 0 .9rem; padding-top:1rem; border-top:1px solid var(--line);
+}
+.chap.sg{ --accent:var(--sg); } .chap.my{ --accent:var(--my); } .chap.th{ --accent:var(--th); }
+.chap small{ font-size:.8rem; font-weight:600; letter-spacing:0; color:var(--soft); font-variant-numeric:tabular-nums; }
 
-/* The itinerary has its own page now, so days show in full: open, not collapsible.
-   Every card carries `open`; the header is inert and the chevron is hidden. */
-details.day > summary{ cursor:default; pointer-events:none; }
+/* ---------- the itinerary timeline ----------
+   Days are not boxed cards. One continuous spine runs down the page in each
+   day's country colour, so the trip reads as a journey and the colour changes
+   exactly where we cross a border. A ring on the spine marks each day. */
+details.day{
+  position:relative; display:block; margin:0; padding:0 0 1.9rem 1.35rem;
+  border:0; border-radius:0; background:none; overflow:visible; box-shadow:none;
+}
+details.day::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accentfill);
+}
+details.day:first-of-type::before{ top:1.1rem; }
+details.day > summary{
+  list-style:none; position:relative;
+  display:grid; grid-template-columns:3.1rem 1fr auto; grid-template-areas:"num title tag" "num date date";
+  column-gap:.75rem; row-gap:.1rem; align-items:start; padding:.55rem 0 0;
+}
+details.day > summary::-webkit-details-marker{ display:none; }
+details.day .frail{
+  position:absolute; top:.95rem; left:calc(-1.35rem - 6px); width:15px; height:15px; border-radius:50%;
+  background:var(--paper); border:3.5px solid var(--accentfill);
+}
+details.day .fnum{
+  grid-area:num; font-size:.58rem; font-weight:800; letter-spacing:.16em; color:var(--soft); line-height:1;
+  padding-top:.15rem;
+}
+details.day .fnum b{
+  display:block; font-size:2rem; color:var(--accent); letter-spacing:-.05em; line-height:.95; margin-top:.15rem;
+  font-variant-numeric:tabular-nums;
+}
+details.day .ftitle{
+  grid-area:title; font-family:var(--display); font-size:1.2rem; font-weight:800; letter-spacing:-.022em;
+  line-height:1.2; color:var(--ink); text-wrap:balance; padding-top:.2rem;
+}
+details.day .fdate{
+  grid-area:date; color:var(--soft); font-size:.82rem; font-weight:600; white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
 details.day .fchev{ display:none; }
+details.day > .fbody{ padding:.55rem 0 0 3.85rem; border:0; font-size:.97rem; }
+details.day > .fbody .lead{ margin:0 0 .35rem; color:var(--gray); }
+details.day > .fbody ul{ margin:.2rem 0 0; padding-left:1.05rem; }
+details.day > .fbody li{ margin:.3rem 0; padding-left:.15rem; }
+details.day > .fbody li::marker{ color:var(--accent); }
+details.day > .fbody .sb{
+  margin-top:.9rem; padding:.7rem .9rem .75rem; border-radius:.6rem;
+  background:var(--accentbg); font-size:.92rem;
+}
+details.day > .fbody .sb ul{ margin-top:.25rem; }
+details.day > .fbody .sb b.h{
+  display:flex; align-items:center; gap:.35rem; font-size:.72rem; font-weight:800; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--accent);
+}
+details.day .ftag{
+  display:inline-block; font-size:.62rem; font-weight:800; letter-spacing:.06em; border-radius:999px;
+  padding:.12rem .55rem; margin-left:.45rem; vertical-align:.18em; text-transform:uppercase;
+}
+details.day .ftag.nye{ background:var(--brand); color:var(--onfill); }
+details.day .ftag.fly{ background:var(--airbg); color:var(--air); }
+/* The itinerary has its own page, so days are always open: the header is inert. */
+details.day > summary{ cursor:default; pointer-events:none; }
+.vpanel > .verthread{ margin-top:.6rem; }
+
+@media (max-width:36rem){
+  details.day{ padding-left:1.1rem; }
+  details.day .frail{ left:calc(-1.1rem - 6px); }
+  details.day > summary{ grid-template-columns:2.5rem 1fr; grid-template-areas:"num title" "num date"; column-gap:.6rem; }
+  details.day .fnum b{ font-size:1.7rem; }
+  details.day .ftitle{ font-size:1.08rem; }
+  details.day > .fbody{ padding-left:3.1rem; font-size:.95rem; }
+  details.day > .fbody .sb{ margin-left:-3.1rem; }
+  .glance .nye{ width:100%; }
+}
+
+/* Browser surfaces carry the palette too, not the platform defaults. */
+::selection{ background:var(--brand); color:var(--onfill); }
+:focus-visible{ outline:2px solid var(--brand); outline-offset:3px; border-radius:3px; }
+html{ accent-color:var(--brand); }
+td.r, .amt{ font-variant-numeric:tabular-nums; }
 
 /* active page in the cross-page nav (multi-page split) */
 nav.days a.on{ color:var(--brand); font-weight:800; }

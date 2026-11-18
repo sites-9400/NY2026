@@ -217,6 +217,13 @@ Thailand's orange was 2.41:1. Splitting them fixed contrast without muddying
 the palette, so don't collapse them back into one token. Dark mode overrides
 only the text strength, since the vivid rails hold on a dark ground.
 
+**The SEA itinerary is a timeline, not stacked cards** (2026-11-18, polish pass
+using Impeccable's guidance, read from its repo and not installed). One coloured
+spine runs down the page in each day's country colour, with a ring per day; city
+chapters (`h3.chap`) break the plan tab; the "SG 2 · KL 4" glance is a bar sized
+by nights (`style="--n:4"` on each chip). Markup is unchanged `details.day`, so
+the comparison tabs got it for free. Don't box the days back up.
+
 **Type is Helvetica throughout** (`--display` and `--body`). The Hong Kong
 originals set headings in Georgia; that was switched out in Jul 2026. Keep it
 Helvetica — and note that headings carry weight 800 and negative tracking
