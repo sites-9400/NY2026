@@ -32,6 +32,13 @@
 public/*/img/qr-*.png
 public/*/checkin.js
 
+# The sinking-fund InstaPay QR (Money page) shows Gamaliel's name and bank
+# account. Same deal: on the live page so people can pay, never on GitHub.
+# Committed by mistake in Jul 2026, untracked 2026-11-18. It is still in git
+# history (user chose not to rewrite it). The working copy lives only at
+# public/2026-12-sea/img/ in Dropbox, so don't delete it from there.
+public/*/img/fund-qr.png
+
 # ---- OS / Dropbox noise -------------------------------------------------
 .DS_Store
 *.icloud
