@@ -538,3 +538,7 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
 - *2026-11-18* · **Fund QR off GitHub.** fund-qr.png (name + RCBC account) was in the public
   repo since Jul. Gitignored and untracked; alt text no longer names the account. Still in
   git history: user chose option 1 (no history rewrite). Live page still serves it.
+- *2026-11-18* · **Outbound rerouting notes removed from the site.** User: the flight is
+  booked, no need to know old flights. Dashboard callout, "Rerouted by Cebu Pacific" in the
+  booking table, and "rerouted flight" on Accommodations all gone. The Manila terminal check
+  stays on Before we fly's "Also" list. The history stays here and in CLAUDE.md.
