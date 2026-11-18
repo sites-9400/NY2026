@@ -1,206 +1,310 @@
 /* ==========================================================================
-   SEA Dec 2026 theme: loaded AFTER site.css, on the six SEA pages only.
-   Chosen 2026-11-18 by the user: "tickets + patterns". Structure comes from how
-   we actually travel (ticket stubs, passport stamps, a transit line), and each
-   country gets one pattern motif drawn as a small SVG tile:
-     Singapore  Peranakan tile, a quatrefoil with corner quarter-rounds
-     Malaysia   kawung batik, four ovals meeting at a point
-     Thailand   prajam yam, the four-petal gold flower
-   The user lifted the site's pinned rules for these pages only: a display serif
-   (DM Serif Display) for headings and a condensed face (Barlow Condensed) for
-   transit-style labels. Body text stays Helvetica. Both fonts are OFL and
-   self-hosted in /assets/fonts. No emoji, no em dashes, 4.5:1 text contrast.
+   SEA Dec 2026: "Station signs". Loaded AFTER site.css on the six SEA pages.
+   Chosen 2026-11-18 through Impeccable (pick card; the direction contract is in
+   .impeccable/surfaces/). The trip reads like rail wayfinding in Singapore, KL
+   and Bangkok: one line in segment colours, station rings, code tiles, black
+   sign panels for what's next, solid tiles for booked and outline tiles for
+   not yet. White ground, black Helvetica. No serif, no patterns, no stamps.
+   Less text: explanations fold behind their title (details.callout, .more).
    ========================================================================== */
 
-@font-face{ font-family:"DM Serif Display"; font-style:normal; font-weight:400; font-display:swap;
-  src:url(/assets/fonts/dm-serif-display-400.woff2) format("woff2"); }
-@font-face{ font-family:"Barlow Condensed"; font-style:normal; font-weight:600; font-display:swap;
-  src:url(/assets/fonts/barlow-condensed-600.woff2) format("woff2"); }
-@font-face{ font-family:"Barlow Condensed"; font-style:normal; font-weight:700; font-display:swap;
-  src:url(/assets/fonts/barlow-condensed-700.woff2) format("woff2"); }
-
 :root{
-  /* Peranakan porcelain indigo replaces the wine on these pages. */
-  --brand:#2b3a67; --brandd:#1f2b4f; --brandbg:#eef0f8;
-  --gold:#8a5a00; --goldv:#e8b13a;
-  --serif:"DM Serif Display",Georgia,serif;
-  --cond:"Barlow Condensed","Helvetica Neue",Arial,sans-serif;
-  --mast:#1f2b4f; --onmast:#f4f1ea; --onmastsoft:#c9cbe0; --onbrand:#ffffff;
-
-  /* Pattern tiles. Fixed colours (a data URI cannot read CSS variables), drawn
-     in the vivid rail strengths so they hold on light and dark grounds. */
-  --pat-sg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23e0567a'%3E%3Ccircle cx='0' cy='0' r='3.2'/%3E%3Ccircle cx='24' cy='0' r='3.2'/%3E%3Ccircle cx='0' cy='24' r='3.2'/%3E%3Ccircle cx='24' cy='24' r='3.2'/%3E%3C/g%3E%3Cpath d='M12 3.5c2.6 2.6 2.6 5.9 0 8.5c-2.6-2.6-2.6-5.9 0-8.5zM12 20.5c-2.6-2.6-2.6-5.9 0-8.5c2.6 2.6 2.6 5.9 0 8.5zM3.5 12c2.6-2.6 5.9-2.6 8.5 0c-2.6 2.6-5.9 2.6-8.5 0zM20.5 12c-2.6 2.6-5.9 2.6-8.5 0c2.6-2.6 5.9-2.6 8.5 0z' fill='none' stroke='%231fa899' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%23e0567a'/%3E%3C/svg%3E");
-  --pat-my:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%231fa899' stroke='%23136c62' stroke-width='.8'%3E%3Cellipse cx='6.6' cy='6.6' rx='2.6' ry='5.4' transform='rotate(-45 6.6 6.6)'/%3E%3Cellipse cx='17.4' cy='6.6' rx='2.6' ry='5.4' transform='rotate(45 17.4 6.6)'/%3E%3Cellipse cx='6.6' cy='17.4' rx='2.6' ry='5.4' transform='rotate(45 6.6 17.4)'/%3E%3Cellipse cx='17.4' cy='17.4' rx='2.6' ry='5.4' transform='rotate(-45 17.4 17.4)'/%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='1.3' fill='%23136c62'/%3E%3C/svg%3E");
-  --pat-th:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23e8b13a'%3E%3Cpath d='M12 2.5 14 9 12 11 10 9zM12 21.5 10 15 12 13 14 15zM2.5 12 9 10 11 12 9 14zM21.5 12 15 14 13 12 15 10z'/%3E%3C/g%3E%3Cpath d='M12 9.6 14.4 12 12 14.4 9.6 12z' fill='%23aa6613'/%3E%3Cg fill='%23e8b13a'%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='24' cy='0' r='1.6'/%3E%3Ccircle cx='0' cy='24' r='1.6'/%3E%3Ccircle cx='24' cy='24' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  --ink:#111111; --gray:#4a4a4f; --soft:#5f5f66; --line:#dcdce0;
+  --brand:#111111; --brandd:#111111; --brandbg:#f3f3f4; --onbrand:#ffffff;
+  --link:#1d5bb0;
+  --ok:#147a50; --no:#c8102e;
+  --sign:#111111; --onsign:#ffffff; --signsoft:#c4c4c8;
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --brand:#a9b6ec; --brandd:#c3cdf3; --brandbg:#1c2033;
-    --gold:#e8b13a;
-    --mast:#121729; --onmast:#ece9e2; --onmastsoft:#a7abc4; --onbrand:#121729;
+    --ink:#f2f2f2; --gray:#c4c4c8; --soft:#a5a5ad; --line:#34343a;
+    --brand:#f2f2f2; --brandd:#f2f2f2; --brandbg:#202024; --onbrand:#111111;
+    --link:#8db8f2;
+    --ok:#3fb27f; --no:#ff6b7f;
+    --sign:#000000; --onsign:#ffffff; --signsoft:#b3b3b8;
   }
 }
 
 body{ overflow-x:clip; }
+a{ color:var(--link); }
 
-/* ---------- masthead: an indigo band, full bleed, patterns along its foot ---------- */
-header.top{
-  display:flex; flex-direction:column;
-  background:var(--mast); color:var(--onmast); border-bottom:0;
-  margin:0 calc(50% - 50vw) 0; padding:2.8rem calc(50vw - 50%) 1.5rem;
-  position:relative;
+/* ---------- masthead: the three line colours, then the name ---------- */
+header.top{ border-bottom:0; padding:0 0 1.1rem; margin-bottom:.4rem; }
+header.top::before{
+  content:""; display:block; height:10px; margin:0 calc(50% - 50vw) 1.6rem;
+  background:linear-gradient(90deg, var(--sgv) 0 33.3%, var(--myv) 33.3% 66.6%, var(--thv) 66.6%);
 }
-header.top h1{
-  font-family:var(--serif); font-weight:400; font-size:clamp(2.5rem, 7vw, 4rem);
-  letter-spacing:-.01em; line-height:1; margin:0 0 .55rem; text-wrap:balance; order:1;
-}
-header.top .sub{ order:2; color:var(--onmastsoft); font-size:1.08rem; }
-/* The date line sits under the title, not above it as a kicker. */
-header.top .eyebrow{
-  order:3; margin-top:.9rem; color:var(--goldv);
-  font-family:var(--cond); font-weight:700; font-size:.95rem; letter-spacing:.14em;
-}
-header.top .chips{ order:4; margin-top:1rem; }
-header.top .chip{
-  background:transparent; color:var(--onmast); border-color:rgba(244,241,234,.28);
-  font-family:var(--cond); font-weight:600; font-size:.88rem; letter-spacing:.03em;
-}
-header.top .chip.hot{ background:var(--goldv); border-color:var(--goldv); color:#1f2b4f; }
-.motifs{
-  order:5; display:flex; height:22px; margin:1.5rem calc(50% - 50vw) -1.5rem;
-}
-.motifs i{ flex:1; background-size:22px 22px; background-repeat:repeat-x; background-position:left center; }
-.motifs .sg{ background-color:#fdeef2; background-image:var(--pat-sg); }
-.motifs .my{ background-color:#e7f6f4; background-image:var(--pat-my); }
-.motifs .th{ background-color:#fdf2e2; background-image:var(--pat-th); }
+header.top h1{ font-size:clamp(1.9rem, 6vw, 2.6rem); font-weight:800; letter-spacing:-.04em; line-height:1.02; margin:0 0 .35rem; }
+header.top .sub{ color:var(--soft); font-size:1rem; }
 
-/* ---------- page nav: transit-line tabs ---------- */
-nav.days{ margin-top:0; padding:.75rem 0; }
+/* ---------- page nav: sign tabs ---------- */
+nav.days{ padding:.65rem 0; margin-bottom:1.4rem; }
 nav.days a{
-  font-family:var(--cond); font-weight:700; font-size:.92rem; letter-spacing:.05em; text-transform:uppercase;
-  border-radius:6px; padding:.32rem .75rem;
+  border-radius:4px; border:1.5px solid var(--line); color:var(--ink);
+  font-size:.8rem; font-weight:800; letter-spacing:.02em; padding:.38rem .75rem;
 }
-nav.days a.on{ background:var(--brand); color:var(--onbrand); border-color:var(--brand); }
+nav.days a:hover{ border-color:var(--ink); color:var(--ink); }
+nav.days a.on{ background:var(--ink); color:var(--onbrand); border-color:var(--ink); }
 nav.days a.on::after{ display:none; }
 
 /* ---------- headings ---------- */
-h2{ font-family:var(--serif); font-weight:400; font-size:2.1rem; letter-spacing:-.005em; line-height:1.1; }
-/* The section rule is the route in three colours: Singapore, Malaysia, Thailand. */
-h2 + .rule{ border-top:0; height:5px; margin:.6rem 0 1.2rem; border-radius:3px;
+h2{ font-size:1.75rem; font-weight:800; letter-spacing:-.035em; margin-top:2.2rem; }
+h2 + .rule{ border-top:0; height:6px; margin:.55rem 0 1.2rem; width:7rem; border-radius:0;
   background:linear-gradient(90deg, var(--sgv) 0 33.3%, var(--myv) 33.3% 66.6%, var(--thv) 66.6%); }
-h3{ font-size:1.05rem; }
-th{ font-family:var(--cond); font-size:.82rem; font-weight:700; letter-spacing:.08em; }
-.callout .ct{ font-family:var(--serif); font-weight:400; font-size:1.2rem; letter-spacing:0; }
-p.note{ font-style:normal; }
+h3{ font-size:1.1rem; font-weight:800; letter-spacing:-.015em; margin-top:2rem; }
+th{ color:var(--soft); }
+p.note{ font-style:normal; color:var(--soft); }
 
-/* ---------- passport stamps for status ----------
-   A booked thing is stamped: double ring, a slight tilt, condensed caps.
-   Something not done yet is a dashed outline: the stamp hasn't landed. */
-.pill{
-  font-family:var(--cond); font-weight:700; font-size:.82rem; letter-spacing:.09em;
-  border-radius:5px; border-width:1.5px; padding:.1rem .55rem; min-height:26px;
+/* ---------- status tiles (and the old pills, restyled to match) ---------- */
+.tile, .pill{
+  display:inline-flex; align-items:center; min-height:24px; padding:.12rem .5rem;
+  border:1.5px solid currentColor; border-radius:3px; background:transparent;
+  font-size:.7rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
+  color:var(--ink); vertical-align:middle;
 }
-.pill.booked, .pill.done{
-  box-shadow:inset 0 0 0 2px var(--paper), inset 0 0 0 3.5px currentColor;
-  padding:.2rem .65rem; transform:rotate(-3deg);
-}
-.pill.tbd{ border-style:dashed; }
-.pill.risk{ border-width:2px; }
+.tile.ok, .pill.booked, .pill.done{ background:var(--ok); border-color:var(--ok); color:#fff; }
+/* One rule everywhere: solid = booked; outline = not yet; red outline = do it now. */
+.tile.no, .pill.risk{ background:transparent; border-color:var(--no); color:var(--no); }
+.pill.tbd, .pill.next{ color:var(--ink); }
+@media (prefers-color-scheme:dark){ .tile.ok, .pill.booked, .pill.done{ color:#111; } }
 
-/* ---------- itinerary: transit line + patterned city chapters ---------- */
+/* ---------- sign panels: what's next ---------- */
+.sign{
+  background:var(--sign); color:var(--onsign); padding:1.1rem 1.15rem 1.15rem; margin:0 0 .6rem;
+  border-radius:4px;
+}
+.sign-k{ font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--signsoft); }
+.sign-h{ font-size:clamp(1.7rem, 6.5vw, 2.3rem); font-weight:800; letter-spacing:-.035em; line-height:1.05; margin:.35rem 0 .45rem; }
+.sign-t{ font-size:1rem; color:var(--signsoft); line-height:1.45; max-width:42ch; }
+.sign-s{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; margin-top:.8rem; }
+.sign .tile:not(.ok):not(.no){ color:var(--onsign); }
+.sign-time{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.2rem .8rem; margin:.1rem 0 .2rem; }
+.sign-time b{ font-size:clamp(2.6rem, 11vw, 3.6rem); font-weight:800; letter-spacing:-.04em; line-height:1; font-variant-numeric:tabular-nums; }
+.sign-time span{ color:var(--signsoft); font-size:.98rem; line-height:1.4; }
+.sign a{ color:var(--onsign); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+.sign .calbtn{ background:transparent; color:var(--onsign); border-color:rgba(255,255,255,.5); }
+.sign .calbtn:hover{ background:var(--onsign); color:var(--sign); }
+
+/* ---------- the line: one stop per city ---------- */
+ol.line{ list-style:none; margin:1.6rem 0 1.4rem; padding:0; }
+.stop{ --seg:var(--airv); position:relative; padding:.2rem 0 1.5rem 3.4rem; min-height:4.2rem; }
+.stop.sg{ --seg:var(--sgv); } .stop.my{ --seg:var(--myv); } .stop.th{ --seg:var(--thv); }
+.stop::before{ content:""; position:absolute; left:.95rem; top:0; bottom:0; width:10px; background:var(--seg); }
+.stop:first-child::before{ top:.8rem; }
+.stop:last-child::before{ bottom:calc(100% - 1.2rem); }
+.stop::after{
+  content:""; position:absolute; left:.55rem; top:.35rem; width:26px; height:26px; border-radius:50%;
+  background:var(--paper); border:5px solid var(--ink); box-sizing:border-box;
+}
+.stop .code{
+  display:inline-block; min-width:2.6rem; text-align:center; margin-right:.5rem; padding:.1rem .35rem;
+  background:var(--seg); color:#111; font-size:.78rem; font-weight:800; letter-spacing:.04em; vertical-align:.15em;
+}
+.stop b{ font-size:1.35rem; font-weight:800; letter-spacing:-.025em; }
+.stop .when{ display:block; color:var(--soft); font-size:.9rem; margin:.15rem 0 .35rem; font-variant-numeric:tabular-nums; }
+.stop .st{ display:block; font-size:.92rem; margin-top:.3rem; }
+.stop .st .tile{ margin-right:.4rem; }
+
+/* ---------- folded detail ---------- */
+details.more, details.callout{ margin:1rem 0; }
+details.more > summary, details.callout > summary{
+  list-style:none; cursor:pointer; display:flex; align-items:center; gap:.5rem;
+  min-height:44px; padding:.55rem .1rem; font-weight:800; font-size:.98rem; letter-spacing:-.01em;
+  border-top:1.5px solid var(--ink); border-bottom:1px solid var(--line);
+}
+details.more > summary::-webkit-details-marker, details.callout > summary::-webkit-details-marker{ display:none; }
+details.more > summary::after, details.callout > summary::after{
+  content:"+"; margin-left:auto; font-size:1.3rem; font-weight:700; line-height:1; color:var(--soft);
+}
+details[open].more > summary::after, details[open].callout > summary::after{ content:"\2212"; }
+details.callout{ background:none; padding:0; border-radius:0; }
+details.callout > summary{ color:var(--ink); }
+details.callout.flag > summary{ color:var(--no); border-top-color:var(--no); }
+details.callout > ul{ padding:.7rem .1rem .3rem; }
+details.callout li:before{ color:var(--ink); }
+details.callout.flag li:before{ color:var(--no); }
+details.more > .tablewrap{ margin-top:.4rem; }
+
+/* ---------- itinerary: the day line ---------- */
 .glance .bar{ gap:0; position:relative; }
-/* The nights bar as a transit line: each city is a station (a ring) with its
-   short code above, and the line runs on in that country's colour. */
 .glance .bar .chip{
-  position:relative; height:auto; padding:0 .3rem 20px 0; border-radius:0; overflow:visible;
-  background:none; font-family:var(--cond); font-weight:700; font-size:.98rem; letter-spacing:.04em;
-  color:var(--accent);
+  position:relative; height:auto; padding:0 .3rem 22px 0; border:0; border-radius:0; overflow:visible;
+  background:none; font-weight:800; font-size:.92rem; color:var(--ink);
 }
-.glance .bar .chip.sg{ --accent:var(--sg); } .glance .bar .chip.my{ --accent:var(--my); } .glance .bar .chip.th{ --accent:var(--th); }
-.glance .bar .chip::after{
-  content:""; position:absolute; left:0; right:0; bottom:4px; height:8px; background:var(--accentfill);
-}
-.glance .bar .chip:first-child::after{ border-radius:4px 0 0 4px; }
-.glance .bar .chip:last-child::after{ border-radius:0 4px 4px 0; }
+.glance .bar .chip::after{ content:""; position:absolute; left:0; right:0; bottom:5px; height:10px; background:var(--accentfill); }
 .glance .bar .chip::before{
-  content:""; position:absolute; left:-2px; bottom:0; width:16px; height:16px; border-radius:50%;
-  background:var(--paper); border:3.5px solid var(--accentfill); box-sizing:border-box; z-index:1;
+  content:""; position:absolute; left:-2px; bottom:0; width:20px; height:20px; border-radius:50%;
+  background:var(--paper); border:4.5px solid var(--ink); box-sizing:border-box; z-index:1;
 }
 .glance .bar .chip:first-child, .glance .bar .chip:last-child{ border-radius:0; }
-.glance .nye{ font-family:var(--cond); font-size:1rem; letter-spacing:.04em; color:var(--gold); }
+.glance .nye{ color:var(--ink); font-weight:800; }
 
-.chap{ font-family:var(--serif); font-weight:400; font-size:1.9rem; letter-spacing:0; border-top:0; padding-top:0; margin-top:2rem; }
+details.day::before{ width:10px; left:-3px; }
+details.day .frail{ width:22px; height:22px; left:calc(-1.35rem - 9px); top:.85rem; border:5px solid var(--ink); }
+details.day .fnum{ color:var(--soft); }
+details.day .fnum b{ color:var(--ink); }
+details.day .fdate{ color:var(--soft); }
+details.day > .fbody .sb{ background:var(--brandbg); border-radius:4px; }
+details.day > .fbody .sb b.h{ color:var(--ink); }
+details.day .ftag.nye{ background:var(--ink); color:var(--onbrand); border-radius:3px; }
+details.day .ftag.fly{ border-radius:3px; }
+@media (max-width:36rem){ details.day .frail{ left:calc(-1.1rem - 9px); } }
+
+.chap{ font-size:1.6rem; letter-spacing:-.035em; color:var(--ink); border-top:0; padding-top:.4rem; margin-top:1.6rem; align-items:center; }
 .chap::before{
-  content:""; display:block; flex:0 0 100%; height:14px; margin-bottom:.65rem; border-radius:3px;
-  background:var(--accentbg) var(--pat) 0 50%/14px 14px repeat-x;
+  display:inline-block; min-width:2.8rem; text-align:center; padding:.1rem .4rem; background:var(--accent);
+  color:#111; font-size:.85rem; font-weight:800; letter-spacing:.04em;
 }
-.chap.sg{ --pat:var(--pat-sg); --accentbg:var(--sgbg); }
-.chap.my{ --pat:var(--pat-my); --accentbg:var(--mybg); }
-.chap.th{ --pat:var(--pat-th); --accentbg:var(--thbg); }
-.chap small{ font-family:var(--cond); font-weight:700; font-size:.95rem; letter-spacing:.05em; }
+.chap.sg{ --accent:var(--sgv); } .chap.my{ --accent:var(--myv); } .chap.th{ --accent:var(--thv); }
+.chap.sg::before{ content:"SG"; } .chap.my::before{ content:"KL"; } .chap.th::before{ content:"BKK"; }
+.chap small{ color:var(--soft); font-weight:600; }
 
-details.day .fnum{ font-family:var(--cond); font-size:.75rem; letter-spacing:.14em; }
-details.day .fnum b{ font-family:var(--serif); font-weight:400; font-size:2.3rem; letter-spacing:-.02em; }
-details.day .fdate{ font-family:var(--cond); font-weight:700; font-size:.95rem; letter-spacing:.05em; text-transform:uppercase; }
-details.day .ftag{ font-family:var(--cond); font-size:.78rem; letter-spacing:.08em; }
-details.day > .fbody .sb b.h{ font-family:var(--cond); font-size:.88rem; letter-spacing:.1em; }
-.vtablist label{ font-family:var(--cond); font-size:1.05rem; letter-spacing:.03em; text-transform:uppercase; }
-.vtablist label small{ text-transform:none; font-family:var(--body); font-size:.74rem; }
-.calbtn{ font-size:.72rem; min-height:26px; }
-.calbtn .lbl{ font-size:inherit; }
-
-/* ---------- ticket stubs (route legs) ----------
-   Each leg of the journey is a ticket: the trip on the left, a perforation,
-   and the status stamped on the stub. Same table markup, so the data and the
-   calendar buttons are untouched. */
+/* ---------- route legs: departure-board rows ---------- */
 table.tickets{ display:block; min-width:0; }
 table.tickets thead{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
-table.tickets tbody{ display:grid; gap:.85rem; }
+table.tickets tbody{ display:block; }
 table.tickets tr{
-  display:grid; position:relative; padding:0;
-  grid-template-columns:repeat(3,minmax(0,1fr)) 9.5rem;
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) 8.5rem;
   grid-template-areas:"leg leg leg st" "when who dur st" "cost cost cost st";
-  background:var(--card); border:1px solid var(--line); border-radius:14px;
-  box-shadow:0 1px 2px rgba(20,30,60,.05), 0 6px 16px -10px rgba(20,30,60,.18);
+  border-top:1.5px solid var(--ink); padding:.7rem 0 .5rem;
 }
-table.tickets tr::before, table.tickets tr::after{
-  content:""; position:absolute; right:calc(9.5rem - 9px); width:18px; height:18px; border-radius:50%;
-  background:var(--paper); border:1px solid var(--line);
-}
-table.tickets tr::before{ top:-10px; clip-path:inset(50% 0 0 0); }
-table.tickets tr::after{ bottom:-10px; clip-path:inset(0 0 50% 0); }
-table.tickets td{ display:block; border:0; padding:.15rem 1rem .55rem; color:var(--ink); text-align:left; }
+table.tickets tr:last-child{ border-bottom:1.5px solid var(--ink); }
+table.tickets td{ display:block; border:0; padding:.1rem .6rem .35rem 0; color:var(--ink); text-align:left; }
 table.tickets td::before{
-  display:block; content:attr(data-label); font-family:var(--cond); font-weight:700;
-  font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); line-height:1.5;
+  display:block; content:attr(data-label); font-size:.66rem; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--soft); line-height:1.5;
 }
-table.tickets td[data-label="Leg"]{
-  grid-area:leg; font-family:var(--serif); font-size:1.45rem; line-height:1.15; padding-top:.9rem;
-}
+table.tickets td[data-label="Leg"]{ grid-area:leg; font-size:1.2rem; font-weight:800; letter-spacing:-.02em; }
 table.tickets td[data-label="Leg"]::before{ display:none; }
-table.tickets td[data-label="Leg"] i{ font-style:normal; color:var(--gray); }
+table.tickets td[data-label="Leg"] i{ font-style:normal; color:var(--soft); }
 table.tickets td[data-label="When"]{ grid-area:when; }
 table.tickets td[data-label="Who"]{ grid-area:who; }
 table.tickets td[data-label="Duration"]{ grid-area:dur; }
-table.tickets td[data-label="Cost each"]{ grid-area:cost; padding-bottom:.9rem; }
-table.tickets td[data-label="Status"]{
-  grid-area:st; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.55rem;
-  border-left:2px dashed var(--line); padding:1rem .6rem; text-align:center;
-}
+table.tickets td[data-label="Cost each"]{ grid-area:cost; }
+table.tickets td[data-label="Status"]{ grid-area:st; display:flex; flex-direction:column; align-items:flex-end; justify-content:center; gap:.45rem; padding-right:0; }
 table.tickets td[data-label="Status"]::before{ display:none; }
 @media (max-width:36rem){
-  table.tickets tr{ grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    grid-template-areas:"leg leg" "when who" "dur cost" "st st"; }
-  table.tickets tr::before, table.tickets tr::after{ display:none; }
-  table.tickets td[data-label="Status"]{ border-left:0; border-top:2px dashed var(--line); flex-direction:row; padding:.75rem 1rem; }
-  table.tickets td[data-label="Cost each"]{ padding-bottom:.55rem; }
+  table.tickets tr{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"leg leg" "when who" "dur cost" "st st"; }
+  table.tickets td[data-label="Status"]{ flex-direction:row; justify-content:flex-start; }
 }
 
+/* ---------- route map read-out: a departure-board panel, no side stripe ---------- */
+.mapinfo{ background:var(--sign); color:var(--onsign); border-left:0; border-radius:4px; padding:.9rem 1.1rem; }
+.mapinfo .mi-head{ color:var(--onsign); font-size:1.1rem; letter-spacing:-.015em; }
+.mapinfo .mi-meta span{ color:var(--onsign); }
+.mapinfo .mi-body{ color:var(--signsoft); }
+
 /* ---------- small things ---------- */
-footer{ font-family:var(--cond); font-weight:600; font-size:.92rem; letter-spacing:.03em; }
-.thread .tlink, .addc{ font-family:var(--cond); }
+/* Legibility floor: no functional text under 11px. */
+.stop.air .code{ background:#2a5ea6; color:#fff; }
+details.day .fnum{ font-size:.7rem; }
+details.day .ftag{ font-size:.7rem; }
+th{ font-size:.72rem; }
+
+.calbtn{ font-size:.72rem; min-height:28px; border-radius:3px; }
+.vtablist label small{ font-size:.74rem; }
 @media print{
-  header.top{ background:none; color:var(--ink); margin:0; padding:0 0 1rem; }
-  header.top .chip{ color:var(--ink); border-color:var(--line); }
-  .motifs{ display:none; }
+  header.top::before{ display:none; }
+  .sign{ background:none; color:var(--ink); border:1.5px solid var(--ink); }
+  details.more > *, details.callout > *{ display:block !important; }
 }
+
+/* ---------- rebuild additions ---------- */
+.vh{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.sign{ margin-bottom:.4rem; }
+
+/* You are here: a red ring and a red label on today's station. */
+.stop.here::after{ border-color:var(--no); background:var(--no); }
+.here-tag{
+  display:inline-block; margin:0 0 .35rem; padding:.12rem .45rem; background:var(--no); color:#fff;
+  font-size:.72rem; font-weight:800; letter-spacing:.04em;
+}
+.stop .here-tag{ display:table; }
+@media (prefers-color-scheme:dark){ .here-tag{ color:#111; } }
+
+/* The opening line of a page: one or two short sentences, nothing more. */
+.lede{ font-size:1.02rem; line-height:1.5; margin:.2rem 0 1rem; max-width:60ch; }
+.lede.soft{ color:var(--soft); font-size:.95rem; }
+
+/* Money's three figures: plain rows on white, the amount as the big figure.
+   Black stays reserved for the departure sign. */
+dl.figs{ margin:.4rem 0 1rem; border-top:1.5px solid var(--ink); }
+.fig{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.1rem 1rem;
+  padding:.6rem 0; border-bottom:1px solid var(--line); }
+.fig dt{ font-size:.95rem; font-weight:700; color:var(--soft); }
+.fig dd{ margin:0; font-size:1.45rem; font-weight:800; letter-spacing:-.03em; font-variant-numeric:tabular-nums; text-align:right; }
+.fig dd span{ display:block; font-size:.8rem; font-weight:600; letter-spacing:0; color:var(--soft); }
+.fig.warn dd{ color:var(--no); }
+
+/* Route: one row per leg, the date and time first, like a departures board. */
+ol.board{ list-style:none; padding:0; margin:1.2rem 0; border-top:1.5px solid var(--ink); }
+ol.board li{
+  display:grid; grid-template-columns:7.5rem minmax(0,1fr) auto; align-items:center; gap:.4rem .9rem;
+  padding:.75rem 0; border-bottom:1px solid var(--line);
+}
+ol.board .bt{ font-variant-numeric:tabular-nums; color:var(--soft); font-size:.9rem; }
+ol.board .bt b{ display:block; color:var(--ink); font-size:1rem; }
+ol.board .br{ font-weight:800; font-size:1.02rem; letter-spacing:-.01em; }
+@media (max-width:36rem){
+  ol.board li{ grid-template-columns:minmax(0,1fr) auto; }
+  ol.board .bt{ grid-column:1 / -1; }
+  ol.board .bt b{ display:inline; margin-right:.4rem; }
+}
+
+/* Itinerary watch-outs fold to one row. */
+details.day > .fbody details.sb{ background:none; padding:0; margin-top:.7rem; border-radius:0; }
+details.day > .fbody details.sb > summary{
+  list-style:none; cursor:pointer; display:flex; align-items:center; min-height:40px; padding:.4rem 0;
+  font-weight:800; font-size:.92rem; color:var(--no); border-top:1px solid var(--line);
+}
+details.day > .fbody details.sb > summary::-webkit-details-marker{ display:none; }
+details.day > .fbody details.sb > summary::after{ content:"+"; margin-left:auto; color:var(--soft); font-size:1.2rem; }
+details.day > .fbody details[open].sb > summary::after{ content:"\2212"; }
+
+/* Folded warnings keep the white ground. */
+details.callout.flag{ background:none; }
+
+/* Route map: the read-out is a plain caption, not a sign. */
+.mapinfo{ background:none; color:var(--ink); border:0; border-radius:0; padding:.6rem 0 0; min-height:0; }
+.mapinfo .mi-head{ color:var(--ink); font-size:1rem; }
+.mapinfo .mi-meta span{ color:var(--ink); }
+.mapinfo .mi-body{ color:var(--soft); }
+
+/* ---------- fix batch ---------- */
+/* Destination code tiles on the sign, as on a platform sign. */
+.sign .code{ display:inline-block; vertical-align:.2em; padding:.08rem .35rem; font-size:.42em; font-weight:800;
+  letter-spacing:.04em; color:#111; background:var(--airv); }
+.sign .code.air{ background:#2a5ea6; color:#fff; }
+.sign .code.sg{ background:var(--sgv); }
+
+/* Phones: the sign sits just under the line bar, so the line starts on screen one. */
+@media (max-width:36rem){
+  header.top::before{ margin-bottom:.9rem; }
+  header.top{ padding-bottom:.5rem; margin-bottom:0; }
+  header.top h1{ font-size:1.45rem; letter-spacing:-.03em; margin:0; }
+  header.top h1 br{ display:none; }
+  header.top .sub{ display:none; }
+  nav.days{ padding:.45rem 0; margin-bottom:.9rem; }
+  nav.days a{ padding:.3rem .6rem; }
+  .sign{ padding:.9rem 1rem 1rem; }
+  .sign-time b{ font-size:2.6rem; }
+  ol.line{ margin-top:1.1rem; }
+  .stop{ padding-bottom:1.15rem; min-height:3.6rem; }
+}
+
+/* Route map on phones: fit the whole map, no hidden sideways scroll. City names
+   only, larger, with a paper-coloured halo so lines never run through them;
+   the dates are in the board below. */
+.node text{ paint-order:stroke; stroke:var(--card); stroke-width:5px; stroke-linejoin:round; }
+@media (max-width:36rem){
+  .mapwrap{ overflow:visible; }
+  #routemap{ min-width:0; }
+  .node text{ font-size:40px; stroke-width:9px; }
+  .node text.cap{ display:none; }
+  .node circle{ stroke-width:5; }
+  .leg .ln{ stroke-width:5; }
+}
+
+/* A status line wraps beside its tile, never under it. */
+.stop .st{ display:flex; align-items:flex-start; gap:.4rem; }
+.stop .st .tile{ margin-right:0; flex:0 0 auto; }

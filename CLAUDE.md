@@ -217,17 +217,21 @@ Thailand's orange was 2.41:1. Splitting them fixed contrast without muddying
 the palette, so don't collapse them back into one token. Dark mode overrides
 only the text strength, since the vivid rails hold on a dark ground.
 
-**The SEA trip has its own theme: `public/assets/sea.css`** (2026-11-18, user's
-choice "tickets + patterns", and the user lifted the pinned rules for these six
-pages only). Loaded after `site.css` on the SEA pages; Siargao and the landing page
-keep the white/wine/Helvetica system above. What it does: indigo masthead
-(`--brand #2b3a67` replaces the wine), DM Serif Display headings and Barlow
-Condensed labels (both OFL, self-hosted in `public/assets/fonts/`), Helvetica body;
-one SVG pattern tile per country (Peranakan tile SG, kawung batik MY, Thai prajam yam
-TH) on the header band and city chapters; status pills are passport stamps (booked =
-tilted double ring, not-yet = dashed); the route table is ticket stubs
-(`table.tickets`, same markup); the nights bar is a transit line. Bump `sea.css?v=`
-on all six pages when it changes, same rule as `site.css`.
+**The SEA trip has its own theme: `public/assets/sea.css`, "Station signs"**
+(2026-11-18, chosen through Impeccable after the user said the site "still looks like
+the old site with all the busy texts"; replaces a short-lived "tickets + patterns"
+theme). Six SEA pages only; Siargao and the landing page keep the white/wine/Helvetica
+system above. The trip reads like MRT/BTS wayfinding: a three-colour line bar, black
+Helvetica on white, one black sign panel reserved for the next departure, and a
+station line (`ol.line > li.stop`) with code tiles (DVO, SG, KL, BKK) on every page.
+**Status is exactly four labels:** Booked (solid green), Not booked and TBD (black
+outline), Book now (red outline). Use no other wording, and the same item gets the
+same tile on every page. **Less text is the rule:** each page opens on its line or
+board; tables and explanations fold behind `details.more` / `details.callout` "+"
+rows (collapse, never delete). The Dashboard's red "Departs in N days" / "You are
+here" marker is computed from `data-from`/`data-to` on each stop. Design system:
+`DESIGN.md` (root); product truth: `PRODUCT.md`; direction contract:
+`.impeccable/surfaces/`. Bump `sea.css?v=` on all six pages when it changes.
 
 **The SEA itinerary is a timeline, not stacked cards** (2026-11-18, polish pass
 using Impeccable's guidance, read from its repo and not installed). One coloured

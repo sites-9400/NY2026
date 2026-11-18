@@ -528,3 +528,13 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   charge date and cancellation cut-off. KL and Bangkok link to Agoda's city pages (checked
   they open the right city). Arrival cards link to the government sites. All links tested;
   Klook and Scoot block automated checks (403) but open in a browser.
+- *2026-11-18* · **SEA pages rebuilt as "Station signs"** (Impeccable plugin). User disliked
+  the patterns theme: "still looks like the old site with all the busy texts". Picked the
+  station-signs card on Impeccable's decision page. Finish review ran three rounds
+  (rebuild, fix, fix) and ended on ship. Visible words at phone width, before → after:
+  Money 2,227 → 124, Route 1,322 → 78, Accommodations 1,050 → 59, Before 541 → 112,
+  Itinerary 1,038 → 423, Dashboard ~1,490 → 117. Nothing deleted: detail folds behind "+".
+  Status vocabulary cut to four labels. Fonts (DM Serif, Barlow) removed.
+- *2026-11-18* · **Fund QR off GitHub.** fund-qr.png (name + RCBC account) was in the public
+  repo since Jul. Gitignored and untracked; alt text no longer names the account. Still in
+  git history: user chose option 1 (no history rewrite). Live page still serves it.

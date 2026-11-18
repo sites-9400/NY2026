@@ -6,9 +6,9 @@
 <title>The route · SEA Dec 2026</title>
 <meta name="description" content="Singapore → Malaysia → Bangkok, 25 Dec 2026 onward. Trip plan for Gamaliel, Marianne, Alysson, Kevin and Jan.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232b3a67'/%3E%3Cpath d='M25 18.5 7.5 13v-2.4l2.2.5 1.3 2 4.8-.4-2.9-5.9 2.3.2 4.4 5.4 5.1-.4a1.55 1.55 0 0 1 0 3.1l-5.1-.4-4.4 5.4-2.3.2 2.9-5.9' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Cpath d='M25 18.5 7.5 13v-2.4l2.2.5 1.3 2 4.8-.4-2.9-5.9 2.3.2 4.4 5.4 5.1-.4a1.55 1.55 0 0 1 0 3.1l-5.1-.4-4.4 5.4-2.3.2 2.9-5.9' fill='none' stroke='%23fff' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/assets/site.css?v=27">
-<link rel="stylesheet" href="/assets/sea.css?v=2">
+<link rel="stylesheet" href="/assets/sea.css?v=10">
 </head>
 <body>
 <!-- Monochrome icon sprite. Stroke-only, inherits currentColor, so icons take
@@ -37,18 +37,8 @@
 <div class="wrap">
 
 <header class="top">
-  <div class="eyebrow">25 December 2026 &nbsp;·&nbsp; Five of us</div>
-  <h1>Singapore, Malaysia<br>&amp; Bangkok</h1>
+  <h1>Singapore, Malaysia <br>&amp; Bangkok</h1>
   <div class="sub">Christmas in Singapore, New Year under the Petronas Towers.</div>
-  <div class="chips">
-    <span class="chip hot">Outbound booked · DVO–MNL–SIN, 25 Dec</span>
-    <span class="chip">Return · 3 of 5 booked</span>
-    <span class="chip">Singapore</span>
-    <span class="chip">Malaysia</span>
-    <span class="chip">Bangkok</span>
-    <span class="chip">Gamaliel · Marianne · Alysson · Kevin · Jan</span>
-  </div>
-  <div class="motifs" aria-hidden="true"><i class="sg"></i><i class="my"></i><i class="th"></i></div>
 </header>
 
 <a class="skip" href="#main">Skip to the plan</a>
@@ -65,8 +55,6 @@
 <section id="route">
   <h2>The route</h2>
   <div class="rule"></div>
-  <p class="note">Train from Singapore to KL, then fly to Bangkok. Cities are placed by real latitude and
-  longitude, so the distances read true. <b>Tap any leg</b> for its dates, duration and cost.</p>
 
   <div class="mapwrap">
     <svg id="routemap" viewBox="0 0 980 480" role="img" aria-label="Route map from Davao to Singapore, Kuala Lumpur and Bangkok">
@@ -115,11 +103,19 @@
   </div>
 
   <div class="mapinfo" id="mapinfo" aria-live="polite">
-    <div class="mi-head">Tap a leg on the map</div>
-    <div class="mi-body">Two flights out, booked. A train to KL and a flight to Bangkok, not booked.
-    On 1 Jan Gamaliel flies home from KL via Singapore while everyone else flies on to Bangkok.</div>
+    <div class="mi-head">Tap a leg for its dates and cost.</div>
   </div>
 
+  <ol class="board" aria-label="Every leg, in order">
+    <li><span class="bt"><b>Fri 25 Dec</b> 22:20</span><span class="br">Davao → Manila → Singapore</span><span class="tile ok">Booked</span></li>
+    <li><span class="bt"><b>Mon 28 Dec</b> 13:45</span><span class="br">Singapore → Kuala Lumpur, train</span><span class="tile no">Book now</span></li>
+    <li><span class="bt"><b>Fri 1 Jan</b></span><span class="br">Kuala Lumpur → Bangkok</span><span class="tile">Not booked</span></li>
+    <li><span class="bt"><b>Fri 1 Jan</b> 22:00</span><span class="br">Gamaliel: KL → Singapore → Davao</span><span class="tile">Not booked</span></li>
+    <li><span class="bt"><b>Wed 6 Jan</b></span><span class="br">Bangkok → Davao: Marianne, Alysson, Jan</span><span class="tile ok">Booked</span></li>
+    <li><span class="bt"><b>Not set</b></span><span class="br">Kevin home</span><span class="tile">TBD</span></li>
+  </ol>
+  <details class="more">
+    <summary>Leg details, fares and sources</summary>
   <div class="tablewrap">
   <table class="tickets">
     <thead>
@@ -142,23 +138,24 @@
   Shuttle Tebrau RM16.10 plus ETS RM88 (Gold) to RM115–119 (Platinum), at about ₱13 to the ringgit. KL → Bangkok is still an
   estimate from earlier searches.</p>
 
-  <div class="callout">
-    <div class="ct"><svg class="ic" aria-hidden="true"><use href="#i-tip"/></svg> Two arrival forms on the way</div>
+  <details class="callout">
+    <summary class="ct"><svg class="ic" aria-hidden="true"><use href="#i-tip"/></svg> Two arrival forms on the way</summary>
     <ul>
       <li><b>Malaysia Arrival Card</b> before the train crosses into Johor Bahru on 28 Dec.</li>
       <li><b>Thailand Arrival Card</b> before the Bangkok flight on 1 Jan. Not needed for Gamaliel.</li>
       <li>Book the <b>Singapore → KL train early</b>: peak week, five seats together, and it is our proof that we're leaving Singapore.</li>
     </ul>
-  </div>
+  </details>
 
-  <div class="callout">
-    <div class="ct"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Gamaliel's flight home</div>
+  <details class="callout">
+    <summary class="ct"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Gamaliel's flight home</summary>
     <ul>
       <li>No airline flies Kuala Lumpur to Davao nonstop. The Scoot connection through Singapore is the best fit: fireworks, a night's sleep, a day in KL, then the 22:00 flight.</li>
       <li>The Singapore stop is only <b>1h 35m</b>. Check it is one ticket, so the bag goes through to Davao.</li>
       <li>Book a fare that can be changed while the exam date is unconfirmed.</li>
     </ul>
-  </div>
+  </details>
+  </details>
 </section>
 </main>
 
