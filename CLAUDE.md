@@ -246,7 +246,9 @@ cheap. Use colour and weight to subordinate instead.
   **V3 CHOSEN (2026-11-07): NYE at Petronas, KL.** Gamaliel now flies home from KL
   Fri 1 Jan (best fit Scoot 22:00 KUL→SIN→DVO 04:55, not booked; no KUL–DVO nonstop
   exists), the DMK direct above is superseded for him. Group flies KL→BKK 1 Jan,
-  Bangkok to 6 Jan. Needs a 3rd Singapore night (28 Dec). All six pages now describe
+  Bangkok to 6 Jan. **SG→KL by train Mon 28 Dec (2026-11-18, Marianne):** Shuttle
+  Tebrau + ETS, not booked; replaces the SIN→KL flight, so Singapore is 2 nights (the
+  Quay booking, no 3rd night needed) and KL 4 (28 Dec–1 Jan). All six pages now describe
   V3; the Itinerary keeps the other versions as comparison tabs. Open: how Bangkok
   splits without Gamaliel.
   **Singapore stay booked:** The Quay Hotel Little India, two triple rooms,

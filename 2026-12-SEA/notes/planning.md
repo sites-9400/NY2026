@@ -467,3 +467,22 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   failure). Verified via `launchctl kickstart`: run started, GitHub skipped it because
   the day's fare was already posted. If the Mac is off all day, it falls back to GitHub's
   late schedule.
+- *2026-11-18* · **Singapore → KL by train on Mon 28 Dec. Supersedes the SIN→KL flight
+  on Tue 29.** Marianne's call, relayed by Gamaliel. Not booked.
+  - **Route:** Shuttle Tebrau Woodlands → JB Sentral (S$5), then ETS JB Sentral → KL
+    Sentral (~4h20m). ETS fares are dynamic: sources give RM73–81 Gold, ~RM96 Platinum,
+    ~RM67 on a midweek promo (train36, myrumahbaru; not checked for 28 Dec on KTMB).
+    Used ≈₱1,200–1,500 each at the old ₱44/S$, ₱13/RM rates. RTS Link (Woodlands North →
+    Bukit Chagar) slipped to Feb 2027 (Bernama, 2 Oct 2026), so Shuttle Tebrau is still
+    the crossing in December.
+  - **Knock-ons, all on the page:** the third Singapore night is no longer needed (the
+    Quay booking ending the morning of the 28th now fits exactly). Singapore 2 nights,
+    KL 4 (28 Dec to 1 Jan). Hotel nights unchanged: 11 for the group, 6 for Gamaliel.
+    The Singapore culture day (Chinatown, Kampong Glam) drops out. Tue 29 in KL is
+    Merdeka Square plus an open TBD afternoon. Onward-travel proof out of Singapore is
+    now the train tickets. Malaysia Arrival Card keys off the 28 Dec crossing.
+  - **Money:** between-cities line ₱8,800–10,000 → ₱4,900–6,300 (Gamaliel ₱5,100 →
+    ₱1,200–1,500). Known costs staying to 6 Jan ₱32,100–40,500, short of the fund by
+    ₱12,100–20,500. Gamaliel ₱21,400–25,200, short ₱1,400–5,200.
+  - Checkout 11:00 vs the train: pack the night before (same constraint the Overland
+    plan had). Train times not chosen. V1, V2, Overland tabs left as they were.
