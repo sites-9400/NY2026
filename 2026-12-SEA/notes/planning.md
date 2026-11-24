@@ -542,3 +542,183 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   booked, no need to know old flights. Dashboard callout, "Rerouted by Cebu Pacific" in the
   booking table, and "rerouted flight" on Accommodations all gone. The Manila terminal check
   stays on Before we fly's "Also" list. The history stays here and in CLAUDE.md.
+- *2026-11-18* · **KL room pick: "7Pax" Airbnb, not booked.** User's cap: ₱35,000 max for
+  28 Dec–1 Jan (a ₱61,590 Wakely 3BR was "too expensive"). Searched Airbnb headless (Booking.com
+  blocked the bot; Agoda prices didn't scrape reliably, so no hotel comparison).
+  - **Pick:** https://www.airbnb.com/rooms/1420253515132257182 · ₱27,926 for 4 nights,
+    ₱5,585 each ÷5. 2BR, 2 bath, king + queen + living-room queen & single. ~560 m from the
+    towers by Airbnb's fuzzed pin (host "Getaway Mews", likely The Mews building). 4.79 (43).
+    Lockbox, checkout 11:00. **Free cancellation until 28 Nov**, partial refund to 21 Dec.
+    Bag hold after checkout not stated: ask the host (Gamaliel flies 22:00 on 1 Jan).
+  - **Runner-up:** "O 3 Room", Titiwangsa, https://www.airbnb.com/rooms/1280326141322837735 ·
+    ₱24,614, 3BR, 4.94 (47), Superhost, free cancel to 23 Dec, but ~2.4 km from the towers.
+  - Ruled out: cheap "KLCC view" listings (4–5 km away), Bukit Bintang 1BR/1-bath units.
+  - On the site: Accommodations, Before we fly, Money (stays table now 2 of 3 priced,
+    ₱60,286 / ₱12,057 each; "Known so far" totals left alone since KL isn't booked), Dashboard.
+- *2026-11-19* · **New "Getting around" tab** (`/2026-12-sea/transport/`), after Route, from a
+  chat explainer on the SG and KL systems. Facts checked: the RTS Link cross-border train slipped
+  to Feb 2027 (announced 2 Oct 2026), so we stay on the Shuttle Tebrau. Rapid KL ran NYE trains
+  to 3am (New Year 2025) and 2am (2026); this year's hours not out yet. KLIA Ekspres fare
+  (~RM55) and the S$/RM per-trip ranges are approximate, from memory, not re-checked.
+- *2026-11-19* · **SG→KL: group wants the bus, evening, not the train.** Slow day in Singapore,
+  leave ~19:00 from near Little India, nice coach, ideally a meal. Not booked, bus not picked.
+  Only Itinerary Day 4 updated so far; Dashboard, Route, Money, Before we fly and Getting
+  around still describe the train until a bus is booked.
+  - **Aeroline 18:00** (only evening option with a meal): official timetable, boards Aeroport
+    Singapore, 1 Venture Ave (Jurong), drops Corus Hotel, Jalan Ampang (next to KLCC). Hot
+    meal + toilet per reviews 2019–24. ~S$50 (undated source). Licence suspended ~a year,
+    back Sep 2026. Last SG departure is 18:00.
+  - **StarMart 19:00** Golden Mile Tower → Berjaya Times Square, 4.2 (95), S$31.50 on redBus
+    18 Nov with discount, 40 seats free. No meal.
+  - **CityLine 19:05** Lavender MRT → Bukit Bintang, 3.6, S$38. User: "the stars are low".
+  - Ruled out: Transtar Solitaire (no evening run on redBus for 28 Dec; the "19:00" came from
+    an undated 12Go listing); Qistna at Little India Arcade (bad reviews, stop may run
+    weekends/holidays only); midday buses (jam risk without the early arrival).
+  - Transtar's KL stops are only Lalaport BBCC or TBS (their notice, Sep 2026).
+  - ₱ at ~48/S$ (last dated rate 49.76, 23 Oct). KLIA Ekspres is RM65 from 1 Jan 2027
+    (was RM55): Day 8 on the itinerary says so; Getting around may still say RM55.
+  - **Open from this session:** (1) put Rapid KL's 2026 NYE hours on the page once announced,
+    ~26 Dec; (2) Before we fly's first stop splits "eTravel" and its note into columns (`.stop .st`
+    is a flex row, so wrap the text in one `<span>`, as done on Getting around); (3) Impeccable
+    flags tight heading leading and ~10px text in the shared CSS on all seven pages, left standing,
+    not triaged; (4) the 2026-11-18/19 changes are deployed but not committed or pushed.
+- *2026-11-18/19* · **Malaysia questions, NYE options, booking timing** (same chat as the bus).
+  - **Penang: no.** 3 full KL days (29–31 Dec) can't hold 2 Penang nights and still get back for
+    Petronas NYE. Only fit: group (not Gamaliel) KL→Penang 1 Jan, 2 nights, fly to Bangkok 3 Jan,
+    taking 2 of Bangkok's 5 nights. PEN→DMK on that date not checked. Not taken up.
+  - **Melaka: user said "do not put melaka".** Don't re-propose (see also 2026-07-25).
+  - **KL NYE parties (searched 18 Nov):** KL Tower "Neon Skywave" 31 Dec 22:00–02:00, RM29
+    indoor deck / RM99 terrace / RM234 VIP sky terrace; ticket page is `nye.asst.my`, which may
+    not be KL Tower's own, so buy via official channels. Sky51 at EQ: nearest rooftop to the
+    towers, **21+ only**, no 2026 price; last year RM150 early drinks, tables for 4 ~RM2,088
+    indoor / RM2,288 outdoor, min spend RM258 pp. Traders SkyBar: classic Towers view, no 2026
+    price; last year RM1,588 (2 pax) to RM5,088 (3 pax), bottle packages. Free: KLCC Park,
+    Pavilion, Exchange TRX, Sunway Velocity (last year's; 2026 not announced). Pick: KLCC Park
+    free, or Sky51 if all five are 21+ and agree the spend. Not on the site; Day 7 still names
+    SkyBar as the rooftop alternative.
+  - **KTMB tickets open ~6 months ahead** (monthly blocks; Dec 2026 opened 30 Jun 2026), not
+    one month. Only matters if we fall back to the train.
+  - **"Book a month before" list (for ~25 Nov):** SG→KL bus; KL stay (free cancel ends 28 Nov);
+    Universal Studios; KL→BKK flight; Gamaliel's flight (changeable fare); rooftop NYE if wanted;
+    Bangkok rooms (blocked on Kevin's dates). Also find the Quay's charge date.
+  - **Passenger data to collect** for any cross-border ticket: full name as in passport,
+    passport number, nationality, expiry (Malaysia + Singapore want 6 months' validity, so
+    anything expiring before ~Jul 2027 needs renewing), DOB, gender. Keep it in `bookings/`
+    or a private chat, never on the site or in git.
+  - **Transfer times added to the Itinerary 2026-11-18** (all estimates): Changi→Quay Grab ~25 min
+    S$22–45/car (Day 2); KLIA Ekspres 28 min RM65 + AirAsia T2 / Scoot T1, DMK→Bangkok 40–60 min
+    (Day 8). Day 4's Woodlands Grab line was replaced by the bus options on 2026-11-19.
+- *2026-11-19* · **Shared repo so Alysson can edit the site.**
+  - User: "share repo of the sea tab only. do not include my other travels. i want alusson to be
+    able to write on the site too." Chose: edit pages (not just comments), **private** repo,
+    **keep the current URL** (`travel-f412b.web.app/2026-12-sea/`).
+  - **Done:** private `github.com/sites-9400/sea-2026` (7 SEA pages + `assets/site.css`,
+    `sea.css`, `theme.js`; no notes, no other trips, no `img/fund-qr.png`). Local clone
+    `~/sea-2026`. Two-way sync `_reference/sync-sea.sh` (tested both directions with a throwaway
+    edit, then reverted; conflict path NOT tested). CLAUDE.md says to run it before/after SEA edits.
+  - **Then user: "she should be able to deploy without needing me"**, and said it is fine for
+    Alysson to see the other pages ("shes my bestfriend"). Privacy was never the blocker: a
+    whole-site deploy from GitHub would wipe the Dropbox-only files (ici-stats data, Siargao QR
+    codes and `checkin.js`, `fund-qr.png`), and the midnight ICI deploy would revert her edits.
+  - **Proposed, NOT built (blocked on gcloud):** a deploy-only service account key as a repo
+    secret; a GitHub Action that clones the live Hosting version minus the SEA files, uploads
+    the repo's SEA files and releases it (on push, and daily 00:10 + 00:40 PH as a repair after
+    the midnight ICI deploy, skipping if nothing changed). GitHub becomes the master copy of the
+    SEA pages.
+  - **Waiting on the user:** (1) Alysson's GitHub username or account email (GitHub has no
+    invite links; she is not invited yet); (2) user to run `! gcloud auth login` with the personal Google account
+    (gcloud only has the ICI account), then switch gcloud back to the ICI account after the key
+    is made.
+- *2026-11-19* · **KL stay: the 7Pax pick is gone, new shortlist priced at checkout.**
+  - User: the 7Pax Airbnb (1420253515132257182) "is booked on the 1st of january", so it no
+    longer works for 28 Dec–1 Jan. **The site still shows 7Pax** (Accommodations, Before we fly,
+    Money); not changed yet, user hasn't picked a replacement.
+  - User widened the radius: "a 2km walk is acceptable." Asked for hotels too.
+  - **Hotels don't fit the ₱35,000 cap.** 5 people need 2–3 rooms; cheapest real hotel near the
+    towers is Hotel Maya (453 m), ₱6,440/room/night before tax, 2 guests a room → ~₱77k. W,
+    Mandarin, Ascott Star run ₱32k–40k per room per night. Apartments only.
+  - **Agoda adds ~28% at checkout** on most serviced apartments (5% service + 10% tax + 8% tax +
+    cleaning + RM10/night tourism tax); the search-page "per night before taxes" price badly
+    understates. Exception: KLCC Suites at Star added only ~10% (VAT + tourism tax). Airbnb
+    totals add a flat ₱619 tax. My earlier ~10% Agoda estimate was wrong and was corrected.
+  - **Checkout totals, 28 Dec–1 Jan, 5 adults, all taxes and fees in (read off each site's
+    checkout page, nothing booked):**
+
+| Place | Distance* | Rooms | Total | ÷5 | Free cancel until |
+|---|---|---|---|---|---|
+| KLCC Suites at Star (Agoda) agoda.com/klcc-suites-at-star-2-bedroom/hotel/kuala-lumpur-my.html | 330 m | 2BR: queen, double, sofa bed; baths not confirmed | ₱30,445 | ₱6,089 | 27 Dec (pay 25 Dec) |
+| Swiss Garden #12, Bukit Bintang airbnb.com/rooms/1653390519870704227 | ~1.6 km | 2BR 2 bath, queen+queen+LR queen & sofa bed | ₱24,283 | ₱4,857 | 28 Nov |
+| Le Petit Luxe Colony airbnb.com/rooms/1401064846324120115 | ~1.4 km | 2BR 2 bath, 3 queens | ₱24,716 | ₱4,943 | 24 h only; partial to 21 Dec |
+| O 3 Room, Titiwangsa airbnb.com/rooms/1280326141322837735 | ~2.3 km | 3BR 2 bath | ₱25,103 | ₱5,021 | 23 Dec |
+| Sunflower Legasi airbnb.com/rooms/916215300816777831 | ~0.8 km | 3BR 2.5 bath, 5 beds incl. floor mattresses | ₱26,696 | ₱5,339 | 28 Nov |
+| Legasi Kg Baru #40 airbnb.com/rooms/1609285554779137078 | ~0.7 km | 3BR 2 bath, queen+queen+single | ₱33,860 | ₱6,772 | 23 Dec |
+| AquariaKLCC (Agoda) | ~1 km | king, single, 2 futons | ₱37,326 | ₱7,465 | over cap |
+| Sky Suites by Mitstay (Agoda, the user's link) | 333 m | 2BR 2 bath, 2 queens + sofa bed | ₱44,509 (₱40,169 non-ref.) | ₱8,902 | over cap |
+
+    \* Straight line from the listing pin; Airbnb fuzzes pins a few hundred metres. The Legasi
+    buildings are in Kampung Baru across the river, so the real walk is longer. Sky Suites is
+    also on Airbnb (rooms/1802055822579990449 ₱43,308; rooms/1178730839675948088 ₱54,039), both
+    over cap. Ruled out: "NORI@Legasi" (title says Muslim guests only).
+  - **Recommendation given:** KLCC Suites at Star if walking to the towers on NYE matters
+    (only 31 reviews, 8.0); Swiss Garden #12 for value (Superhost, 4.92 from 50; one review
+    calls it dusty, aircon cuts out when the door closes). User sent the list to the group in
+    Messenger; **no pick yet.**
+  - **Open:** pick and book; then replace 7Pax on Accommodations, Before we fly, Money and the
+    Dashboard. Swiss Garden and Sunflower Legasi lose free cancellation on 28 Nov.
+
+- *2026-11-24* · **KL stay re-search: Booking.com and Agoda only, 3 real beds. Nothing booked.**
+  - **Shortlist losses:** Swiss Garden #12, Le Petit Luxe Colony, O 3 Room and Legasi Kg Baru #40 now say "dates not available" on Airbnb. Sunflower Legasi was still free on Nov 24.
+  - **Airbnb is out.** The user reserved "New 3BR high floor KLCC" (airbnb.com/rooms/1825298978237837222: new host, no reviews, ₱22,866 all-in, charge Dec 19, free cancel before Dec 27). The host cancelled, saying the price was wrong. User: "avoid bnb".
+  - **New rules from the user:**
+    - At least 3 REAL beds. Sofa beds and futons don't count ("we dont like the one with sofa bed only. atleast 3 beds is ok").
+    - No kid-themed units or bunk beds ("dont give me a kids list").
+    - Free cancellation.
+    - At least 5 reviews, with a score of 7.0 or higher.
+  - **Booking.com works in the Playwright browser now.** That reverses 2026-11-18's "blocked the bot", and PHP pricing works via a URL parameter. The tax line only shows on the reservation step-2 page. Legasi 41's step 2 hits a sign-in wall.
+  - **Klook returns 403**, even in the browser (tried twice on 2026-11-25).
+  - **Under ₱35k, 3+ real beds:**
+
+    | Place | Total | Distance to towers | Real beds | Score | Free cancel |
+    |---|---|---|---|---|---|
+    | Legasi 41 (Booking) | ₱25,481 pre-tax, ~₱28–29k est. all-in | ~1 km, Kampung Baru | 3BR, 2 baths | 9.3 (16) | to 27 Dec |
+    | Robertson Residence Main City (Booking) | ₱31,485 all-in | 1.6 km | 4 | 7.3 (6) | to 28 Dec, pay at property |
+    | KL Elegant Apartment, Times Square (Booking) | ₱33,421 all-in | 1.6 km | king + 2 twins | 8.3 (13) | to 28 Dec, prepaid |
+
+  - **Over the cap:**
+
+    | Place | Total | Distance to towers | Real beds | Score | Free cancel |
+    |---|---|---|---|---|---|
+    | Vortex KLCC Apartments (Agoda, agoda.com/vortex-klcc-apartments/hotel/kuala-lumpur-my.html) | ~₱38.5k est. (free-cancel all-in not read) | 640 m | queen, queen, single | 8.6 (1,449) | to 27 Dec |
+    | City view Apartment, Times Square (Booking) | ₱40,703 all-in | 1.5 km | queen + 2 twins | 7.4 | pay at property |
+
+  - **Fails the 3-bed rule:** KLCC Suites at Star (₱30,448), Premium Vortex, Vortex by Azizi, Glorious 2Br. 3BR units in the KLCC tower buildings run ₱42k–50k or more.
+  - **Recommended:** Vortex KLCC Apartments if walking to the towers on NYE matters most. Otherwise Legasi 41 or Robertson.
+  - The user got a Messenger list of #1 to #5 for the group (clipboard). **No pick yet.**
+  - **Detail files:**
+    - `notes/kl-stay-booking-search-2026-11-24.md`
+    - `notes/kl-stay-agoda-airbnb-search-2026-11-24.md`
+    - `notes/kl-stay-search-no-airbnb-2026-11-24.md`
+    - `notes/kl-stay-3beds-2026-11-24.md`
+
+- *2026-11-25* · **KL stay BOOKED: KLCC Suites at Star, 2-bedroom, on Booking.com**
+  (https://www.booking.com/hotel/my/klcc-suites-at-star-2-bedroom.html), 28 Dec to 1 Jan,
+  5 adults. Payment is taken on 25 Dec. Total paid, cancellation terms and who booked it
+  not given yet, so the site shows the total as TBD and the ledger now counts only
+  Singapore. Replaces the 7Pax pick on Dashboard, Accommodations, Before we fly and Money.
+  Bag hold for Gamaliel's 22:00 flight still to ask the host.
+
+## Deadlines
+
+Read by the overseer (Travel group in the morning brief). Kind: cancel = last free-cancel day (alert 7 days before); book = travel date of the thing to book (alert 30 days before); ask = the day the ask was made (alert 2 days later). Fill Done to close a row.
+
+| Date | What | Kind | Done |
+|---|---|---|---|
+| 2026-12-28 | KL stay 28 Dec to 1 Jan: pick and book (nothing booked; Booking/Agoda only, 3 real beds; shortlist 2026-11-24 above; group voting on the Messenger list) | book |2026-11-25 booked: KLCC Suites at Star, Booking.com |
+| 2026-12-28 | SG to KL evening bus (Aeroline / StarMart / CityLine): pick and book | book | |
+| 2026-12-27 | Universal Studios Singapore tickets | book | |
+| 2027-01-01 | KL to BKK group flight | book | |
+
+## Dropped
+
+- 7Pax (the KL Airbnb that fell through 2026-11-19; the money, accommodations and before pages still show it)
+- New 3BR high floor KLCC (Airbnb): host cancelled the reservation 2026-11-24 ("wrong price"); Airbnb avoided since

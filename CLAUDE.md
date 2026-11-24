@@ -276,19 +276,38 @@ cheap. Use colour and weight to subordinate instead.
   Bangkok to 6 Jan. **SG→KL by train Mon 28 Dec (2026-11-18, Marianne):** Shuttle
   Tebrau + ETS, not booked; replaces the SIN→KL flight, so Singapore is 2 nights (the
   Quay booking, no 3rd night needed) and KL 4 (28 Dec–1 Jan). All six pages now describe
-  V3. Open: how Bangkok
+  V3. **Now an evening BUS, not the train (2026-11-19, user: "we want the bus"):** slow
+  day in SG, leave ~18:00–19:00; options Aeroline 18:00 (meal, boards Jurong, drops next
+  to KLCC), StarMart 19:00 (Golden Mile Tower → Berjaya Times Square), CityLine 19:05;
+  none booked. Only Itinerary Day 4 shows the bus; the other pages still say train until
+  one is booked, then switch them all. Detail in `notes/planning.md`. Open: how Bangkok
   splits without Gamaliel.
   **Singapore stay booked:** The Quay Hotel Little India, two triple rooms,
   26–28 Dec, ₱32,360 (₱6,472 each ÷5), Agoda Book Now Pay Later, free
   cancellation. Charge date and cancellation cut-off both still unknown.
+  **KL stay BOOKED (2026-11-25):** KLCC Suites at Star, 2-bedroom, Booking.com, 28 Dec–1 Jan,
+  pay on 25 Dec. Total not given yet, shown as TBD on the site. Replaced the fallen-through 7Pax
+  pick on all pages.
   **This trip is MULTI-PAGE, not the usual single `index.html`** (rebuilt 2026-08-15):
-  six pages sharing one header/nav/footer — `index.html` (Dashboard), `itinerary.html`,
-  `route.html`, `money.html`, `accommodations.html`, `before.html`. The **Itinerary**
+  seven pages sharing one header/nav/footer — `index.html` (Dashboard), `itinerary.html`,
+  `route.html`, `money.html`, `accommodations.html`, `before.html`, plus `transport.html`
+  ("Getting around", added 2026-11-19: Singapore and KL trains, paying, NYE trains home,
+  airport train; tab sits after Route). A new tab means editing the nav on every page. The **Itinerary**
   shows the chosen plan only (V3). The other versions (Overland, V1, V2) and their
   tab switcher were removed 2026-11-18 at the user's request ("too much to read");
   they live in git history and `notes/equal-split-versions.md`. Their comment
   threads had no comments. Day cards are non-collapsing `<details open>`; the page
   has one comment thread, still keyed `ver-v3`.
+  **Shared repo for Alysson (2026-11-19):** private `github.com/sites-9400/sea-2026` holds
+  only the seven SEA pages + `assets/{site,sea}.css`, `theme.js` (no other trips, no notes,
+  no `img/fund-qr.png`). Alysson edits there; the live URL stays the same. Local clone is
+  `~/sea-2026`. **Run `_reference/sync-sea.sh` before AND after editing any SEA page**
+  (`--deploy` to publish now; otherwise the midnight job deploys). It merges via git and
+  stops on a conflict without touching `public/`; it warns if `site.css` changed, since that
+  also styles Siargao and the landing page. Deletions don't sync.
+  **Pending (2026-11-19):** Alysson not yet invited (need her GitHub username); a GitHub
+  Action so her pushes deploy on their own is planned but not built, blocked on a gcloud login
+  as germinggong. Plan + reasoning: `2026-12-SEA/notes/planning.md`, entry 2026-11-19.
   Gotchas: `firebase.json` has `cleanUrls:true` + `trailingSlash:true`, so pages serve
   at `/2026-12-sea/<page>/` — **all internal links + CSS must be ABSOLUTE** (`/assets/…`,
   `/2026-12-sea/<page>/`), relative paths break at that depth. Test with `firebase serve`
