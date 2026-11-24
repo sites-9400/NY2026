@@ -706,6 +706,10 @@ at ₱44/S$, ₱13/RM, ₱1.75/฿ — rates need checking before anyone budgets
   not given yet, so the site shows the total as TBD and the ledger now counts only
   Singapore. Replaces the 7Pax pick on Dashboard, Accommodations, Before we fly and Money.
   Bag hold for Gamaliel's 22:00 flight still to ask the host.
+  **Open from this booking:** (1) total paid, then fill the KL row + ÷5 on Money and
+  Accommodations; (2) free-cancel date, if any, into Deadlines; (3) whose card is charged
+  25 Dec. The Money page's "fund doesn't reach the floor" ranges (₱31,500–39,900 each;
+  Gamaliel ₱20,800–24,600) still assume 7Pax's ₱5,585 each: recompute once the total is in.
 
 ## Deadlines
 
