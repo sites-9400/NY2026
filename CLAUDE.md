@@ -260,19 +260,21 @@ cheap. Use colour and weight to subordinate instead.
   shortlist instead. Free cancellation on the room ends 14 Aug 2026.
 - **`2026-12-SEA/`** → `public/2026-12-sea/` — Singapore, Malaysia, Bangkok.
   25 Dec 2026 onward. Five travellers: Gamaliel, Marianne, Alysson, Kevin, Jan.
+  **On the site Gamaliel is "Eve"** (renamed on all seven SEA pages 2026-11-25, user
+  request); write Eve in page copy, never a gendered pronoun. Notes keep "Gamaliel".
   A sixth (Jude) is an open maybe, so every ÷5 figure is provisional.
   **Outbound booked one way, rerouted by the airline on 2026-09-04:** 5J982 DVO
   22:20 → MNL 00:25+1, 5h30 overnight layover, 5J817 MNL 05:55 → **SIN 09:50 on
   Sat 26 Dec**. No alternative flight was offered, only cancellation. The old
   routing (via Cebu, landing 00:25) is superseded everywhere. **Return is SPLIT
-  (2026-10-28):** Marianne, Alysson, Jan booked for **Wed 6 Jan** (flight details
-  not yet given). Gamaliel has a Civ Pro final possibly Tue 5 Jan, so flies early:
+  (2026-10-28):** Marianne, Alysson, Jan booked for **Wed 6 Jan**: Cebu Pacific 5J 5965,
+  Don Mueang T1 21:15 → Davao 02:50 Thu 7 (ref kept off the site). Gamaliel has a Civ Pro final possibly Tue 5 Jan, so flies early:
   recommended CebPac Don Mueang → Davao DIRECT **Fri 1 Jan** 21:15 (lands ~02:50;
-  route is Mon/Wed/Fri only, so Mon 4 lands on exam day). Not booked. Kevin unknown.
+  route is Mon/Wed/Fri only, so Mon 4 lands on exam day). Superseded, see V3. **Kevin is coming to Bangkok** (2026-11-25), flights not booked.
   Mon 4 Jan is no longer anyone's flight; the plan for 4 to 6 Jan is open.
   **V3 CHOSEN (2026-11-07): NYE at Petronas, KL.** Gamaliel now flies home from KL
-  Fri 1 Jan (best fit Scoot 22:00 KUL→SIN→DVO 04:55, not booked; no KUL–DVO nonstop
-  exists), the DMK direct above is superseded for him. Group flies KL→BKK 1 Jan,
+  Fri 1 Jan, **BOOKED 20 Nov:** Scoot TR469 KUL T2 19:15 → SIN 20:35, TR560 00:55 →
+  DVO 04:55 Sat 2 Jan, one booking (no KUL–DVO nonstop exists), the DMK direct above is superseded for him. Group flies KL→BKK 1 Jan,
   Bangkok to 6 Jan. **SG→KL by train Mon 28 Dec (2026-11-18, Marianne):** Shuttle
   Tebrau + ETS, not booked; replaces the SIN→KL flight, so Singapore is 2 nights (the
   Quay booking, no 3rd night needed) and KL 4 (28 Dec–1 Jan). All six pages now describe
@@ -281,12 +283,13 @@ cheap. Use colour and weight to subordinate instead.
   to KLCC), StarMart 19:00 (Golden Mile Tower → Berjaya Times Square), CityLine 19:05;
   none booked. Only Itinerary Day 4 shows the bus; the other pages still say train until
   one is booked, then switch them all. Detail in `notes/planning.md`. Open: how Bangkok
-  splits without Gamaliel.
+  splits without Gamaliel. **Bangkok stay (1–6 Jan, 4 people) not booked;** top 7
+  priced at 4 adults in `notes/references.md` (2026-11-25), pick Hotel Ordinary (Agoda).
   **Singapore stay booked:** The Quay Hotel Little India, two triple rooms,
   26–28 Dec, ₱32,360 (₱6,472 each ÷5), Agoda Book Now Pay Later, free
   cancellation. Charge date and cancellation cut-off both still unknown.
   **KL stay BOOKED (2026-11-25):** KLCC Suites at Star, 2-bedroom, Booking.com, 28 Dec–1 Jan,
-  pay on 25 Dec. Total not given yet, shown as TBD on the site. Replaced the fallen-through 7Pax
+  pay on 25 Dec. **₱27,000 total, ₱5,400 each** (on the site 2026-11-25). Replaced the fallen-through 7Pax
   pick on all pages.
   **This trip is MULTI-PAGE, not the usual single `index.html`** (rebuilt 2026-08-15):
   seven pages sharing one header/nav/footer — `index.html` (Dashboard), `itinerary.html`,

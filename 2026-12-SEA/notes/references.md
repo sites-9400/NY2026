@@ -148,3 +148,41 @@ Other Bangkok guides (12 exist):
 ## From the group
 <!-- Suggestions from Marianne, Alysson, Kevin, Jan — note who asked for what,
      it matters when we're cutting things later. -->
+
+## Bangkok stay search, 2026-11-25 (Airbnb, 1–6 Jan, 3 adults, totals read at checkout)
+
+- 27035857 ICONSIAM Family Room, Khlong San, ~650m BTS Krung Thon Buri. 1BR 3 beds 1.5 bath, up to 6. 4.71 (198). ₱14,738
+- 1184995457662027445 Ratchathewi duplex townhouse, ~450m BTS Ratchathewi. Superhost 4.72 (93), up to 5. ₱19,711
+- 27532383 Dida 62sqm 1BR 3 beds, Din Daeng, ~1.2km to trains. Superhost 4.72 (76), 3 max. ₱10,223
+- 729643810975792207 same building/style, 4.94 (16), 3 max. ₱10,702
+- 1862331 Old Spice studio, ~700m MRT Khlong Toei, up to 4. 4.66 (260). ₱14,870
+- 1786882717210514933 old town 2BR 4 beds, no train nearby, 5.0 (5). ₱27,129
+- 1562854692611343754 Ratchathewi 2BR, near BTS Ratchathewi, 4.77 (13). ₱30,689
+All free cancellation. 4-adult price not checked (may add guest fee).
+
+## Bangkok stay search, Agoda, 2026-11-25 (1–6 Jan, 3 adults, totals read at Agoda checkout, ~17–20% tax on top of search price)
+
+- Hotel Ordinary Bangkok, Pratunam, 251m ARL Ratchaprarop. 8.9 (7,436). Room for up to 6 adults, ₱17,526, free cancel before 1 Jan, pay 30 Dec
+- Hotel Rue De Siam, riverside, 751m BTS Charoen Nakhon. 8.7 (424). 3 adults, ₱18,614, free cancel before 16 Dec, pay 14 Dec
+- B2 China Town Yaowarat Premier, 242m MRT Wat Mangkon. 8.7 (2,726). 3 adults, ₱23,222, free cancel before 18 Dec
+- Bangkok City Suite, Siam/Urupong, 116m Urupong station. 8.0 (9,014). 3 adults, ₱12,021, free cancel before 30 Dec
+- Picnic Hotel, Victory Monument. 9.0 (10,367). 3 adults + breakfast, ₱32,281, pay now
+
+## Bangkok stay search, Booking.com, 2026-11-25 (visible MCP browser works; headless is blocked. Prices include taxes)
+
+- Achcha hotel, 50m MRT Itsaraphap (1 stop from Sanam Chai/Wat Pho, near Wat Arun). 8.9 (290), location 9.3. Superior Family Room 50m2, 2 queens + sofa bed, max 3. ₱13,028 free cancel before 25 Dec, pay by 23 Dec (₱12,748 non-refundable). 1 left. booking.com/hotel/th/calmback-home.html
+- The Pattern Boutique Hotel 8.8 (424), ₱13,469, bunk + queen
+- Penpark Place 8.5 (1,621), ₱18,451
+- Cana Boutique 9.0 (440), ₱21,361
+- Hotel Rue De Siam is dearer here (₱22,119) than Agoda (₱18,614). Hotel Ordinary listed (8.1, 796) but no price for 3 adults on these dates.
+
+## Bangkok stay, 4 adults (Kevin confirmed coming, 2026-11-25; flight not booked). Totals at 4 adults, all free cancellation
+
+- Hotel Ordinary (Agoda) ₱17,526, room for 6, cancel by 1 Jan
+- ICONSIAM Family Room (Airbnb 27035857) ₱16,616
+- Pratunam Family House 2 (Agoda) ₱15,910, 4 adults, 8.6 (187), 372m ARL Ratchaprarop, cancel by 28 Dec
+- Bangkok City Suite (Agoda) ₱19,296, cancel by 30 Dec
+- Hotel Rue De Siam (Agoda) ₱19,994, cancel by 18 Dec
+- The Pattern Boutique (Booking) ₱21,481, 2 studios + breakfast, 8.8 (424)
+- Ratchathewi townhouse (Airbnb 1184995457662027445) ₱22,058
+- Achcha (Booking) is max 3, so out for 4. B2 China Town at 4 = ₱43,793, out.

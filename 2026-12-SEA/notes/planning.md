@@ -721,6 +721,8 @@ Read by the overseer (Travel group in the morning brief). Kind: cancel = last fr
 | 2026-12-28 | SG to KL evening bus (Aeroline / StarMart / CityLine): pick and book | book | |
 | 2026-12-27 | Universal Studios Singapore tickets | book | |
 | 2027-01-01 | KL to BKK group flight | book | |
+| 2027-01-01 | Bangkok stay 1 to 6 Jan for 4 (Marianne, Alysson, Jan, Kevin): pick and book. Top 7 at 4 adults in references.md (2026-11-25); top pick Hotel Ordinary, Agoda, ₱17,526 | book | |
+| — | Kevin: book his flights (coming to Bangkok, said 2026-11-25) | book | |
 
 ## Dropped
 
@@ -739,3 +741,9 @@ Scoot, booked 20 Nov (confirmation in Gmail; ref kept off the site). TR469 KUL T
 
 Site now calls Gamaliel "Eve" (user request), all seven SEA pages; notes keep the old name.
 Marianne, Alysson, Jan: Cebu Pacific 5J 5965, DMK T1 21:15 Wed 6 Jan → DVO 02:50 Thu 7 Jan, booked 8 Oct (screenshot from user). Booking ref and QR kept off the site.
+
+## 2026-11-25: Kevin is coming; Bangkok shortlist for 4
+
+- User: "kevin will come just havent booked a flight". Bangkok is 4 people: Marianne, Alysson, Jan, Kevin. The site still says "Kevin: not known" and "head count isn't fixed" (not updated, user not asked yet).
+- Searched Airbnb, Agoda and Booking.com (Booking works in the MCP browser, not headless). Top 7 at 4 adults, totals incl. taxes, all free cancellation, in references.md under "Bangkok stay, 4 adults". Pick: Hotel Ordinary Bangkok (Agoda) ₱17,526, ₱4,382 each, cancel by 1 Jan. Achcha (₱13,028) was best for 3 but takes 3 max.
+- Group message with the 7 links was given to the user to paste; nothing booked.
