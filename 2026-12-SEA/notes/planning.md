@@ -726,3 +726,7 @@ Read by the overseer (Travel group in the morning brief). Kind: cancel = last fr
 
 - 7Pax (the KL Airbnb that fell through 2026-11-19; the money, accommodations and before pages still show it)
 - New 3BR high floor KLCC (Airbnb): host cancelled the reservation 2026-11-24 ("wrong price"); Airbnb avoided since
+
+## 2026-11-25: KL stay total
+
+KLCC Suites at Star: ₱27,000 to pay on 25 Dec (user). ÷5 = ₱5,400 each; Gamaliel stays all 4 KL nights so the even split holds. Assumed pesos. Money page totals moved: known to 6 Jan ₱36,900–45,300 (short ₱16,900–25,300); Gamaliel ₱26,200–30,000 (short ₱6,200–10,000).
