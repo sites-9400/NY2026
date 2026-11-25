@@ -722,7 +722,6 @@ Read by the overseer (Travel group in the morning brief). Kind: cancel = last fr
 | 2026-12-27 | Universal Studios Singapore tickets | book | |
 | 2027-01-01 | KL to BKK group flight | book | |
 | 2027-01-01 | Bangkok stay 1 to 6 Jan for 4 (Marianne, Alysson, Jan, Kevin): pick and book. Top 7 at 4 adults in references.md (2026-11-25); top pick Hotel Ordinary, Agoda, ₱17,526 | book | |
-| — | Kevin: book his flights (coming to Bangkok, said 2026-11-25) | book | |
 
 ## Dropped
 
@@ -747,3 +746,4 @@ Marianne, Alysson, Jan: Cebu Pacific 5J 5965, DMK T1 21:15 Wed 6 Jan → DVO 02:
 - User: "kevin will come just havent booked a flight". Bangkok is 4 people: Marianne, Alysson, Jan, Kevin. The site still says "Kevin: not known" and "head count isn't fixed" (not updated, user not asked yet).
 - Searched Airbnb, Agoda and Booking.com (Booking works in the MCP browser, not headless). Top 7 at 4 adults, totals incl. taxes, all free cancellation, in references.md under "Bangkok stay, 4 adults". Pick: Hotel Ordinary Bangkok (Agoda) ₱17,526, ₱4,382 each, cancel by 1 Jan. Achcha (₱13,028) was best for 3 but takes 3 max.
 - Group message with the 7 links was given to the user to paste; nothing booked.
+- Open, no date: Kevin to book his flights (kept out of the deadlines table, whose first column must be a real date for the overseer parser).
