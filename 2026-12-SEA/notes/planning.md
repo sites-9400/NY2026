@@ -734,3 +734,8 @@ KLCC Suites at Star: ₱27,000 to pay on 25 Dec (user). ÷5 = ₱5,400 each; Gam
 ## 2026-11-25: Gamaliel flight home booked
 
 Scoot, booked 20 Nov (confirmation in Gmail; ref kept off the site). TR469 KUL T2 19:15 Fri 1 Jan → SIN T1 20:35; 4h20 layover; TR560 SIN 00:55 → DVO 04:55 Sat 2 Jan. One booking. Not the 22:00 option the site had shown, so every page moved to 19:15 and Scoot now shows Terminal 2. Fare not published, per user.
+
+## 2026-11-25: Name change; 6 Jan flight details
+
+Site now calls Gamaliel "Eve" (user request), all seven SEA pages; notes keep the old name.
+Marianne, Alysson, Jan: Cebu Pacific 5J 5965, DMK T1 21:15 Wed 6 Jan → DVO 02:50 Thu 7 Jan, booked 8 Oct (screenshot from user). Booking ref and QR kept off the site.
